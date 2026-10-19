@@ -10,6 +10,7 @@ on:
 
 permissions:
   contents: write
+  pages: read
 
 concurrency:
   group: docs-deploy
@@ -47,6 +48,16 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Resolve the Pages URL for this repository
+        id: pages
+        run: |
+          URL=$(curl -sf -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+                 -H "Accept: application/vnd.github+json" \
+                 "${{ github.api_url }}/repos/${{ github.repository }}/pages" \
+               | python3 -c 'import json,sys; print(json.load(sys.stdin).get("html_url",""))' || true)
+          if [[ -z "$URL" ]]; then URL="https://slaclab.github.io/ace3p-docs/"; fi
+          echo "SITE_URL=$URL" >> "$GITHUB_ENV"
+          echo "Site URL: $URL"
       - name: Deploy versioned docs with mike
         run: |
           if [[ "${GITHUB_REF}" == refs/tags/v* ]]; then
