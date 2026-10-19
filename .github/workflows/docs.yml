@@ -55,4 +55,5 @@ jobs:
           else
             mike deploy --push dev
           fi
-          mike set-default --push latest || true
+          # Default to the latest release; before the first tag exists, fall back to dev.
+          mike set-default --push latest || mike set-default --push dev
