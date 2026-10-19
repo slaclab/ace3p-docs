@@ -1,0 +1,29 @@
+# Modules
+
+ACE3P is a family of solvers that share one mesh format, one input syntax, and one post-processing toolchain. Each module addresses a different physics regime.
+
+| Module | Guide | Status of this documentation |
+|---|---|---|
+| **Omega3P** | [User guide and tutorials](omega3p/index.md) | Complete: concepts, three tutorials, post-processing |
+| **S3P** | [Overview](s3p.md) | Outline. Full tutorial pending conversion from CW23 materials. |
+| **T3P** | [Overview](t3p.md) | Outline |
+| **Track3P** | [Overview](track3p.md) | Outline |
+| **Pic3P** | [Overview](pic3p.md) | Outline |
+| **TEM3P** | [Overview](tem3p.md) | Outline |
+| **Gun3P** | [Overview](gun3p.md) | Outline |
+
+## Which module do I need?
+
+```mermaid
+flowchart TD
+    Q1{What do you want?} 
+    Q1 -->|Resonant frequencies, Q, R/Q, field patterns| O[Omega3P]
+    Q1 -->|Transmission and reflection vs frequency| S[S3P]
+    Q1 -->|Wakefields or transient beam-driven fields| T[T3P]
+    Q1 -->|Multipacting or dark current| TR[Track3P]
+    Q1 -->|Self-consistent beam with space charge| P[Pic3P]
+    Q1 -->|Heating, stress, or frequency shift from deformation| TE[TEM3P]
+    Q1 -->|Electron gun or DC beam optics| G[Gun3P]
+```
+
+Several modules chain together. Track3P reads the mode fields that Omega3P produces. TEM3P reads Omega3P or S3P fields as a heat source. The [workflow assistant](../interfaces/workflow-assistant.md) page shows how such chains are automated.
