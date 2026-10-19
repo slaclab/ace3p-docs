@@ -1,0 +1,4 @@
+/* Slightly wider content column for input-file listings */
+.md-grid { max-width: 72rem; }
+/* Keyword reference tables: keep code cells on one line */
+.md-typeset table code { white-space: nowrap; }
