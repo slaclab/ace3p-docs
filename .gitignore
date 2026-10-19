@@ -223,3 +223,6 @@ __marimo__/
 site/
 .cache/
 .tmp-extract/
+
+# local virtualenvs
+.venv/
