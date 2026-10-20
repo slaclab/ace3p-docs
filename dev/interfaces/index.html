@@ -1426,9 +1426,34 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../modules/pic3p/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../modules/pic3p/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -1442,7 +1467,59 @@
   
   
 
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Pic3P
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/pic3p/tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial: LCLS RF gun
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1559,9 +1636,34 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../modules/gun3p/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../modules/gun3p/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -1575,7 +1677,59 @@
   
   
 
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gun3P
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/gun3p/tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial: sheet beam klystron gun
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -2051,6 +2205,11 @@
 </tbody>
 </table>
 <p>All three produce the same <code>.omega3p</code>, <code>.s3p</code>, and other input files described in this manual, and all three submit the same solver binaries. Learning the input format here carries over to any of them.</p>
+<p>Two further Python toolkits drive ACE3P programmatically and are not yet documented here:</p>
+<ul>
+<li><strong><a href="https://github.com/slaclab/lume-ace3p">lume-ace3p</a></strong>, public on GitHub, wraps Cubit, acdtool, and the ACE3P solvers in the LUME interface for design parameter scans.</li>
+<li><strong>A3PI</strong>, the ACE3P-IMPACT integration, chains Cubit, Omega3P, acdtool field extraction, and the IMPACT-T beam dynamics code under libEnsemble for gun optimization. Its user guide and an example are in the <code>commands/</code> and <code>examples/a3pi/</code> directories of the CW23 materials.</li>
+</ul>
 
 
 

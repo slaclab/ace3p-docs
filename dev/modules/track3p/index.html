@@ -1445,9 +1445,37 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../pic3p/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../pic3p/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -1461,7 +1489,59 @@
   
   
 
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Pic3P
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pic3p/tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial: LCLS RF gun
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1581,9 +1661,37 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../gun3p/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../gun3p/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -1597,7 +1705,59 @@
   
   
 
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gun3P
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gun3p/tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial: sheet beam klystron gun
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -2389,6 +2549,16 @@
 <td>Sub-block loading a tabulated field: <code>File</code>, <code>Scaling</code>, <code>Units</code>, <code>ZOffset</code></td>
 </tr>
 <tr>
+<td><code>ElectroStaticFieldMap</code></td>
+<td></td>
+<td>Sub-block loading a static electric field on a Cartesian grid, as written by <code>gun3pOutputConverter</code> from a <a href="../gun3p/">Gun3P</a> run: <code>File</code>, <code>Scaling</code>. The RF field and the static field are summed at each particle position.</td>
+</tr>
+<tr>
+<td><code>SymmetryFactor</code>, <code>SymmetryPlane</code></td>
+<td>1, none</td>
+<td>Symmetry of the model and the sideset of the symmetry plane, used with a <code>SymmetryPlane</code> material so that emitted current is scaled to the full structure</td>
+</tr>
+<tr>
 <td><code>SolidRegion</code>, <code>VacuumRegion</code></td>
 <td></td>
 <td>Block IDs for dielectric and vacuum, needed when particles emit from or cross a dielectric surface as in windows</td>
@@ -2426,9 +2596,14 @@
 <td><code>FieldEmission</code></td>
 <td>Fowler-Nordheim emission for dark current. Takes <code>N</code> particles, <code>WorkFunction</code> in eV, and field enhancement <code>Beta</code>.</td>
 </tr>
+<tr>
+<td>10</td>
+<td><code>LoadParticles</code></td>
+<td>Read an initial particle set from a text file given as <code>ParticlesFile</code>: one line per particle with electron count, energy in eV, position, and momentum. Optional <code>XScale</code>, <code>YScale</code>, <code>ZScale</code>, <code>EnergyScale</code>, and <code>XOffset</code>, <code>YOffset</code>, <code>ZOffset</code> rescale and shift the file. Added in 2025.</td>
+</tr>
 </tbody>
 </table>
-<p>Other types exist in the code (<code>ThermalCathode</code>, <code>Injector</code>, <code>ChildLangmuir</code>, <code>LoadParticles</code>, and so on) but are not exercised by the tutorials. Emission runs from <code>t0</code> to <code>t1</code> in RF cycles, default the first cycle only.</p>
+<p>Other types exist in the code (<code>ThermalCathode</code>, <code>Injector</code>, <code>ChildLangmuir</code>, and so on) but are not exercised by the tutorials. <code>ChildLangmuir</code> is the model <a href="../gun3p/">Gun3P</a> uses. Emission runs from <code>t0</code> to <code>t1</code> in RF cycles, default the first cycle only.</p>
 <h3 id="material">Material<a class="headerlink" href="#material" title="Permanent link">&para;</a></h3>
 <p>Assigns behavior to surfaces by sideset, or to dielectric volumes by <code>SolidBlockID</code>.</p>
 <table>
@@ -2449,7 +2624,11 @@
 </tr>
 <tr>
 <td><code>Absorber</code></td>
-<td>Impacts here kill the particle. Use for symmetry planes, ports, and beam pipe ends.</td>
+<td>Impacts here kill the particle. Use for ports and beam pipe ends.</td>
+</tr>
+<tr>
+<td><code>SymmetryPlane</code></td>
+<td>Particles reflect specularly. Use on symmetry planes of a half or quarter model together with <code>Domain.SymmetryFactor</code> and <code>Domain.SymmetryPlane</code>, so that the tracked population represents the full structure. Using <code>Absorber</code> on a symmetry plane instead silently loses every particle that crosses it.</td>
 </tr>
 </tbody>
 </table>
@@ -2551,6 +2730,8 @@
 <li><strong><a href="tutorials/#tutorial-2-rf-window-with-dielectric-emission">Window: emission from a dielectric</a></strong>: S3P traveling-wave fields, solid and vacuum emission types.</li>
 <li><strong><a href="tutorials/#tutorial-3-external-magnetic-field">Muon cooling cavity: external magnetic field</a></strong>: uniform and mapped external B fields.</li>
 <li><strong><a href="tutorials/#tutorial-4-dark-current-in-a-tesla-cavity">Tesla cavity: dark current</a></strong>: Fowler-Nordheim emission with and without secondaries, Faraday cup output.</li>
+<li><strong><a href="tutorials/#tutorial-5-dark-current-in-a-traveling-wave-structure">Traveling-wave structure: dark current from S3P fields</a></strong>: field emission in a 7-cell structure driven through ports, with a symmetry plane and copper secondary emission.</li>
+<li><strong><a href="tutorials/#tutorial-6-combining-a-static-field-from-gun3p">Static plus RF fields</a></strong>: loading a Gun3P electrostatic field alongside an S3P field for a DC-biased coax.</li>
 </ol>
 
 
