@@ -262,17 +262,38 @@ Not changed: the pillbox, window, muon, and Tesla tutorials remain as written fr
 
 ## Omega3P additions from the CW23 deck
 
-The CW23 Omega3P deck is 76 pages against the CW18 version's 84; practices 3b and 4 were condensed into two slides, "Important TIPs" and "Non-linear Eigensolver Parameters". The TIPs slide adds guidance not in the CW18 deck: a multi-port problem is quadratic (and solvable without CORK) when every port has one mode and all ports share the same cutoff; otherwise use the 1D absorbing boundary as an approximation, PML as a better approximation, or CORK for accuracy. The CORK example gains an `OneRKSShift: 1` key not present in the CW18 deck or the example files. These points are **not yet** in the Omega3P pages.
+The CW23 Omega3P deck is 76 pages against the CW18 version's 84; practices 3b and 4 were condensed into two slides, "Important TIPs" and "Non-linear Eigensolver Parameters". The TIPs slide adds guidance not in the CW18 deck: a multi-port problem is quadratic (and solvable without CORK) when every port has one mode and all ports share the same cutoff; otherwise use the 1D absorbing boundary as an approximation, PML as a better approximation, or CORK for accuracy. The CORK example gains an `OneRKSShift: 1` key not present in the CW18 deck or the example files. These points are now in the Omega3P module page (tip box in the input section) and in the Omega3P command syntax page, where `OneRKSShift` was confirmed to be read by `solver/src/CORK_RationalNewton.C`.
 
 ## Material not yet converted
 
 Found during this pass, in `/sdf/group/rfar/ace3p/cw23/`:
 
-- `commands/*.pdf`: per-module command references dated 9/29/2026, 13 to 32 pages each. These are more systematic than the tutorial decks and should become the basis of the keyword descriptions in the Reference section. Items they document that the module pages do not: PML in Omega3P and T3P; `DipoleLoading`, `BiGaussian` bunches, `SurfaceLoading`, and `UserDefinedPulse` in T3P; `HarmonicAnalysis` and `Transient` in TEM3P; `RoverQRoverQT`, `pointRoverQ`, `dFSlater`, `VFFT`, `GBZFFT`, `Multipole`, `IMPACTMap`, `OpenPMD_IMPACT`, and `powerThroughSurface` in `acdtool postprocess rf`; `acdtool meshconvertdirect` and `acdtool resource`; `wake_new` and `wake_direct` with the circular-contour `Grid` option.
+- `commands/*.pdf`: per-module command references dated 9/29/2026, 13 to 32 pages each. **Converted on 2026-10-19** into the eight pages under Reference > Command syntax. Discrepancies found are in the section below.
 - `news/ace3p-updates-032525.pdf`: 2025 release notes with a Perlmutter resource-allocation table for Omega3P and S3P and the `acdtool resource` tool.
 - `presentations/ACE3P-Introduction.pptx` (126 MB) and `A3PI-Tutorial.pptx`.
 - `mmode/`: mechanical-mode animation scripts for ParaView.
 - `examples/a3pi/`: the ACE3P-IMPACT workflow with its own 22-page user guide.
+
+## Command reference conversion
+
+The nine command reference PDFs in `commands/` (Omega3P, S3P, T3P, Pic3P, Track3P, TEM3P, Gun3P, acdtool, and the A3PI user guide) were converted into the pages under Reference > Command syntax. Every keyword the references describe was searched for in the ACE3P source checkout at `/sdf/group/rfar/lge/sdf/ace3p/`. Findings:
+
+| Item | Reference says | Source says | Documentation now says |
+|---|---|---|---|
+| Gun3P Cartesian field export | CW23 Gun3P slides: `FieldOutputToken` | `gun3p/src/outputConverter.C` reads `ElectrostaticFieldToken`; `FieldOutputToken` appears nowhere | `ElectrostaticFieldToken`, which the command reference also uses |
+| Track3P secondary emission `Model: 3` (Furman-Pivi) | Described as available | `MAT_SecondaryEmitter.C` branches on `m_model != 3` at line 279, so model 3 is a code path, but the reference does not list the parameters it reads | Listed with that caveat. An earlier draft of this page said model 3 was absent from the source; that was wrong and is corrected here. |
+| `PostProcess.WriteLoss` | Omega3P and S3P references describe it | Read only in the shared `emfem/src/NewPP.C`, not in the module trees, which is why the per-module keyword tables do not list it | Described on both pages with the source location |
+| TEM3P `LinearSolver.AbsoluteTolerance` | Listed as a key | `LinearSolverMan.C` reads only `Tolerance`; the example inputs spell the key `AbsoluteTolerante`; neither spelling is read | Note on the TEM3P command page |
+| TEM3P `SymmetryFactor` for RF heating | 1 full, 0 half for heating; 0 full, 1 half, 2 quarter for LF detuning | `EMHeating.C` defaults to 0 with a warning when absent; the two conventions were not reconciled | Both conventions quoted, with the advice to check `tem3p.out` |
+| T3P bunch and pulse keys `BiGaussian`, `Rise sigma`, `Flattop width`, `UserDefinedPulse`, `Fall periods`, `TMax`, `Interpolative`, `ExFile` | Described | All found: bunches in `slacsupport/src/FlattopBunch.C` and `BunchMan.C`, pulses in `excitation/src/`, port import in `waveguide/src/` | Described as in the reference |
+| Track3P `Domain.ModeID` | `ModeID` | Source also accepts `ModeID1` | Both noted |
+| Omega3P `CORK.OneRKSShift` | Not in the command reference; only in the CW23 slide example | Read by `solver/src/CORK_RationalNewton.C` | Listed in the CORK table |
+| acdtool `mesh` subcommands | Reference documents `stats`, `check`, `fix`, `deform`, `warpsurface` | Source has 14 more (`boundary`, `merge`, `partition`, ...) | Listed by name only, as undocumented |
+| acdtool `resource` table | 2025 release notes give a six-row Perlmutter table for Omega3P | Not checked against the tool's code | Reproduced from the notes, labeled as such |
+
+Not converted from this set: the A3PI user guide (22 pages), which belongs with the [Interfaces](interfaces/index.md) page and the `examples/a3pi/` workflow rather than the Reference section.
+
+Formula and layout figures were taken from the PDFs rather than retyped: the PML conductivity profile, the PML face/edge/corner and waveguide layouts, and the direct wake-integration contour. The Lamé relation and the niobium conductivity figure from the TEM3P reference were replaced by inline formulas or omitted.
 
 ## Getting Started and Workflow pages
 

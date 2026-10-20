@@ -82,7 +82,10 @@ PostProcess : {
 | `SolverMode` | `automatic` | Choose the algorithm explicitly: `Arnoldi`, `InexactLanczos`, `ESIL`, `SOAR`, `CORK`. Automatic picks by problem type. |
 | `CORK` | | Sub-block with `TargetFrequencyMin`, `TargetFrequencyMax`, `TargetFrequencyImag`, `ApproxTolerance`, `ApproxMaxDegree` for the nonlinear solver. See [Tutorial 2](tutorial-ports.md#nonlinear-eigenproblem). |
 
-The full list, including adaptive refinement and matrix dump options, is in the [Omega3P keyword reference](../../reference/omega3p.md).
+The full list, including adaptive refinement and matrix dump options, is in the [Omega3P keyword reference](../../reference/omega3p.md), and every block is described key by key in the [Omega3P command syntax](../../reference/commands/omega3p.md).
+
+!!! tip "When is a multi-port problem quadratic, and when nonlinear?"
+    With waveguide ports the eigenproblem is **quadratic**, and the default solver handles it, when every port loads one mode and all ports share the same cutoff frequency. The CW23 slides give the example of a pillbox whose waveguide coupler and both beam-pipe ends are all declared `Waveguide` with one mode each. When ports have **different cutoffs**, or several modes per port, the problem is nonlinear and there are three options in increasing accuracy and cost: the 1D `Absorbing` boundary (an approximation), a PML (a good approximation, see the command syntax), or the CORK nonlinear solver (accurate but harder to converge).
 
 ### Port block
 

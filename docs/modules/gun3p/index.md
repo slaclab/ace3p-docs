@@ -27,6 +27,8 @@ Electron trajectories in a sheet beam klystron gun, colored by momentum, with th
 
 ## Input file
 
+Every block and key is described in the [Gun3P command syntax](../../reference/commands/gun3p.md).
+
 A `.gun3p` file has up to four top-level blocks. It shares the `ElectrostaticProblem` and `MagnetostaticProblem` block types with [TEM3P](../tem3p/index.md), and the `Tracker` block with [Track3P](../track3p/index.md); the syntax conventions of each carry over.
 
 ```text title="dcgun.gun3p (abridged)"

@@ -45,6 +45,8 @@ T3P reports wakes per unit charge in V/pC and, in the header of `wakefield.out`,
 
 ## Input file
 
+Every block and key is described in the [T3P command syntax](../../reference/commands/t3p.md).
+
 ```text title="pillboxwg-closed.t3p"
 ModelInfo: {
   File: ./pillboxwg.ncdf

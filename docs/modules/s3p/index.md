@@ -26,6 +26,8 @@ S3P solves the driven vector wave equation with the same high-order finite eleme
 
 ## Input file
 
+Every block and key is described in the [S3P command syntax](../../reference/commands/s3p.md).
+
 The input `<project>.s3p` uses the [common blocks](../../workflow/input-format.md) plus `FrequencyScan`, one `Port` block per port, and a `PostProcess` block that selects which excitation to save fields for.
 
 ```text title="90DegreeBend.s3p"

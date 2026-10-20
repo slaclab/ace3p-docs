@@ -31,6 +31,8 @@ Normalized transverse RMS emittance along the LCLS gun for four bunch charges, 1
 
 ## Input file
 
+Every block and key is described in the [Pic3P command syntax](../../reference/commands/pic3p.md).
+
 ```text title="LCLSGun.pic3p"
 CheckPoint: {
   Action: none

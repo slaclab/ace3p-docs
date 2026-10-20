@@ -130,6 +130,15 @@ nav:
       - Omega3P keywords: reference/omega3p.md
       - Shared EM keywords (emfem): reference/emfem.md
       - Eigensolver keywords: reference/solver.md
+      - Command syntax:
+          - Omega3P: reference/commands/omega3p.md
+          - S3P: reference/commands/s3p.md
+          - T3P: reference/commands/t3p.md
+          - Pic3P: reference/commands/pic3p.md
+          - Track3P: reference/commands/track3p.md
+          - TEM3P: reference/commands/tem3p.md
+          - Gun3P: reference/commands/gun3p.md
+          - acdtool: reference/commands/acdtool.md
   - Interfaces:
       - interfaces/index.md
       - ACE3P GUI: interfaces/gui.md

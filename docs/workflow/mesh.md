@@ -97,4 +97,4 @@ acdtool mesh fix in.ncdf out.ncdf    # replace invalid curved tets with straight
 acdtool mesh deform in.ncdf out.ncdf 5000   # exaggerate a deformed mesh for viewing
 ```
 
-The full list of `acdtool mesh` subcommands in the current source is: `boundary`, `check`, `deform`, `fix`, `merge`, `partition`, `pick`, `rotate`, `scale`, `shuntimpedence`, `smooth`, `stats`, `straighten`, `summodes`, `surfsmooth`, `transform`, `untangle`, `warp`, `warpsurface`. Most are undocumented beyond their source files; `meshconvert` already calls `check` and `fix` for you.
+The full list of `acdtool mesh` subcommands in the current source is: `boundary`, `check`, `deform`, `fix`, `merge`, `partition`, `pick`, `rotate`, `scale`, `shuntimpedence`, `smooth`, `stats`, `straighten`, `summodes`, `surfsmooth`, `transform`, `untangle`, `warp`, `warpsurface`. Most are undocumented beyond their source files; `meshconvert` already calls `check` and `fix` for you. The full acdtool command set, including every `postprocess` function and the `resource` tool, is in the [acdtool command syntax](../reference/commands/acdtool.md).

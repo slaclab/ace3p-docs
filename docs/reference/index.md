@@ -1,6 +1,25 @@
-# Keyword reference
+# Reference
 
-These pages list the input-file keywords that each ACE3P module reads. They are **generated from the source code**, not written by hand. Keyword names, types, and default values therefore always match the release the documentation is built for.
+Two kinds of reference material, serving different questions.
+
+## Command syntax
+
+One page per module describing every input block with a complete example and the meaning, units, and default of each key. These are converted from the ACE3P command reference documents distributed with the CW23 materials (dated September 2026) and cross-checked against the source where possible. Use them when you know which block you need and want to know what goes in it.
+
+| Page | Blocks |
+|---|---|
+| [Omega3P](commands/omega3p.md) | `ModelInfo` with PML, `FiniteElement`, `PRegion`, `EigenSolver` incl. PETSc and CORK, `Port`, `PostProcess` |
+| [S3P](commands/s3p.md) | `FrequencyScan`, `Port`, dipole `Loading`, `LinearSolver` with the multilevel preconditioner, `PostProcess` |
+| [T3P](commands/t3p.md) | Time-domain materials incl. Lorentz dispersion, `PRegion` moving window, `LoadingInfo` bunch shapes and trains, `Loading` dipole/port/surface with pulse types, all `Monitor` types incl. direct wake integration, `CheckPoint` |
+| [Pic3P](commands/pic3p.md) | PIC `PRegion`, `Loading` with `Particles`, distributions, emission models, `DriveField` |
+| [Track3P](commands/track3p.md) | `FieldScales`, `Emitter` types incl. particle files, `Domain` incl. field maps and symmetry, `Material` incl. secondary emission models, `Postprocess` |
+| [TEM3P](commands/tem3p.md) | Problem types, solvers incl. nonlinear, eigen, and harmonic, materials and function files, `Shell`, `HeatSource`, thermal and mechanical `Boundary` incl. all RF heating methods, `MeshDump`, `Transient` |
+| [Gun3P](commands/gun3p.md) | `DCGunProblem`, static field problems, `Tracker` with Child-Langmuir emission, `gun3pOutputConverter` |
+| [acdtool](commands/acdtool.md) | Mesh conversion and repair, `resource`, every `postprocess rf` function, wake and signal post-processing, PIC and Track3P utilities, `project` |
+
+## Keyword tables
+
+These pages list the input-file keywords that each ACE3P module reads. They are **generated from the source code**, not written by hand. Keyword names, types, and default values therefore always match the release the documentation is built for. Use them to check spelling and defaults, and to find keywords the command syntax pages do not mention.
 
 | Page | Covers |
 |---|---|

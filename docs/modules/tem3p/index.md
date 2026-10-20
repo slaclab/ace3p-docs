@@ -35,6 +35,8 @@ For the thermal path, `RFHeating` reads the surface power loss from the field so
 
 ## Input file
 
+Every block and key is described in the [TEM3P command syntax](../../reference/commands/tem3p.md).
+
 A `.tem3p` file contains one or more **problem blocks**. The outermost block names the problem type; thermal and elastic problems can appear together under `ThermoElasticProblem`.
 
 | Block | Solves |

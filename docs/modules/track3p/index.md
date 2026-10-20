@@ -40,6 +40,8 @@ A resonant trajectory bouncing between two points near an iris, from a Track3P b
 
 ## Input file
 
+Every block and key is described in the [Track3P command syntax](../../reference/commands/track3p.md).
+
 The input `<project>.track3p` does **not** use the `ModelInfo` and `FiniteElement` blocks of the other solvers. The mesh and fields come from the solver results directory named in `Domain`. A complete multipacting scan:
 
 ```text title="Pillbox.track3p"
