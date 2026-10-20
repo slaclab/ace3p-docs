@@ -192,6 +192,23 @@ Source deck: `TEM3P-Tutorial.pptx` (CW23). Stored results are from the March 202
 - The sign convention of the RF gun frequency shift (+47 kHz). The docs say it reflects the balance of thermal expansion, Lorentz pressure, and the constraints, but do not decompose it. Rerunning with `LFDetuning` removed would separate the two contributions.
 - The statement that shell heat appears in the symmetry-plane power tally.
 
+## Cubit chapter
+
+Source deck: `Cubit-Demo.pptx` (CW23). Example: `examples/cubit/pillbox`.
+
+| Item | Slide said | Documentation now says | Source of correction |
+|---|---|---|---|
+| Step 1 journal | Slide 29 shows a cleaned, parameterized journal with `reset` and `#{}` variables | Reproduced as on the slide, since it is the intended teaching form | The file on disk is the raw transcript: it begins with `cd "/Users/lge/cw23/examples/cubit/pillbox` (a user-specific path with an unclosed quote), has no `reset`, no variables, and `unite 1 2` rather than `unite volume 1 2`. The docs say the slide version is what you should write. |
+| Mesh journal sizing | Slide 33 template has `volume 1 sizing function type skeleton` with no arguments and placeholder `X` surface IDs | `min_size 3 max_size 12` with real surface IDs 2, 4, 3, 1 | File on disk |
+| Mesh journal `Cd` line | Slide 33: `Cd: "your working directory"` | Omitted | Not valid Cubit syntax and not in the file |
+| Adaptive sizing example | Slide 38: `min_size 6 max_size 10 max_gradient 1 scale 5` | Shown as `min_size 3 max_size 12 max_gradient 1.2 scale 5` on the Cubit page | The slide values appear only as a commented-out line in the file on disk; the active line is `min_size 3 max_size 12`. The docs use the active values with a typical gradient. |
+| Pillbox mode frequency | Slide 11: "TM010: f ~ 1.2GHz, λ ~ 250mm" | "near 1.2 GHz" | Slide only; this pillbox has no stored Omega3P run in `examples/cubit`. The rounded-top pillbox of the same radius in the Omega3P tutorials gives 1.3138 GHz, so 1.2 GHz is an approximation. |
+| Element count | Slide 39 command line: "Generated 5549 tets for Volume 1" | 5,863 | `acdtool.log` on disk for the stored `pillbox.gen`. The slide screenshot is from a different sizing. |
+| acdtool quality thresholds | Slide 48: "If aspect ratio > 20, shape measure <0.01, it might take longer" | Reproduced on the mesh page, attributed to the slides | Not found as thresholds in source. The `GREAT` and `GOOD` labels are printed by `mesh_stats.C`; the numeric cutoffs behind them were not traced. |
+| acdtool mesh subcommands | Not listed on slides | Full list of 19 subcommands given on the mesh page | `tools/src/mesh.C` string comparisons and the `mesh_*.C` file names. Note `shuntimpedence` is spelled that way in the source. |
+| ParaView version in screenshots | Slides show ParaView 5.11.0 and Cubit 16.04 | Versions not quoted | Cosmetic |
+| Webcut plane naming | Slide 23 says "Choose YZ Plane" in the GUI and "`webcut vol 1 with xplane`" in the command | Both reproduced | Cubit names the plane by its normal in the command (`xplane` is normal to x) and by the two in-plane axes in the GUI (YZ). Same plane, two conventions. |
+
 ## Getting Started and Workflow pages
 
 | Item | Slide said | Documentation now says | Source of correction |

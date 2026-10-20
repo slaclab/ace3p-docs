@@ -38,5 +38,6 @@ flowchart LR
 ## Next
 
 - [Input file format](input-format.md), the block syntax shared by all solvers
-- [Mesh preparation](mesh.md), Cubit export and acdtool conversion
+- [Geometry and meshing with Cubit](cubit.md), building and meshing a model interactively and by journal
+- [Mesh preparation](mesh.md), Cubit export rules and acdtool conversion
 - [Batch jobs](batch-jobs.md), running solvers under Slurm

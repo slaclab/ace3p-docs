@@ -11,7 +11,7 @@ ACE3P uses Cubit through **journal files** (`.jou`), which are scripts of Cubit 
 1. Click the **Play** button in the toolbar, browse to the `.jou` file, and open it.
 2. Open **Tools, then Journal Editor**, load the file, and press Play. The editor lets you step through and modify commands.
 
-The export command that ACE3P needs is Genesis format with all blocks:
+A full walkthrough of building and meshing a cavity is on the [Cubit page](../workflow/cubit.md). The export command that ACE3P needs is Genesis format with all blocks:
 
 ```
 export Genesis "model4.gen" block all overwrite

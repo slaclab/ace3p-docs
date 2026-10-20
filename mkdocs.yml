@@ -96,6 +96,7 @@ nav:
   - Workflow:
       - workflow/index.md
       - Input file format: workflow/input-format.md
+      - Geometry and meshing with Cubit: workflow/cubit.md
       - Mesh preparation with acdtool: workflow/mesh.md
       - Batch jobs: workflow/batch-jobs.md
   - Modules:

@@ -1,6 +1,6 @@
 # Mesh preparation
 
-ACE3P reads meshes in its own NetCDF format (`.ncdf`). You produce them by exporting a Genesis file (`.gen`) from Cubit and converting it with `acdtool`.
+ACE3P reads meshes in its own NetCDF format (`.ncdf`). You produce them by exporting a Genesis file (`.gen`) from Cubit and converting it with `acdtool`. Building and meshing the model in Cubit is covered on the [Cubit page](cubit.md); this page covers what the exported mesh must contain and how to check it.
 
 ## Cubit export checklist
 
@@ -86,13 +86,15 @@ What to look for:
 - **Existing boundary IDs** must match the sidesets you expect. A missing ID means a sideset was never created; an unexpected `0` means a surface was left out.
 - **Material IDs** must match your blocks.
 - **Invalid second-order elements** must be zero. A nonzero count means some mid-edge nodes fold the element inside out, usually from an aggressive sizing function on a curved surface. Refine the mesh or relax `max_gradient`.
-- **Aspect ratio and shape measure** are quality indicators. acdtool prints `GREAT`, `GOOD`, or a warning next to them.
+- **Aspect ratio and shape measure** are quality indicators. acdtool prints `GREAT`, `GOOD`, or a warning next to them. The CW23 slides give rough limits: aspect ratio above 20 or shape measure below 0.01 will slow the solvers noticeably.
 
 ### Other acdtool mesh commands
 
 ```bash
 acdtool mesh stats pillbox4.ncdf     # statistics only
 acdtool mesh check pillbox4.ncdf     # validity check only
+acdtool mesh fix in.ncdf out.ncdf    # replace invalid curved tets with straight ones
+acdtool mesh deform in.ncdf out.ncdf 5000   # exaggerate a deformed mesh for viewing
 ```
 
-Further acdtool subcommands for mesh merging, boundary reassignment, and warping are listed in the [acdtool reference](../reference/index.md).
+The full list of `acdtool mesh` subcommands in the current source is: `boundary`, `check`, `deform`, `fix`, `merge`, `partition`, `pick`, `rotate`, `scale`, `shuntimpedence`, `smooth`, `stats`, `straighten`, `summodes`, `surfsmooth`, `transform`, `untangle`, `warp`, `warpsurface`. Most are undocumented beyond their source files; `meshconvert` already calls `check` and `fix` for you.
