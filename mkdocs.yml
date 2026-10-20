@@ -110,7 +110,9 @@ nav:
           - modules/s3p/index.md
           - Tutorials: modules/s3p/tutorials.md
       - T3P: modules/t3p.md
-      - Track3P: modules/track3p.md
+      - Track3P:
+          - modules/track3p/index.md
+          - Tutorials: modules/track3p/tutorials.md
       - Pic3P: modules/pic3p.md
       - TEM3P: modules/tem3p.md
       - Gun3P: modules/gun3p.md
@@ -125,3 +127,4 @@ nav:
       - Web dashboard: interfaces/dashboard.md
       - AI workflow assistant: interfaces/workflow-assistant.md
   - Contributing: contributing.md
+  - Corrections to source material: corrections.md

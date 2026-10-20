@@ -28,7 +28,7 @@ used mem per node in %  : min:   40.7  %, max:   40.7  %, avg:   40.7  %
 
 Keep the percentage under about 70 to leave room for the direct solver's fill-in.
 
-**Track3P** parallelizes over particles and runs well in hybrid mode: one MPI rank per socket, OpenMP threads across the cores. See the [Track3P guide](../modules/track3p.md).
+**Track3P** parallelizes over particles and runs well in hybrid mode: one MPI rank per socket, OpenMP threads across the cores. See the [Track3P guide](../modules/track3p/index.md).
 
 **T3P** scales to many nodes for large time-domain problems. Rank count should be proportional to element count; a rule of thumb is 5,000 to 20,000 elements per rank.
 

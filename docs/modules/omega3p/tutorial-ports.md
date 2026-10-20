@@ -106,18 +106,20 @@ The beam pipe ends are closed with `Electric`. That is fine here because the pip
 
 ### Run and read
 
-Convert, run, and post-process exactly as in Tutorial 1. The mode summary now has an imaginary frequency and an external Q:
+Convert, run, and post-process exactly as in Tutorial 1. The mode summary now has a complex frequency and an external Q. From the example's stored results:
 
 ```text
 Mode : {
-    Frequency : 1.3137e+09 , 1.6e+05
-    ExternalQ : 4100
-    QualityFactor : 28500
-    ...
+    TotalEnergy : 4.4270939088102e-12 , 0
+    ExternalQ : 1024235.9558753
+    QualityFactor : 28815.235456204
+    File : omega3p_results/omega3p.l0.m0000.R1.3137561e+09.I6.4133469e+02.mod
+    PowerLoss : 1.2682100135575e-06
+    Frequency : 1313756106.8639 , 641.33469408486
 }
 ```
 
-`ExternalQ` is the coupler Q~ext~. `QualityFactor` is still the wall Q~0~. The loaded Q is $1/Q_L = 1/Q_0 + 1/Q_{ext}$.
+`ExternalQ` is the coupler Q~ext~, here about 1.0 million: with the inner conductor tip 30 mm from the axis, this coax barely couples to TM~010~. `QualityFactor` is still the wall Q~0~, essentially unchanged from the closed cavity. The loaded Q is $1/Q_L = 1/Q_0 + 1/Q_{ext}$, and the imaginary part of the frequency is $f_r / 2 Q_L$. Pushing the probe deeper toward the axis lowers Q~ext~ rapidly; the hands-on exercise in Part B does the equivalent for a waveguide iris.
 
 ### Port modes in ParaView
 

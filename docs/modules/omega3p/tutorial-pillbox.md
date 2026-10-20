@@ -15,7 +15,7 @@ This tutorial runs the complete ACE3P workflow on the simplest useful cavity: a 
 | Iris rounding | 12 mm |
 | Top rounding | 45 mm |
 
-Expected result: the TM~010~ mode at **1.3138 GHz** with Q~0~ of about 28,900 for copper walls.
+Expected result: the TM~010~ mode at **1.3138 GHz** with Q~0~ of **28,885** for copper walls.
 
 ## Step 1: Build the geometry
 
@@ -162,17 +162,22 @@ The mode frequencies are already in the file names. In `omega3p.out`, the mode s
 
 ```text
 Mode : {
+    TotalEnergy : 4.4270939088102e-12
+    QualityFactor : 28885.092644708
+    File : omega3p_results/omega3p.l0.m0000.1.3138100e+09.mod
+    PowerLoss : 1.2651947886823e-06
     Frequency : 1313809979.5477
-    QualityFactor : 28886.1
-    ...
 }
 Mode : {
+    TotalEnergy : 4.4270939088102e-12
+    QualityFactor : 33830.795068362
+    File : omega3p_results/omega3p.l0.m0001.2.3291386e+09.mod
+    PowerLoss : 1.9150571359106e-06
     Frequency : 2329138623.836
-    ...
 }
 ```
 
-Mode 0 at 1.3138 GHz is TM~010~. Mode 1 at 2.329 GHz is the next monopole mode. Above the summary, the log records the DOF count, which you will need for the convergence study:
+Mode 0 at 1.3138 GHz is TM~010~ with Q~0~ of 28,885 for copper walls. Mode 1 at 2.329 GHz is the next monopole mode. Above the summary, the log records the DOF count, which you will need for the convergence study:
 
 ```text
 *	Total Number of Elements used: 	13382
@@ -229,7 +234,7 @@ R/Q of about 120 ohm per cavity for TM~010~, and essentially zero for mode 1, wh
 
 ## Convergence study
 
-A single mesh tells you nothing about accuracy. The directory includes `mesh0.jou` through `mesh3.jou`, identical except for the sizing function `scale`, which is 4, 6, 8, and 10 respectively. The journal `mesh-conv.omega3p` is a matching input file reading `mesh0.ncdf`.
+A single mesh tells you nothing about accuracy. The directory includes `mesh0.jou` through `mesh3.jou`, identical except for the sizing function `scale`, which is 10, 8, 6, and 4 respectively, so `mesh0` is the coarsest and `mesh3` the finest. The input file `mesh-conv.omega3p` reads `mesh0.ncdf`; edit the file name for each level.
 
 Run all four meshes and record the TM~010~ frequency and element count from each `omega3p.out`. Treat the finest mesh as the reference and plot the relative frequency error against element count.
 
