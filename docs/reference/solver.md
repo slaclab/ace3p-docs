@@ -15,7 +15,7 @@
 
 | Keyword | Type | Default | Presence | Read in |
 |---|---|---|---|---|
-| `Preconditioner` |  |  |  | `solver/src/Arnoldi.C:85` |
+| `Preconditioner` |  |  |  | `solver/src/NML_ESIL.C:143` |
 | `SubCommSize` |  |  |  | `solver/src/NML_ComplexLinearSolver.C:364` |
 
 ## JOCCLinearSolver
@@ -24,7 +24,7 @@
 |---|---|---|---|---|
 | `JOCCStart` |  | `minit + 1` | optional | `solver/src/NML_InexactLanczosSolver.C:222` |
 | `MaxIterations` | `int` | `500` | optional | `solver/src/CORK_RationalNewton.C:69` |
-| `RestartDimension` |  | `JOCC_GMRES_RESTART_DIMENSION` | optional | `solver/src/NML_BlockJDQRSD.C:106` |
+| `RestartDimension` |  | `JOCC_GMRES_RESTART_DIMENSION` | optional | `solver/src/NML_JDQREigenSolver.C:96` |
 | `Tolerance` | `double` | `1e-8` | optional | `solver/src/CORK_RationalNewton.C:63` |
 
 ## Line
@@ -39,7 +39,7 @@
 | Keyword | Type | Default | Presence | Read in |
 |---|---|---|---|---|
 | `AbsoluteTolerance` |  |  |  | `solver/src/trilinos.cpp:149` |
-| `Solver` |  |  |  | `solver/src/CORK_RationalNewton.C:100` |
+| `Solver` |  |  |  | `solver/src/inverseIteration.C:159` |
 
 ## Matname
 
@@ -78,41 +78,41 @@
 | `ApproxMaxDegree` | `int` | `100` | optional | `solver/src/CORK_RationalNewton.C:79` |
 | `ApproxTolerance` | `double` | `1e-10` | optional | `solver/src/CORK_RationalNewton.C:74` |
 | `AztecLinearSolver` | `block` |  |  | `solver/src/NML_InexactLanczosSolver.C:205` |
-| `BetaTolerance` |  | `InexactLanczos_BetaTolerance` | optional | `solver/src/NML_BlockInexactLanczos.C:132` |
+| `BetaTolerance` |  | `InexactLanczos_BetaTolerance` | optional | `solver/src/NML_InexactLanczosSolver.C:156` |
 | `BlockInexactLanczos` | `block` |  |  | `solver/src/NML_HybridEigenSolver.C:97` |
 | `BlockSize` |  | `InexactLanczos_BLOCK_SIZE` | optional | `solver/src/NML_BlockInexactLanczos.C:107` |
 | `CheckConvergence` | `int` | `0` | optional | `solver/src/NML_BlockInexactLanczos.C:156` |
 | `Checkpoint MatrixOrdering` |  |  |  | `solver/src/NML_ITLLinearSolver.C:158` |
 | `CheckPointFrequency` |  |  |  | `solver/src/soar.C:133` |
 | `CheckPointLoad` | `switch (on/off)` |  |  | `solver/src/soar.C:144` |
-| `DeflationLinearSolver` | `block` |  |  | `solver/src/NML_BlockInexactLanczos.C:188` |
+| `DeflationLinearSolver` | `block` |  |  | `solver/src/NML_InexactLanczosSolver.C:242` |
 | `Eigenvalue Location` |  |  |  | `solver/src/Arnoldi.C:63` |
 | `EigenvalueLocation` |  |  |  | `solver/src/Arnoldi.C:64` |
 | `EstimateSolution` |  |  |  | `solver/src/inverseIteration.C:136` |
 | `ExpansionMethod` |  |  |  | `solver/src/nonlinearEigensolver.C:99` |
-| `FactorizationType` |  |  |  | `solver/src/NML_ESILComplex.C:172` |
+| `FactorizationType` |  |  |  | `solver/src/inverseIteration.C:151` |
 | `FirstSolver` |  |  |  | `solver/src/NML_HybridEigenSolver.C:87` |
 | `GMRES restart` |  |  |  | `solver/src/trilinos.cpp:312` |
 | `HasDuplicateEigenvalue` | `int` | `0` | optional | `solver/src/NML_InexactLanczosSolver.C:175` |
 | `InexactLanczos` | `block` |  |  | `solver/src/NML_HybridEigenSolver.C:89` |
 | `JDQRSD` | `block` |  |  | `solver/src/NML_HybridEigenSolver.C:127` |
-| `JOCCLinearSolver` | `block` |  |  | `solver/src/NML_BlockJDQRSD.C:87` |
-| `KeepFactorization` | `int` | `0` | optional | `solver/src/NML_BlockInexactLanczos.C:142` |
-| `LinearSolver` | `block` |  |  | `solver/src/Arnoldi.C:77` |
+| `JOCCLinearSolver` | `block` |  |  | `solver/src/NML_InexactLanczosSolver.C:218` |
+| `KeepFactorization` | `int` | `0` | optional | `solver/src/NML_InexactLanczosSolver.C:166` |
+| `LinearSolver` | `block` |  |  | `solver/src/NML_ESIL.C:135` |
 | `LinearSolver0` | `block` |  |  | `solver/src/NML_LanczosStdSmallest.C:61` |
-| `Location` |  |  |  | `solver/src/NML_ARPACK.C:117` |
+| `Location` |  |  |  | `solver/src/NML_ESIL.C:122` |
 | `MaxBadIterations` |  |  |  | `solver/src/soar.C:85` |
 | `MaxOrder` |  | `std::max( 3 * m_nev , 60 )` | optional | `solver/src/CORK_RationalNewton.C:89` |
 | `MaxRestarts` |  |  |  | `solver/src/soarAdaptive.C:62` |
 | `MaxSearchDimension` |  |  |  | `solver/src/Arnoldi.C:52` |
 | `MaxSearchSpaceDimension` |  |  |  | `solver/src/NML_BlockInexactLanczos.C:116` |
 | `MaxSearchSpaceDimention` |  | `InexactLanczos_MAX_SEARCH_DIMENSION` | optional | `solver/src/NML_BlockInexactLanczos.C:117` |
-| `MaxTolerance` |  | `JOCC_MAX_TOLERANCE` | optional | `solver/src/NML_BlockJDQRSD.C:68` |
-| `Memory` |  |  |  | `solver/src/Arnoldi.C:81` |
-| `MinFrequency` |  | `SLAC_MIN_FREQUENCY` | optional | `solver/src/NML_BlockInexactLanczos.C:137` |
-| `MinIterations` |  | `InexactLanczos_MIN_ITERATION` | optional | `solver/src/NML_BlockInexactLanczos.C:127` |
+| `MaxTolerance` |  | `JOCC_MAX_TOLERANCE` | optional | `solver/src/NML_JDQREigenSolver.C:64` |
+| `Memory` |  |  |  | `solver/src/NML_ESIL.C:139` |
+| `MinFrequency` |  | `SLAC_MIN_FREQUENCY` | optional | `solver/src/NML_InexactLanczosSolver.C:161` |
+| `MinIterations` |  | `InexactLanczos_MIN_ITERATION` | optional | `solver/src/NML_InexactLanczosSolver.C:151` |
 | `MinOrder` |  | `std::max( 2 * m_nev , 40 )` | optional | `solver/src/CORK_RationalNewton.C:84` |
-| `ncv` |  |  |  | `solver/src/NML_ARPACK.C:112` |
+| `ncv` |  |  |  | `solver/src/NML_ESIL.C:116` |
 | `npcol` | `int` | `1` | optional | `solver/src/NML_ComplexLinearSolver.C:117` |
 | `nprow` | `int` | `1` | optional | `solver/src/NML_ComplexLinearSolver.C:114` |
 | `NThreads` | `int` | `2` | optional | `solver/src/NML_ComplexLinearSolver.C:122` |
@@ -126,10 +126,10 @@
 | `Refinement` |  |  |  | `solver/src/NML_ITLLinearSolver.C:104` |
 | `RelativeSeparation` |  |  |  | `solver/src/nonlinearEigensolver.C:819` |
 | `Restart` |  |  |  | `solver/src/BlockArnoldi.C:91` |
-| `SearchDimension` |  | `JDQR_SEARCH_DIMENSION` | optional | `solver/src/NML_BlockJDQRSD.C:78` |
-| `SearchSpace` |  |  |  | `solver/src/Arnoldi.C:53` |
+| `SearchDimension` |  | `JDQR_SEARCH_DIMENSION` | optional | `solver/src/NML_JDQREigenSolver.C:74` |
+| `SearchSpace` |  |  |  | `solver/src/NML_InvertModeARPACK.C:119` |
 | `SecondSolver` |  |  |  | `solver/src/NML_HybridEigenSolver.C:125` |
-| `StagnationFactor` | `double` | `0.5` | optional | `solver/src/NML_BlockInexactLanczos.C:151` |
+| `StagnationFactor` | `double` | `0.5` | optional | `solver/src/NML_InexactLanczosSolver.C:184` |
 | `TargetFrequencyImag` | `double` | `5.0e8` | optional | `solver/src/CORK_RationalNewton.C:285` |
 | `TargetFrequencyMax` | `double` | `1.0e10` | optional | `solver/src/CORK_RationalNewton.C:280` |
 | `TargetFrequencyMin` |  | `std::real( eigen_system.lambdaShift() )` | optional | `solver/src/CORK_RationalNewton.C:275` |

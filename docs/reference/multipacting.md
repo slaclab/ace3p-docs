@@ -46,19 +46,19 @@
 | `SlowParticleTermination` | `string` | `"off"` | optional | `multipacting/src/ParticleManager.C:108` |
 | `SymmetryFactor` |  |  |  | `multipacting/src/ParticleManager.C:158` |
 | `SymmetryPlane` | `list` |  |  | `multipacting/src/ParticleManager.C:169` |
-| `A` | `int` | `0` | optional | `multipacting/src/EMWrap_Tau3p.C:53` |
-| `B` | `int` | `1` | optional | `multipacting/src/EMWrap_Tau3p.C:56` |
+| `A` | `int` | `0` | optional | `multipacting/src/EMWrap_Tau3pDF.C:46` |
+| `B` | `int` | `1` | optional | `multipacting/src/EMWrap_Tau3pDF.C:49` |
 | `Backward velocity pattern` |  |  |  | `multipacting/src/EMWrap_Phi3P.C:382` |
 | `BField` | `list` |  |  | `multipacting/src/EMWrap_ConstantField.C:43` |
-| `Bins` | `int` | `64` | optional | `multipacting/src/EMWrap_Omega3p.C:43` |
+| `Bins` | `int` | `64` | optional | `multipacting/src/genptab.C:1026` |
 | `Box augmentation in X negative direction` |  |  |  | `multipacting/src/EMWrap_Phi3P.C:79` |
 | `Box augmentation in X positive direction` |  |  |  | `multipacting/src/EMWrap_Phi3P.C:80` |
 | `Break localizers in X direction` |  |  |  | `multipacting/src/EMWrap_Phi3P.C:73` |
 | `BTimeFactor` | `list` |  |  | `multipacting/src/EMWrap_ConstantField.C:69` |
-| `CombineRatio` | `list` |  |  | `multipacting/src/EMWrap_Omega3p.C:127` |
+| `CombineRatio` | `list` |  |  | `multipacting/src/genptab.C:1048` |
 | `decoupledFieldFiles` |  |  |  | `multipacting/src/EMWrap_Tau3pDF.C:56` |
 | `Directory` | `string` | `"/usr/work/"` | optional | `multipacting/src/MultipleReader.C:33` |
-| `dt` | `double` | `1e-13` | optional | `multipacting/src/EMWrap_ConstantField.C:82` |
+| `dt` | `double` | `1.0` | optional | `multipacting/src/genptab.C:993` |
 | `dt backward` |  |  | required | `multipacting/src/EMWrap_Phi3P.C:370` |
 | `EField` | `list` |  |  | `multipacting/src/EMWrap_ConstantField.C:30` |
 | `ElectroStaticFieldMap` | `block` |  |  | `multipacting/src/EMWrap_Omega3p.C:259` |
@@ -72,30 +72,30 @@
 | `Emission Ny` |  |  |  | `multipacting/src/EMWrap_Phi3P.C:1255` |
 | `Emission Nz` |  |  |  | `multipacting/src/EMWrap_Phi3P.C:1256` |
 | `ETimeFactor` | `list` |  |  | `multipacting/src/EMWrap_ConstantField.C:56` |
-| `ExternalMagneticField` |  |  |  | `multipacting/src/EMWrap_Omega3p.C:251` |
+| `ExternalMagneticField` |  |  |  | `multipacting/src/genptab.C:1083` |
 | `FieldDir` (alias `PostprocessFile`) | `string` |  | required | `multipacting/src/EMWrap_Omega3p.C:90` |
 | `FrequencyScanID` | `int` | `0` | optional | `multipacting/src/EMWrap_Omega3p.C:115` |
-| `HighEnergy` | `double` | `1000000000.0` | optional | `multipacting/src/EMWrap_Omega3p.C:41` |
-| `InitialEnergy` | `double` | `2.0` | optional | `multipacting/src/EMWrap_Omega3p.C:42` |
-| `InterpolationMethod` | `string` | `"EigenVector"` | optional | `multipacting/src/EMWrap_Omega3p.C:47` |
+| `HighEnergy` | `double` | `1000000000.0` | optional | `multipacting/src/genptab.C:1017` |
+| `InitialEnergy` | `double` | `2.0` | optional | `multipacting/src/genptab.C:1020` |
+| `InterpolationMethod` | `string` | `"EigenVector"` | optional | `multipacting/src/genptab.C:1023` |
 | `Localizer for find elements` | `block` |  |  | `multipacting/src/EMWrap_Phi3P.C:83` |
-| `LowEnergy` | `double` | `5.0` | optional | `multipacting/src/EMWrap_Omega3p.C:40` |
-| `MagneticFieldMap` | `block` |  |  | `multipacting/src/EMWrap_Omega3p.C:254` |
-| `MaxImpacts` | `int` | `50` | optional | `multipacting/src/EMWrap_Omega3p.C:38` |
+| `LowEnergy` | `double` | `5.0` | optional | `multipacting/src/genptab.C:1014` |
+| `MagneticFieldMap` | `block` |  |  | `multipacting/src/genptab.C:1089` |
+| `MaxImpacts` | `int` | `50` | optional | `multipacting/src/genptab.C:1011` |
 | `Meshfile` |  |  | required | `multipacting/src/EMWrap_Omega3p.C:284` |
 | `Minimum backward velocity factor` |  |  |  | `multipacting/src/EMWrap_Phi3P.C:383` |
-| `Mode` | `block` |  |  | `multipacting/src/EMWrap_Omega3p.C:151` |
+| `Mode` | `block` |  |  | `multipacting/src/genptab.C:1061` |
 | `ModeAmplitude` |  |  |  | `multipacting/src/EMWrap_Omega3p.C:221` |
 | `Modefile` |  |  | required | `multipacting/src/EMWrap_Omega3p.C:313` |
 | `ModeID` | `int` | `0` | optional | `multipacting/src/EMWrap_Omega3p.C:116` |
-| `ModeID1` | `int` | `0` | optional | `multipacting/src/EMWrap_Omega3p.C:176` |
-| `ModeID2` | `int` | `0` | optional | `multipacting/src/EMWrap_Omega3p.C:121` |
+| `ModeID1` | `int` | `0` | optional | `multipacting/src/genptab.C:1041` |
+| `ModeID2` | `int` | `0` | optional | `multipacting/src/genptab.C:1044` |
 | `ModePhase` |  |  |  | `multipacting/src/EMWrap_Omega3p.C:222` |
 | `MonitorListFile` |  | `m_dirname` | optional | `multipacting/src/MultipleReader.C:38` |
 | `Nx` |  |  |  | `multipacting/src/EMWrap_Phi3P.C:1195` |
 | `Ny` |  |  |  | `multipacting/src/EMWrap_Phi3P.C:1196` |
 | `Nz` |  |  |  | `multipacting/src/EMWrap_Phi3P.C:1197` |
-| `Offset` | `int` | `0` | optional | `multipacting/src/EMWrap_Tau3p.C:59` |
+| `Offset` | `int` | `0` | optional | `multipacting/src/EMWrap_Tau3pDF.C:52` |
 | `Overall box x max` |  |  |  | `multipacting/src/EMWrap_Phi3P.C:1209` |
 | `Overall box x min` |  |  |  | `multipacting/src/EMWrap_Phi3P.C:1206` |
 | `Overall box y max` |  |  |  | `multipacting/src/EMWrap_Phi3P.C:1210` |
@@ -103,12 +103,11 @@
 | `Overall box z max` |  |  |  | `multipacting/src/EMWrap_Phi3P.C:1211` |
 | `Overall box z min` |  |  |  | `multipacting/src/EMWrap_Phi3P.C:1208` |
 | `PostprocessFile` |  |  |  | `multipacting/src/EMWrap_Phi3P.C:86` |
-| `SolidRegion` | `int` | `0` | optional | `multipacting/src/EMWrap_Omega3p.C:32` |
+| `SolidRegion` | `int` | `0` | optional | `multipacting/src/genptab.C:996` |
 | `Strategy for dt` |  |  |  | `multipacting/src/EMWrap_Phi3P.C:384` |
 | `SymmetryFactor` | `int` | `1` | optional | `multipacting/src/EMWrap_Omega3p.C:61` |
 | `SymmetryPlane` | `list` |  |  | `multipacting/src/EMWrap_Omega3p.C:72` |
-| `t0` | `double` | `0.0` | optional | `multipacting/src/EMWrap_Omega3p.C:272` |
-| `Tau3p_Startup` | `block` |  |  | `multipacting/src/EMWrap_Tau3P_Nonstationary.C:32` |
+| `Tau3p_Startup` | `block` |  |  | `multipacting/src/EMWrap_Tau3pDF.C:31` |
 | `Time steps per element` |  |  |  | `multipacting/src/EMWrap_Phi3P.C:385` |
 | `Tracking box x max` | `list` |  |  | `multipacting/src/EMWrap_Phi3P.C:1516` |
 | `Tracking box x min` | `list` |  |  | `multipacting/src/EMWrap_Phi3P.C:1515` |
@@ -119,10 +118,9 @@
 | `Tracking Nx` | `list` |  |  | `multipacting/src/EMWrap_Phi3P.C:1512` |
 | `Tracking Ny` | `list` |  |  | `multipacting/src/EMWrap_Phi3P.C:1513` |
 | `Tracking Nz` | `list` |  |  | `multipacting/src/EMWrap_Phi3P.C:1514` |
-| `Type` | `string` | `"Omega3p"` | optional | `multipacting/src/EMWrapManager.C:29` |
 | `Upper limit for dt multiplicative factor` |  |  |  | `multipacting/src/EMWrap_Phi3P.C:386` |
-| `VacuumRegion` |  |  |  | `multipacting/src/EMWrap_Omega3p.C:34` |
-| `Voltage` | `list` |  |  | `multipacting/src/EMWrap_Omega3p.C:101` |
+| `VacuumRegion` |  |  |  | `multipacting/src/genptab.C:1005` |
+| `Voltage` | `list` |  |  | `multipacting/src/genptab.C:1030` |
 | `Window_Vol` |  |  |  | `multipacting/src/ImpactsManager.C:62` |
 
 ## Emitter
@@ -130,65 +128,65 @@
 | Keyword | Type | Default | Presence | Read in |
 |---|---|---|---|---|
 | `a` |  |  |  | `multipacting/src/EMT_Injector.C:29` |
-| `BoundaryID` |  |  |  | `multipacting/src/EMT_PICInput.C:34` |
+| `BoundaryID` |  |  |  | `multipacting/src/genptab.C:793` |
 | `Child Langmuir` | `block` |  |  | `multipacting/src/EMT_ChildLangmuir.C:65` |
-| `Direction` | `list` |  |  | `multipacting/src/EMT_LoadParticle.C:214` |
+| `Direction` | `list` |  |  | `multipacting/src/EMT_TestParticle.C:179` |
 | `E` |  |  |  | `multipacting/src/EMT_Injector.C:27` |
 | `Emit Angle` | `int` | `45` | optional | `multipacting/src/EMT_PlaneFieldEmission.C:31` |
-| `Energy` |  |  |  | `multipacting/src/EMT_LoadParticle.C:218` |
+| `Energy` |  |  |  | `multipacting/src/EMT_TestParticle.C:183` |
 | `EnergyScale` | `double` | `1.0` | optional | `multipacting/src/EMT_LoadParticle.C:147` |
 | `FowlerLaw` | `string` | `"RF"` | optional | `multipacting/src/EMT_FieldEmission.C:36` |
 | `Imax` |  |  |  | `multipacting/src/EMT_Injector.C:28` |
 | `M` |  |  |  | `multipacting/src/Emitter.C:94` |
-| `Name` | `string` | `"FieldEmission"` | optional | `multipacting/src/EMT_FieldEmission.C:58` |
-| `NumberParticlesPerFace` | `int` | `1` | optional | `multipacting/src/EMT_FieldEmission.C:34` |
+| `Name` | `string` | `"PlaneFieldEmission"` | optional | `multipacting/src/EMT_PlaneFieldEmission.C:59` |
+| `NumberParticlesPerFace` | `int` | `1` | optional | `multipacting/src/genptab.C:896` |
 | `ParticlesFile` |  |  |  | `multipacting/src/EMT_LoadParticle.C:151` |
 | `PhaseWindow` | `double` | `10.0` | optional | `multipacting/src/EMT_FieldEmission.C:45` |
-| `Position` | `list` |  |  | `multipacting/src/EMT_LoadParticle.C:167` |
-| `PositionFile` |  |  |  | `multipacting/src/EMT_LoadParticle.C:129` |
+| `Position` | `list` |  |  | `multipacting/src/genptab.C:787` |
+| `PositionFile` |  |  |  | `multipacting/src/EMT_TestParticle.C:124` |
 | `Q` |  |  |  | `multipacting/src/Emitter.C:95` |
 | `RadiationFile` |  |  |  | `multipacting/src/EMT_LoadParticle.C:139` |
 | `SampleType` |  |  |  | `multipacting/src/Emitter.C:110` |
 | `Scale` | `double` | `1.0` | optional | `multipacting/src/EMT_TestParticle.C:125` |
 | `ScaleFactor` | `int` | `1` | optional | `multipacting/src/EMT_FieldEmission.C:37` |
 | `SkipPhaseSteps` | `int` | `0` | optional | `multipacting/src/Emitter.C:100` |
-| `SkipTimeSteps` |  |  |  | `multipacting/src/Emitter.C:97` |
+| `SkipTimeSteps` |  |  |  | `multipacting/src/genptab.C:838` |
 | `Suppression factor` |  |  | required | `multipacting/src/EMT_PlaneFieldEmission.C:30` |
 | `SuppressionFactor` | `double` | `2.0` | optional | `multipacting/src/EMT_FieldEmission.C:35` |
+| `t0` | `double` | `0.0` | optional | `multipacting/src/genptab.C:770` |
 | `t1` | `double` | `1.0` | optional | `multipacting/src/genptab.C:771` |
-| `Velocity` | `list` |  |  | `multipacting/src/EMT_LoadParticle.C:194` |
-| `WorkFunction` | `double` | `4.4` | optional | `multipacting/src/EMT_FieldEmission.C:33` |
+| `Type` | `int` | `2` | optional | `multipacting/src/genptab.C:775` |
+| `Velocity` | `list` |  |  | `multipacting/src/EMT_TestParticle.C:159` |
+| `WorkFunction` | `double` | `4.4` | optional | `multipacting/src/genptab.C:893` |
 | `Write to file` | `int` | `1` | optional | `multipacting/src/EMT_PlaneFieldEmission.C:54` |
-| `WriteToFile` | `int` | `0` | optional | `multipacting/src/EMT_FieldEmission.C:51` |
 | `x0` | `double` | `-1.0e+10` | optional | `multipacting/src/genptab.C:800` |
 | `x1` | `double` | `1.0e+10` | optional | `multipacting/src/genptab.C:804` |
-| `XOffset` | `double` | `0.0` | optional | `multipacting/src/EMT_LoadParticle.C:134` |
+| `XOffset` | `double` | `0.0` | optional | `multipacting/src/EMT_TestParticle.C:126` |
 | `XScale` | `double` | `1.0` | optional | `multipacting/src/EMT_LoadParticle.C:130` |
 | `y0` | `double` | `-1.e10` | optional | `multipacting/src/genptab.C:808` |
 | `y1` | `double` | `1.e10` | optional | `multipacting/src/genptab.C:812` |
-| `YOffset` | `double` | `0.0` | optional | `multipacting/src/EMT_LoadParticle.C:135` |
+| `YOffset` | `double` | `0.0` | optional | `multipacting/src/EMT_TestParticle.C:127` |
 | `YScale` | `double` | `1.0` | optional | `multipacting/src/EMT_LoadParticle.C:131` |
 | `z0` | `double` | `-1.e10` | optional | `multipacting/src/genptab.C:816` |
 | `z1` | `double` | `1.e10` | optional | `multipacting/src/genptab.C:820` |
-| `ZOffset` | `double` | `0.0` | optional | `multipacting/src/EMT_LoadParticle.C:136` |
+| `ZOffset` | `double` | `0.0` | optional | `multipacting/src/EMT_TestParticle.C:128` |
 | `ZScale` | `double` | `1.0` | optional | `multipacting/src/EMT_LoadParticle.C:132` |
 
 ## EnhancementCounter
 
 | Keyword | Type | Default | Presence | Read in |
 |---|---|---|---|---|
-| `BoundarySurfaceID1` |  |  |  | `multipacting/src/MP_Postprocess.C:62` |
-| `BoundarySurfaceID2` |  |  |  | `multipacting/src/MP_Postprocess.C:70` |
-| `MinimumEC` | `double` | `10.0` | optional | `multipacting/src/MP_Postprocess.C:30` |
-| `SEYFileName1` |  |  |  | `multipacting/src/MP_Postprocess.C:37` |
-| `SEYFileName2` |  |  |  | `multipacting/src/MP_Postprocess.C:49` |
-| `Token` | `string` | `"off"` | optional | `multipacting/src/MP_Postprocess.C:33` |
+| `BoundarySurfaceID1` |  |  |  | `multipacting/src/genptab.C:1311` |
+| `BoundarySurfaceID2` |  |  |  | `multipacting/src/genptab.C:1317` |
+| `MinimumEC` | `double` | `10.0` | optional | `multipacting/src/genptab.C:1304` |
+| `SEYFileName1` |  |  |  | `multipacting/src/genptab.C:1309` |
+| `SEYFileName2` |  |  |  | `multipacting/src/genptab.C:1315` |
 
 ## Excitation
 
 | Keyword | Type | Default | Presence | Read in |
 |---|---|---|---|---|
-| `Pulse` | `block` |  |  | `multipacting/src/EMWrap_Tau3P_Nonstationary.C:101` |
+| `Pulse` | `block` |  |  | `multipacting/src/EMWrap_Tau3pDF.C:132` |
 
 ## FieldScales
 
@@ -199,7 +197,7 @@
 | `Maximum` |  |  |  | `multipacting/src/genptab.C:272` |
 | `Minimum` |  |  |  | `multipacting/src/genptab.C:268` |
 | `Point` | `list` |  |  | `multipacting/src/genptab.C:1411` |
-| `ScanToken` |  |  |  | `multipacting/src/Track3P.C:89` |
+| `ScanToken` |  |  |  | `multipacting/src/genptab.C:263` |
 
 ## Gas
 
@@ -232,42 +230,36 @@
 | `Scaling` |  |  |  | `multipacting/src/genptab.C:1097` |
 | `Units` |  |  |  | `multipacting/src/genptab.C:1100` |
 
-## Mat
-
-| Keyword | Type | Default | Presence | Read in |
-|---|---|---|---|---|
-| `BoundarySurfaceID` |  |  |  | `multipacting/src/ImpactsManager.C:516` |
-
 ## Material
 
 | Keyword | Type | Default | Presence | Read in |
 |---|---|---|---|---|
+| `BoundarySurfaceID` |  |  |  | `multipacting/src/genptab.C:1158` |
 | `d` | `double` | `0.000001` | optional | `multipacting/src/MAT_SecondaryEmitter.C:74` |
-| `Density` | `int` | `1` | optional | `multipacting/src/MAT_SecondaryEmitter.C:75` |
-| `Einit` |  |  |  | `multipacting/src/MAT_SecondaryEmitter.C:143` |
-| `ElasticEmitterCoefficient` | `double` | `0.4` | optional | `multipacting/src/MAT_SecondaryEmitter.C:80` |
-| `ElasticThreshold` | `int` | `2` | optional | `multipacting/src/MAT_SecondaryEmitter.C:79` |
+| `Density` | `int` | `1` | optional | `multipacting/src/genptab.C:1172` |
+| `Einit` |  |  |  | `multipacting/src/genptab.C:1192` |
+| `ElasticEmitterCoefficient` | `double` | `0.4` | optional | `multipacting/src/genptab.C:1197` |
+| `ElasticThreshold` | `int` | `2` | optional | `multipacting/src/genptab.C:1196` |
 | `FE` |  |  |  | `multipacting/src/MAT_SecondaryEmitter.C:96` |
 | `FPhi` |  |  |  | `multipacting/src/MAT_SecondaryEmitter.C:106` |
 | `FTheta` |  |  |  | `multipacting/src/MAT_SecondaryEmitter.C:102` |
-| `MinimumNumElectrons` | `double` | `1.0` | optional | `multipacting/src/MAT_SecondaryEmitter.C:77` |
-| `Model` | `int` | `1` | optional | `multipacting/src/MAT_SecondaryEmitter.C:76` |
+| `MinimumNumElectrons` | `int` | `1` | optional | `multipacting/src/genptab.C:1201` |
+| `Model` | `int` | `1` | optional | `multipacting/src/genptab.C:1174` |
 | `Phi` |  |  |  | `multipacting/src/MAT_SecondaryEmitter.C:107` |
 | `SecondaryEmissionYield` |  |  |  | `multipacting/src/MAT_SecondaryEmitter.C:114` |
-| `Sigma0` |  |  |  | `multipacting/src/MAT_SecondaryEmitter.C:133` |
-| `SolidBlockID` |  |  |  | `multipacting/src/MaterialManager.C:107` |
+| `Sigma0` |  |  |  | `multipacting/src/genptab.C:1187` |
+| `SolidBlockID` |  |  |  | `multipacting/src/genptab.C:1167` |
 | `Theta` |  |  |  | `multipacting/src/MAT_SecondaryEmitter.C:103` |
+| `WriteToFile` | `int` | `0` | optional | `multipacting/src/MAT_SecondaryEmitter.C:155` |
 
 ## Mode
 
 | Keyword | Type | Default | Presence | Read in |
 |---|---|---|---|---|
-| `Amplitude` |  |  |  | `multipacting/src/EMWrap_Omega3p.C:153` |
-| `EndPoint` | `list` |  |  | `multipacting/src/EMWrap_Omega3p.C:158` |
-| `ID` |  |  |  | `multipacting/src/EMWrap_Omega3p.C:152` |
-| `Phase` |  |  |  | `multipacting/src/EMWrap_Omega3p.C:154` |
-| `Rz` |  |  |  | `multipacting/src/EMWrap_Omega3p.C:162` |
-| `StartPoint` | `list` |  |  | `multipacting/src/EMWrap_Omega3p.C:155` |
+| `Amplitude` |  |  |  | `multipacting/src/genptab.C:1063` |
+| `ID` |  |  |  | `multipacting/src/genptab.C:1062` |
+| `Phase` |  |  |  | `multipacting/src/genptab.C:1064` |
+| `Rz` |  |  |  | `multipacting/src/genptab.C:1072` |
 
 ## Monitor
 
@@ -280,7 +272,7 @@
 | `Dot direction` | `list` |  |  | `multipacting/src/MON_ChildLangmuirLawVsD.C:82` |
 | `Final instant` |  |  |  | `multipacting/src/MON_PathVsT.C:76` |
 | `First plane point` | `list` |  |  | `multipacting/src/MON_PlanesCrossing.C:58` |
-| `Gun3p iteration` |  |  |  | `multipacting/src/MON_ChildLangmuirLawVsD.C:36` |
+| `Gun3p iteration` |  |  |  | `multipacting/src/MON_PlaneCrossingsVsT.C:81` |
 | `Initial instant` |  |  |  | `multipacting/src/MON_PathVsT.C:74` |
 | `Max x for densities` |  |  |  | `multipacting/src/MON_PlaneCrossingsVsT.C:125` |
 | `Max y for densities` |  |  |  | `multipacting/src/MON_PlaneCrossingsVsT.C:126` |
@@ -310,7 +302,9 @@
 | Keyword | Type | Default | Presence | Read in |
 |---|---|---|---|---|
 | `Beta` | `double` | `1.0` | optional | `multipacting/src/genptab.C:718` |
+| `EndPoint` | `list` |  |  | `multipacting/src/genptab.C:732` |
 | `N` | `int` | `300` | optional | `multipacting/src/genptab.C:719` |
+| `StartPoint` | `list` |  |  | `multipacting/src/genptab.C:720` |
 
 ## ParticlesTrajectories
 
@@ -331,11 +325,11 @@
 
 | Keyword | Type | Default | Presence | Read in |
 |---|---|---|---|---|
-| `EnhancementCounter` | `block` |  |  | `multipacting/src/MP_Postprocess.C:29` |
-| `FaradayCup` | `block` |  |  | `multipacting/src/MP_Postprocess.C:214` |
-| `ImpactsNumberRange` | `list` |  |  | `multipacting/src/MP_Postprocess.C:109` |
+| `EnhancementCounter` | `block` |  |  | `multipacting/src/genptab.C:1296` |
+| `FaradayCup` | `block` |  |  | `multipacting/src/genptab.C:1329` |
+| `ImpactsNumberRange` | `list` |  |  | `multipacting/src/genptab.C:1261` |
 | `Qb` | `block` |  |  | `multipacting/src/MP_Postprocess.C:227` |
-| `ResonantParticles` | `block` |  |  | `multipacting/src/MP_Postprocess.C:113` |
+| `ResonantParticles` | `block` |  |  | `multipacting/src/genptab.C:1271` |
 | `SECFileName` |  |  |  | `multipacting/src/genptab.C:1257` |
 | `SolidRegionSECFileName` |  |  |  | `multipacting/src/genptab.C:1258` |
 | `Toggle` | `string` | `"off"` | optional | `multipacting/src/genptab.C:1255` |
@@ -360,9 +354,10 @@
 
 | Keyword | Type | Default | Presence | Read in |
 |---|---|---|---|---|
-| `EnergyRange` | `list` |  |  | `multipacting/src/MP_Postprocess.C:119` |
-| `InitialImpacts` | `int` | `4` | optional | `multipacting/src/MP_Postprocess.C:117` |
-| `PhaseTolerance` | `double` | `0.01` | optional | `multipacting/src/MP_Postprocess.C:118` |
+| `EnergyRange` | `list` |  |  | `multipacting/src/genptab.C:1280` |
+| `InitialImpacts` | `int` | `4` | optional | `multipacting/src/genptab.C:1279` |
+| `PhaseTolerance` | `double` | `0.01` | optional | `multipacting/src/genptab.C:1282` |
+| `Token` | `string` | `"off"` | optional | `multipacting/src/genptab.C:1276` |
 
 ## State
 
@@ -375,14 +370,14 @@
 
 | Keyword | Type | Default | Presence | Read in |
 |---|---|---|---|---|
-| `Loading` | `block` |  |  | `multipacting/src/EMWrap_Tau3P_Nonstationary.C:97` |
+| `Loading` | `block` |  |  | `multipacting/src/EMWrap_Tau3pDF.C:128` |
 
 ## (top level or unspecified block)
 
 | Keyword | Type | Default | Presence | Read in |
 |---|---|---|---|---|
 | `,` |  |  |  | `multipacting/src/summary.C:179` |
-| `:` |  |  |  | `multipacting/src/postprocess/faraday.C:27` |
+| `:` |  |  |  | `multipacting/src/postprocess/xray.C:30` |
 | `AllOrder` |  |  |  | `multipacting/src/summary.C:29` |
 | `AxisFile Toggle` |  |  |  | `multipacting/src/summary.C:328` |
 | `beta` |  |  |  | `multipacting/src/MON_AccGradient.C:48` |
@@ -395,17 +390,17 @@
 | `divZ` |  |  |  | `multipacting/src/MON_AccGradient.C:44` |
 | `DKSingleEmit` | `block` |  |  | `multipacting/src/MP_Postprocess.C:219` |
 | `Domain` | `block` |  |  | `multipacting/src/EMWrapManager.C:21` |
-| `Emitter` | `block` |  |  | `multipacting/src/EmitterManager.C:39` |
+| `Emitter` | `block` |  |  | `multipacting/src/genptab.C:765` |
 | `End Position` | `list` |  |  | `multipacting/src/MON_LineFields.C:38` |
 | `End Theta` | `int` | `90` | optional | `multipacting/src/MON_RadialFields.C:50` |
 | `Energy Range` |  |  | required | `multipacting/src/PaManager.C:38` |
 | `Ep_Ea` | `double` | `1.0` | optional | `multipacting/src/genptab.C:313` |
-| `Excitation` | `block` |  |  | `multipacting/src/EMWrap_Tau3P_Nonstationary.C:100` |
+| `Excitation` | `block` |  |  | `multipacting/src/EMWrap_Tau3pDF.C:131` |
 | `FieldLocationContour` |  |  |  | `multipacting/src/summary.C:28` |
 | `FieldLocationContour-2point` |  |  |  | `multipacting/src/summary.C:31` |
 | `FieldOrderContour` |  |  |  | `multipacting/src/summary.C:27` |
 | `FieldOrderContour-2point` |  |  |  | `multipacting/src/summary.C:30` |
-| `FieldScales` | `block` |  |  | `multipacting/src/Track3P.C:88` |
+| `FieldScales` | `block` |  |  | `multipacting/src/genptab.C:258` |
 | `Forward recompute at crossings` |  |  |  | `multipacting/src/ParticleManager.C:229` |
 | `Gas` | `block` |  |  | `multipacting/src/GasManager.C:26` |
 | `Initial Count` |  |  |  | `multipacting/src/ImManager.C:32` |
@@ -414,7 +409,7 @@
 | `interval` |  |  |  | `multipacting/src/summary.C:301` |
 | `Iteration frequency` |  |  |  | `multipacting/src/PtrackMonitor.C:41` |
 | `JobName` | `string` | `""` | required | `multipacting/src/ParticleManager.C:97` |
-| `Material` | `block` |  |  | `multipacting/src/MaterialManager.C:59` |
+| `Material` | `block` |  |  | `multipacting/src/genptab.C:1145` |
 | `material type` |  |  |  | `multipacting/src/MON_CollisionWatch.C:33` |
 | `Maximum energy` |  |  |  | `multipacting/src/MON_CurrentVsEnergyCS.C:36` |
 | `MaximumEnergy` |  |  |  | `multipacting/src/MON_CurrentVsEnergyFace.C:39` |
@@ -424,7 +419,7 @@
 | `Neighbour ID` | `int` | `1` | optional | `multipacting/src/ImManager.C:30` |
 | `NormalizedField` | `block` |  |  | `multipacting/src/genptab.C:707` |
 | `Number of bins` |  |  |  | `multipacting/src/MON_CurrentVsEnergyCS.C:37` |
-| `Number of points` | `int` | `100` | optional | `multipacting/src/MON_LineFields.C:42` |
+| `Number of points` | `int` | `100` | optional | `multipacting/src/MON_RadialFields.C:37` |
 | `NumberOfBins` |  |  |  | `multipacting/src/MON_CurrentVsEnergyFace.C:42` |
 | `Only on first iteration and post process` |  |  |  | `multipacting/src/PtrackMonitor.C:36` |
 | `Only on post process` |  |  |  | `multipacting/src/PtrackMonitor.C:33` |
@@ -432,11 +427,11 @@
 | `OutputImpactsInfo` | `block` |  |  | `multipacting/src/genptab.C:543` |
 | `Parallel` |  |  |  | `multipacting/src/MeshMan.C:58` |
 | `Particle IDs` |  |  |  | `multipacting/src/MON_EnergyWatch.C:36` |
-| `ParticlesTrajectories` | `block` |  |  | `multipacting/src/ParticleManager.C:132` |
+| `ParticlesTrajectories` | `block` |  |  | `multipacting/src/genptab.C:203` |
 | `PIC: ` |  |  |  | `multipacting/src/genptab.C:179` |
-| `Postprocess` | `block` |  |  | `multipacting/src/MP_Postprocess.C:1002` |
+| `Postprocess` | `block` |  |  | `multipacting/src/genptab.C:170` |
 | `postprocess path` |  |  |  | `multipacting/src/summary.C:455` |
-| `PtrackMonitor` | `block` |  |  | `multipacting/src/PtrackMonitorManager.C:108` |
+| `PtrackMonitor` | `block` |  |  | `multipacting/src/genptab.C:1221` |
 | `Push Skip` |  |  |  | `multipacting/src/ParticleManager.C:112` |
 | `Quantities` |  |  |  | `multipacting/src/MON_PerFaceSurfaces.C:54` |
 | `r` |  |  |  | `multipacting/src/MON_RadialFields.C:34` |
@@ -444,7 +439,7 @@
 | `SECFileName_1` |  |  | required | `multipacting/src/summary.C:15` |
 | `SECFileName_2` |  |  |  | `multipacting/src/summary.C:20` |
 | `ShapeFile` |  |  |  | `multipacting/src/summary.C:246` |
-| `SingleParticleTrajectory` | `string` | `"off"` | optional | `multipacting/src/Track3P.C:100` |
+| `SingleParticleTrajectory` | `string` | `"off"` | optional | `multipacting/src/genptab.C:256` |
 | `Start Position` | `list` |  |  | `multipacting/src/MON_LineFields.C:34` |
 | `Start Theta` | `int` | `0` | optional | `multipacting/src/MON_RadialFields.C:46` |
 | `State` | `block` |  |  | `multipacting/src/PtrackState.C:17` |
@@ -452,15 +447,15 @@
 | `SurfaceIDs` |  |  |  | `multipacting/src/MON_PerFaceSurfaces.C:43` |
 | `SurvivedParticlesToken` |  |  |  | `multipacting/src/MP_Postprocess.C:360` |
 | `Time Offset` |  |  |  | `multipacting/src/ParticleManager.C:116` |
-| `TimestepSkip` |  |  |  | `multipacting/src/MON_CurrentOnSurfaces.C:50` |
+| `TimestepSkip` |  |  |  | `multipacting/src/genptab.C:1233` |
 | `timestepskip` |  |  |  | `multipacting/src/MON_PerFaceSurfaces.C:40` |
 | `TotalTime` |  | `20.0 / (emwrap->getFrequency())` | optional | `multipacting/src/genptab.C:190` |
 | `Window ID` | `int` | `0` | optional | `multipacting/src/ImManager.C:29` |
-| `x` |  |  |  | `multipacting/src/MON_BFieldVsZ.C:36` |
+| `x` |  |  |  | `multipacting/src/MON_Gradient.C:34` |
 | `XrayEnergy` |  |  |  | `multipacting/src/MON_XrayVsEnergy.C:74` |
 | `XrayTransformation` |  |  |  | `multipacting/src/MON_XrayVsEnergy.C:70` |
-| `y` |  |  |  | `multipacting/src/MON_BFieldVsZ.C:37` |
-| `z` |  |  |  | `multipacting/src/MON_CurrentCSVsT.C:38` |
+| `y` |  |  |  | `multipacting/src/MON_Gradient.C:35` |
+| `z` |  |  |  | `multipacting/src/MON_RadialFields.C:35` |
 | `Z range` | `list` |  |  | `multipacting/src/summary.C:34` |
-| `zmax` |  |  |  | `multipacting/src/MON_AccGradient.C:46` |
-| `zmin` |  |  |  | `multipacting/src/MON_AccGradient.C:45` |
+| `zmax` |  |  |  | `multipacting/src/MON_Gradient.C:37` |
+| `zmin` |  |  |  | `multipacting/src/MON_Gradient.C:36` |

@@ -9,8 +9,8 @@
 
 | Keyword | Type | Default | Presence | Read in |
 |---|---|---|---|---|
-| `t0` |  |  |  | `excitation/src/SmoothStep.C:23` |
-| `t1` |  |  |  | `excitation/src/SmoothStep.C:26` |
+| `t0` |  |  |  | `excitation/src/Step.C:23` |
+| `t1` |  |  |  | `excitation/src/Step.C:26` |
 
 ## (top level or unspecified block)
 

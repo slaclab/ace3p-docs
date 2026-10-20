@@ -15,7 +15,7 @@
 
 | Keyword | Type | Default | Presence | Read in |
 |---|---|---|---|---|
-| `Type` |  |  |  | `waveguide/src/ESolverMan.C:31` |
+| `Type` |  |  |  | `waveguide/src/Port.C:75` |
 
 ## Wave
 
@@ -37,9 +37,9 @@
 | `EyFile` |  |  |  | `waveguide/src/PortMode_Interpolative.C:30` |
 | `Fc` |  |  |  | `waveguide/src/PortMode_Interpolative.C:44` |
 | `Frequency` | `double` | `0.` | optional | `waveguide/src/PortMode.C:16` |
-| `Mode` | `block` |  |  | `waveguide/src/ESAnalytic.C:34` |
-| `Mode type` | `list` |  |  | `waveguide/src/PortModeAnalyticMan.C:76` |
-| `ModeType` |  |  | required | `waveguide/src/PortModeAnalyticMan.C:75` |
+| `Mode` | `block` |  |  | `waveguide/src/ESInterpolative.C:16` |
+| `Mode type` | `list` |  |  | `waveguide/src/PortModeCirc.C:20` |
+| `ModeType` |  |  | required | `waveguide/src/PortModeCirc.C:19` |
 | `NumberOfModes` |  |  |  | `waveguide/src/ESAnalytic.C:23` |
 | `Waveguide Type` |  |  |  | `waveguide/src/PortModeAnalyticMan.C:61` |
 | `Waveguide type` |  |  |  | `waveguide/src/PortModeAnalyticMan.C:63` |

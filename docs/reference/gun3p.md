@@ -10,7 +10,7 @@
 | Keyword | Type | Default | Presence | Read in |
 |---|---|---|---|---|
 | `ConditionType` |  |  |  | `gun3p/src/Gun3P_BdManager.C:39` |
-| `Directory` | `string` | `"."` | optional | `gun3p/src/EMHeating.C:84` |
+| `Directory` | `string` | `"."` | optional | `gun3p/src/LFDetuning.C:119` |
 | `DirichletCustomizationIndex` |  |  |  | `gun3p/src/Gun3P_BdManager.C:54` |
 | `DirichletType` |  |  |  | `gun3p/src/Gun3P_BdManager.C:50` |
 | `DirichletValue` | `list` |  |  | `gun3p/src/Gun3P_BdManager.C:86` |
@@ -179,21 +179,21 @@
 | `DCGunProblem` | `block` |  |  | `gun3p/src/Environment.C:323` |
 | `EffectiveLength` |  |  |  | `gun3p/src/EMHeating.C:46` |
 | `ElectrostaticProblem` | `block` |  |  | `gun3p/src/Environment.C:328` |
-| `EndPoint` | `list` |  |  | `gun3p/src/EMHeating.C:179` |
+| `EndPoint` | `list` |  |  | `gun3p/src/LFDetuning.C:170` |
 | `File` |  |  |  | `gun3p/src/EMMeshMove.C:44` |
-| `FiniteElement` | `block` |  |  | `gun3p/src/ElectrostaticProblem.C:117` |
+| `FiniteElement` | `block` |  |  | `gun3p/src/MagnetostaticProblem.C:135` |
 | `GradientDirection` | `list` |  |  | `gun3p/src/LFDetuning.C:93` |
-| `LocalizerGrid` | `list` |  |  | `gun3p/src/EMHeating.C:79` |
+| `LocalizerGrid` | `list` |  |  | `gun3p/src/LFDetuning.C:114` |
 | `MagnetostaticProblem` | `block` |  |  | `gun3p/src/Environment.C:333` |
 | `Max iterations` |  |  |  | `gun3p/src/NonlinearSolverMan.C:30` |
 | `Method` |  |  |  | `gun3p/src/EMHeating.C:34` |
 | `Method for velocity during integration` |  |  |  | `gun3p/src/ElectrostaticProblem.C:72` |
-| `NumberOfPointsPerSegment` |  |  |  | `gun3p/src/EMHeating.C:189` |
+| `NumberOfPointsPerSegment` |  |  |  | `gun3p/src/LFDetuning.C:186` |
 | `ProblemType` |  |  |  | `gun3p/src/ScalarDiscreteDomain.C:720` |
 | `PulseFactor` |  |  |  | `gun3p/src/EMHeating.C:64` |
 | `Rel tolerance` |  |  |  | `gun3p/src/NonlinearSolverMan.C:32` |
 | `Solver` |  |  |  | `gun3p/src/LinearSolverMan.C:35` |
-| `StartPoint` | `list` |  |  | `gun3p/src/EMHeating.C:176` |
+| `StartPoint` | `list` |  |  | `gun3p/src/LFDetuning.C:167` |
 | `TargetGradient` |  |  |  | `gun3p/src/EMHeating.C:51` |
 | `TargetPowerloss` |  |  |  | `gun3p/src/EMHeating.C:57` |
 | `ThermoElasticProblem` | `block` |  |  | `gun3p/src/Environment.C:341` |
