@@ -152,10 +152,12 @@ def scan(root: str, module: str):
             old["container"] = row["container"]
 
     for dp, dirs, files in os.walk(os.path.join(root, module)):
-        dirs[:] = [d for d in dirs if not SKIP_DIRS.match(d)]
+        # Sorted traversal keeps the output identical across filesystems, so a
+        # regeneration on another machine does not churn the "Read in" column.
+        dirs[:] = sorted(d for d in dirs if not SKIP_DIRS.match(d))
         if module == "omega3p":
             dirs[:] = [d for d in dirs if d != "postprocess"]
-        for fn in files:
+        for fn in sorted(files):
             if not fn.endswith((".C", ".cc", ".cpp", ".h")):
                 continue
             path = os.path.join(dp, fn)
