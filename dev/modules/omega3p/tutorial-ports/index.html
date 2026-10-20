@@ -380,6 +380,25 @@
   
 
       
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../corrections/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Corrections to source material
+
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -1405,9 +1424,37 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../track3p/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../track3p/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -1421,7 +1468,59 @@
   
   
 
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Track3P
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../track3p/tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1873,6 +1972,33 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../corrections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Corrections to source material
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -2189,15 +2315,17 @@
 </code></pre></div>
 <p>The beam pipe ends are closed with <code>Electric</code>. That is fine here because the pipe is below cutoff at 1.3 GHz, so the field there has decayed to nothing. The coax port is <code>Waveguide</code> with one mode loaded: a coax has a TEM mode with zero cutoff, and nothing else propagates at this frequency.</p>
 <h3 id="run-and-read">Run and read<a class="headerlink" href="#run-and-read" title="Permanent link">&para;</a></h3>
-<p>Convert, run, and post-process exactly as in Tutorial 1. The mode summary now has an imaginary frequency and an external Q:</p>
+<p>Convert, run, and post-process exactly as in Tutorial 1. The mode summary now has a complex frequency and an external Q. From the example's stored results:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Mode : {
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    Frequency : 1.3137e+09 , 1.6e+05
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    ExternalQ : 4100
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    QualityFactor : 28500
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    ...
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>}
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    TotalEnergy : 4.4270939088102e-12 , 0
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    ExternalQ : 1024235.9558753
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    QualityFactor : 28815.235456204
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    File : omega3p_results/omega3p.l0.m0000.R1.3137561e+09.I6.4133469e+02.mod
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    PowerLoss : 1.2682100135575e-06
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    Frequency : 1313756106.8639 , 641.33469408486
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>}
 </code></pre></div>
-<p><code>ExternalQ</code> is the coupler Q<sub>ext</sub>. <code>QualityFactor</code> is still the wall Q<sub>0</sub>. The loaded Q is <span class="arithmatex">\(1/Q_L = 1/Q_0 + 1/Q_{ext}\)</span>.</p>
+<p><code>ExternalQ</code> is the coupler Q<sub>ext</sub>, here about 1.0 million: with the inner conductor tip 30 mm from the axis, this coax barely couples to TM<sub>010</sub>. <code>QualityFactor</code> is still the wall Q<sub>0</sub>, essentially unchanged from the closed cavity. The loaded Q is <span class="arithmatex">\(1/Q_L = 1/Q_0 + 1/Q_{ext}\)</span>, and the imaginary part of the frequency is <span class="arithmatex">\(f_r / 2 Q_L\)</span>. Pushing the probe deeper toward the axis lowers Q<sub>ext</sub> rapidly; the hands-on exercise in Part B does the equivalent for a waveguide iris.</p>
 <h3 id="port-modes-in-paraview">Port modes in ParaView<a class="headerlink" href="#port-modes-in-paraview" title="Permanent link">&para;</a></h3>
 <p>Omega3P writes the 2D port mode it computed on the port surface to <code>omega3p_results/port7/mode_1.00000GHz_000.vtu</code>. Load the 3D mesh with the SLAC toolbar, then <strong>File, Open</strong> the <code>.vtu</code> file and color by <code>Ereal</code>. Switch to wireframe if the port surface hides behind the wall.</p>
 <p><img alt="Coax port TEM mode displayed on the 3D model" src="../../../assets/omega3p/paraview-port-mode-3d.png" width="560" /></p>

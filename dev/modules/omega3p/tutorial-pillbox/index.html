@@ -380,6 +380,25 @@
   
 
       
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../corrections/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Corrections to source material
+
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -1365,9 +1384,37 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../track3p/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../track3p/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -1381,7 +1428,59 @@
   
   
 
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Track3P
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../track3p/tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1833,6 +1932,33 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../corrections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Corrections to source material
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -2032,7 +2158,7 @@
 </tr>
 </tbody>
 </table>
-<p>Expected result: the TM<sub>010</sub> mode at <strong>1.3138 GHz</strong> with Q<sub>0</sub> of about 28,900 for copper walls.</p>
+<p>Expected result: the TM<sub>010</sub> mode at <strong>1.3138 GHz</strong> with Q<sub>0</sub> of <strong>28,885</strong> for copper walls.</p>
 <h2 id="step-1-build-the-geometry">Step 1: Build the geometry<a class="headerlink" href="#step-1-build-the-geometry" title="Permanent link">&para;</a></h2>
 <p>The journal <code>step1-Make-pillbox-rtop.jou</code> builds the full cavity, then cuts it to a quarter model using the two symmetry planes.</p>
 <div class="highlight"><span class="filename">step1-Make-pillbox-rtop.jou</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>reset
@@ -2145,16 +2271,21 @@
 </code></pre></div>
 <p>The mode frequencies are already in the file names. In <code>omega3p.out</code>, the mode summary gives the details:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Mode : {
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    Frequency : 1313809979.5477
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    QualityFactor : 28886.1
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    ...
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>}
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>Mode : {
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    Frequency : 2329138623.836
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    ...
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>}
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    TotalEnergy : 4.4270939088102e-12
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    QualityFactor : 28885.092644708
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    File : omega3p_results/omega3p.l0.m0000.1.3138100e+09.mod
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    PowerLoss : 1.2651947886823e-06
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    Frequency : 1313809979.5477
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>}
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>Mode : {
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>    TotalEnergy : 4.4270939088102e-12
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    QualityFactor : 33830.795068362
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>    File : omega3p_results/omega3p.l0.m0001.2.3291386e+09.mod
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>    PowerLoss : 1.9150571359106e-06
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>    Frequency : 2329138623.836
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>}
 </code></pre></div>
-<p>Mode 0 at 1.3138 GHz is TM<sub>010</sub>. Mode 1 at 2.329 GHz is the next monopole mode. Above the summary, the log records the DOF count, which you will need for the convergence study:</p>
+<p>Mode 0 at 1.3138 GHz is TM<sub>010</sub> with Q<sub>0</sub> of 28,885 for copper walls. Mode 1 at 2.329 GHz is the next monopole mode. Above the summary, the log records the DOF count, which you will need for the convergence study:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>*   Total Number of Elements used:  13382
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>*   Total Number of DOFs:   82592
 </code></pre></div>
@@ -2188,7 +2319,7 @@
 </code></pre></div>
 <p>R/Q of about 120 ohm per cavity for TM<sub>010</sub>, and essentially zero for mode 1, which has no net on-axis voltage. Peak fields are scaled to the gradient given in the <code>RFField</code> block. The <code>.rfpost</code> file format and all available functions are described in <a href="../postprocess/">Post-processing</a>.</p>
 <h2 id="convergence-study">Convergence study<a class="headerlink" href="#convergence-study" title="Permanent link">&para;</a></h2>
-<p>A single mesh tells you nothing about accuracy. The directory includes <code>mesh0.jou</code> through <code>mesh3.jou</code>, identical except for the sizing function <code>scale</code>, which is 4, 6, 8, and 10 respectively. The journal <code>mesh-conv.omega3p</code> is a matching input file reading <code>mesh0.ncdf</code>.</p>
+<p>A single mesh tells you nothing about accuracy. The directory includes <code>mesh0.jou</code> through <code>mesh3.jou</code>, identical except for the sizing function <code>scale</code>, which is 10, 8, 6, and 4 respectively, so <code>mesh0</code> is the coarsest and <code>mesh3</code> the finest. The input file <code>mesh-conv.omega3p</code> reads <code>mesh0.ncdf</code>; edit the file name for each level.</p>
 <p>Run all four meshes and record the TM<sub>010</sub> frequency and element count from each <code>omega3p.out</code>. Treat the finest mesh as the reference and plot the relative frequency error against element count.</p>
 <p><img alt="Relative frequency error versus element count" src="../../../assets/omega3p/convergence-df-vs-elements.png" width="420" /></p>
 <p>With order 2 elements, the frequency converges to a few parts in 10<sup>5</sup> by about 20,000 elements. Use this kind of plot to decide how fine a mesh you need for a given accuracy target, and remember that surface fields converge more slowly than frequency.</p>
