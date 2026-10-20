@@ -1,6 +1,6 @@
 # Track3P tutorials
 
-Four worked examples from `examples/track3p`. Each requires a field solution first, so the Omega3P or S3P step is shown briefly and the Track3P step in full. Meshing and `acdtool meshconvert` are covered in the [Omega3P pillbox tutorial](../omega3p/tutorial-pillbox.md).
+Six worked examples from `examples/track3p`. The first four are from the CW18 workshop; the last two were added for CW23 and exist only in the group copy of the examples at `/sdf/group/rfar/ace3p/cw23/examples/track3p`. Each requires a field solution first, so the Omega3P or S3P step is shown briefly and the Track3P step in full. Meshing and `acdtool meshconvert` are covered in the [Omega3P pillbox tutorial](../omega3p/tutorial-pillbox.md).
 
 ## Tutorial 1: pillbox cavity multipacting scan
 
@@ -509,3 +509,151 @@ Pi-mode field at 1.2999669 GHz across one cavity of the cryomodule, and a snapsh
 ///
 
 A run of this size is where the Track3P parallel model pays off: with no inter-rank communication it scales linearly in particles, and the 7-minute figure quoted on the module page is for this class of problem.
+
+
+## Tutorial 5: dark current in a traveling-wave structure
+
+**Example directory:** `examples/track3p/TW7Cell` (CW23 group copy)
+
+A 7-cell S-band traveling-wave structure with input and output couplers. Unlike the standing-wave Tesla cavity, the field here comes from an S3P run at the operating frequency, and the structure is a half model, which introduces the symmetry-plane material.
+
+![Field in the 7-cell structure](../../assets/track3p/tw7cell-field.png){ width="620" }
+
+### Fields from S3P
+
+```text title="TW7Cell.s3p"
+ModelInfo : {
+  File: TW7Cell.ncdf
+  BoundaryCondition : {
+    Waveguide: 1 2         // input and output couplers
+    Exterior: 6
+    Magnetic: 3 4 5        // 5 is the symmetry plane
+  }
+}
+FiniteElement: { Order: 2  CurvedSurfaces: on }
+FrequencyScan: { Start: 2.8566e+9  End: 2.8566e+9  Interval: 0.0001e+9 }
+PostProcess: { Toggle: on  PortNumber: 1 }
+Port: { ReferenceNumber: 1  NumberOfModes: 1 }
+Port: { ReferenceNumber: 2  NumberOfModes: 1 }
+```
+
+A single frequency, 2.8566 GHz, with the field saved for excitation from port 1. The stored S3P result shows the structure is well matched: |S~11~| is 0.0045 and |S~21~| is 0.99999, so essentially all power travels through.
+
+### Track3P input
+
+```text title="TW7Cell-PEmission.track3p"
+ParticlesTrajectories: { Skip: 10 }
+TotalTime: 5
+
+FieldScales: {
+  Type: FieldGradient
+  ScanToken: 0
+  Scale: 21.6e+6
+}
+NormalizedField: {
+  StartPoint: 0.0 0.0 -0.087275
+  EndPoint:   0.0 0.0  0.087675
+}
+
+Domain: {
+  FieldDir: ./s3p_results
+  Bins: 128
+  MaxImpacts: 2
+  SymmetryFactor: 2            // half model
+  SymmetryPlane: 5             // its sideset
+}
+
+Emitter: {
+  Type: 7                      // Fowler-Nordheim
+  BoundaryID: 6
+  t0: 0  t1: 1
+  x0: 0.0   x1: 0.04
+  y0: -0.017  y1: 0.017
+  z0: -0.02   z1: -0.01        // one iris region
+  N: 100
+  WorkFunction: 4.2
+  Beta: 50
+}
+
+Material: { Type: Primary        BoundarySurfaceID: 6 }
+Material: { Type: Secondary      BoundarySurfaceID: 6 }
+Material: { Type: SymmetryPlane  BoundarySurfaceID: 5 }
+Material: { Type: Absorber       BoundarySurfaceID: 1 2 3 4 }
+
+OutputImpacts: on
+Postprocess: {
+  Toggle: on
+  FaradayCup: { Token: on  BoundaryID: 3 4 6 }
+}
+```
+
+Three things differ from the Tesla case:
+
+- **Traveling-wave field.** `FieldDir` points at `s3p_results`, and the gradient normalization line spans the whole structure. The field pattern is a traveling wave, so emitted electrons see a phase that depends on where they start along z.
+- **Symmetry plane.** Sideset 5 is given `Material: { Type: SymmetryPlane }` and `Domain` declares `SymmetryFactor: 2` and `SymmetryPlane: 5`. Particles reaching the plane reflect, and the Faraday cup totals are scaled to the full structure. With `Absorber` on this plane, half the real trajectories would be lost.
+- **Enhancement factor 50**, lower than the Tesla example's 120. Emission is restricted to one iris region by the emitter box.
+
+### Results
+
+```bash
+srun -n 16 track3p TW7Cell-PEmission.track3p track3p_PEmission
+```
+
+The Faraday cup files record where the dark current goes:
+
+| Surface | Primary emission only | With copper secondaries |
+|---|---|---|
+| 3, upstream pipe end | 146 impacts | 22,944 |
+| 4, downstream pipe end | 9 | 28,173 |
+| 6, structure wall | 35,450 | 2,336,484 |
+
+With primaries alone, almost everything emitted from the iris lands back on the wall within the same cell or the next. Turning on the copper secondary-emission model (`Model: 2` with the copper `Sigma0` and `Einit` table, in `TW7Cell-SEmission.track3p`) multiplies the impacts on the wall by 66 and the current reaching the beam-pipe ends by over a hundred, because each wall impact spawns secondaries that are accelerated onward. The two runs bracket the real dark current; the surface condition decides where between them the structure sits.
+
+![Dark current trajectories with secondaries](../../assets/track3p/tw7cell-dark-current.png){ width="620" }
+/// caption
+Particles with secondary emission on, concentrated in the second and third cells downstream of the emission site.
+///
+
+The `SEmission` input also lowers `MinimumNumElectrons` and `ElasticThreshold` to 10, from 1000 in the Tesla example, so that macroparticles carrying fewer electrons survive; with `N: 10` electrons per emitted macroparticle the Tesla thresholds would prune everything immediately.
+
+## Tutorial 6: combining a static field from Gun3P
+
+**Example directory:** `examples/track3p/Coax-StaticField` (CW23 group copy)
+
+A coaxial line with a dielectric section, carrying both an RF wave from S3P and a DC bias computed by Gun3P. Track3P can superimpose the two.
+
+![Particles in the combined field](../../assets/track3p/coax-static-field-particles.png){ width="620" }
+/// caption
+Particles emitted from the coax walls and the dielectric surface, tracked in the RF plus static field. The dielectric section is at center.
+///
+
+### Three solvers
+
+1. **S3P** on `Coax-s3p.ncdf` for the RF field at the drive frequency.
+2. **Gun3P** on `Coax-gun3p.ncdf` as a pure electrostatic solver, with `MaxIterations: 0` so no particles are emitted, and `ElectrostaticFieldToken: On` in `Outputs` with a `FileName` and `Nx`, `Ny`, `Nz`. Then `gun3pOutputConverter Coax-gun3p.in e` writes the field on that Cartesian grid to `gun3p_results/OUTPUT/E/test-101.txt`.
+3. **Track3P** reads both:
+
+```text title="Coax-track3p.in (excerpt)"
+FieldScales: {
+  Type: InputPortPower
+  ScanToken: 0
+  Scale: 5                     // W
+}
+
+Domain: {
+  FieldDir: ./s3p_results
+  SolidRegion: 2
+  VacuumRegion: 1
+  ElectroStaticFieldMap: {
+    File: ./gun3p_results/OUTPUT/E/test-101.txt
+    Scaling: 1.0
+  }
+}
+
+Emitter: { Type: 2  BoundaryID: 5 6  ... }     // metal walls
+Emitter: { Type: 5  BoundaryID: 5 6  ... }     // dielectric surface
+```
+
+`ElectroStaticFieldMap.File` is the converter's text output and `Scaling` multiplies it, so one Gun3P solve at a reference voltage serves a scan of bias values. Note the key is spelled `ElectroStaticFieldMap` with a capital S inside, as the source reads it. The grid file is interpolated trilinearly onto particle positions and added to the RF field at every step.
+
+This is the pattern for any device with a DC bias on an RF structure: a biased window, a DC-suppressed multipacting coupler, or an electron gun with an RF buncher.

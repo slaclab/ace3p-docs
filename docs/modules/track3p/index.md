@@ -124,6 +124,8 @@ Only used with `Type: FieldGradient`. `StartPoint` and `EndPoint` define the lin
 | `Bins` | 64 | Spatial binning used to locate particles in the mesh. Increase for large or elongated meshes; the Tesla example uses 640. |
 | `ExternalMagneticField` | 0 0 0 | Uniform external B in tesla |
 | `MagneticFieldMap` | | Sub-block loading a tabulated field: `File`, `Scaling`, `Units`, `ZOffset` |
+| `ElectroStaticFieldMap` | | Sub-block loading a static electric field on a Cartesian grid, as written by `gun3pOutputConverter` from a [Gun3P](../gun3p/index.md) run: `File`, `Scaling`. The RF field and the static field are summed at each particle position. |
+| `SymmetryFactor`, `SymmetryPlane` | 1, none | Symmetry of the model and the sideset of the symmetry plane, used with a `SymmetryPlane` material so that emitted current is scaled to the full structure |
 | `SolidRegion`, `VacuumRegion` | | Block IDs for dielectric and vacuum, needed when particles emit from or cross a dielectric surface as in windows |
 | `Voltage` | 0 | External DC voltage between two radii: `a ra rb`, giving V = a / log(rb / ra) |
 
@@ -136,8 +138,9 @@ One block per emission region. Primaries launch from faces of `BoundaryID` whose
 | 2 | `ElectronicSurface` | Default. Uniform launch from a metal surface over RF phase for multipacting. |
 | 5 | `SolidElectronicSurface` | Launch from a dielectric surface, for windows. Requires `SolidRegion` in `Domain`. |
 | 7 | `FieldEmission` | Fowler-Nordheim emission for dark current. Takes `N` particles, `WorkFunction` in eV, and field enhancement `Beta`. |
+| 10 | `LoadParticles` | Read an initial particle set from a text file given as `ParticlesFile`: one line per particle with electron count, energy in eV, position, and momentum. Optional `XScale`, `YScale`, `ZScale`, `EnergyScale`, and `XOffset`, `YOffset`, `ZOffset` rescale and shift the file. Added in 2025. |
 
-Other types exist in the code (`ThermalCathode`, `Injector`, `ChildLangmuir`, `LoadParticles`, and so on) but are not exercised by the tutorials. Emission runs from `t0` to `t1` in RF cycles, default the first cycle only.
+Other types exist in the code (`ThermalCathode`, `Injector`, `ChildLangmuir`, and so on) but are not exercised by the tutorials. `ChildLangmuir` is the model [Gun3P](../gun3p/index.md) uses. Emission runs from `t0` to `t1` in RF cycles, default the first cycle only.
 
 ### Material
 
@@ -147,7 +150,8 @@ Assigns behavior to surfaces by sideset, or to dielectric volumes by `SolidBlock
 |---|---|
 | `Primary` | Primaries may be launched here. Pair with an `Emitter`. |
 | `Secondary` | Impacts here generate secondaries. `Model: 1` (default) for multipacting; `Model: 2` for dark current, which also accepts an inline SEY table via `Sigma0` and `Einit`, plus `MinimumNumElectrons` and `ElasticThreshold`. |
-| `Absorber` | Impacts here kill the particle. Use for symmetry planes, ports, and beam pipe ends. |
+| `Absorber` | Impacts here kill the particle. Use for ports and beam pipe ends. |
+| `SymmetryPlane` | Particles reflect specularly. Use on symmetry planes of a half or quarter model together with `Domain.SymmetryFactor` and `Domain.SymmetryPlane`, so that the tracked population represents the full structure. Using `Absorber` on a symmetry plane instead silently loses every particle that crosses it. |
 
 A surface can appear in both a `Primary` and a `Secondary` block, as the cavity wall does in every example.
 
@@ -206,3 +210,5 @@ Three routes, in increasing order of effort:
 2. **[Window: emission from a dielectric](tutorials.md#tutorial-2-rf-window-with-dielectric-emission)**: S3P traveling-wave fields, solid and vacuum emission types.
 3. **[Muon cooling cavity: external magnetic field](tutorials.md#tutorial-3-external-magnetic-field)**: uniform and mapped external B fields.
 4. **[Tesla cavity: dark current](tutorials.md#tutorial-4-dark-current-in-a-tesla-cavity)**: Fowler-Nordheim emission with and without secondaries, Faraday cup output.
+5. **[Traveling-wave structure: dark current from S3P fields](tutorials.md#tutorial-5-dark-current-in-a-traveling-wave-structure)**: field emission in a 7-cell structure driven through ports, with a symmetry plane and copper secondary emission.
+6. **[Static plus RF fields](tutorials.md#tutorial-6-combining-a-static-field-from-gun3p)**: loading a Gun3P electrostatic field alongside an S3P field for a DC-biased coax.

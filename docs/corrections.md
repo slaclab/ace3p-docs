@@ -209,6 +209,71 @@ Source deck: `Cubit-Demo.pptx` (CW23). Example: `examples/cubit/pillbox`.
 | ParaView version in screenshots | Slides show ParaView 5.11.0 and Cubit 16.04 | Versions not quoted | Cosmetic |
 | Webcut plane naming | Slide 23 says "Choose YZ Plane" in the GUI and "`webcut vol 1 with xplane`" in the command | Both reproduced | Cubit names the plane by its normal in the command (`xplane` is normal to x) and by the two in-plane axes in the GUI (YZ). Same plane, two conventions. |
 
+## Pic3P
+
+Source: `cw18-Pic3P-Tutorial.ppt` (legacy binary format, text and images extracted directly from the OLE stream since no PDF exists), `pic3p-commands.pdf` from the CW23 command references, and the `LCLSGun` example. Stored results are from an October 2018 build.
+
+| Item | Slide or file said | Documentation now says | Source of correction |
+|---|---|---|---|
+| Executable | README: "Run t3p"; slides: `t3p startupfile` | Stated explicitly that there is no `pic3p` binary and that `t3p` enters PIC mode on a `Loading` block containing `Particles` | `Application.C` line 709 |
+| README input file name | "LCLSgun.t3p" in the run step | `LCLSGun.pic3p` | File on disk |
+| Batch script | Personal copy: `run-pic3p.sl` with `srun -n 24` on Edison | Group copy's `run-pic3p.batch` with `srun -n 32 -c 8` on Perlmutter | Group copy is current |
+| `Ekin` column of `particles.stat` | Not documented | MeV | `ParticlesIO.C` line 977: `(gamma-1)*e_mass_MeV()`. Cross-checked: γ = 1.00944 gives 4.8 keV, matching the stored value 0.00482. |
+| Emittance units | Not documented | m·rad, RMS | Inferred from magnitude (2.5e-5 m·rad = 25 mm·mrad is plausible for 1 nC with 1000 macroparticles and no solenoid); the exact normalization was not traced in source |
+| Final-row statistics | Slide shows the stat file without comment | Noted that the particle count falls from 996 to 413 after 300 ps as particles exit the absorbing pipe, so end-of-run moments describe a partial bunch | `particles.stat` rows 830 and 840 |
+| `Longitudinal.Type: Flattop` | Command reference lists Flattop, Gaussian, Ellipsoid | Same, plus note that the code also accepts `Bunched` as a synonym and names the profile `LongitudinalFermiDirac` in output | `Particles.C` line 1569 and the output file names |
+| `PICDomain` order | Example uses order 1 | Example reproduced; command reference's recommendation of order 2 or above for accuracy quoted | `pic3p-commands.pdf` |
+| Mesh element counts | Journal comment: "h=2 => 128k ele" | Stored meshes: 64,116 drive-field, 121,202 PIC | `acdtool-*.log` on disk. The comment's numbers are for a different journal revision. |
+| Omega3P mode frequencies | Not stated | 2.83750 GHz (0 mode) and 2.85281 GHz (π mode) | `omega3p.out` on disk |
+
+## Gun3P
+
+Source: `Gun3P-Tutorial.pdf` and `gun3p-commands.pdf` (both CW23, dated 9/29/2026 in the reference footer), and the `LSBK` example. These exist only in the group copy at `/sdf/group/rfar/ace3p/cw23/`; the personal copy used for the other modules has an empty `examples/gun3p/`.
+
+| Item | Slide or file said | Documentation now says | Source of correction |
+|---|---|---|---|
+| Iteration count and convergence | Slide 15 shows iterations 3 and 4 only | Full history from the stored output: current 562.6 A at iteration 0 falling to 128.4 A by iteration 8 and steady thereafter; E relative change 2.4e-3 to 1.6e-5 over 31 iterations | `ace3p.o6436083` (70,979 lines). The run ended on `MaxIterations: 32`, not on tolerance. |
+| Tolerance | Input: `ElectricRelativeTolerance: 1.00e-12` | Documented as unreachable; 1e-5 reached after 32 iterations | Stored output |
+| Emitted current | Benchmark table: 129.3 A on a 1.3M-element mesh | 128.4 A on the 459k-element tutorial mesh, 0.7 percent lower | Stored output vs. SLAC-PUB-13097 table on slide 15 |
+| `Max allowed total current` units | Not stated in the reference | μA | `EMT_ChildLangmuir.C` line 28 comment "in micro-amperes" |
+| Where the iteration log goes | Slide 14: "Screen output – gun3p_results/gun3p.log" | `gun3p.log` holds only timing; the iteration history is on standard output | `gun3p.log` is 438 lines of timers; the Slurm output has the 96 perveance lines |
+| Emitter `BoundaryID` | Slide 12: `BoundaryID: 8` | `BoundaryID: 1` | File on disk. Sideset 8 does not exist in the mesh (IDs are 1, 2, 3, 4, 10, 12). |
+| Material list on slide 12 | Includes sideset 6 and 11 | Sidesets 1, 2, 3, 4, 10, 12 | File on disk; 6 and 11 do not exist in this mesh |
+| `Particles per face` | Slide 12: 1 | 5 | File on disk |
+| `Generate output for vizualization` | Slide 11: Off | on | File on disk. Note the misspelling `vizualization` is what the code reads. |
+| `MaxIterations` | Slide 9: 60; slide 16: 60 | 32 | File on disk |
+| Magnetostatic solver | Present in the input | Documented as configured but never activated, because `FirstIterationForMagnetostaticProblem` is commented out | File on disk; the H relative tolerance in the log is identically 0 every iteration |
+| Material parameter name in `MagnetostaticProblem` | `Name: Permittivity` | Reproduced with a note that the code accepts it | File on disk; presumably `Permeability` was intended |
+| Perlmutter host in README | `saul-p1.nersc.gov` | Not reproduced | Saul was NERSC's Perlmutter test system name during early access |
+
+### Track3P additions from the CW23 deck
+
+The CW23 Track3P deck (`Track3P-Tutorial.pdf`, 144 pages) extends the CW18 version (134 pages) used for the original Track3P pages. A page-title diff found the additions, which are now in the Track3P pages:
+
+| Addition | Where in docs |
+|---|---|
+| `LoadParticles` emitter type 10 with `ParticlesFile` and scale/offset keys (also in the 2025 updates deck) | Track3P module page, Emitter table |
+| `SymmetryPlane` material with `Domain.SymmetryFactor` and `Domain.SymmetryPlane` | Material and Domain tables |
+| `ElectroStaticFieldMap` in `Domain`, loading a Gun3P Cartesian field | Domain table and Tutorial 6 |
+| TW7Cell traveling-wave dark current example replacing the Tesla example | Tutorial 5 |
+| Coax-StaticField example chaining S3P, Gun3P, Track3P | Tutorial 6 |
+
+Not changed: the pillbox, window, muon, and Tesla tutorials remain as written from the CW18 deck, since their example directories are unchanged except that `Tesla` is absent from the group copy.
+
+## Omega3P additions from the CW23 deck
+
+The CW23 Omega3P deck is 76 pages against the CW18 version's 84; practices 3b and 4 were condensed into two slides, "Important TIPs" and "Non-linear Eigensolver Parameters". The TIPs slide adds guidance not in the CW18 deck: a multi-port problem is quadratic (and solvable without CORK) when every port has one mode and all ports share the same cutoff; otherwise use the 1D absorbing boundary as an approximation, PML as a better approximation, or CORK for accuracy. The CORK example gains an `OneRKSShift: 1` key not present in the CW18 deck or the example files. These points are **not yet** in the Omega3P pages.
+
+## Material not yet converted
+
+Found during this pass, in `/sdf/group/rfar/ace3p/cw23/`:
+
+- `commands/*.pdf`: per-module command references dated 9/29/2026, 13 to 32 pages each. These are more systematic than the tutorial decks and should become the basis of the keyword descriptions in the Reference section. Items they document that the module pages do not: PML in Omega3P and T3P; `DipoleLoading`, `BiGaussian` bunches, `SurfaceLoading`, and `UserDefinedPulse` in T3P; `HarmonicAnalysis` and `Transient` in TEM3P; `RoverQRoverQT`, `pointRoverQ`, `dFSlater`, `VFFT`, `GBZFFT`, `Multipole`, `IMPACTMap`, `OpenPMD_IMPACT`, and `powerThroughSurface` in `acdtool postprocess rf`; `acdtool meshconvertdirect` and `acdtool resource`; `wake_new` and `wake_direct` with the circular-contour `Grid` option.
+- `news/ace3p-updates-032525.pdf`: 2025 release notes with a Perlmutter resource-allocation table for Omega3P and S3P and the `acdtool resource` tool.
+- `presentations/ACE3P-Introduction.pptx` (126 MB) and `A3PI-Tutorial.pptx`.
+- `mmode/`: mechanical-mode animation scripts for ParaView.
+- `examples/a3pi/`: the ACE3P-IMPACT workflow with its own 22-page user guide.
+
 ## Getting Started and Workflow pages
 
 | Item | Slide said | Documentation now says | Source of correction |
@@ -232,7 +297,8 @@ These were introduced during conversion and fixed on 2026-10-19 after a verifica
 7. **T3P tutorials, BPM solver.** The first draft said the misspelled `Slover` key made T3P use "the default" without naming it. Traced in `NML_ITLLinearSolver.C`: the default is the best direct solver compiled in, MUMPS on these builds.
 8. **T3P tutorials, SIBC power.** The first draft said "roughly 40%" transmitted from eyeballing the plot. Replaced with 46% from integrating the monitor files.
 9. **TEM3P module page, LF pressure.** First draft gave the pressure formula without its sign convention. Checked `LFDetuning.C`: pressure is $\tfrac{1}{4}(\mu_0 H^2 - \varepsilon_0 E^2)$ and the load vector is scaled by −1 times the outward normal, so a positive (magnetic-dominated) pressure pushes the wall outward from the vacuum, which is inward on the metal. Wording adjusted.
-10. **This page, Track3P section.** The first draft flagged the slide's Omega3P mode 2 frequency of 1.75 GHz as suspicious. It is correct; the stored output confirms it, and the physics (a dipole mode visible only in the full model) explains it. The entry now says so.
+10. **Getting Started, example paths.** The first draft pointed at the personal copy `/sdf/data/rfar/nfs/acd/u01/userspace/cho/cw23/`, which lacks Gun3P and the CW23 Track3P additions. Changed to the group copy `/sdf/group/rfar/ace3p/cw23/` on 2026-10-19 when the difference was discovered.
+11. **This page, Track3P section.** The first draft flagged the slide's Omega3P mode 2 frequency of 1.75 GHz as suspicious. It is correct; the stored output confirms it, and the physics (a dipole mode visible only in the full model) explains it. The entry now says so.
 
 ## Still unverified
 

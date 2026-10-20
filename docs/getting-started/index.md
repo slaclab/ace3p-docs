@@ -36,7 +36,9 @@ The tutorials in this documentation use the examples and exercises prepared for 
 
 | System | Examples | Exercises |
 |---|---|---|
-| S3DF | `/sdf/data/rfar/nfs/acd/u01/userspace/cho/cw23/examples` | `/sdf/data/rfar/nfs/acd/u01/userspace/cho/cw23/exercises` |
+| S3DF | `/sdf/group/rfar/ace3p/cw23/examples` | `/sdf/group/rfar/ace3p/cw23/exercises` |
 | Perlmutter | `$CFS/ace3p/cw23/examples` | `$CFS/ace3p/cw23/exercises` |
+
+The S3DF copy under `/sdf/group/rfar/ace3p/cw23/` is the current one and also holds the per-module command references in `commands/`, the ParaView macros in `macros/`, and release notes in `news/`. An older personal copy at `/sdf/data/rfar/nfs/acd/u01/userspace/cho/cw23/` lacks the Gun3P example and the CW23 Track3P additions.
 
 Copy the directory you need into your own working area before running anything, since the example directories are read-only for most users.
