@@ -155,6 +155,43 @@ The stored `acdtool.log` in each directory agrees with `t3p.log`, so the slides 
 - The physical meaning of negative `inputPower` values: documented as the Poynting flux referenced to the outward normal, inferred from the sign pattern, not confirmed in `MON_SurfacePoynting`.
 - Slide 5's dipole benchmark numbers (11.024 and 11.037 GHz); no example directory corresponds to it.
 
+## TEM3P
+
+Source deck: `TEM3P-Tutorial.pptx` (CW23). Stored results are from the March 2023 build, same as the slides.
+
+### Input files
+
+| Item | Slide or file said | Documentation now says | Source of correction |
+|---|---|---|---|
+| `AbsoluteTolerante` in `ElasticProblem.LinearSolver` | Both the slide and all three elastic inputs on disk spell it `AbsoluteTolerante` | Shown as `Tolerance` only, with a note | The misspelled key is silently ignored. Only `Tolerance` is read in the solver source; `AbsoluteTolerance` does not appear in `tem3p/src` or `solver/src` either, so neither spelling has any effect. |
+| `NeumanValue` in `SRFCell.tem3p` | File on disk has `NeumanValue: 0.` for sidesets 3 and 4 | Shown as `NeumannValue` | Source reads `NeumannValue`. Since the value is zero and zero is the default traction, the typo has no effect on the stored result. |
+| `RunId: 3` in `ThermoElasticProblem` | Present in slide and file | Documented as not read by the code | `grep RunId tem3p/src` finds nothing. The block's presence is what matters. |
+| Body mesh journal CAD file | Slide 10: `import acis "RfGun-CouplerCell-2018.sat"` | `RfGun-CouplerCell.sat` | Both journals on disk import the same file, which is the only `.sat` in the directory |
+| Vacuum mesh journal sizing line | Slide 8 breaks `min_size 0.5 max_size` across lines with the value missing | `min_size 0.5 max_size 3` | File on disk |
+| S3P `SurfaceMaterial` for the coupler | Slide 31 omits it | `SurfaceMaterial: { ReferenceNumber: 1  Sigma: 5.7e7 }` included | File on disk; required for the `Impedance` boundary |
+| `Method: Powerinput` spelling | Slide and file use `Powerinput`, docs elsewhere use `PowerInput` | Both listed as accepted | `EMHeating.C` and `LFDetuning.C` accept `Powerinput`, `PowerInput`, `powerinput`, `POWERINPUT` |
+| Slide 12 Robin formula | `Q = hA(Th - Tc)` with keys `RobinConstantFactor` and `RobinConstantValue` described only as "h" and "h.T" | Documented as flux = h (T − T~fluid~) with `RobinConstantValue` = h·T~fluid~, so 440000/20000 = 22 °C water | `Tem3P_BdConstantRobin` constructor takes (factor, value); water temperature inferred from the ratio |
+| Transient input file | Slide 25 titled "Input File for Thermal Transient Simulation" is empty; slide 26 shows the result | Transient shown as a figure only, with a note that no input file exists in the example | No file on disk contains `TimeStepping` or `MaximumTime` under `tem3p/` |
+
+### Results
+
+| Item | Slide said | Documentation now says | Source of correction |
+|---|---|---|---|
+| RF gun element counts | Not given | Vacuum 83,124; body 229,035 | `omega3p.out` and `tem3p.log` |
+| RF gun frequency shift | Slide 20 names the two mode files, 2.8533884 and 2.8534358 GHz, without stating the shift | +47.4 kHz, computed from `omega3p.out` in both result directories | 2,853,435,826.2 − 2,853,388,398.9 Hz |
+| RF gun power balance | Not discussed | 215.6 W in through RF wall, 213.1 W out through cooling; 1.2 percent imbalance noted as discretization leakage | `ResultFile` |
+| SRF cell frequency shift | Slide 52 names mode files 1.3009577 and 1.3009506 GHz | −7.17 kHz and a coefficient of −5.85 Hz/(MV/m)² at 35 MV/m | `omega3p.out` in both directories. The mode file names on the slide are rounded; the docs use the full values from `omega3p.out`. |
+| SRF cell Omega3P Q~0~ | Not shown | Reported as infinite, since the wall is `Electric` | `omega3p.out` prints `QualityFactor : inf` |
+| Coupler shell sideset power | `ResultFile` shows `P (SideSet 6) = 0` and `P (SideSet 7) = 0` for the heated shell surfaces | Noted with an explanation that shell heat does not appear in the boundary flux tally | `ResultFile`; the mechanism is inferred, not traced in source |
+| **Tesla eigenmode frequencies in `tem3p.log`** | Log prints `Frequency: 18833843948` for the 62.8 Hz mode | Flagged as wrong: the log applies the electromagnetic conversion. `ResultFile` and the file names are correct. | `ElasticProblem.C` line 1392 multiplies `FrequencyShift` by `Support::C` "to be consistent with the EM solvers", and the same scaling leaks into the printed frequency. $\sqrt{155810.34}/2\pi = 62.823$ Hz matches `ResultFile`. |
+| Tesla element count | Not given | 286,556 elements, 1,543,974 DOFs | `tem3p.log` and `acdtool.log` agree |
+
+### Not verified
+
+- Which elastic displacement components a plain `Dirichlet` boundary fixes. The source reads a `DirichletType` key that no example uses; the docs assume all three components, which is what the examples' use of `Mixed` for partial constraints implies.
+- The sign convention of the RF gun frequency shift (+47 kHz). The docs say it reflects the balance of thermal expansion, Lorentz pressure, and the constraints, but do not decompose it. Rerunning with `LFDetuning` removed would separate the two contributions.
+- The statement that shell heat appears in the symmetry-plane power tally.
+
 ## Getting Started and Workflow pages
 
 | Item | Slide said | Documentation now says | Source of correction |
@@ -177,7 +214,8 @@ These were introduced during conversion and fixed on 2026-10-19 after a verifica
 6. **T3P tutorials, element counts.** The first draft quoted the slide acdtool counts (8,537; 17,703; 68,326; 9,795). Replaced with the stored-mesh counts from `t3p.log` on 2026-10-19 before publication.
 7. **T3P tutorials, BPM solver.** The first draft said the misspelled `Slover` key made T3P use "the default" without naming it. Traced in `NML_ITLLinearSolver.C`: the default is the best direct solver compiled in, MUMPS on these builds.
 8. **T3P tutorials, SIBC power.** The first draft said "roughly 40%" transmitted from eyeballing the plot. Replaced with 46% from integrating the monitor files.
-9. **This page, Track3P section.** The first draft flagged the slide's Omega3P mode 2 frequency of 1.75 GHz as suspicious. It is correct; the stored output confirms it, and the physics (a dipole mode visible only in the full model) explains it. The entry now says so.
+9. **TEM3P module page, LF pressure.** First draft gave the pressure formula without its sign convention. Checked `LFDetuning.C`: pressure is $\tfrac{1}{4}(\mu_0 H^2 - \varepsilon_0 E^2)$ and the load vector is scaled by −1 times the outward normal, so a positive (magnetic-dominated) pressure pushes the wall outward from the vacuum, which is inward on the metal. Wording adjusted.
+10. **This page, Track3P section.** The first draft flagged the slide's Omega3P mode 2 frequency of 1.75 GHz as suspicious. It is correct; the stored output confirms it, and the physics (a dipole mode visible only in the full model) explains it. The entry now says so.
 
 ## Still unverified
 

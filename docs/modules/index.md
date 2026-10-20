@@ -9,7 +9,7 @@ ACE3P is a family of solvers that share one mesh format, one input syntax, and o
 | **T3P** | [User guide and tutorials](t3p/index.md) | Complete: wakefields, port excitation, moving window, SIBC, five tutorials |
 | **Track3P** | [User guide and tutorials](track3p/index.md) | Complete: multipacting and dark current, four tutorials, S3DF rerun |
 | **Pic3P** | [Overview](pic3p.md) | Outline |
-| **TEM3P** | [Overview](tem3p.md) | Outline |
+| **TEM3P** | [User guide and tutorials](tem3p/index.md) | Complete: thermal, elastic, LF detuning, mechanical eigenmodes, four tutorials |
 | **Gun3P** | [Overview](gun3p.md) | Outline |
 
 ## Which module do I need?

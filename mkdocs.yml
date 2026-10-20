@@ -116,7 +116,9 @@ nav:
           - modules/track3p/index.md
           - Tutorials: modules/track3p/tutorials.md
       - Pic3P: modules/pic3p.md
-      - TEM3P: modules/tem3p.md
+      - TEM3P:
+          - modules/tem3p/index.md
+          - Tutorials: modules/tem3p/tutorials.md
       - Gun3P: modules/gun3p.md
   - Reference:
       - reference/index.md
