@@ -1,0 +1,4133 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="User documentation for ACE3P, SLAC's parallel finite-element electromagnetic simulation suite">
+      
+      
+      
+        <link rel="canonical" href="https://animated-system-8l9p64e.pages.github.io/v2026.10/modules/track3p/tutorials/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../../pic3p/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Tutorials - ACE3P Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#track3p-tutorials" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="ACE3P Documentation" class="md-header__button md-logo" aria-label="ACE3P Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ACE3P Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tutorials
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/slaclab/ace3p-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    slaclab/ace3p-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../getting-started/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../workflow/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Workflow
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Modules
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../reference/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../interfaces/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Interfaces
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../contributing/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contributing
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../corrections/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Corrections to source material
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="ACE3P Documentation" class="md-nav__button md-logo" aria-label="ACE3P Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ACE3P Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/slaclab/ace3p-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    slaclab/ace3p-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../getting-started/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/s3df/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running on S3DF
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/perlmutter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running on NERSC Perlmutter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/local-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Local tools (Cubit, ParaView)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../workflow/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflow
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../workflow/input-format/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Input file format
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../workflow/cubit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Geometry and meshing with Cubit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../workflow/mesh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mesh preparation with acdtool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../workflow/batch-jobs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch jobs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modules
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Modules
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../omega3p/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omega3P
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Omega3P
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../omega3p/tutorial-pillbox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial 1: pillbox-rtop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../omega3p/tutorial-ports/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial 2: coax coupler and ports
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../omega3p/tutorial-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial 3: lossy load and periodic boundaries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../omega3p/postprocess/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Post-processing with acdtool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../s3p/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S3P
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S3P
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../s3p/tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../t3p/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    T3P
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4" id="__nav_4_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    T3P
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../t3p/tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Track3P
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Track3P
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-1-pillbox-cavity-multipacting-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tutorial 1: pillbox cavity multipacting scan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tutorial 1: pillbox cavity multipacting scan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-fields-from-omega3p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Fields from Omega3P
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-multipacting-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Multipacting scan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-read-the-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Read the results
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-multipacting-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The multipacting map
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-trajectories-at-one-field-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Trajectories at one field level
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-acdtool-post-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: acdtool post-processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-2-rf-window-with-dielectric-emission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tutorial 2: RF window with dielectric emission
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tutorial 2: RF window with dielectric emission">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fields-from-s3p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fields from S3P
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#three-emission-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three emission configurations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-3-external-magnetic-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tutorial 3: external magnetic field
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tutorial 3: external magnetic field">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#three-runs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three runs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compare-the-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compare the maps
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-4-dark-current-in-a-tesla-cavity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tutorial 4: dark current in a Tesla cavity
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tutorial 4: dark current in a Tesla cavity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fowler-nordheim-emission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fowler-Nordheim emission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#primary-emission-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Primary emission only
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-secondary-emission-and-faraday-cups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With secondary emission and Faraday cups
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scaling-up-a-cryomodule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scaling up: a cryomodule
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-5-dark-current-in-a-traveling-wave-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tutorial 5: dark current in a traveling-wave structure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tutorial 5: dark current in a traveling-wave structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fields-from-s3p_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fields from S3P
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#track3p-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Track3P input
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-6-combining-a-static-field-from-gun3p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tutorial 6: combining a static field from Gun3P
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tutorial 6: combining a static field from Gun3P">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#three-solvers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three solvers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../pic3p/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pic3P
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Pic3P
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pic3p/tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial: LCLS RF gun
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../tem3p/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TEM3P
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    TEM3P
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tem3p/tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../gun3p/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gun3P
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gun3P
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gun3p/tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial: sheet beam klystron gun
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../reference/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/omega3p/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omega3P keywords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/s3p/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S3P keywords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/tfe3p/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    T3P and Pic3P keywords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/multipacting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Track3P keywords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/tem3p/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TEM3P keywords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/gun3p/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gun3P keywords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    acdtool keywords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/omega3p-postprocess/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    acdtool rf post-processor keywords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/emfem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared EM keywords (emfem)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/solver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eigensolver keywords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/excitation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Excitation pulse keywords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/waveguide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Waveguide port keywords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/slacsupport/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bunch shape keywords (slacsupport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_15" id="__nav_5_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command syntax
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Command syntax
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/commands/omega3p/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omega3P
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/commands/s3p/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S3P
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/commands/t3p/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    T3P
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/commands/pic3p/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pic3P
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/commands/track3p/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Track3P
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/commands/tem3p/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TEM3P
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/commands/gun3p/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gun3P
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/commands/acdtool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    acdtool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../interfaces/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interfaces
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Interfaces
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../interfaces/gui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ACE3P GUI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../interfaces/dashboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Web dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../interfaces/workflow-assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI workflow assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../corrections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Corrections to source material
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-1-pillbox-cavity-multipacting-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tutorial 1: pillbox cavity multipacting scan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tutorial 1: pillbox cavity multipacting scan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-fields-from-omega3p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Fields from Omega3P
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-multipacting-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Multipacting scan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-read-the-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Read the results
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-multipacting-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The multipacting map
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-trajectories-at-one-field-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Trajectories at one field level
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-acdtool-post-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: acdtool post-processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-2-rf-window-with-dielectric-emission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tutorial 2: RF window with dielectric emission
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tutorial 2: RF window with dielectric emission">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fields-from-s3p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fields from S3P
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#three-emission-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three emission configurations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-3-external-magnetic-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tutorial 3: external magnetic field
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tutorial 3: external magnetic field">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#three-runs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three runs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compare-the-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compare the maps
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-4-dark-current-in-a-tesla-cavity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tutorial 4: dark current in a Tesla cavity
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tutorial 4: dark current in a Tesla cavity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fowler-nordheim-emission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fowler-Nordheim emission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#primary-emission-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Primary emission only
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-secondary-emission-and-faraday-cups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With secondary emission and Faraday cups
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scaling-up-a-cryomodule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scaling up: a cryomodule
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-5-dark-current-in-a-traveling-wave-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tutorial 5: dark current in a traveling-wave structure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tutorial 5: dark current in a traveling-wave structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fields-from-s3p_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fields from S3P
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#track3p-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Track3P input
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-6-combining-a-static-field-from-gun3p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tutorial 6: combining a static field from Gun3P
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tutorial 6: combining a static field from Gun3P">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#three-solvers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three solvers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/slaclab/ace3p-docs/edit/main/docs/modules/track3p/tutorials.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="track3p-tutorials">Track3P tutorials<a class="headerlink" href="#track3p-tutorials" title="Permanent link">&para;</a></h1>
+<p>Six worked examples from <code>examples/track3p</code>. The first four are from the CW18 workshop; the last two were added for CW23 and exist only in the group copy of the examples at <code>/sdf/group/rfar/ace3p/cw23/examples/track3p</code>. Each requires a field solution first, so the Omega3P or S3P step is shown briefly and the Track3P step in full. Meshing and <code>acdtool meshconvert</code> are covered in the <a href="../../omega3p/tutorial-pillbox/">Omega3P pillbox tutorial</a>.</p>
+<h2 id="tutorial-1-pillbox-cavity-multipacting-scan">Tutorial 1: pillbox cavity multipacting scan<a class="headerlink" href="#tutorial-1-pillbox-cavity-multipacting-scan" title="Permanent link">&para;</a></h2>
+<p><strong>Example directory:</strong> <code>examples/track3p/Pillbox</code></p>
+<p>The same rounded pillbox as the Omega3P tutorials, here as a full 360 degree model rather than a quarter, scanned from 23 to 25 MV/m for multipacting.</p>
+<p><img alt="Pillbox mesh" src="../../../assets/track3p/pillbox-mesh.png" width="340" /></p>
+<h3 id="step-1-fields-from-omega3p">Step 1: Fields from Omega3P<a class="headerlink" href="#step-1-fields-from-omega3p" title="Permanent link">&para;</a></h3>
+<div class="highlight"><span class="filename">Pillbox.omega3p</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ModelInfo : {
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  File: ./Pillbox.ncdf
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  BoundaryCondition : {
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    Exterior: 1, 2, 6
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  }
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  SurfaceMaterial : {
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    ReferenceNumber: 6
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    Sigma: 5.8e7
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  }
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>}
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>FiniteElement: {
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>  Order:           2
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>  CurvedSurfaces: on
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>}
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>EigenSolver : {
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>  NumEigenvalues: 2
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>  FrequencyShift:  1.0e9
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>}
+</code></pre></div>
+<p>Sidesets 1 and 2 are the beam pipe ends and 6 is the wall. All three are <code>Exterior</code> here because this is a full model with no symmetry planes. Omega3P finds TM<sub>010</sub> at 1.31381 GHz and, because nothing suppresses dipoles in a full model, the first dipole mode at 1.74993 GHz as mode 2. Track3P loads mode 0 by default (<code>Domain.ModeID1</code>), so the dipole mode is computed but unused.</p>
+<div class="admonition note">
+<p class="admonition-title">Mode file is required</p>
+<p>Track3P reads the <code>.mod</code> field file, so the <code>PostProcess</code> block in the Omega3P input must be on, or omitted so that the default applies. If Omega3P was run with <code>PostProcess: { Toggle: off }</code>, rerun it.</p>
+</div>
+<h3 id="step-2-multipacting-scan">Step 2: Multipacting scan<a class="headerlink" href="#step-2-multipacting-scan" title="Permanent link">&para;</a></h3>
+<div class="highlight"><span class="filename">Pillbox.track3p</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>FieldScales: {
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  Type: FieldGradient
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  ScanToken: 1
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  Minimum: 23.0e+6
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  Maximum: 25.0e+6
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  Interval: 1.0e+6
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>}
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>NormalizedField: {
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>  StartPoint: 0.0 0.0 -0.057
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>  EndPoint:   0.0 0.0  0.057
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>}
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>Domain: {
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>  FieldDir: ./omega3p_results
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>}
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>Emitter: {
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>  BoundaryID: 6
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>  x0: 0.03   x1: 0.035
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>  y0: 0.04   y1: 0.1
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>  z0: -0.045 z1: 0.0
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>}
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>Material: { Type: Primary    BoundarySurfaceID: 6 }
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>Material: { Type: Secondary  BoundarySurfaceID: 6 }
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>Material: { Type: Absorber   BoundarySurfaceID: 1 2 }
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>OutputImpacts: on
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>Postprocess: {
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>  Toggle: on
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>  ResonantParticles: { Token: on }
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>  EnhancementCounter: {
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>    Token: on
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>    MinimumEC: 0.01
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>    SEYFileName1: copper.dat
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>    BoundarySurfaceID1: 6
+<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>  }
+<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>}
+</code></pre></div>
+<p>The emitter box restricts launch sites to a patch of the cavity wall near the equator, which keeps the run short. The normalization line spans the 90 mm cavity length, plus a little, so that the scan levels are accelerating gradients in the usual sense. The beam pipe ends absorb.</p>
+<p>Run it with 16 threads on one rank; the three levels finish in about two minutes:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">16</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>srun<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>-c<span class="w"> </span><span class="m">16</span><span class="w"> </span>track3p<span class="w"> </span>Pillbox.track3p
+</code></pre></div>
+<p>The end of <code>track3p.log</code> reports the scale factor applied to the normalized Omega3P field at each level:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>number of all emitting faces = 16
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>scale 1.144609569160e+06 Field 2.300000000000e+07
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>scale 1.194375202602e+06 Field 2.400000000000e+07
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>scale 1.244140836043e+06 Field 2.500000000000e+07
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>Done!
+</code></pre></div>
+<h3 id="step-3-read-the-results">Step 3: Read the results<a class="headerlink" href="#step-3-read-the-results" title="Permanent link">&para;</a></h3>
+<p><code>OUTPUT/resonantparticles</code> has one row per resonant impact:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a> Field_Level    ID    Resonant_X   Resonant_Y   Resonant_Z     Energy     Initial_X    Initial_Y    Initial_Z    Total_time    Total_Num
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a> 2.30000e+07  16100  4.73236e-02  8.80929e-02  7.68720e-05  1.47562e+01  3.16915e-02  5.95758e-02 -4.32326e-02  1.98753e+01     39
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a> 2.30000e+07  16100  4.71849e-02  8.81666e-02 -1.84656e-04  1.43454e+01  3.16915e-02  5.95758e-02 -4.32326e-02  1.98753e+01     39
+</code></pre></div>
+<p>Particle 16100 launched from (31.7, 59.6, -43.2) mm and is now bouncing across the equator at z near zero with about 15 eV per impact, having made 39 impacts in 19.9 RF cycles. That is a two-point, first-order trajectory. Hundreds of such rows per level make up the map.</p>
+<p><code>OUTPUT/enhancementCounter</code> weighs each resonant particle by the copper SEY:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>  fieldlevel         ID      enhancement      averageEnhancement     maxEnhancement        maxEnhancementImpactNum   totalImpactNum
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a> 2.30000e+07       2300      1.13300e+00          1.06442e+00          1.27139e+00                    1                    2
+</code></pre></div>
+<h3 id="the-multipacting-map">The multipacting map<a class="headerlink" href="#the-multipacting-map" title="Permanent link">&para;</a></h3>
+<p>Plot impact energy against field level, either with the <code>resonant</code> ParaView macro or with a short script. The scan covers only three levels so the "map" is three columns, but the structure is clear: distinct bands of impact energy at each level corresponding to different trajectory families.</p>
+<figure>
+<p><img alt="Impact energy vs field level, CW18 run" src="../../../assets/track3p/pillbox-impact-energy-cw18.png" width="420" />
+<img alt="Impact energy vs field level, S3DF 2026 run" src="../../../assets/track3p/s3df-multipacting-map.png" width="460" /></p>
+<figcaption>
+<p>Left: the 2016 Track3P build used for the CW18 workshop. Right: the same input rerun in July 2026 on S3DF with the current build, plotted with the workflow project's matplotlib script. Bars show resonant particle count per level.</p>
+</figcaption>
+</figure>
+<p>The two runs agree on the qualitative picture but not on the numbers, and that is worth dwelling on. The 2016 run found resonant impacts up to 84 eV; the 2026 run tops out at 42 eV. Resonant particle counts dropped from 642, 518, 642 to 522, 392, 528 across the three levels. Ten years of development separate the two binaries, and the trajectory integrator, impact detection, and resonance criteria have all changed. <strong>Treat numbers in old tutorial material as illustrations of the method, not as reference values</strong>, and when a result matters, establish your own baseline with the build you are using.</p>
+<figure>
+<p><img alt="Enhancement counter, CW18 run" src="../../../assets/track3p/pillbox-enhancement-cw18.png" width="440" />
+<img alt="Max enhancement counter per level, S3DF 2026 run" src="../../../assets/track3p/s3df-enhancement-counter.png" width="440" /></p>
+<figcaption>
+<p>Enhancement counter against field level. The 2016 run shows a spread of EC values per level reaching 1.4. The 2026 run, summarized as the maximum per level, stays below 1.0 everywhere.</p>
+</figcaption>
+</figure>
+<p>The consequence of the lower impact energies in the newer run is visible in the enhancement counter. Copper's SEY crosses 1.0 near 300 eV, so impacts at 15 to 40 eV have SEY of about 0.1 to 0.3 and the product over many impacts is small. The newer build predicts no sustained multipacting for copper in this range; the older build predicted a soft barrier. Resolving which is right requires comparison against measurement, which is why the ICHIRO benchmark on the module page matters.</p>
+<figure>
+<p><img alt="Resonant impact locations" src="../../../assets/track3p/pillbox-resonant-locations.png" width="300" />
+<img alt="Zoom on equator" src="../../../assets/track3p/pillbox-resonant-locations-zoom.png" width="300" /></p>
+<figcaption>
+<p>The <code>resonant</code> macro also marks impact sites on the model. They cluster on the equator, as expected for two-point multipacting in a pillbox.</p>
+</figcaption>
+</figure>
+<h3 id="step-4-trajectories-at-one-field-level">Step 4: Trajectories at one field level<a class="headerlink" href="#step-4-trajectories-at-one-field-level" title="Permanent link">&para;</a></h3>
+<p>To see what the particles are doing, rerun at a single level with trajectory output. <code>Pillbox2.3MV.track3p</code> differs from the scan input only in the <code>FieldScales</code> block:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>FieldScales: {
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  Type: FieldGradient
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  ScanToken: 0
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  Scale: 23.00e+6
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>  EmissionOutput: 1
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>}
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>TotalTime: 5
+</code></pre></div>
+<p>Give the run its own results directory so it does not overwrite the scan:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>srun<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>-c<span class="w"> </span><span class="m">16</span><span class="w"> </span>track3p<span class="w"> </span>Pillbox2.3MV.track3p<span class="w"> </span><span class="m">2</span>.3MV
+</code></pre></div>
+<p>This writes <code>2.3MV/PARTICLES/partpath_ts*.ncdf</code>, one file per time step. In ParaView, load mesh, mode file, and the particle file series through the SLAC toolbar, then press Play.</p>
+<figure>
+<p><img alt="Two resonant trajectories" src="../../../assets/track3p/pillbox-two-trajectories.png" width="560" />
+<img alt="Closeup of resonant orbits" src="../../../assets/track3p/pillbox-trajectories-closeup.png" width="560" /></p>
+<figcaption>
+<p>Two particles tracked from the wall to the equator, where they settle into tight two-point orbits.</p>
+</figcaption>
+</figure>
+<h3 id="step-5-acdtool-post-processing">Step 5: acdtool post-processing<a class="headerlink" href="#step-5-acdtool-post-processing" title="Permanent link">&para;</a></h3>
+<p><code>acdtool postprocess track3p</code> recomputes the enhancement counter from the impact data with a different SEY file, so one tracking run can be evaluated for several surfaces, and extracts individual trajectories as text:</p>
+<div class="highlight"><span class="filename">Pillbox.acdtool</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>EnhancementCounter: {
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>   Token               : on
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>   SEYFileName1        : copper.dat
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>   SEYFileName2        : copper.dat
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>   BoundarySurfaceID1  : 6
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>   BoundarySurfaceID2  : 6
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>   SolidVolID          : 0
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>   MinimumEC           : 0.01
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>   OutputFile          : en
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>}
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>Trajectory: {
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>   Token               : on
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>   ParticleID          : 16100 15400
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>}
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>srun<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>acdtool<span class="w"> </span>postprocess<span class="w"> </span>track3p<span class="w"> </span>Pillbox.acdtool<span class="w"> </span><span class="m">2</span>.3MV
+</code></pre></div>
+<p>The enhancement counter goes to <code>2.3MV/en</code>. Each trajectory goes to a file named by particle ID in the working directory, as rows of step number and position, ready for any plotting tool or for the <code>trajectory</code> ParaView macro.</p>
+<h2 id="tutorial-2-rf-window-with-dielectric-emission">Tutorial 2: RF window with dielectric emission<a class="headerlink" href="#tutorial-2-rf-window-with-dielectric-emission" title="Permanent link">&para;</a></h2>
+<p><strong>Example directory:</strong> <code>examples/track3p/Window</code></p>
+<p>The alumina window from the <a href="../../s3p/tutorials/#tutorial-3-rf-window">S3P tutorials</a>, now checked for multipacting. Windows are a classic multipacting site because electrons can be emitted from the ceramic surface as well as the metal, and because the traveling-wave field pattern differs from a standing wave.</p>
+<p><img alt="Window mesh and field" src="../../../assets/track3p/window-mesh-field.png" width="520" /></p>
+<h3 id="fields-from-s3p">Fields from S3P<a class="headerlink" href="#fields-from-s3p" title="Permanent link">&para;</a></h3>
+<p>S3P is run at the single operating frequency, 2.856 GHz, with the same input as the S3P window tutorial except <code>Start</code> equals <code>End</code>. The result is <code>s3p_results/s3p.port7.mode0.f2.856000000E+09.mod</code>, the field for excitation from port 7.</p>
+<h3 id="three-emission-configurations">Three emission configurations<a class="headerlink" href="#three-emission-configurations" title="Permanent link">&para;</a></h3>
+<p>The example has three input files that differ only in the <code>Emitter</code> blocks. The one that emits from both regions:</p>
+<div class="highlight"><span class="filename">Window-Solid+VacuumEmission.track3p</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>TotalTime: 2
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>FieldScales: {
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>  Type: InputPortPower       // S3P field: scale by input power
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>  ScanToken: 0
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>  Scale: 8.0e+06             // 8 MW
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>}
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>Emitter: {                   // from the ceramic surface
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>  Type: 5
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>  x0: 0.0  x1: 0.045
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>  y0: 0.0  y1: 0.045
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>  z0: -0.002  z1: 0.0
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>  BoundaryID: 6
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>}
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>Emitter: {                   // from the metal wall
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>  Type: 2
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>  x0: 0.001  x1: 0.045
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>  y0: 0.001  y1: 0.045
+<a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>  z0: 0.0    z1: 0.06
+<a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>  BoundaryID: 6
+<a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>}
+<a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>
+<a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a>Material: { Type: Primary    BoundarySurfaceID: 6 }
+<a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>Material: { Type: Primary    SolidBlockID: 2 }
+<a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>Material: { Type: Absorber   BoundarySurfaceID: 1 2 7 8 }
+<a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a>Material: { Type: Secondary  BoundarySurfaceID: 6 }
+<a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a>Material: { Type: Secondary  SolidBlockID: 2 }
+<a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a>
+<a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a>Domain: {
+<a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a>  Bins: 128
+<a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a>  SolidRegion: 2             // ceramic block
+<a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a>  VacuumRegion: 1
+<a id="__codelineno-10-35" name="__codelineno-10-35" href="#__codelineno-10-35"></a>  FieldDir: ./s3p_results
+<a id="__codelineno-10-36" name="__codelineno-10-36" href="#__codelineno-10-36"></a>}
+<a id="__codelineno-10-37" name="__codelineno-10-37" href="#__codelineno-10-37"></a>
+<a id="__codelineno-10-38" name="__codelineno-10-38" href="#__codelineno-10-38"></a>OutputImpacts: off
+</code></pre></div>
+<p>Three things are new here:</p>
+<ul>
+<li><strong><code>InputPortPower</code> scaling.</strong> With an S3P field, "field level" is naturally the drive power. <code>Scale: 8.0e+06</code> is 8 MW incident at port 7.</li>
+<li><strong>Emitter <code>Type: 5</code></strong> for the dielectric surface. The emitter box <code>z0: -0.002, z1: 0.0</code> selects the ceramic face. <code>Domain</code> must declare which block is <code>SolidRegion</code> and which is <code>VacuumRegion</code> so Track3P knows which side of the surface is inside the dielectric.</li>
+<li><strong><code>Material</code> blocks keyed by <code>SolidBlockID</code></strong> rather than by boundary surface, assigning primary and secondary emission to the ceramic volume's surfaces.</li>
+</ul>
+<p>Run each configuration into its own directory:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>srun<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>-c<span class="w"> </span><span class="m">16</span><span class="w"> </span>track3p<span class="w"> </span>Window-SolidEmission.track3p<span class="w"> </span>track3p_solid
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>srun<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>-c<span class="w"> </span><span class="m">16</span><span class="w"> </span>track3p<span class="w"> </span>Window-VacuumEmission.track3p<span class="w"> </span>track3p_vacuum
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>srun<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>-c<span class="w"> </span><span class="m">16</span><span class="w"> </span>track3p<span class="w"> </span>Window-Solid+VacuumEmission.track3p<span class="w"> </span>track3p_solid_vacuum
+</code></pre></div>
+<p>With <code>ScanToken: 0</code>, each run writes <code>PARTICLES/partpath_ts*.ncdf</code> for animation. The example directories include the resulting movies.</p>
+<figure>
+<p><img alt="Particles from solid and vacuum emission" src="../../../assets/track3p/window-solid-vacuum-emission.png" width="640" /></p>
+<figcaption>
+<p>Particles emitted from the ceramic face (dense column at center) and from the metal walls (scattered points), in the traveling-wave field at 8 MW.</p>
+</figcaption>
+</figure>
+<h2 id="tutorial-3-external-magnetic-field">Tutorial 3: external magnetic field<a class="headerlink" href="#tutorial-3-external-magnetic-field" title="Permanent link">&para;</a></h2>
+<p><strong>Example directory:</strong> <code>examples/track3p/Muon201MHz</code></p>
+<p>A 201 MHz cavity for muon ionization cooling operates inside a solenoid. The magnetic field bends electron trajectories and changes which ones are resonant, so multipacting must be evaluated with the external field present. Track3P accepts either a uniform field or a tabulated map.</p>
+<p>The Omega3P input for this cavity has two features not seen earlier: two surface materials with different conductivity, since the end walls (sidesets 3 and 4) are beryllium windows rather than copper, and waveguide boundaries on the coupler ports (7 and 8).</p>
+<h3 id="three-runs">Three runs<a class="headerlink" href="#three-runs" title="Permanent link">&para;</a></h3>
+<p>The three input files share everything except the <code>Domain</code> block:</p>
+<div class="highlight"><span class="filename">Muon.track3p (shared part)</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>TotalTime: 50
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>FieldScales: {
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>  Type: FieldGradient
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>  ScanToken: 1
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>  Minimum:  1.0e6
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>  Maximum:  16.0e6
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>  Interval: 1.0e6
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>}
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>NormalizedField: {
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>  StartPoint: 0.0 0.0 -0.18032
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>  EndPoint:   0.0 0.0  0.23657
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>  Beta: 1.0
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>}
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>Emitter: {
+<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>  x0: 0.4   x1: 0.65
+<a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a>  y0: 0.0   y1: 1.136
+<a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a>  z0: -0.25 z1: 0.25
+<a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a>  BoundaryID: 6
+<a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a>}
+<a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a>
+<a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a>Material: { Type: Primary    BoundarySurfaceID: 6 }
+<a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a>Material: { Type: Secondary  BoundarySurfaceID: 3 4 6 }
+<a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a>Material: { Type: Absorber   BoundarySurfaceID: 7 8 }
+<a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a>
+<a id="__codelineno-12-28" name="__codelineno-12-28" href="#__codelineno-12-28"></a>OutputImpacts: on
+<a id="__codelineno-12-29" name="__codelineno-12-29" href="#__codelineno-12-29"></a>
+<a id="__codelineno-12-30" name="__codelineno-12-30" href="#__codelineno-12-30"></a>Postprocess: {
+<a id="__codelineno-12-31" name="__codelineno-12-31" href="#__codelineno-12-31"></a>  Toggle: on
+<a id="__codelineno-12-32" name="__codelineno-12-32" href="#__codelineno-12-32"></a>  ResonantParticles: {
+<a id="__codelineno-12-33" name="__codelineno-12-33" href="#__codelineno-12-33"></a>    InitialImpacts: 2
+<a id="__codelineno-12-34" name="__codelineno-12-34" href="#__codelineno-12-34"></a>    EnergyRange: 50 3000
+<a id="__codelineno-12-35" name="__codelineno-12-35" href="#__codelineno-12-35"></a>    Token: on
+<a id="__codelineno-12-36" name="__codelineno-12-36" href="#__codelineno-12-36"></a>  }
+<a id="__codelineno-12-37" name="__codelineno-12-37" href="#__codelineno-12-37"></a>}
+</code></pre></div>
+<p>A 16-level scan over 50 RF cycles each is a substantial run; use several MPI ranks. The <code>Domain</code> block for each case:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">No external field</label><label for="__tabbed_1_2">Uniform 3 T solenoid</label><label for="__tabbed_1_3">Field map from a solenoid model</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Domain: {
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>  Bins: 256
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>  LowEnergy: 50
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>  HighEnergy: 3000
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>  FieldDir: ./omega3p_results
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>}
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Domain: {
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>  Bins: 256
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>  LowEnergy: 50
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>  HighEnergy: 3000
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>  FieldDir: ./omega3p_results
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>  ExternalMagneticField: 0.0 0.0 3.0      // tesla
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>}
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Domain: {
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>  Bins: 256
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>  LowEnergy: 50
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>  HighEnergy: 3000
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>  FieldDir: ./omega3p_results
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>  MagneticFieldMap: {
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>    File: BField
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>    // Scaling: 0.0001     // if the file is in gauss
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>    // Units: 0.001        // if coordinates are in mm
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>    ZOffset: 0.27          // shift the map's z origin
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>  }
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>}
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>The <code>LowEnergy</code> and <code>HighEnergy</code> cutoffs are raised to 50 eV and 3 keV here, and <code>EnergyRange</code> in <code>ResonantParticles</code> matches them. Low-energy impacts below the SEY crossover are not interesting for this cavity and dropping them early saves time.</p>
+<h3 id="compare-the-maps">Compare the maps<a class="headerlink" href="#compare-the-maps" title="Permanent link">&para;</a></h3>
+<figure>
+<p><img alt="No external field" src="../../../assets/track3p/muon-impact-energy-noB.png" width="330" />
+<img alt="3 T uniform field" src="../../../assets/track3p/muon-impact-energy-3T.png" width="330" /></p>
+<figcaption>
+<p>Impact energy versus gradient without external field (left) and in a uniform 3 T solenoid field (right). Note the very different energy scales.</p>
+</figcaption>
+</figure>
+<p>Without the magnetic field, resonant particles appear only at 1 and 2 MV/m with impact energies up to about 470 eV. With 3 T, they appear across the whole scan up to 12 MV/m, with impact energies of 1 to 2 keV, well into the range where copper's SEY exceeds one. The solenoid field confines electrons to tight helices along field lines, which makes resonance far easier to satisfy. This is the known multipacting problem of cooling-channel cavities, and the example reproduces it.</p>
+<figure>
+<p><img alt="Resonant impact locations without field" src="../../../assets/track3p/muon-resonant-locations.png" width="340" /></p>
+<figcaption>
+<p>Resonant impact sites on the cavity, no external field. Sites cluster around the beryllium window and the coupler iris.</p>
+</figcaption>
+</figure>
+<p>The example directory contains the corresponding plots for all three cases as <code>RF-N</code>, <code>RF-3T</code>, <code>RF-M</code> (impact energy) and <code>RL-N</code>, <code>RL-3T</code>, <code>RL-M</code> (locations).</p>
+<h2 id="tutorial-4-dark-current-in-a-tesla-cavity">Tutorial 4: dark current in a Tesla cavity<a class="headerlink" href="#tutorial-4-dark-current-in-a-tesla-cavity" title="Permanent link">&para;</a></h2>
+<p><strong>Example directory:</strong> <code>examples/track3p/Tesla</code></p>
+<p>Dark current is field-emitted electrons from high-field regions of the wall, accelerated through the cavity and lost downstream or on the walls. Track3P models the emission with the Fowler-Nordheim law and, optionally, secondary emission at impacts.</p>
+<h3 id="fowler-nordheim-emission">Fowler-Nordheim emission<a class="headerlink" href="#fowler-nordheim-emission" title="Permanent link">&para;</a></h3>
+<p>The current density from a metal surface with work function <span class="arithmatex">\(\phi\)</span> in eV under a field <span class="arithmatex">\(E\)</span> enhanced by a geometric factor <span class="arithmatex">\(\beta\)</span> is</p>
+<div class="arithmatex">\[
+J = 1.54\times10^{-6}\,\frac{(\beta E)^2}{\phi}\,10^{4.52/\sqrt{\phi}}\,
+    \exp\!\left(-\frac{6.53\times10^{9}\,\phi^{1.5}}{\beta E}\right)
+\]</div>
+<p>Track3P converts <span class="arithmatex">\(J\)</span> into a number of electrons per emitting face per time step. Typical <span class="arithmatex">\(\beta\)</span> for a real cavity surface is 50 to 200; the example uses 120 with the copper work function.</p>
+<h3 id="primary-emission-only">Primary emission only<a class="headerlink" href="#primary-emission-only" title="Permanent link">&para;</a></h3>
+<div class="highlight"><span class="filename">Tesla-PEmission.track3p</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>ParticlesTrajectories: {
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>  Skip: 2                    // save every other step
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>}
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>TotalTime: 6
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>FieldScales: {
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>  Type: FieldGradient
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>  ScanToken: 0
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>  Scale: 16.00e+6            // 16 MV/m
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>}
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>NormalizedField: {
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>  StartPoint: 0.0 0.0 0.0
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>  EndPoint:   0.0 0.0 1.036200   // full 9-cell length
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>}
+<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>
+<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>Domain: {
+<a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a>  FieldDir: ./omega3p_results
+<a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a>  Bins: 640                  // long structure: finer binning
+<a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a>  MaxImpacts: 2              // drop particles after two impacts
+<a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a>}
+<a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a>
+<a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a>Emitter: {
+<a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a>  Type: 7                    // FieldEmission
+<a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a>  BoundaryID: 6
+<a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a>  t0: 0
+<a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a>  t1: 1
+<a id="__codelineno-16-28" name="__codelineno-16-28" href="#__codelineno-16-28"></a>  x0: 0.0   x1: 0.104
+<a id="__codelineno-16-29" name="__codelineno-16-29" href="#__codelineno-16-29"></a>  y0: 0.0   y1: 0.104
+<a id="__codelineno-16-30" name="__codelineno-16-30" href="#__codelineno-16-30"></a>  z0: 0.0   z1: 0.114        // first cell only
+<a id="__codelineno-16-31" name="__codelineno-16-31" href="#__codelineno-16-31"></a>  N: 1000
+<a id="__codelineno-16-32" name="__codelineno-16-32" href="#__codelineno-16-32"></a>  WorkFunction: 4.2
+<a id="__codelineno-16-33" name="__codelineno-16-33" href="#__codelineno-16-33"></a>  Beta: 120
+<a id="__codelineno-16-34" name="__codelineno-16-34" href="#__codelineno-16-34"></a>}
+<a id="__codelineno-16-35" name="__codelineno-16-35" href="#__codelineno-16-35"></a>
+<a id="__codelineno-16-36" name="__codelineno-16-36" href="#__codelineno-16-36"></a>Material: { Type: Primary    BoundarySurfaceID: 6 }
+<a id="__codelineno-16-37" name="__codelineno-16-37" href="#__codelineno-16-37"></a>Material: { Type: Secondary  BoundarySurfaceID: 6 }
+<a id="__codelineno-16-38" name="__codelineno-16-38" href="#__codelineno-16-38"></a>Material: { Type: Absorber   BoundarySurfaceID: 1 2 }
+<a id="__codelineno-16-39" name="__codelineno-16-39" href="#__codelineno-16-39"></a>
+<a id="__codelineno-16-40" name="__codelineno-16-40" href="#__codelineno-16-40"></a>OutputImpacts: on
+</code></pre></div>
+<p><code>Bins: 640</code> matters here. The default of 64 is tuned for a compact cavity; a one-meter structure with fine irises needs many more bins for particle localization to be efficient. <code>MaxImpacts: 2</code> keeps the run to primaries and their first bounce, since secondaries are switched off by the absence of a <code>Model: 2</code> secondary material.</p>
+<p>Run with the results directory named explicitly:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>srun<span class="w"> </span>-n<span class="w"> </span><span class="m">16</span><span class="w"> </span>track3p<span class="w"> </span>Tesla-PEmission.track3p<span class="w"> </span>track3p_PEmission
+</code></pre></div>
+<h3 id="with-secondary-emission-and-faraday-cups">With secondary emission and Faraday cups<a class="headerlink" href="#with-secondary-emission-and-faraday-cups" title="Permanent link">&para;</a></h3>
+<p><code>Tesla-SEmission.track3p</code> adds a dark-current secondary model and surface monitors:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Material: {
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>  Type: Secondary
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>  BoundarySurfaceID: 6
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>  Model: 2                   // dark-current secondary emission
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>  // inline SEY table for niobium
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>  Sigma0: 0.0 0.972 1.13 1.222 1.439 1.478 1.486 1.442 1.378 1.314 1.258 1.214 1.167 1.125 1.092 1.061 1.033 1.011 0.986 0.967 0.944 0.931 0.5
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>  Einit:  0.0 50 75 100 200 300 400 500 600 700 800 900 1000 1100 1200 1300 1400 1500 1600 1700 1800 1900 1e12
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>  MinimumNumElectrons: 1000
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>  ElasticThreshold: 1000
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>}
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>Postprocess: {
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>  Toggle: on
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>  ResonantParticles: { Token: off }
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>  FaradayCup: {
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>    Token: on
+<a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>    BoundaryID: 6 1 2
+<a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a>  }
+<a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a>}
+</code></pre></div>
+<p><code>Model: 2</code> enables the dark-current secondary model: true secondaries following a Lye-Dekker yield curve given inline by <code>Sigma0</code> against <code>Einit</code>, plus elastic reflection when a macroparticle carries more than <code>ElasticThreshold</code> electrons. <code>MinimumNumElectrons</code> prunes macroparticles that have shrunk below that count.</p>
+<p>The <code>FaradayCup</code> post-processor writes every impact on each listed surface to <code>OUTPUT/faradaycup_&lt;id&gt;</code>, in the same column format as <code>ImpactsInfo</code>. Surfaces 1 and 2 are the beam pipe ends, so <code>faradaycup_1</code> and <code>faradaycup_2</code> are the dark current leaving the cavity upstream and downstream, which is what a real Faraday cup would measure. These files are the input to X-ray and radiation estimates.</p>
+<figure>
+<p><img alt="Dark current trajectories with secondary emission" src="../../../assets/track3p/tesla-dark-current-secondary.png" width="700" /></p>
+<figcaption>
+<p>Particles emitted from the first cell at 16 MV/m, tracked through the 9-cell Tesla cavity with secondary emission on. The white cluster at left is the emission site; particles that reach the far end are captured in the Faraday cup output.</p>
+</figcaption>
+</figure>
+<h3 id="scaling-up-a-cryomodule">Scaling up: a cryomodule<a class="headerlink" href="#scaling-up-a-cryomodule" title="Permanent link">&para;</a></h3>
+<p>The same input pattern extends to an entire LCLS-II cryomodule of eight 9-cell cavities, 10.96 m long, with 1.5 million particles emitted on the first RF cycle and tracked for 50 cycles. The mesh is refined at the irises, and a convergence check between 303 thousand and 1.45 million elements confirms the dark current loss map.</p>
+<figure>
+<p><img alt="Cryomodule field" src="../../../assets/track3p/cryomodule-field.png" width="700" />
+<img alt="Cryomodule particles" src="../../../assets/track3p/cryomodule-particles.png" width="700" /></p>
+<figcaption>
+<p>Pi-mode field at 1.2999669 GHz across one cavity of the cryomodule, and a snapshot of dark current particles tracked through it.</p>
+</figcaption>
+</figure>
+<p>A run of this size is where the Track3P parallel model pays off: with no inter-rank communication it scales linearly in particles, and the 7-minute figure quoted on the module page is for this class of problem.</p>
+<h2 id="tutorial-5-dark-current-in-a-traveling-wave-structure">Tutorial 5: dark current in a traveling-wave structure<a class="headerlink" href="#tutorial-5-dark-current-in-a-traveling-wave-structure" title="Permanent link">&para;</a></h2>
+<p><strong>Example directory:</strong> <code>examples/track3p/TW7Cell</code> (CW23 group copy)</p>
+<p>A 7-cell S-band traveling-wave structure with input and output couplers. Unlike the standing-wave Tesla cavity, the field here comes from an S3P run at the operating frequency, and the structure is a half model, which introduces the symmetry-plane material.</p>
+<p><img alt="Field in the 7-cell structure" src="../../../assets/track3p/tw7cell-field.png" width="620" /></p>
+<h3 id="fields-from-s3p_1">Fields from S3P<a class="headerlink" href="#fields-from-s3p_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><span class="filename">TW7Cell.s3p</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>ModelInfo : {
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>  File: TW7Cell.ncdf
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>  BoundaryCondition : {
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>    Waveguide: 1 2         // input and output couplers
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>    Exterior: 6
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>    Magnetic: 3 4 5        // 5 is the symmetry plane
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>  }
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>}
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>FiniteElement: { Order: 2  CurvedSurfaces: on }
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>FrequencyScan: { Start: 2.8566e+9  End: 2.8566e+9  Interval: 0.0001e+9 }
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>PostProcess: { Toggle: on  PortNumber: 1 }
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>Port: { ReferenceNumber: 1  NumberOfModes: 1 }
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>Port: { ReferenceNumber: 2  NumberOfModes: 1 }
+</code></pre></div>
+<p>A single frequency, 2.8566 GHz, with the field saved for excitation from port 1. The stored S3P result shows the structure is well matched: |S<sub>11</sub>| is 0.0045 and |S<sub>21</sub>| is 0.99999, so essentially all power travels through.</p>
+<h3 id="track3p-input">Track3P input<a class="headerlink" href="#track3p-input" title="Permanent link">&para;</a></h3>
+<div class="highlight"><span class="filename">TW7Cell-PEmission.track3p</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>ParticlesTrajectories: { Skip: 10 }
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>TotalTime: 5
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>FieldScales: {
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>  Type: FieldGradient
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>  ScanToken: 0
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>  Scale: 21.6e+6
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>}
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>NormalizedField: {
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>  StartPoint: 0.0 0.0 -0.087275
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>  EndPoint:   0.0 0.0  0.087675
+<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>}
+<a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>
+<a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>Domain: {
+<a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>  FieldDir: ./s3p_results
+<a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a>  Bins: 128
+<a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a>  MaxImpacts: 2
+<a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a>  SymmetryFactor: 2            // half model
+<a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a>  SymmetryPlane: 5             // its sideset
+<a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a>}
+<a id="__codelineno-20-21" name="__codelineno-20-21" href="#__codelineno-20-21"></a>
+<a id="__codelineno-20-22" name="__codelineno-20-22" href="#__codelineno-20-22"></a>Emitter: {
+<a id="__codelineno-20-23" name="__codelineno-20-23" href="#__codelineno-20-23"></a>  Type: 7                      // Fowler-Nordheim
+<a id="__codelineno-20-24" name="__codelineno-20-24" href="#__codelineno-20-24"></a>  BoundaryID: 6
+<a id="__codelineno-20-25" name="__codelineno-20-25" href="#__codelineno-20-25"></a>  t0: 0  t1: 1
+<a id="__codelineno-20-26" name="__codelineno-20-26" href="#__codelineno-20-26"></a>  x0: 0.0   x1: 0.04
+<a id="__codelineno-20-27" name="__codelineno-20-27" href="#__codelineno-20-27"></a>  y0: -0.017  y1: 0.017
+<a id="__codelineno-20-28" name="__codelineno-20-28" href="#__codelineno-20-28"></a>  z0: -0.02   z1: -0.01        // one iris region
+<a id="__codelineno-20-29" name="__codelineno-20-29" href="#__codelineno-20-29"></a>  N: 100
+<a id="__codelineno-20-30" name="__codelineno-20-30" href="#__codelineno-20-30"></a>  WorkFunction: 4.2
+<a id="__codelineno-20-31" name="__codelineno-20-31" href="#__codelineno-20-31"></a>  Beta: 50
+<a id="__codelineno-20-32" name="__codelineno-20-32" href="#__codelineno-20-32"></a>}
+<a id="__codelineno-20-33" name="__codelineno-20-33" href="#__codelineno-20-33"></a>
+<a id="__codelineno-20-34" name="__codelineno-20-34" href="#__codelineno-20-34"></a>Material: { Type: Primary        BoundarySurfaceID: 6 }
+<a id="__codelineno-20-35" name="__codelineno-20-35" href="#__codelineno-20-35"></a>Material: { Type: Secondary      BoundarySurfaceID: 6 }
+<a id="__codelineno-20-36" name="__codelineno-20-36" href="#__codelineno-20-36"></a>Material: { Type: SymmetryPlane  BoundarySurfaceID: 5 }
+<a id="__codelineno-20-37" name="__codelineno-20-37" href="#__codelineno-20-37"></a>Material: { Type: Absorber       BoundarySurfaceID: 1 2 3 4 }
+<a id="__codelineno-20-38" name="__codelineno-20-38" href="#__codelineno-20-38"></a>
+<a id="__codelineno-20-39" name="__codelineno-20-39" href="#__codelineno-20-39"></a>OutputImpacts: on
+<a id="__codelineno-20-40" name="__codelineno-20-40" href="#__codelineno-20-40"></a>Postprocess: {
+<a id="__codelineno-20-41" name="__codelineno-20-41" href="#__codelineno-20-41"></a>  Toggle: on
+<a id="__codelineno-20-42" name="__codelineno-20-42" href="#__codelineno-20-42"></a>  FaradayCup: { Token: on  BoundaryID: 3 4 6 }
+<a id="__codelineno-20-43" name="__codelineno-20-43" href="#__codelineno-20-43"></a>}
+</code></pre></div>
+<p>Three things differ from the Tesla case:</p>
+<ul>
+<li><strong>Traveling-wave field.</strong> <code>FieldDir</code> points at <code>s3p_results</code>, and the gradient normalization line spans the whole structure. The field pattern is a traveling wave, so emitted electrons see a phase that depends on where they start along z.</li>
+<li><strong>Symmetry plane.</strong> Sideset 5 is given <code>Material: { Type: SymmetryPlane }</code> and <code>Domain</code> declares <code>SymmetryFactor: 2</code> and <code>SymmetryPlane: 5</code>. Particles reaching the plane reflect, and the Faraday cup totals are scaled to the full structure. With <code>Absorber</code> on this plane, half the real trajectories would be lost.</li>
+<li><strong>Enhancement factor 50</strong>, lower than the Tesla example's 120. Emission is restricted to one iris region by the emitter box.</li>
+</ul>
+<h3 id="results">Results<a class="headerlink" href="#results" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>srun<span class="w"> </span>-n<span class="w"> </span><span class="m">16</span><span class="w"> </span>track3p<span class="w"> </span>TW7Cell-PEmission.track3p<span class="w"> </span>track3p_PEmission
+</code></pre></div>
+<p>The Faraday cup files record where the dark current goes:</p>
+<table>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Primary emission only</th>
+<th>With copper secondaries</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3, upstream pipe end</td>
+<td>146 impacts</td>
+<td>22,944</td>
+</tr>
+<tr>
+<td>4, downstream pipe end</td>
+<td>9</td>
+<td>28,173</td>
+</tr>
+<tr>
+<td>6, structure wall</td>
+<td>35,450</td>
+<td>2,336,484</td>
+</tr>
+</tbody>
+</table>
+<p>With primaries alone, almost everything emitted from the iris lands back on the wall within the same cell or the next. Turning on the copper secondary-emission model (<code>Model: 2</code> with the copper <code>Sigma0</code> and <code>Einit</code> table, in <code>TW7Cell-SEmission.track3p</code>) multiplies the impacts on the wall by 66 and the current reaching the beam-pipe ends by over a hundred, because each wall impact spawns secondaries that are accelerated onward. The two runs bracket the real dark current; the surface condition decides where between them the structure sits.</p>
+<figure>
+<p><img alt="Dark current trajectories with secondaries" src="../../../assets/track3p/tw7cell-dark-current.png" width="620" /></p>
+<figcaption>
+<p>Particles with secondary emission on, concentrated in the second and third cells downstream of the emission site.</p>
+</figcaption>
+</figure>
+<p>The <code>SEmission</code> input also lowers <code>MinimumNumElectrons</code> and <code>ElasticThreshold</code> to 10, from 1000 in the Tesla example, so that macroparticles carrying fewer electrons survive; with <code>N: 10</code> electrons per emitted macroparticle the Tesla thresholds would prune everything immediately.</p>
+<h2 id="tutorial-6-combining-a-static-field-from-gun3p">Tutorial 6: combining a static field from Gun3P<a class="headerlink" href="#tutorial-6-combining-a-static-field-from-gun3p" title="Permanent link">&para;</a></h2>
+<p><strong>Example directory:</strong> <code>examples/track3p/Coax-StaticField</code> (CW23 group copy)</p>
+<p>A coaxial line with a dielectric section, carrying both an RF wave from S3P and a DC bias computed by Gun3P. Track3P can superimpose the two.</p>
+<figure>
+<p><img alt="Particles in the combined field" src="../../../assets/track3p/coax-static-field-particles.png" width="620" /></p>
+<figcaption>
+<p>Particles emitted from the coax walls and the dielectric surface, tracked in the RF plus static field. The dielectric section is at center.</p>
+</figcaption>
+</figure>
+<h3 id="three-solvers">Three solvers<a class="headerlink" href="#three-solvers" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>S3P</strong> on <code>Coax-s3p.ncdf</code> for the RF field at the drive frequency.</li>
+<li><strong>Gun3P</strong> on <code>Coax-gun3p.ncdf</code> as a pure electrostatic solver, with <code>MaxIterations: 0</code> so no particles are emitted, and <code>ElectrostaticFieldToken: On</code> in <code>Outputs</code> with a <code>FileName</code> and <code>Nx</code>, <code>Ny</code>, <code>Nz</code>. Then <code>gun3pOutputConverter Coax-gun3p.in e</code> writes the field on that Cartesian grid to <code>gun3p_results/OUTPUT/E/test-101.txt</code>.</li>
+<li><strong>Track3P</strong> reads both:</li>
+</ol>
+<div class="highlight"><span class="filename">Coax-track3p.in (excerpt)</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>FieldScales: {
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>  Type: InputPortPower
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>  ScanToken: 0
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>  Scale: 5                     // W
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>}
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>Domain: {
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>  FieldDir: ./s3p_results
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>  SolidRegion: 2
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>  VacuumRegion: 1
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>  ElectroStaticFieldMap: {
+<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>    File: ./gun3p_results/OUTPUT/E/test-101.txt
+<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>    Scaling: 1.0
+<a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a>  }
+<a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a>}
+<a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a>
+<a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a>Emitter: { Type: 2  BoundaryID: 5 6  ... }     // metal walls
+<a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a>Emitter: { Type: 5  BoundaryID: 5 6  ... }     // dielectric surface
+</code></pre></div>
+<p><code>ElectroStaticFieldMap.File</code> is the converter's text output and <code>Scaling</code> multiplies it, so one Gun3P solve at a reference voltage serves a scan of bias values. Note the key is spelled <code>ElectroStaticFieldMap</code> with a capital S inside, as the source reads it. The grid file is interpolated trilinearly onto particle positions and added to the RF field at every step.</p>
+<p>This is the pattern for any device with a DC bias on an RF structure: a biased window, a DC-suppressed multipacting coupler, or an electron gun with an RF buncher.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Track3P">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Track3P
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../pic3p/" class="md-footer__link md-footer__link--next" aria-label="Next: Pic3P">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Pic3P
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; SLAC National Accelerator Laboratory
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.action.edit", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
