@@ -33,7 +33,7 @@ EigenSolver : {
 }
 ```
 
-Sidesets 1 and 2 are the beam pipe ends and 6 is the wall. All three are `Exterior` here because this is a full model with no symmetry planes. Omega3P writes `omega3p_results/omega3p.l0.m0000.1.3138e+09.mod`, the TM~010~ mode that Track3P will load.
+Sidesets 1 and 2 are the beam pipe ends and 6 is the wall. All three are `Exterior` here because this is a full model with no symmetry planes. Omega3P finds TM~010~ at 1.31381 GHz and, because nothing suppresses dipoles in a full model, the first dipole mode at 1.74993 GHz as mode 2. Track3P loads mode 0 by default (`Domain.ModeID1`), so the dipole mode is computed but unused.
 
 !!! note "Mode file is required"
     Track3P reads the `.mod` field file, so the `PostProcess` block in the Omega3P input must be on, or omitted so that the default applies. If Omega3P was run with `PostProcess: { Toggle: off }`, rerun it.

@@ -77,7 +77,7 @@ Keep adding to this list. When a reader reports that a value in the docs does no
 | `MinimumEC` in scan input | Slide 24: `MinimumEC: 1` | `MinimumEC: 0.01` | `Pillbox.track3p` on disk |
 | `TotalTime` for scan | Not set, default 20 | Default 20 noted explicitly | `InputParameters` in stored results |
 | Trajectory run `TotalTime` | Slide 46: `TotalTime: 5` | Reproduced | `Pillbox2.3MV.track3p` on disk has `TotalTime` absent; the slide value is shown with the file's `EmissionOutput: 1`. Treat as the slide's intent. |
-| Omega3P mode 2 frequency | Slide 20: `1.7499342e+09` | Not quoted | Stored `omega3p_results` for this full pillbox gives 1.3138 GHz for mode 1; mode 2 frequency was not independently checked and the slide value is suspicious given the quarter-model result of 2.329 GHz |
+| Omega3P mode 2 frequency | Slide 20: `1.7499342e+09` | Confirmed correct: mode 1 at 1.31381 GHz (Q~0~ 28,877), mode 2 at 1.74993 GHz (Q~0~ 27,463) | Stored `omega3p_results/omega3p.out`. An earlier draft of this page wrongly called the slide value suspicious by comparing against the quarter model's 2.329 GHz. The full model has no symmetry planes, so the first dipole mode appears as mode 2; the quarter model with two magnetic planes excludes it. |
 | **Resonant particle counts** | Stored 2016 results: 642, 518, 642 at 23, 24, 25 MV/m | Both the 2016 stored result and a 2026 S3DF rerun are shown | Rerun July 2026 on S3DF with ACE3P commit `92b97112`, same input: 522, 392, 528 |
 | **Impact energy range** | Stored 2016 results: 11 to 84 eV | Both shown | 2026 rerun: 24 to 42 eV |
 | **Maximum enhancement counter** | Stored 2016 results: 1.40 | Both shown | 2026 rerun: 0.98. The 2016 build predicts a soft multipacting barrier for copper in this range; the 2026 build does not. The documentation presents this as an open discrepancy to be resolved against measurement, not as a settled value. |
@@ -104,6 +104,57 @@ Keep adding to this list. When a reader reports that a value in the docs does no
 | Hybrid MPI and OpenMP | The slides predate OpenMP support in Track3P. The source now has OpenMP pragmas in the particle loop, field interpolation, and material manager, and the S3DF build enables `-fopenmp`. The docs recommend one rank per socket with threads filling the cores. The 2026 rerun used 1 rank and 16 threads. |
 | Results directory for the rerun | The S3DF workflow run stored results in `track3p_results/` inside a Maestro workspace at `maestro/ace3p-multi-solver_20260728-133254/track3p-solve/` in the s3df-workflow repository checkout on S3DF |
 
+## T3P
+
+Source deck: `T3P-Tutorial.pptx` (CW23, March 2023). Stored results were produced with the March 2023 ACE3P build, so unlike Track3P there is no build-age gap between slides and results. The discrepancies are between the slides and the files, and between the slides' acdtool listings and the meshes actually stored.
+
+### Element counts
+
+The acdtool statistics shown on the slides were captured from meshes that differ from the `.ncdf` files now in the example directories. The documentation quotes the count from `t3p.log` of the stored run.
+
+| Example | Slide acdtool listing | Stored mesh and `t3p.log` |
+|---|---|---|
+| cavity-quarter | 8,537 | 7,552 |
+| cavity-half | 17,703 | 15,516 |
+| BPM | 68,326 | 68,720 |
+| taper | 9,795 | 8,536 |
+
+The stored `acdtool.log` in each directory agrees with `t3p.log`, so the slides were made from an earlier mesh. Loss and kick factors in the docs are from the stored `wakefield.out` and therefore correspond to the stored meshes.
+
+### Input files
+
+| Item | Slide said | Documentation now says | Source of correction |
+|---|---|---|---|
+| cavity-quarter/open finite element order | Not shown; implied same as closed case (order 2) | Order 1 | `pillboxwg-open.t3p` on disk. Noted in Tutorial 1 since it affects comparability of the 0.386 V/pC loss factor. |
+| cavity-half slide 24 `ModelInfo.File` | `./pillboxwg.ncdf` | `./pillboxwg2.ncdf` | File on disk. The slide copied the quarter-model file name. |
+| cavity-half `CheckPoint` block | Not shown on slide | Shown, `Action: none`, `Ntimesteps: 500` | File on disk |
+| BPM `LinearSolver` | Slide 41: `Solver: MUMPS // CG for large problems` | File has `Slover: CG`, a misspelled key | File on disk. The parser ignores the unknown key; `NML_ITLLinearSolver.C` then selects MUMPS when compiled in. The stored BPM run used MUMPS, not CG. Docs say so. |
+| BPM batch script | Slide 42: `srun -n 128 -c 2` | Reproduced | Matches disk |
+| SIBC `CheckPoint.Action` | Slide: not shown | `restart` | File on disk |
+| SIBC `LinearSolver` | Slide 65: `Solver: CG` | Reproduced | Matches disk |
+| `SymmetricFactor` vs `SymmetryFactor` | Both appear on slides without comment | Documented as two distinct keys: `SymmetryFactor` in `LoadingInfo` (beam), `SymmetricFactor` in `Loading.Port` (port excitation) | `BeamLoading.C` and `WaveguidePortBC.C` in source. `Application.C` also accepts `SymmetryFactor` placed in the wrong block "in case someone puts it into the wrong place". |
+| Alternate key spellings | Slides use `Number of sigmas`, `Nsigmas`, `StartContour`, `Start contour`, `CurvedSurfaces`, `Curved Surfaces` interchangeably | Documented as accepted alternates | `fillAutomaticMovingWindow.C` checks both `Nsigmas` and `Number of sigmas`; the contour and curved-surface spellings both appear in source reads |
+
+### Results and plots
+
+| Item | Slide said | Documentation now says | Source of correction |
+|---|---|---|---|
+| Multi-beam kick factor | Slide 32: "a factor of 2 higher" | 0.175 V/pC against 0.0964 V/pC single-beam, ratio 1.81 | `wakefield.out` in both directories. "Factor of 2" is the ideal; the stored numbers are quoted. |
+| Half-model kick factor | Slide 35: "the same as ... two beam excitations" | 0.1747 V/pC against 0.1746 V/pC | Both `wakefield.out` files. Agreement to 0.05%. |
+| Moving-window loss factor | Slide 60: "valid at distance governed by moving window size", no number | 0.0761 V/pC against 0.0762 V/pC full-order | Both `wakefield.out` headers |
+| SIBC transmitted power | Slide 67 shows the plot only | 46% of input energy to output port, 50% to coating loss, by trapezoidal integration of the three `Power` monitor files | Computed from `inputPower.out`, `outputPower.out`, `wallossPower.out` |
+| SIBC transit time | Not stated | 3.3 ns, consistent with c over 1 m | Peak times from the power files: input 0.88 ns, output 4.28 ns |
+| Wakefield slide 7 | "Applied to structures one can see only vacuum from upstream and downstream beampipe ends" | Reproduced as the applicability condition of the indirect integration method | Slide only |
+| Slide 20 directory name | "Directory: pillboxwg-half" | `cavity-half` | Directory on disk |
+| Slide 12 and others | Mix of `edison $` and `perlmutter-p1` prompts; `qsub` in several READMEs | System-neutral `srun` and `sbatch` | Edison was decommissioned in 2019; `qsub` is the PBS command, not Slurm |
+| `acdtool.log` overwrite warning | Slides 25 and 42 | Promoted to an admonition on the module page | Slide |
+
+### Not verified
+
+- Whether the BPM `ModeVoltage` monitor's `ESolver.Frequency: 1.e9` matters for a TEM mode with zero cutoff, or is a placeholder.
+- The physical meaning of negative `inputPower` values: documented as the Poynting flux referenced to the outward normal, inferred from the sign pattern, not confirmed in `MON_SurfacePoynting`.
+- Slide 5's dipole benchmark numbers (11.024 and 11.037 GHz); no example directory corresponds to it.
+
 ## Getting Started and Workflow pages
 
 | Item | Slide said | Documentation now says | Source of correction |
@@ -122,7 +173,11 @@ These were introduced during conversion and fixed on 2026-10-19 after a verifica
 2. **Omega3P Tutorial 1, convergence study.** Stated the mesh journals went from fine to coarse as `mesh0` to `mesh3`; the opposite is true.
 3. **Omega3P Tutorial 1, Q~0~.** Quoted as "about 28,900"; the stored value is 28,885.
 4. **Omega3P post-processing page, R/Q convention.** The note stating acdtool uses the circuit convention V²/(ωU) per cavity was inferred from the output header comment `RoverQ=V^2/(omega*U)` and not independently confirmed in source. It remains in the docs but is flagged here as unverified against code.
-5. **Module index.** S3P and Track3P were listed as outline stubs after their guides were written. Fixed when each guide landed.
+5. **Module index.** S3P, Track3P, and T3P were listed as outline stubs after their guides were written. Fixed when each guide landed.
+6. **T3P tutorials, element counts.** The first draft quoted the slide acdtool counts (8,537; 17,703; 68,326; 9,795). Replaced with the stored-mesh counts from `t3p.log` on 2026-10-19 before publication.
+7. **T3P tutorials, BPM solver.** The first draft said the misspelled `Slover` key made T3P use "the default" without naming it. Traced in `NML_ITLLinearSolver.C`: the default is the best direct solver compiled in, MUMPS on these builds.
+8. **T3P tutorials, SIBC power.** The first draft said "roughly 40%" transmitted from eyeballing the plot. Replaced with 46% from integrating the monitor files.
+9. **This page, Track3P section.** The first draft flagged the slide's Omega3P mode 2 frequency of 1.75 GHz as suspicious. It is correct; the stored output confirms it, and the physics (a dipole mode visible only in the full model) explains it. The entry now says so.
 
 ## Still unverified
 

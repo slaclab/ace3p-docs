@@ -109,7 +109,9 @@ nav:
       - S3P:
           - modules/s3p/index.md
           - Tutorials: modules/s3p/tutorials.md
-      - T3P: modules/t3p.md
+      - T3P:
+          - modules/t3p/index.md
+          - Tutorials: modules/t3p/tutorials.md
       - Track3P:
           - modules/track3p/index.md
           - Tutorials: modules/track3p/tutorials.md
