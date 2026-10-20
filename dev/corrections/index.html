@@ -1422,9 +1422,34 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../modules/tem3p/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../modules/tem3p/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -1438,7 +1463,59 @@
   
   
 
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    TEM3P
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/tem3p/tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -2123,6 +2200,56 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#tem3p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TEM3P
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TEM3P">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input-files_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#not-verified_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Not verified
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#getting-started-and-workflow-pages" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2397,6 +2524,56 @@
         
           <li class="md-nav__item">
   <a href="#not-verified" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Not verified
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tem3p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TEM3P
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TEM3P">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input-files_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#not-verified_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         Not verified
@@ -3021,6 +3198,142 @@
 <li>The physical meaning of negative <code>inputPower</code> values: documented as the Poynting flux referenced to the outward normal, inferred from the sign pattern, not confirmed in <code>MON_SurfacePoynting</code>.</li>
 <li>Slide 5's dipole benchmark numbers (11.024 and 11.037 GHz); no example directory corresponds to it.</li>
 </ul>
+<h2 id="tem3p">TEM3P<a class="headerlink" href="#tem3p" title="Permanent link">&para;</a></h2>
+<p>Source deck: <code>TEM3P-Tutorial.pptx</code> (CW23). Stored results are from the March 2023 build, same as the slides.</p>
+<h3 id="input-files_1">Input files<a class="headerlink" href="#input-files_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Slide or file said</th>
+<th>Documentation now says</th>
+<th>Source of correction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AbsoluteTolerante</code> in <code>ElasticProblem.LinearSolver</code></td>
+<td>Both the slide and all three elastic inputs on disk spell it <code>AbsoluteTolerante</code></td>
+<td>Shown as <code>Tolerance</code> only, with a note</td>
+<td>The misspelled key is silently ignored. Only <code>Tolerance</code> is read in the solver source; <code>AbsoluteTolerance</code> does not appear in <code>tem3p/src</code> or <code>solver/src</code> either, so neither spelling has any effect.</td>
+</tr>
+<tr>
+<td><code>NeumanValue</code> in <code>SRFCell.tem3p</code></td>
+<td>File on disk has <code>NeumanValue: 0.</code> for sidesets 3 and 4</td>
+<td>Shown as <code>NeumannValue</code></td>
+<td>Source reads <code>NeumannValue</code>. Since the value is zero and zero is the default traction, the typo has no effect on the stored result.</td>
+</tr>
+<tr>
+<td><code>RunId: 3</code> in <code>ThermoElasticProblem</code></td>
+<td>Present in slide and file</td>
+<td>Documented as not read by the code</td>
+<td><code>grep RunId tem3p/src</code> finds nothing. The block's presence is what matters.</td>
+</tr>
+<tr>
+<td>Body mesh journal CAD file</td>
+<td>Slide 10: <code>import acis "RfGun-CouplerCell-2018.sat"</code></td>
+<td><code>RfGun-CouplerCell.sat</code></td>
+<td>Both journals on disk import the same file, which is the only <code>.sat</code> in the directory</td>
+</tr>
+<tr>
+<td>Vacuum mesh journal sizing line</td>
+<td>Slide 8 breaks <code>min_size 0.5 max_size</code> across lines with the value missing</td>
+<td><code>min_size 0.5 max_size 3</code></td>
+<td>File on disk</td>
+</tr>
+<tr>
+<td>S3P <code>SurfaceMaterial</code> for the coupler</td>
+<td>Slide 31 omits it</td>
+<td><code>SurfaceMaterial: { ReferenceNumber: 1  Sigma: 5.7e7 }</code> included</td>
+<td>File on disk; required for the <code>Impedance</code> boundary</td>
+</tr>
+<tr>
+<td><code>Method: Powerinput</code> spelling</td>
+<td>Slide and file use <code>Powerinput</code>, docs elsewhere use <code>PowerInput</code></td>
+<td>Both listed as accepted</td>
+<td><code>EMHeating.C</code> and <code>LFDetuning.C</code> accept <code>Powerinput</code>, <code>PowerInput</code>, <code>powerinput</code>, <code>POWERINPUT</code></td>
+</tr>
+<tr>
+<td>Slide 12 Robin formula</td>
+<td><code>Q = hA(Th - Tc)</code> with keys <code>RobinConstantFactor</code> and <code>RobinConstantValue</code> described only as "h" and "h.T"</td>
+<td>Documented as flux = h (T − T<sub>fluid</sub>) with <code>RobinConstantValue</code> = h·T<sub>fluid</sub>, so 440000/20000 = 22 °C water</td>
+<td><code>Tem3P_BdConstantRobin</code> constructor takes (factor, value); water temperature inferred from the ratio</td>
+</tr>
+<tr>
+<td>Transient input file</td>
+<td>Slide 25 titled "Input File for Thermal Transient Simulation" is empty; slide 26 shows the result</td>
+<td>Transient shown as a figure only, with a note that no input file exists in the example</td>
+<td>No file on disk contains <code>TimeStepping</code> or <code>MaximumTime</code> under <code>tem3p/</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="results">Results<a class="headerlink" href="#results" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Slide said</th>
+<th>Documentation now says</th>
+<th>Source of correction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RF gun element counts</td>
+<td>Not given</td>
+<td>Vacuum 83,124; body 229,035</td>
+<td><code>omega3p.out</code> and <code>tem3p.log</code></td>
+</tr>
+<tr>
+<td>RF gun frequency shift</td>
+<td>Slide 20 names the two mode files, 2.8533884 and 2.8534358 GHz, without stating the shift</td>
+<td>+47.4 kHz, computed from <code>omega3p.out</code> in both result directories</td>
+<td>2,853,435,826.2 − 2,853,388,398.9 Hz</td>
+</tr>
+<tr>
+<td>RF gun power balance</td>
+<td>Not discussed</td>
+<td>215.6 W in through RF wall, 213.1 W out through cooling; 1.2 percent imbalance noted as discretization leakage</td>
+<td><code>ResultFile</code></td>
+</tr>
+<tr>
+<td>SRF cell frequency shift</td>
+<td>Slide 52 names mode files 1.3009577 and 1.3009506 GHz</td>
+<td>−7.17 kHz and a coefficient of −5.85 Hz/(MV/m)² at 35 MV/m</td>
+<td><code>omega3p.out</code> in both directories. The mode file names on the slide are rounded; the docs use the full values from <code>omega3p.out</code>.</td>
+</tr>
+<tr>
+<td>SRF cell Omega3P Q<sub>0</sub></td>
+<td>Not shown</td>
+<td>Reported as infinite, since the wall is <code>Electric</code></td>
+<td><code>omega3p.out</code> prints <code>QualityFactor : inf</code></td>
+</tr>
+<tr>
+<td>Coupler shell sideset power</td>
+<td><code>ResultFile</code> shows <code>P (SideSet 6) = 0</code> and <code>P (SideSet 7) = 0</code> for the heated shell surfaces</td>
+<td>Noted with an explanation that shell heat does not appear in the boundary flux tally</td>
+<td><code>ResultFile</code>; the mechanism is inferred, not traced in source</td>
+</tr>
+<tr>
+<td><strong>Tesla eigenmode frequencies in <code>tem3p.log</code></strong></td>
+<td>Log prints <code>Frequency: 18833843948</code> for the 62.8 Hz mode</td>
+<td>Flagged as wrong: the log applies the electromagnetic conversion. <code>ResultFile</code> and the file names are correct.</td>
+<td><code>ElasticProblem.C</code> line 1392 multiplies <code>FrequencyShift</code> by <code>Support::C</code> "to be consistent with the EM solvers", and the same scaling leaks into the printed frequency. <span class="arithmatex">\(\sqrt{155810.34}/2\pi = 62.823\)</span> Hz matches <code>ResultFile</code>.</td>
+</tr>
+<tr>
+<td>Tesla element count</td>
+<td>Not given</td>
+<td>286,556 elements, 1,543,974 DOFs</td>
+<td><code>tem3p.log</code> and <code>acdtool.log</code> agree</td>
+</tr>
+</tbody>
+</table>
+<h3 id="not-verified_1">Not verified<a class="headerlink" href="#not-verified_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Which elastic displacement components a plain <code>Dirichlet</code> boundary fixes. The source reads a <code>DirichletType</code> key that no example uses; the docs assume all three components, which is what the examples' use of <code>Mixed</code> for partial constraints implies.</li>
+<li>The sign convention of the RF gun frequency shift (+47 kHz). The docs say it reflects the balance of thermal expansion, Lorentz pressure, and the constraints, but do not decompose it. Rerunning with <code>LFDetuning</code> removed would separate the two contributions.</li>
+<li>The statement that shell heat appears in the symmetry-plane power tally.</li>
+</ul>
 <h2 id="getting-started-and-workflow-pages">Getting Started and Workflow pages<a class="headerlink" href="#getting-started-and-workflow-pages" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -3075,6 +3388,7 @@
 <li><strong>T3P tutorials, element counts.</strong> The first draft quoted the slide acdtool counts (8,537; 17,703; 68,326; 9,795). Replaced with the stored-mesh counts from <code>t3p.log</code> on 2026-10-19 before publication.</li>
 <li><strong>T3P tutorials, BPM solver.</strong> The first draft said the misspelled <code>Slover</code> key made T3P use "the default" without naming it. Traced in <code>NML_ITLLinearSolver.C</code>: the default is the best direct solver compiled in, MUMPS on these builds.</li>
 <li><strong>T3P tutorials, SIBC power.</strong> The first draft said "roughly 40%" transmitted from eyeballing the plot. Replaced with 46% from integrating the monitor files.</li>
+<li><strong>TEM3P module page, LF pressure.</strong> First draft gave the pressure formula without its sign convention. Checked <code>LFDetuning.C</code>: pressure is <span class="arithmatex">\(\tfrac{1}{4}(\mu_0 H^2 - \varepsilon_0 E^2)\)</span> and the load vector is scaled by −1 times the outward normal, so a positive (magnetic-dominated) pressure pushes the wall outward from the vacuum, which is inward on the metal. Wording adjusted.</li>
 <li><strong>This page, Track3P section.</strong> The first draft flagged the slide's Omega3P mode 2 frequency of 1.75 GHz as suspicious. It is correct; the stored output confirms it, and the physics (a dipole mode visible only in the full model) explains it. The entry now says so.</li>
 </ol>
 <h2 id="still-unverified">Still unverified<a class="headerlink" href="#still-unverified" title="Permanent link">&para;</a></h2>
