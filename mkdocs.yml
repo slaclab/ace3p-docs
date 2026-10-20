@@ -128,8 +128,18 @@ nav:
   - Reference:
       - reference/index.md
       - Omega3P keywords: reference/omega3p.md
+      - S3P keywords: reference/s3p.md
+      - T3P and Pic3P keywords: reference/tfe3p.md
+      - Track3P keywords: reference/multipacting.md
+      - TEM3P keywords: reference/tem3p.md
+      - Gun3P keywords: reference/gun3p.md
+      - acdtool keywords: reference/tools.md
+      - acdtool rf post-processor keywords: reference/omega3p-postprocess.md
       - Shared EM keywords (emfem): reference/emfem.md
       - Eigensolver keywords: reference/solver.md
+      - Excitation pulse keywords: reference/excitation.md
+      - Waveguide port keywords: reference/waveguide.md
+      - Bunch shape keywords (slacsupport): reference/slacsupport.md
       - Command syntax:
           - Omega3P: reference/commands/omega3p.md
           - S3P: reference/commands/s3p.md

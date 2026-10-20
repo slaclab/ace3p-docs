@@ -295,6 +295,24 @@ Not converted from this set: the A3PI user guide (22 pages), which belongs with 
 
 Formula and layout figures were taken from the PDFs rather than retyped: the PML conductivity profile, the PML face/edge/corner and waveguide layouts, and the direct wake-integration contour. The Lamé relation and the niobium conductivity figure from the TEM3P reference were replaced by inline formulas or omitted.
 
+## Keyword tables, second generation (2026-10-20)
+
+The extractor was extended from one call pattern to six (`Get`, `find` with a default assigned after, `find` followed by `kvcError`, indexed `find`, `findSwitch`, `findContainer`) plus the string-compare parser of the rf post-processor, and was run against ACE3P master at the first release tag `v2026.10` instead of the working branch `Track3p-GPU`. Effects on the published tables:
+
+| Page | Before | After |
+|---|---|---|
+| Omega3P | 83 | 110 |
+| Shared EM (emfem) | 30 | 88 |
+| Eigensolver (solver) | 58 | 86 |
+| S3P, T3P/Pic3P, Track3P, TEM3P, Gun3P, acdtool, rf post-processor, excitation, waveguide, slacsupport | none | 40, 145, 340, 130, 137, 84, 92, 17, 25, 54 |
+
+Limits of the method, so readers know what a blank cell means:
+
+- Block membership for bare keys is inferred from the variable the key is read from. When the variable is bound by `findContainer("Domain", domainkvc)` in the same file the block is exact; otherwise a name heuristic is used, and keys from generic variables land in the final *top level or unspecified block* section.
+- Defaults are captured only when they are literals in the `Get` call or in the statement following a failed `find`. Defaults set elsewhere show as blank.
+- Test, regression, and example directories inside each module are skipped, as is `multipacting/poisson2d`.
+- The tables describe `v2026.10`. The command syntax pages and module guides were written from the CW23 materials dated 2026-09-29 and from the `Track3p-GPU` working branch; a keyword present in one and not the other is a version difference, not an error, until checked.
+
 ## Getting Started and Workflow pages
 
 | Item | Slide said | Documentation now says | Source of correction |

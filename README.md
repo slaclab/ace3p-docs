@@ -17,7 +17,7 @@ mkdocs build --strict   # what CI runs
 ## Regenerate the keyword reference
 
 ```bash
-python tools/extract_keywords.py /path/to/ace3p --out docs/reference --modules omega3p emfem solver
+python tools/extract_keywords.py /path/to/ace3p --out docs/reference
 ```
 
 ## Contributing
