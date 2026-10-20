@@ -106,7 +106,9 @@ nav:
           - "Tutorial 2: coax coupler and ports": modules/omega3p/tutorial-ports.md
           - "Tutorial 3: lossy load and periodic boundaries": modules/omega3p/tutorial-advanced.md
           - Post-processing with acdtool: modules/omega3p/postprocess.md
-      - S3P: modules/s3p.md
+      - S3P:
+          - modules/s3p/index.md
+          - Tutorials: modules/s3p/tutorials.md
       - T3P: modules/t3p.md
       - Track3P: modules/track3p.md
       - Pic3P: modules/pic3p.md

@@ -5,7 +5,7 @@ ACE3P is a family of solvers that share one mesh format, one input syntax, and o
 | Module | Guide | Status of this documentation |
 |---|---|---|
 | **Omega3P** | [User guide and tutorials](omega3p/index.md) | Complete: concepts, three tutorials, post-processing |
-| **S3P** | [Overview](s3p.md) | Outline. Full tutorial pending conversion from CW23 materials. |
+| **S3P** | [User guide and tutorials](s3p/index.md) | Complete: concepts, input blocks, output files, three tutorials |
 | **T3P** | [Overview](t3p.md) | Outline |
 | **Track3P** | [Overview](track3p.md) | Outline |
 | **Pic3P** | [Overview](pic3p.md) | Outline |
