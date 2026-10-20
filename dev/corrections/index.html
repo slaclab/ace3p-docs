@@ -652,6 +652,8 @@
       
         
       
+        
+      
     
     
     
@@ -721,6 +723,34 @@
     
   
     Input file format
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/cubit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Geometry and meshing with Cubit
   
 
     
@@ -2250,6 +2280,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#cubit-chapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cubit chapter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#getting-started-and-workflow-pages" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2585,6 +2626,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cubit-chapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cubit chapter
+      
+    </span>
+  </a>
   
 </li>
       
@@ -3334,6 +3386,80 @@
 <li>The sign convention of the RF gun frequency shift (+47 kHz). The docs say it reflects the balance of thermal expansion, Lorentz pressure, and the constraints, but do not decompose it. Rerunning with <code>LFDetuning</code> removed would separate the two contributions.</li>
 <li>The statement that shell heat appears in the symmetry-plane power tally.</li>
 </ul>
+<h2 id="cubit-chapter">Cubit chapter<a class="headerlink" href="#cubit-chapter" title="Permanent link">&para;</a></h2>
+<p>Source deck: <code>Cubit-Demo.pptx</code> (CW23). Example: <code>examples/cubit/pillbox</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Slide said</th>
+<th>Documentation now says</th>
+<th>Source of correction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Step 1 journal</td>
+<td>Slide 29 shows a cleaned, parameterized journal with <code>reset</code> and <code>#{}</code> variables</td>
+<td>Reproduced as on the slide, since it is the intended teaching form</td>
+<td>The file on disk is the raw transcript: it begins with <code>cd "/Users/lge/cw23/examples/cubit/pillbox</code> (a user-specific path with an unclosed quote), has no <code>reset</code>, no variables, and <code>unite 1 2</code> rather than <code>unite volume 1 2</code>. The docs say the slide version is what you should write.</td>
+</tr>
+<tr>
+<td>Mesh journal sizing</td>
+<td>Slide 33 template has <code>volume 1 sizing function type skeleton</code> with no arguments and placeholder <code>X</code> surface IDs</td>
+<td><code>min_size 3 max_size 12</code> with real surface IDs 2, 4, 3, 1</td>
+<td>File on disk</td>
+</tr>
+<tr>
+<td>Mesh journal <code>Cd</code> line</td>
+<td>Slide 33: <code>Cd: "your working directory"</code></td>
+<td>Omitted</td>
+<td>Not valid Cubit syntax and not in the file</td>
+</tr>
+<tr>
+<td>Adaptive sizing example</td>
+<td>Slide 38: <code>min_size 6 max_size 10 max_gradient 1 scale 5</code></td>
+<td>Shown as <code>min_size 3 max_size 12 max_gradient 1.2 scale 5</code> on the Cubit page</td>
+<td>The slide values appear only as a commented-out line in the file on disk; the active line is <code>min_size 3 max_size 12</code>. The docs use the active values with a typical gradient.</td>
+</tr>
+<tr>
+<td>Pillbox mode frequency</td>
+<td>Slide 11: "TM010: f ~ 1.2GHz, λ ~ 250mm"</td>
+<td>"near 1.2 GHz"</td>
+<td>Slide only; this pillbox has no stored Omega3P run in <code>examples/cubit</code>. The rounded-top pillbox of the same radius in the Omega3P tutorials gives 1.3138 GHz, so 1.2 GHz is an approximation.</td>
+</tr>
+<tr>
+<td>Element count</td>
+<td>Slide 39 command line: "Generated 5549 tets for Volume 1"</td>
+<td>5,863</td>
+<td><code>acdtool.log</code> on disk for the stored <code>pillbox.gen</code>. The slide screenshot is from a different sizing.</td>
+</tr>
+<tr>
+<td>acdtool quality thresholds</td>
+<td>Slide 48: "If aspect ratio &gt; 20, shape measure &lt;0.01, it might take longer"</td>
+<td>Reproduced on the mesh page, attributed to the slides</td>
+<td>Not found as thresholds in source. The <code>GREAT</code> and <code>GOOD</code> labels are printed by <code>mesh_stats.C</code>; the numeric cutoffs behind them were not traced.</td>
+</tr>
+<tr>
+<td>acdtool mesh subcommands</td>
+<td>Not listed on slides</td>
+<td>Full list of 19 subcommands given on the mesh page</td>
+<td><code>tools/src/mesh.C</code> string comparisons and the <code>mesh_*.C</code> file names. Note <code>shuntimpedence</code> is spelled that way in the source.</td>
+</tr>
+<tr>
+<td>ParaView version in screenshots</td>
+<td>Slides show ParaView 5.11.0 and Cubit 16.04</td>
+<td>Versions not quoted</td>
+<td>Cosmetic</td>
+</tr>
+<tr>
+<td>Webcut plane naming</td>
+<td>Slide 23 says "Choose YZ Plane" in the GUI and "<code>webcut vol 1 with xplane</code>" in the command</td>
+<td>Both reproduced</td>
+<td>Cubit names the plane by its normal in the command (<code>xplane</code> is normal to x) and by the two in-plane axes in the GUI (YZ). Same plane, two conventions.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="getting-started-and-workflow-pages">Getting Started and Workflow pages<a class="headerlink" href="#getting-started-and-workflow-pages" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

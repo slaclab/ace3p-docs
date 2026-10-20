@@ -784,6 +784,8 @@
       
         
       
+        
+      
     
     
     
@@ -853,6 +855,34 @@
     
   
     Input file format
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflow/cubit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Geometry and meshing with Cubit
   
 
     
@@ -2208,7 +2238,7 @@
 <li>Click the <strong>Play</strong> button in the toolbar, browse to the <code>.jou</code> file, and open it.</li>
 <li>Open <strong>Tools, then Journal Editor</strong>, load the file, and press Play. The editor lets you step through and modify commands.</li>
 </ol>
-<p>The export command that ACE3P needs is Genesis format with all blocks:</p>
+<p>A full walkthrough of building and meshing a cavity is on the <a href="../../workflow/cubit/">Cubit page</a>. The export command that ACE3P needs is Genesis format with all blocks:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>export Genesis "model4.gen" block all overwrite
 </code></pre></div>
 <p>Mesh elements must be quadratic tetrahedra (<code>tetra10</code>) and the model must be scaled to meters before export. See <a href="../../workflow/mesh/">Mesh preparation</a>.</p>

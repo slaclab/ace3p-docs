@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://animated-system-8l9p64e.pages.github.io/dev/workflow/mesh/">
       
       
-        <link rel="prev" href="../input-format/">
+        <link rel="prev" href="../cubit/">
       
       
         <link rel="next" href="../batch-jobs/">
@@ -656,6 +656,8 @@
       
         
       
+        
+      
     
     
     
@@ -728,6 +730,34 @@
     
   
     Input file format
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cubit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Geometry and meshing with Cubit
   
 
     
@@ -2178,7 +2208,7 @@
 
 
 <h1 id="mesh-preparation">Mesh preparation<a class="headerlink" href="#mesh-preparation" title="Permanent link">&para;</a></h1>
-<p>ACE3P reads meshes in its own NetCDF format (<code>.ncdf</code>). You produce them by exporting a Genesis file (<code>.gen</code>) from Cubit and converting it with <code>acdtool</code>.</p>
+<p>ACE3P reads meshes in its own NetCDF format (<code>.ncdf</code>). You produce them by exporting a Genesis file (<code>.gen</code>) from Cubit and converting it with <code>acdtool</code>. Building and meshing the model in Cubit is covered on the <a href="../cubit/">Cubit page</a>; this page covers what the exported mesh must contain and how to check it.</p>
 <h2 id="cubit-export-checklist">Cubit export checklist<a class="headerlink" href="#cubit-export-checklist" title="Permanent link">&para;</a></h2>
 <p>A typical meshing journal ends like this:</p>
 <div class="highlight"><span class="filename">step2-Mesh-pillbox.jou</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>reset
@@ -2264,13 +2294,15 @@
 <li><strong>Existing boundary IDs</strong> must match the sidesets you expect. A missing ID means a sideset was never created; an unexpected <code>0</code> means a surface was left out.</li>
 <li><strong>Material IDs</strong> must match your blocks.</li>
 <li><strong>Invalid second-order elements</strong> must be zero. A nonzero count means some mid-edge nodes fold the element inside out, usually from an aggressive sizing function on a curved surface. Refine the mesh or relax <code>max_gradient</code>.</li>
-<li><strong>Aspect ratio and shape measure</strong> are quality indicators. acdtool prints <code>GREAT</code>, <code>GOOD</code>, or a warning next to them.</li>
+<li><strong>Aspect ratio and shape measure</strong> are quality indicators. acdtool prints <code>GREAT</code>, <code>GOOD</code>, or a warning next to them. The CW23 slides give rough limits: aspect ratio above 20 or shape measure below 0.01 will slow the solvers noticeably.</li>
 </ul>
 <h3 id="other-acdtool-mesh-commands">Other acdtool mesh commands<a class="headerlink" href="#other-acdtool-mesh-commands" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>acdtool<span class="w"> </span>mesh<span class="w"> </span>stats<span class="w"> </span>pillbox4.ncdf<span class="w">     </span><span class="c1"># statistics only</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>acdtool<span class="w"> </span>mesh<span class="w"> </span>check<span class="w"> </span>pillbox4.ncdf<span class="w">     </span><span class="c1"># validity check only</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>acdtool<span class="w"> </span>mesh<span class="w"> </span>fix<span class="w"> </span><span class="k">in</span>.ncdf<span class="w"> </span>out.ncdf<span class="w">    </span><span class="c1"># replace invalid curved tets with straight ones</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>acdtool<span class="w"> </span>mesh<span class="w"> </span>deform<span class="w"> </span><span class="k">in</span>.ncdf<span class="w"> </span>out.ncdf<span class="w"> </span><span class="m">5000</span><span class="w">   </span><span class="c1"># exaggerate a deformed mesh for viewing</span>
 </code></pre></div>
-<p>Further acdtool subcommands for mesh merging, boundary reassignment, and warping are listed in the <a href="../../reference/">acdtool reference</a>.</p>
+<p>The full list of <code>acdtool mesh</code> subcommands in the current source is: <code>boundary</code>, <code>check</code>, <code>deform</code>, <code>fix</code>, <code>merge</code>, <code>partition</code>, <code>pick</code>, <code>rotate</code>, <code>scale</code>, <code>shuntimpedence</code>, <code>smooth</code>, <code>stats</code>, <code>straighten</code>, <code>summodes</code>, <code>surfsmooth</code>, <code>transform</code>, <code>untangle</code>, <code>warp</code>, <code>warpsurface</code>. Most are undocumented beyond their source files; <code>meshconvert</code> already calls <code>check</code> and <code>fix</code> for you.</p>
 
 
 
@@ -2306,7 +2338,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../input-format/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Input file format">
+          <a href="../cubit/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Geometry and meshing with Cubit">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2316,7 +2348,7 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Input file format
+                Geometry and meshing with Cubit
               </div>
             </div>
           </a>
