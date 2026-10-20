@@ -1197,9 +1197,37 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../t3p/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../t3p/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -1213,7 +1241,59 @@
   
   
 
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4" id="__nav_4_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    T3P
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../t3p/tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -2370,7 +2450,7 @@
 <a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>  FrequencyShift:  1.0e9
 <a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>}
 </code></pre></div>
-<p>Sidesets 1 and 2 are the beam pipe ends and 6 is the wall. All three are <code>Exterior</code> here because this is a full model with no symmetry planes. Omega3P writes <code>omega3p_results/omega3p.l0.m0000.1.3138e+09.mod</code>, the TM<sub>010</sub> mode that Track3P will load.</p>
+<p>Sidesets 1 and 2 are the beam pipe ends and 6 is the wall. All three are <code>Exterior</code> here because this is a full model with no symmetry planes. Omega3P finds TM<sub>010</sub> at 1.31381 GHz and, because nothing suppresses dipoles in a full model, the first dipole mode at 1.74993 GHz as mode 2. Track3P loads mode 0 by default (<code>Domain.ModeID1</code>), so the dipole mode is computed but unused.</p>
 <div class="admonition note">
 <p class="admonition-title">Mode file is required</p>
 <p>Track3P reads the <code>.mod</code> field file, so the <code>PostProcess</code> block in the Omega3P input must be on, or omitted so that the default applies. If Omega3P was run with <code>PostProcess: { Toggle: off }</code>, rerun it.</p>

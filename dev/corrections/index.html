@@ -1184,9 +1184,34 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../modules/t3p/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../modules/t3p/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -1200,7 +1225,59 @@
   
   
 
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    T3P
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/t3p/tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1985,6 +2062,67 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#t3p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        T3P
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="T3P">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#element-counts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Element counts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#results-and-plots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results and plots
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#not-verified" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Not verified
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#getting-started-and-workflow-pages" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2201,6 +2339,67 @@
     <span class="md-ellipsis">
       
         Track3P on S3DF (not in any slide)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#t3p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        T3P
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="T3P">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#element-counts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Element counts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#results-and-plots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results and plots
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#not-verified" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Not verified
       
     </span>
   </a>
@@ -2531,8 +2730,8 @@
 <tr>
 <td>Omega3P mode 2 frequency</td>
 <td>Slide 20: <code>1.7499342e+09</code></td>
-<td>Not quoted</td>
-<td>Stored <code>omega3p_results</code> for this full pillbox gives 1.3138 GHz for mode 1; mode 2 frequency was not independently checked and the slide value is suspicious given the quarter-model result of 2.329 GHz</td>
+<td>Confirmed correct: mode 1 at 1.31381 GHz (Q<sub>0</sub> 28,877), mode 2 at 1.74993 GHz (Q<sub>0</sub> 27,463)</td>
+<td>Stored <code>omega3p_results/omega3p.out</code>. An earlier draft of this page wrongly called the slide value suspicious by comparing against the quarter model's 2.329 GHz. The full model has no symmetry planes, so the first dipole mode appears as mode 2; the quarter model with two magnetic planes excludes it.</td>
 </tr>
 <tr>
 <td><strong>Resonant particle counts</strong></td>
@@ -2646,6 +2845,182 @@
 </tr>
 </tbody>
 </table>
+<h2 id="t3p">T3P<a class="headerlink" href="#t3p" title="Permanent link">&para;</a></h2>
+<p>Source deck: <code>T3P-Tutorial.pptx</code> (CW23, March 2023). Stored results were produced with the March 2023 ACE3P build, so unlike Track3P there is no build-age gap between slides and results. The discrepancies are between the slides and the files, and between the slides' acdtool listings and the meshes actually stored.</p>
+<h3 id="element-counts">Element counts<a class="headerlink" href="#element-counts" title="Permanent link">&para;</a></h3>
+<p>The acdtool statistics shown on the slides were captured from meshes that differ from the <code>.ncdf</code> files now in the example directories. The documentation quotes the count from <code>t3p.log</code> of the stored run.</p>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Slide acdtool listing</th>
+<th>Stored mesh and <code>t3p.log</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cavity-quarter</td>
+<td>8,537</td>
+<td>7,552</td>
+</tr>
+<tr>
+<td>cavity-half</td>
+<td>17,703</td>
+<td>15,516</td>
+</tr>
+<tr>
+<td>BPM</td>
+<td>68,326</td>
+<td>68,720</td>
+</tr>
+<tr>
+<td>taper</td>
+<td>9,795</td>
+<td>8,536</td>
+</tr>
+</tbody>
+</table>
+<p>The stored <code>acdtool.log</code> in each directory agrees with <code>t3p.log</code>, so the slides were made from an earlier mesh. Loss and kick factors in the docs are from the stored <code>wakefield.out</code> and therefore correspond to the stored meshes.</p>
+<h3 id="input-files">Input files<a class="headerlink" href="#input-files" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Slide said</th>
+<th>Documentation now says</th>
+<th>Source of correction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cavity-quarter/open finite element order</td>
+<td>Not shown; implied same as closed case (order 2)</td>
+<td>Order 1</td>
+<td><code>pillboxwg-open.t3p</code> on disk. Noted in Tutorial 1 since it affects comparability of the 0.386 V/pC loss factor.</td>
+</tr>
+<tr>
+<td>cavity-half slide 24 <code>ModelInfo.File</code></td>
+<td><code>./pillboxwg.ncdf</code></td>
+<td><code>./pillboxwg2.ncdf</code></td>
+<td>File on disk. The slide copied the quarter-model file name.</td>
+</tr>
+<tr>
+<td>cavity-half <code>CheckPoint</code> block</td>
+<td>Not shown on slide</td>
+<td>Shown, <code>Action: none</code>, <code>Ntimesteps: 500</code></td>
+<td>File on disk</td>
+</tr>
+<tr>
+<td>BPM <code>LinearSolver</code></td>
+<td>Slide 41: <code>Solver: MUMPS // CG for large problems</code></td>
+<td>File has <code>Slover: CG</code>, a misspelled key</td>
+<td>File on disk. The parser ignores the unknown key; <code>NML_ITLLinearSolver.C</code> then selects MUMPS when compiled in. The stored BPM run used MUMPS, not CG. Docs say so.</td>
+</tr>
+<tr>
+<td>BPM batch script</td>
+<td>Slide 42: <code>srun -n 128 -c 2</code></td>
+<td>Reproduced</td>
+<td>Matches disk</td>
+</tr>
+<tr>
+<td>SIBC <code>CheckPoint.Action</code></td>
+<td>Slide: not shown</td>
+<td><code>restart</code></td>
+<td>File on disk</td>
+</tr>
+<tr>
+<td>SIBC <code>LinearSolver</code></td>
+<td>Slide 65: <code>Solver: CG</code></td>
+<td>Reproduced</td>
+<td>Matches disk</td>
+</tr>
+<tr>
+<td><code>SymmetricFactor</code> vs <code>SymmetryFactor</code></td>
+<td>Both appear on slides without comment</td>
+<td>Documented as two distinct keys: <code>SymmetryFactor</code> in <code>LoadingInfo</code> (beam), <code>SymmetricFactor</code> in <code>Loading.Port</code> (port excitation)</td>
+<td><code>BeamLoading.C</code> and <code>WaveguidePortBC.C</code> in source. <code>Application.C</code> also accepts <code>SymmetryFactor</code> placed in the wrong block "in case someone puts it into the wrong place".</td>
+</tr>
+<tr>
+<td>Alternate key spellings</td>
+<td>Slides use <code>Number of sigmas</code>, <code>Nsigmas</code>, <code>StartContour</code>, <code>Start contour</code>, <code>CurvedSurfaces</code>, <code>Curved Surfaces</code> interchangeably</td>
+<td>Documented as accepted alternates</td>
+<td><code>fillAutomaticMovingWindow.C</code> checks both <code>Nsigmas</code> and <code>Number of sigmas</code>; the contour and curved-surface spellings both appear in source reads</td>
+</tr>
+</tbody>
+</table>
+<h3 id="results-and-plots">Results and plots<a class="headerlink" href="#results-and-plots" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Slide said</th>
+<th>Documentation now says</th>
+<th>Source of correction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Multi-beam kick factor</td>
+<td>Slide 32: "a factor of 2 higher"</td>
+<td>0.175 V/pC against 0.0964 V/pC single-beam, ratio 1.81</td>
+<td><code>wakefield.out</code> in both directories. "Factor of 2" is the ideal; the stored numbers are quoted.</td>
+</tr>
+<tr>
+<td>Half-model kick factor</td>
+<td>Slide 35: "the same as ... two beam excitations"</td>
+<td>0.1747 V/pC against 0.1746 V/pC</td>
+<td>Both <code>wakefield.out</code> files. Agreement to 0.05%.</td>
+</tr>
+<tr>
+<td>Moving-window loss factor</td>
+<td>Slide 60: "valid at distance governed by moving window size", no number</td>
+<td>0.0761 V/pC against 0.0762 V/pC full-order</td>
+<td>Both <code>wakefield.out</code> headers</td>
+</tr>
+<tr>
+<td>SIBC transmitted power</td>
+<td>Slide 67 shows the plot only</td>
+<td>46% of input energy to output port, 50% to coating loss, by trapezoidal integration of the three <code>Power</code> monitor files</td>
+<td>Computed from <code>inputPower.out</code>, <code>outputPower.out</code>, <code>wallossPower.out</code></td>
+</tr>
+<tr>
+<td>SIBC transit time</td>
+<td>Not stated</td>
+<td>3.3 ns, consistent with c over 1 m</td>
+<td>Peak times from the power files: input 0.88 ns, output 4.28 ns</td>
+</tr>
+<tr>
+<td>Wakefield slide 7</td>
+<td>"Applied to structures one can see only vacuum from upstream and downstream beampipe ends"</td>
+<td>Reproduced as the applicability condition of the indirect integration method</td>
+<td>Slide only</td>
+</tr>
+<tr>
+<td>Slide 20 directory name</td>
+<td>"Directory: pillboxwg-half"</td>
+<td><code>cavity-half</code></td>
+<td>Directory on disk</td>
+</tr>
+<tr>
+<td>Slide 12 and others</td>
+<td>Mix of <code>edison $</code> and <code>perlmutter-p1</code> prompts; <code>qsub</code> in several READMEs</td>
+<td>System-neutral <code>srun</code> and <code>sbatch</code></td>
+<td>Edison was decommissioned in 2019; <code>qsub</code> is the PBS command, not Slurm</td>
+</tr>
+<tr>
+<td><code>acdtool.log</code> overwrite warning</td>
+<td>Slides 25 and 42</td>
+<td>Promoted to an admonition on the module page</td>
+<td>Slide</td>
+</tr>
+</tbody>
+</table>
+<h3 id="not-verified">Not verified<a class="headerlink" href="#not-verified" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Whether the BPM <code>ModeVoltage</code> monitor's <code>ESolver.Frequency: 1.e9</code> matters for a TEM mode with zero cutoff, or is a placeholder.</li>
+<li>The physical meaning of negative <code>inputPower</code> values: documented as the Poynting flux referenced to the outward normal, inferred from the sign pattern, not confirmed in <code>MON_SurfacePoynting</code>.</li>
+<li>Slide 5's dipole benchmark numbers (11.024 and 11.037 GHz); no example directory corresponds to it.</li>
+</ul>
 <h2 id="getting-started-and-workflow-pages">Getting Started and Workflow pages<a class="headerlink" href="#getting-started-and-workflow-pages" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -2696,7 +3071,11 @@
 <li><strong>Omega3P Tutorial 1, convergence study.</strong> Stated the mesh journals went from fine to coarse as <code>mesh0</code> to <code>mesh3</code>; the opposite is true.</li>
 <li><strong>Omega3P Tutorial 1, Q<sub>0</sub>.</strong> Quoted as "about 28,900"; the stored value is 28,885.</li>
 <li><strong>Omega3P post-processing page, R/Q convention.</strong> The note stating acdtool uses the circuit convention V²/(ωU) per cavity was inferred from the output header comment <code>RoverQ=V^2/(omega*U)</code> and not independently confirmed in source. It remains in the docs but is flagged here as unverified against code.</li>
-<li><strong>Module index.</strong> S3P and Track3P were listed as outline stubs after their guides were written. Fixed when each guide landed.</li>
+<li><strong>Module index.</strong> S3P, Track3P, and T3P were listed as outline stubs after their guides were written. Fixed when each guide landed.</li>
+<li><strong>T3P tutorials, element counts.</strong> The first draft quoted the slide acdtool counts (8,537; 17,703; 68,326; 9,795). Replaced with the stored-mesh counts from <code>t3p.log</code> on 2026-10-19 before publication.</li>
+<li><strong>T3P tutorials, BPM solver.</strong> The first draft said the misspelled <code>Slover</code> key made T3P use "the default" without naming it. Traced in <code>NML_ITLLinearSolver.C</code>: the default is the best direct solver compiled in, MUMPS on these builds.</li>
+<li><strong>T3P tutorials, SIBC power.</strong> The first draft said "roughly 40%" transmitted from eyeballing the plot. Replaced with 46% from integrating the monitor files.</li>
+<li><strong>This page, Track3P section.</strong> The first draft flagged the slide's Omega3P mode 2 frequency of 1.75 GHz as suspicious. It is correct; the stored output confirms it, and the physics (a dipole mode visible only in the full model) explains it. The entry now says so.</li>
 </ol>
 <h2 id="still-unverified">Still unverified<a class="headerlink" href="#still-unverified" title="Permanent link">&para;</a></h2>
 <p>Items the documentation states that have not been checked against source code or a fresh run. Contributions welcome.</p>
