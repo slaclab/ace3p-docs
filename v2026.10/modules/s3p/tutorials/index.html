@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://animated-system-8l9p64e.pages.github.io/v2026.10/modules/s3p/tutorials/">
+        <link rel="canonical" href="https://slaclab.github.io/ace3p-docs/v2026.10/modules/s3p/tutorials/">
       
       
         <link rel="prev" href="../">
@@ -3276,7 +3276,7 @@
 <a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>modify curve 12  blend radius {rcorner1}
 <a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>modify curve 20 22  blend radius {rcorner2}
 <a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>export acis "90DegreeBend.sat" overwrite
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>export acis &quot;90DegreeBend.sat&quot; overwrite
 </code></pre></div>
 <figure>
 <p><img alt="Two bricks united" src="../../../assets/s3p/bend-model-step1.png" width="200" />
@@ -3293,7 +3293,7 @@
 <h3 id="mesh">Mesh<a class="headerlink" href="#mesh" title="Permanent link">&para;</a></h3>
 <p>Copy a meshing journal from an earlier example and adjust the sideset assignments. The two open ends become ports 7 and 8.</p>
 <div class="highlight"><span class="filename">step2-Mesh-90DegreeBend.jou</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>reset
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>import acis "90DegreeBend.sat"
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>import acis &quot;90DegreeBend.sat&quot;
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>volume all scheme Tetmesh
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>volume all sizing function type skeleton scale 5 time_accuracy_level 2 min_size auto max_size 3 max_gradient 1.2
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>mesh volume all
@@ -3305,7 +3305,7 @@
 <a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>block 1 volume all
 <a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>block 1 element type tetra10
 <a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>volume all scale 0.001
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>export Genesis "90DegreeBend.gen" block all overwrite
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>export Genesis &quot;90DegreeBend.gen&quot; block all overwrite
 </code></pre></div>
 <figure>
 <p><img alt="Meshed bend" src="../../../assets/s3p/bend-mesh.png" width="330" /></p>
@@ -3400,7 +3400,7 @@
 <h3 id="build-and-mesh">Build and mesh<a class="headerlink" href="#build-and-mesh" title="Permanent link">&para;</a></h3>
 <p>The journal makes the load brick, cuts it diagonally to form the wedge, and attaches the vacuum section. The two volumes are imprinted and merged so the wedge face is one shared surface.</p>
 <div class="highlight"><span class="filename">step2-Mesh-recWG-load1.jou</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>reset
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>import acis "recWG-load1.sat"
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>import acis &quot;recWG-load1.sat&quot;
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>imprint body 1 2
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>merge body 1 2
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
@@ -3423,7 +3423,7 @@
 <a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>block 2 vol 1                 # load
 <a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>block all element type tetra10
 <a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>transform mesh output scale 0.001
-<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>export genesis "recWG-load1.gen" overwrite
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>export genesis &quot;recWG-load1.gen&quot; overwrite
 </code></pre></div>
 <p>Note <code>surface 1 interval hard</code>, which fixes the mesh on the shared interface before either volume is meshed so both sides agree.</p>
 <h3 id="input_1">Input<a class="headerlink" href="#input_1" title="Permanent link">&para;</a></h3>
@@ -3526,7 +3526,7 @@
 <a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>volume 1 3 sizing function type skeleton scale 5 time_accuracy_level 2 min_size auto max_size 6 max_gradient 1.2
 <a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>volume 2   sizing function type skeleton scale 3 time_accuracy_level 2 min_size 1.5 max_size 3 max_gradient 1.2
 <a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>group 'ms' add surface with Is_merged     # the two window faces
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>group &#39;ms&#39; add surface with Is_merged     # the two window faces
 <a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>ms expand size 2
 <a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>ms expand interval hard
 <a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
@@ -3534,11 +3534,11 @@
 <a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>smooth vol all
 <a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>smooth surface all
 <a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>
-<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>group "port7" add surface 16
-<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>group "port8" add surface 2
-<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>group "sym1"  add surface 5 11 17
-<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>group "sym2"  add surface 1 9 14
-<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>group "ss6" add surface all
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>group &quot;port7&quot; add surface 16
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>group &quot;port8&quot; add surface 2
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>group &quot;sym1&quot;  add surface 5 11 17
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>group &quot;sym2&quot;  add surface 1 9 14
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>group &quot;ss6&quot; add surface all
 <a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>ss6 subtract ms    from ss6
 <a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>ss6 subtract sym1  from ss6
 <a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>ss6 subtract sym2  from ss6
@@ -3555,7 +3555,7 @@
 <a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a>block 2 vol 2                 # ceramic
 <a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a>block all element type tetra10
 <a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a>transform mesh output scale 0.001
-<a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a>export genesis "window.gen" overwrite
+<a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a>export genesis &quot;window.gen&quot; overwrite
 </code></pre></div>
 <p>The thin ceramic volume gets a finer sizing function so there are several elements through its thickness. The group <code>ms</code> holds the merged interface surfaces and is excluded from the exterior sideset, since an interior surface must not carry a boundary condition.</p>
 <h3 id="input_2">Input<a class="headerlink" href="#input_2" title="Permanent link">&para;</a></h3>
@@ -3647,7 +3647,7 @@
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>#  x     y     z      Ex_r   Ex_i   Ey_r   Ey_i   Ez_r   Ez_i   Ex_a   Ey_a   Ez_a  Ex_phase Ey_phase Ez_phase E_amp
 </code></pre></div>
 <p>Plot column 11, the E<sub>y</sub> amplitude, against column 3:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>gnuplot<span class="w"> </span>-e<span class="w"> </span><span class="s1">'plot "field1_0.ec" using 3:11 with lines title "|Ey| on axis"'</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>gnuplot<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;plot &quot;field1_0.ec&quot; using 3:11 with lines title &quot;|Ey| on axis&quot;&#39;</span>
 </code></pre></div>
 <figure>
 <p><img alt="Ey amplitude along the axis" src="../../../assets/s3p/window-ey-on-axis.png" width="480" /></p>

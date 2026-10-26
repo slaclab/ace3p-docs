@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://animated-system-8l9p64e.pages.github.io/v2026.10/modules/gun3p/tutorial/">
+        <link rel="canonical" href="https://slaclab.github.io/ace3p-docs/v2026.10/modules/gun3p/tutorial/">
       
       
         <link rel="prev" href="../">
@@ -3021,7 +3021,7 @@
 <h2 id="mesh-from-a-step-file">Mesh from a STEP file<a class="headerlink" href="#mesh-from-a-step-file" title="Permanent link">&para;</a></h2>
 <p>Unlike the other tutorials, this geometry arrives as a CAD STEP file rather than a Cubit journal. The journal imports and heals it, refines the cathode surfaces, meshes, and assigns sidesets by explicit surface lists.</p>
 <div class="highlight"><span class="filename">dcgun.jou</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>reset
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>import step "SBK_3D.step" heal
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>import step &quot;SBK_3D.step&quot; heal
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>surface 1 size 3                           # cathode
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>surface 47 size 3
@@ -3039,7 +3039,7 @@
 <a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>block 1 volume 1
 <a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>block all element type tetra10
 <a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>volume all scale 0.001
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>export genesis "dcgun.gen" overwrite
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>export genesis &quot;dcgun.gen&quot; overwrite
 </code></pre></div>
 <p><code>import step ... heal</code> repairs small CAD defects on import. The result is 459,206 elements with boundary IDs 1, 2, 3, 4, 10, 12. Long explicit surface lists like the anode's are fragile; for your own models prefer Cubit groups selected by coordinate or by name, as the <a href="../../../workflow/cubit/#sidesets-and-blocks">Cubit page</a> describes.</p>
 <figure>

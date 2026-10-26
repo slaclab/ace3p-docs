@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://animated-system-8l9p64e.pages.github.io/v2026.10/modules/tem3p/tutorials/">
+        <link rel="canonical" href="https://slaclab.github.io/ace3p-docs/v2026.10/modules/tem3p/tutorials/">
       
       
         <link rel="prev" href="../">
@@ -3353,7 +3353,7 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Vacuum mesh</label><label for="__tabbed_1_2">Body mesh</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">mesh-RfGunVacuum.jou (excerpt)</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>import acis "RfGun-CouplerCell.sat"
+<div class="highlight"><span class="filename">mesh-RfGunVacuum.jou (excerpt)</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>import acis &quot;RfGun-CouplerCell.sat&quot;
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>del body 1                         # keep vacuum only
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>compress ids
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>volume all scheme Tetmesh
@@ -3362,12 +3362,12 @@
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>block 1 vol 1
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>block all element type tetra10
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>group "beampipe" add surface 6
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>group "disk"     add surface 1
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>group "sym1"     add surface 3
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>group "sym2"     add surface 2
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>group "wgport"   add surface 7
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>group "rest"     add surface all
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>group &quot;beampipe&quot; add surface 6
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>group &quot;disk&quot;     add surface 1
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>group &quot;sym1&quot;     add surface 3
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>group &quot;sym2&quot;     add surface 2
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>group &quot;wgport&quot;   add surface 7
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>group &quot;rest&quot;     add surface all
 <a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>rest subtract beampipe from rest
 <a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>rest subtract disk from rest
 <a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>rest subtract sym1 from rest
@@ -3381,11 +3381,11 @@
 <a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>sideset 5 surface in wgport
 <a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>sideset 6 surface in rest             # RF wall
 <a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>transform mesh output scale 0.001
-<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>export genesis "RfGunVacuum.gen" overwrite
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>export genesis &quot;RfGunVacuum.gen&quot; overwrite
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">mesh-RfGunBody.jou (excerpt)</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>import acis "RfGun-CouplerCell.sat"
+<div class="highlight"><span class="filename">mesh-RfGunBody.jou (excerpt)</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>import acis &quot;RfGun-CouplerCell.sat&quot;
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>del body 2                         # keep copper only
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>compress ids
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>volume all scheme Tetmesh
@@ -3394,12 +3394,12 @@
 <a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>block 1 vol 1
 <a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>block all element type tetra10
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>group "beampipe" add surface 14
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>group "sym1"     add surface with x_coord&lt;0.001
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>group "sym2"     add surface with y_coord&lt;0.001
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>group "outwall"  add surface 12 15 16 18 19
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>group "cooling"  add surface 20 to 35
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>group "rf"       add surface all
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>group &quot;beampipe&quot; add surface 14
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>group &quot;sym1&quot;     add surface with x_coord&lt;0.001
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>group &quot;sym2&quot;     add surface with y_coord&lt;0.001
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>group &quot;outwall&quot;  add surface 12 15 16 18 19
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>group &quot;cooling&quot;  add surface 20 to 35
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>group &quot;rf&quot;       add surface all
 <a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>rf subtract beampipe from rf
 <a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>rf subtract sym1 from rf
 <a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>rf subtract sym2 from rf
@@ -3413,7 +3413,7 @@
 <a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>sideset 5 surface in cooling
 <a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>sideset 6 surface in rf               # RF wall, same ID as vacuum mesh
 <a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>transform mesh output scale 0.001
-<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>export genesis "RfGunBody.gen" overwrite
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>export genesis &quot;RfGunBody.gen&quot; overwrite
 </code></pre></div>
 </div>
 </div>
@@ -3824,15 +3824,15 @@
 <p><img alt="TESLA cavity" src="../../../assets/tem3p/tesla-model.png" width="620" /></p>
 <h3 id="mesh">Mesh<a class="headerlink" href="#mesh" title="Permanent link">&para;</a></h3>
 <p>The CAD model has fifteen bodies: cells, irises, and end plates. The journal deletes the end plates, unites everything into one niobium volume, and uses a half model with the symmetry plane selected by coordinate. 286,556 elements.</p>
-<div class="highlight"><span class="filename">TeslaCavity.jou (excerpt)</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>import acis "TeslaCavity.sat"
+<div class="highlight"><span class="filename">TeslaCavity.jou (excerpt)</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>import acis &quot;TeslaCavity.sat&quot;
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>delete volume 14 15                         # end plates
 <a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>unite volume 6 4 7 1 5 3 13 12 11 10 9 8 2
 <a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>compress ids
 <a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>
-<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>group 'ss1' add surface 8                   # end plane
-<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>group 'ss2' add surface 100                 # end plane
-<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>group 'ss3' add surface with y_min &gt; -0.1   # symmetry plane
-<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>group 'ss4' add surface all
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>group &#39;ss1&#39; add surface 8                   # end plane
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>group &#39;ss2&#39; add surface 100                 # end plane
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>group &#39;ss3&#39; add surface with y_min &gt; -0.1   # symmetry plane
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>group &#39;ss4&#39; add surface all
 <a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>ss4 subtract ss1 from ss4
 <a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>ss4 subtract ss2 from ss4
 <a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>ss4 subtract ss3 from ss4
@@ -3846,7 +3846,7 @@
 <a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>volume 1 sizing function type skeleton scale 7 time_accuracy_level 2 min_size 2.5 max_size 15 max_gradient 2
 <a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>mesh vol 1
 <a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a>transform mesh output scale 0.001
-<a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a>export genesis "TeslaCavity.gen" overwrite
+<a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a>export genesis &quot;TeslaCavity.gen&quot; overwrite
 </code></pre></div>
 <p><img alt="Half cavity mesh" src="../../../assets/tem3p/tesla-mesh.png" width="620" /></p>
 <h3 id="input">Input<a class="headerlink" href="#input" title="Permanent link">&para;</a></h3>

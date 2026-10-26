@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://animated-system-8l9p64e.pages.github.io/v2026.10/modules/omega3p/tutorial-advanced/">
+        <link rel="canonical" href="https://slaclab.github.io/ace3p-docs/v2026.10/modules/omega3p/tutorial-advanced/">
       
       
         <link rel="prev" href="../tutorial-ports/">
@@ -3064,7 +3064,7 @@
 <h3 id="imprint-and-merge">Imprint and merge<a class="headerlink" href="#imprint-and-merge" title="Permanent link">&para;</a></h3>
 <p>Two volumes that touch must share a single interface surface, otherwise the mesh is disconnected across it and the solver sees two separate cavities. Cubit does this with <code>imprint</code> and <code>merge</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>reset
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>import acis "pillbox+recWG+load.sat"
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>import acis &quot;pillbox+recWG+load.sat&quot;
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>imprint body 1 2
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>merge body 1 2
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>volume all scheme Tetmesh
@@ -3080,7 +3080,7 @@
 <a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>block 2 volume 2          # load
 <a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>block all element type tetra10
 <a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>volume all scale 0.001
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>export Genesis "pillbox+recWG+load.gen" block all overwrite
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>export Genesis &quot;pillbox+recWG+load.gen&quot; block all overwrite
 </code></pre></div>
 <p>Each volume goes in its own block so the solver can assign different materials. The load gets a finer mesh since the wavelength inside a high-permittivity material is shorter.</p>
 <figure>
@@ -3144,7 +3144,7 @@
 <h3 id="mesh-the-master-and-slave-faces-identically">Mesh the master and slave faces identically<a class="headerlink" href="#mesh-the-master-and-slave-faces-identically" title="Permanent link">&para;</a></h3>
 <p>The periodic condition maps each node on the master face to a node on the slave face, so the two surface meshes must be the same. Mesh the master surface first, copy its mesh to the slave with matching curve and vertex pairs, then mesh the volume.</p>
 <div class="highlight"><span class="filename">step2a-pbc-mesh_1fourth.jou</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>reset
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>import acis "ds-cell-1fourth.sat"
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>import acis &quot;ds-cell-1fourth.sat&quot;
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>volume 1 scheme tetmesh
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>volume 1 size 2.0
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>surface 5 6 size 1.          # nose cone
@@ -3163,7 +3163,7 @@
 <a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>block 1 vol all
 <a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>block 1 element type tetra10
 <a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>transform mesh output scale 0.001
-<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>export genesis "pbc-4.gen" overwrite
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>export genesis &quot;pbc-4.gen&quot; overwrite
 </code></pre></div>
 <p><img alt="Master and slave faces with identical mesh" src="../../../assets/omega3p/dlwg-pbc-mesh.png" width="320" /></p>
 <div class="admonition warning">

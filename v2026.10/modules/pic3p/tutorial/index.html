@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://animated-system-8l9p64e.pages.github.io/v2026.10/modules/pic3p/tutorial/">
+        <link rel="canonical" href="https://slaclab.github.io/ace3p-docs/v2026.10/modules/pic3p/tutorial/">
       
       
         <link rel="prev" href="../">
@@ -2991,7 +2991,7 @@
 <p>The 1.6-cell S-band photoinjector gun of LCLS. A 1 nC electron bunch is emitted from the cathode at the center of the half cell and accelerated through the full cell by the π mode at 120 MV/m peak field. The run follows the bunch for 420 ps, about 11.6 cm of travel, and records its emittance growth under space charge.</p>
 <h2 id="two-meshes">Two meshes<a class="headerlink" href="#two-meshes" title="Permanent link">&para;</a></h2>
 <p>As with TEM3P, two meshes of the same geometry serve two solvers. Omega3P needs a mesh resolving the cavity for the drive field; Pic3P needs one finer along the beam axis and at the cathode where the low-energy bunch is most sensitive. Both journals start from the same CAD file and the same sequence of concentric webcuts, so the surface IDs match.</p>
-<div class="highlight"><span class="filename">mesh-Pic3P.jou (excerpt)</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>import acis "LCLSGun.sat"
+<div class="highlight"><span class="filename">mesh-Pic3P.jou (excerpt)</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>import acis &quot;LCLSGun.sat&quot;
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>## three concentric cylinders along z for graded refinement
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>webcut volume 1 with cylinder radius 10 axis z center 0 0 0
@@ -3001,14 +3001,14 @@
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>imprint body all
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>merge body all
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>group 'ms'     add surface with is_merged
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>group 'ports'  add surface 16 3 31
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>group 'wgport' add surface 35
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>group 'bp'     add surface 40 49 62 64
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>group 'symx'   add surface 39 52 61 65
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>group 'symy'   add surface 41 50 59 67
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>group 'cath'   add surface 42 51 60 66
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>group 'copper' add surface all
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>group &#39;ms&#39;     add surface with is_merged
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>group &#39;ports&#39;  add surface 16 3 31
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>group &#39;wgport&#39; add surface 35
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>group &#39;bp&#39;     add surface 40 49 62 64
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>group &#39;symx&#39;   add surface 39 52 61 65
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>group &#39;symy&#39;   add surface 41 50 59 67
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>group &#39;cath&#39;   add surface 42 51 60 66
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>group &#39;copper&#39; add surface all
 <a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>copper subtract ms ports wgport bp symx symy cath from copper   # one line per group in the file
 <a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
 <a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>## merge small adjacent surfaces so sizing is uniform across them
@@ -3037,7 +3037,7 @@
 <a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>block 1 vol all
 <a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>block 1 element type tetra10
 <a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>transform mesh output scale 0.001
-<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>export genesis "LCLSGun-Pic3P.gen" overwrite
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>export genesis &quot;LCLSGun-Pic3P.gen&quot; overwrite
 </code></pre></div>
 <p>The single parameter <code>h</code> scales the whole mesh; the comment records the element count at each value. The drive-field journal is identical except the axis and cathode sizes are coarser (<code>0.5*h</code>, <code>0.3*h</code>, <code>1*h</code>). Stored meshes: 64,116 elements for the drive field, 121,202 for the PIC run.</p>
 <figure>

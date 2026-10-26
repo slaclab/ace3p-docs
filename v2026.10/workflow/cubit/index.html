@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://animated-system-8l9p64e.pages.github.io/v2026.10/workflow/cubit/">
+        <link rel="canonical" href="https://slaclab.github.io/ace3p-docs/v2026.10/workflow/cubit/">
       
       
         <link rel="prev" href="../input-format/">
@@ -3293,7 +3293,7 @@
 <p>Which half to delete depends on which side of the plane Cubit numbered as volume 2; check the Model Tree or click the body. Webcutting also has cylindrical, extended-surface, and tool-body variants for more complex cuts.</p>
 <h3 id="export">Export<a class="headerlink" href="#export" title="Permanent link">&para;</a></h3>
 <p><strong>File, Export</strong>, choose ACIS <code>.sat</code>, name it <code>pillbox</code>, Export All, Finish:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>export acis "pillbox.sat" overwrite
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>export acis &quot;pillbox.sat&quot; overwrite
 </code></pre></div>
 <p>ACIS is Cubit's native solid format and preserves exact geometry. Keep the <code>.sat</code> file; it is the input to the meshing step and to any later modification.</p>
 <h2 id="the-same-model-as-a-journal-file">The same model as a journal file<a class="headerlink" href="#the-same-model-as-a-journal-file" title="Permanent link">&para;</a></h2>
@@ -3319,7 +3319,7 @@
 <a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>delete volume 1
 <a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>compress ids
 <a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>
-<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>export acis "pillbox.sat" overwrite
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>export acis &quot;pillbox.sat&quot; overwrite
 </code></pre></div>
 <p>Three edits turn a transcript into a reusable script:</p>
 <ul>
@@ -3337,7 +3337,7 @@
 <p><img align="right" alt="Quarter pillbox mesh" src="../../assets/cubit/quarter-mesh.png" width="360" /></p>
 <p>ACE3P uses quadratic tetrahedral elements, <code>tetra10</code>, whose mid-edge nodes follow curved surfaces. The meshing journal imports the <code>.sat</code>, sets the scheme, chooses a size, meshes, assigns sidesets and blocks, scales, and exports.</p>
 <div class="highlight"><span class="filename">step2-Mesh-pillbox.jou</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>reset
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>import acis "pillbox.sat"
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>import acis &quot;pillbox.sat&quot;
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>volume all scheme tetmesh
 <a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>volume 1 sizing function type skeleton min_size 3 max_size 12
@@ -3354,7 +3354,7 @@
 <a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>block 1 element type tetra10
 <a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>
 <a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>volume 1 scale 0.001
-<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>export genesis "pillbox.gen" overwrite
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>export genesis &quot;pillbox.gen&quot; overwrite
 <a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>
 <a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>quality vol all distortion high 0.0 draw mesh
 </code></pre></div>
@@ -3421,8 +3421,8 @@
 <p>Check the assignment visually with <code>draw sideset 1 2 3 4</code>, which shows only those surfaces:</p>
 <p><img alt="Drawing sidesets" src="../../assets/cubit/draw-sidesets.png" width="720" /></p>
 <p>For models with many surfaces, Cubit groups make sideset assignment robust. See the window example in the <a href="../../modules/s3p/tutorials/#tutorial-3-rf-window">S3P tutorials</a> and the two-mesh models in the <a href="../../modules/tem3p/tutorials/#tutorial-1-rf-gun-coupler-cell">TEM3P tutorials</a>, which select surfaces by coordinate and by merge status:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>group "sym1" add surface with x_coord &lt; 0.001
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>group "ms"   add surface with is_merged
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>group &quot;sym1&quot; add surface with x_coord &lt; 0.001
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>group &quot;ms&quot;   add surface with is_merged
 </code></pre></div>
 <h3 id="quality-check-in-cubit">Quality check in Cubit<a class="headerlink" href="#quality-check-in-cubit" title="Permanent link">&para;</a></h3>
 <p>The last line of the journal, <code>quality vol all distortion high 0.0 draw mesh</code>, colors elements by distortion. Reading "No mesh elements in range" in the command line means none are badly distorted. The definitive check is <code>acdtool meshconvert</code> on the HPC side, described on the <a href="../mesh/#read-the-statistics">mesh preparation</a> page.</p>

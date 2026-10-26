@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://animated-system-8l9p64e.pages.github.io/v2026.10/modules/omega3p/tutorial-pillbox/">
+        <link rel="canonical" href="https://slaclab.github.io/ace3p-docs/v2026.10/modules/omega3p/tutorial-pillbox/">
       
       
         <link rel="prev" href="../">
@@ -3128,7 +3128,7 @@
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>compress ids
 <a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>modify curve 6 5  blend radius {iris_rounding}
 <a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>modify curve 1 2 blend radius {0.5*cav_length}
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>export acis "pillbox-rtop0.sat" overwrite
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>export acis &quot;pillbox-rtop0.sat&quot; overwrite
 <a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
 <a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>webcut volume 1 with plane xplane offset 0 noimprint nomerge
 <a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>delete volume 2
@@ -3136,14 +3136,14 @@
 <a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>webcut volume 1 with plane yplane offset 0 noimprint nomerge
 <a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>delete volume 1
 <a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>compress ids
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>export acis "pillbox-rtop4.sat" overwrite
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>export acis &quot;pillbox-rtop4.sat&quot; overwrite
 </code></pre></div>
 <p>Lines starting with <code>#{...}</code> define Cubit variables, so dimensions can be changed in one place. The full model is saved as <code>pillbox-rtop0.sat</code> before cutting, so it can be reused when adding couplers in <a href="../tutorial-ports/">Tutorial 2</a>. The quarter model is <code>pillbox-rtop4.sat</code>.</p>
 <p>Run it in Cubit with the Play button, or through <strong>Tools, then Journal Editor</strong>.</p>
 <p><img alt="Cubit play button" src="../../../assets/omega3p/cubit-play-button.png" width="500" /></p>
 <h2 id="step-2-mesh">Step 2: Mesh<a class="headerlink" href="#step-2-mesh" title="Permanent link">&para;</a></h2>
 <div class="highlight"><span class="filename">step2-Mesh-pillbox-rtop.jou</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>reset
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>import acis "pillbox-rtop4.sat"
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>import acis &quot;pillbox-rtop4.sat&quot;
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>volume all scheme Tetmesh
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>volume all sizing function type skeleton scale 5 time_accuracy_level 2 min_size auto max_size 12 max_gradient 1.2
@@ -3157,7 +3157,7 @@
 <a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>block 1 element type tetra10
 <a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
 <a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>volume all scale 0.001
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>export Genesis "pillbox-rtop4.gen" block all overwrite
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>export Genesis &quot;pillbox-rtop4.gen&quot; block all overwrite
 </code></pre></div>
 <p>Sidesets 1 and 2 are the two symmetry planes. Sideset 6 is every other surface, which is the cavity wall. The element type must be <code>tetra10</code> and the model is scaled from millimeters to meters just before export.</p>
 <figure>
@@ -3246,7 +3246,7 @@
 <h2 id="step-7-visualize-in-paraview">Step 7: Visualize in ParaView<a class="headerlink" href="#step-7-visualize-in-paraview" title="Permanent link">&para;</a></h2>
 <p>Copy the mesh and the mode files back to your laptop:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>scp<span class="w"> </span>&lt;user&gt;@&lt;host&gt;:&lt;dir&gt;/pillbox-rtop4.ncdf<span class="w"> </span>.
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>scp<span class="w"> </span><span class="s1">'&lt;user&gt;@&lt;host&gt;:&lt;dir&gt;/omega3p_results/*.mod'</span><span class="w"> </span>.
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>scp<span class="w"> </span><span class="s1">&#39;&lt;user&gt;@&lt;host&gt;:&lt;dir&gt;/omega3p_results/*.mod&#39;</span><span class="w"> </span>.
 </code></pre></div>
 <p>In ParaView with the SLAC toolbar enabled, click the SLAC folder icon, select the mesh file and a mode file, and Apply.</p>
 <p><img alt="Loading mesh and mode in ParaView" src="../../../assets/omega3p/paraview-slac-toolbar-load.png" width="560" /></p>

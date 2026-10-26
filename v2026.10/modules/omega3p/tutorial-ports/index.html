@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://animated-system-8l9p64e.pages.github.io/v2026.10/modules/omega3p/tutorial-ports/">
+        <link rel="canonical" href="https://slaclab.github.io/ace3p-docs/v2026.10/modules/omega3p/tutorial-ports/">
       
       
         <link rel="prev" href="../tutorial-pillbox/">
@@ -3201,22 +3201,22 @@
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>body 1 2 rotate 90 about y
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>body 1 2 move -60 0 100
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>body 2 move -30 0 0
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>import acis "pillbox-rtop0.sat"
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>import acis &quot;pillbox-rtop0.sat&quot;
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>unite body 1 3
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>compress ids
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>subtract body 2 from 1
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>compress ids
 <a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>modify curve 10 blend radius 7
 <a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>modify curve 12 blend radius 5
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>export acis "pillbox-rtop+coax.sat" overwrite
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>export acis &quot;pillbox-rtop+coax.sat&quot; overwrite
 <a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>webcut volume 1 with plane yplane offset 0
 <a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>delete body 1
 <a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>compress ids
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>export acis "pillbox-rtop+coax2.sat" overwrite
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>export acis &quot;pillbox-rtop+coax2.sat&quot; overwrite
 </code></pre></div>
 <h3 id="mesh-with-a-port-sideset">Mesh with a port sideset<a class="headerlink" href="#mesh-with-a-port-sideset" title="Permanent link">&para;</a></h3>
 <div class="highlight"><span class="filename">step3-Mesh-pillbox-rtop+coax.jou</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>reset
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>import acis "pillbox-rtop+coax2.sat"
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>import acis &quot;pillbox-rtop+coax2.sat&quot;
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>volume all scheme Tetmesh
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>volume all sizing function type skeleton scale 7 time_accuracy_level 2 min_size auto max_size 15 max_gradient 1.5
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>mesh volume all
@@ -3228,7 +3228,7 @@
 <a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>block 1 volume all
 <a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>block 1 element type tetra10
 <a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>volume all scale 0.001
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>export Genesis "pillbox-rtop+coax2.gen" block all overwrite
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>export Genesis &quot;pillbox-rtop+coax2.gen&quot; block all overwrite
 </code></pre></div>
 <p>The coax end surface gets its own sideset, 7, so it can be declared a port. The beam pipe ends are 3 and 4.</p>
 <h3 id="input-with-a-port">Input with a port<a class="headerlink" href="#input-with-a-port" title="Permanent link">&para;</a></h3>
