@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://slaclab.github.io/ace3p-docs/dev/contributing/">
       
       
-        <link rel="prev" href="../interfaces/workflow-assistant/">
+        <link rel="prev" href="../releases/v2026.10/">
       
       
         <link rel="next" href="../corrections/">
@@ -352,6 +352,28 @@
     
   
   Interfaces
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../releases/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Releases
 
         </a>
       </li>
@@ -2678,6 +2700,110 @@
       
   
   
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../releases/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Releases
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Releases
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../releases/v2026.10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ACE3P v2026.10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -2789,6 +2915,28 @@
     <span class="md-ellipsis">
       
         Regenerating the reference pages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-written-with-the-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation written with the code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-happens-at-an-ace3p-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What happens at an ACE3P release
       
     </span>
   </a>
@@ -2923,6 +3071,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#documentation-written-with-the-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation written with the code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-happens-at-an-ace3p-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What happens at an ACE3P release
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#versioning" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2997,7 +3167,23 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>python<span class="w"> </span>tools/extract_keywords.py<span class="w"> </span>/path/to/ace3p<span class="w"> </span>--out<span class="w"> </span>docs/reference
 </code></pre></div>
 <p>The script scans for <code>Get(kvc, "Keyword", InitOrFallback&lt;T&gt;(default) ...)</code>, the <code>find</code>, <code>findSwitch</code>, and <code>findContainer</code> calls, and the string-compare parser of the rf post-processor. Point it at a checkout of the tagged ACE3P release so that the revision recorded in each page matches the tag.</p>
-<p>The ACE3P source repository has a workflow, <code>.github/workflows/docs-keywords.yml</code>, that runs when a release tag <code>v*</code> is pushed. It regenerates the pages and opens a pull request here on a branch named <code>keywords/&lt;tag&gt;</code>. It needs a repository secret <code>ACE3P_DOCS_TOKEN</code> in the ACE3P repository: a fine-grained personal access token with contents and pull-request write access to <code>ace3p-docs</code>. Review and merge that pull request, then tag this repository with the same version.</p>
+<h2 id="documentation-written-with-the-code">Documentation written with the code<a class="headerlink" href="#documentation-written-with-the-code" title="Permanent link">&para;</a></h2>
+<p>ACE3P developers can document a feature in the same pull request that implements it, in <code>docs/user/</code> of the ACE3P source repository (see its <code>README.md</code>). Two kinds of page are picked up:</p>
+<ul>
+<li><code>docs/user/&lt;module&gt;/&lt;topic&gt;.md</code> appears here under <em>Modules &gt; (module) &gt; Notes from the source tree</em>, carrying a banner that names its origin.</li>
+<li><code>docs/user/CHANGES/&lt;tag&gt;.md</code> or <code>CHANGES/next.md</code> becomes the release-notes page under <em>Releases</em>.</li>
+</ul>
+<p><code>tools/assemble_source_docs.py</code> does the copying and rewrites the generated part of the navigation. Pages copied this way are owned by the ACE3P repository: edit them there, not here, or the next release overwrites the change.</p>
+<h2 id="what-happens-at-an-ace3p-release">What happens at an ACE3P release<a class="headerlink" href="#what-happens-at-an-ace3p-release" title="Permanent link">&para;</a></h2>
+<p>The ACE3P source repository has a workflow, <code>.github/workflows/docs-keywords.yml</code>, that runs when a release tag <code>v*</code> is pushed:</p>
+<ol>
+<li>Regenerates the keyword tables and copies the developer pages.</li>
+<li>Builds the site strictly, so a broken link in a developer page fails before anything is published.</li>
+<li>Opens a pull request here on branch <code>release-docs/&lt;tag&gt;</code> and requests auto-merge.</li>
+<li>When the pull request has merged, tags this repository <code>&lt;tag&gt;</code>. The deploy workflow then publishes that version and points <code>latest</code> at it.</li>
+</ol>
+<p>For this to run unattended, the ACE3P repository needs the secret <code>ACE3P_DOCS_TOKEN</code> (a token with contents and pull-request write access here), and this repository needs <em>Allow auto-merge</em> enabled in Settings and a branch ruleset on <code>main</code> requiring the <code>build</code> check. Without auto-merge the pull request waits for a maintainer; the workflow still tags once it is merged within 30 minutes, and otherwise the tag is made by hand as below.</p>
+<p>Hand-written guides and tutorials are never changed by this workflow. Only <code>docs/reference/*.md</code>, <code>docs/modules/*/from-source/</code>, <code>docs/releases/</code>, and the generated block of <code>mkdocs.yml</code> are.</p>
 <h2 id="versioning">Versioning<a class="headerlink" href="#versioning" title="Permanent link">&para;</a></h2>
 <p>Documentation versions are published with <a href="https://github.com/jimporter/mike">mike</a>. Pushing to <code>main</code> updates the <code>dev</code> version. Pushing a tag <code>vX.Y</code> publishes that version and points the <code>latest</code> alias at it:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>tag<span class="w"> </span>v2026.10
@@ -3039,7 +3225,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../interfaces/workflow-assistant/" class="md-footer__link md-footer__link--prev" aria-label="Previous: AI workflow assistant">
+          <a href="../releases/v2026.10/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ACE3P v2026.10">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3049,7 +3235,7 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                AI workflow assistant
+                ACE3P v2026.10
               </div>
             </div>
           </a>
