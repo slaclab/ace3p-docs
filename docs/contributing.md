@@ -54,7 +54,27 @@ python tools/extract_keywords.py /path/to/ace3p --out docs/reference
 
 The script scans for `Get(kvc, "Keyword", InitOrFallback<T>(default) ...)`, the `find`, `findSwitch`, and `findContainer` calls, and the string-compare parser of the rf post-processor. Point it at a checkout of the tagged ACE3P release so that the revision recorded in each page matches the tag.
 
-The ACE3P source repository has a workflow, `.github/workflows/docs-keywords.yml`, that runs when a release tag `v*` is pushed. It regenerates the pages and opens a pull request here on a branch named `keywords/<tag>`. It needs a repository secret `ACE3P_DOCS_TOKEN` in the ACE3P repository: a fine-grained personal access token with contents and pull-request write access to `ace3p-docs`. Review and merge that pull request, then tag this repository with the same version.
+## Documentation written with the code
+
+ACE3P developers can document a feature in the same pull request that implements it, in `docs/user/` of the ACE3P source repository (see its `README.md`). Two kinds of page are picked up:
+
+- `docs/user/<module>/<topic>.md` appears here under *Modules > (module) > Notes from the source tree*, carrying a banner that names its origin.
+- `docs/user/CHANGES/<tag>.md` or `CHANGES/next.md` becomes the release-notes page under *Releases*.
+
+`tools/assemble_source_docs.py` does the copying and rewrites the generated part of the navigation. Pages copied this way are owned by the ACE3P repository: edit them there, not here, or the next release overwrites the change.
+
+## What happens at an ACE3P release
+
+The ACE3P source repository has a workflow, `.github/workflows/docs-keywords.yml`, that runs when a release tag `v*` is pushed:
+
+1. Regenerates the keyword tables and copies the developer pages.
+2. Builds the site strictly, so a broken link in a developer page fails before anything is published.
+3. Opens a pull request here on branch `release-docs/<tag>` and requests auto-merge.
+4. When the pull request has merged, tags this repository `<tag>`. The deploy workflow then publishes that version and points `latest` at it.
+
+For this to run unattended, the ACE3P repository needs the secret `ACE3P_DOCS_TOKEN` (a token with contents and pull-request write access here), and this repository needs *Allow auto-merge* enabled in Settings and a branch ruleset on `main` requiring the `build` check. Without auto-merge the pull request waits for a maintainer; the workflow still tags once it is merged within 30 minutes, and otherwise the tag is made by hand as below.
+
+Hand-written guides and tutorials are never changed by this workflow. Only `docs/reference/*.md`, `docs/modules/*/from-source/`, `docs/releases/`, and the generated block of `mkdocs.yml` are.
 
 ## Versioning
 

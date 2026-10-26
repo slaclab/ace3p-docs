@@ -55,7 +55,7 @@
 
 This site replaces the CW23 workshop slide decks that were distributed as PDFs. The content is organized as a manual rather than as lecture notes, it is searchable, and it is versioned alongside ACE3P releases. Use the version selector in the header to view documentation for a specific release.
 
-The keyword reference pages are regenerated from the ACE3P source tree whenever a release is tagged. See [Contributing](contributing.md) for how that works and how to propose changes.
+The keyword reference pages are regenerated from the ACE3P source tree whenever a release is tagged, and the [Releases](releases/index.md) section carries the developers' notes for each one. See [Contributing](contributing.md) for how that works and how to propose changes.
 
 !!! note "Citing ACE3P"
     Please cite ACE3P when publishing results obtained with it. Contact the development team at <ace3p@slac.stanford.edu>.

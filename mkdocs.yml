@@ -154,5 +154,10 @@ nav:
       - ACE3P GUI: interfaces/gui.md
       - Web dashboard: interfaces/dashboard.md
       - AI workflow assistant: interfaces/workflow-assistant.md
+  # BEGIN generated nav (tools/assemble_source_docs.py; do not edit by hand)
+  - Releases:
+      - releases/index.md
+      - ACE3P v2026.10: releases/v2026.10.md
+  # END generated nav
   - Contributing: contributing.md
   - Corrections to source material: corrections.md
