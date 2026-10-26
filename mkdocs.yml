@@ -5,7 +5,7 @@ site_url: !ENV [SITE_URL, 'https://slaclab.github.io/ace3p-docs/']
 repo_url: https://github.com/slaclab/ace3p-docs
 repo_name: slaclab/ace3p-docs
 edit_uri: edit/main/docs/
-copyright: Copyright &copy; SLAC National Accelerator Laboratory
+copyright: Copyright &copy; SLAC National Accelerator Laboratory. Documentation licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
 
 theme:
   name: material
