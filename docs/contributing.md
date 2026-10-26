@@ -1,6 +1,6 @@
 # Contributing
 
-This documentation is maintained in the `slaclab/ace3p-docs` repository. Readers can file issues; changes go through pull requests.
+This documentation is maintained in the public `slaclab/ace3p-docs` repository and published at <https://slaclab.github.io/ace3p-docs/>. Anyone can read it and file issues; changes go through pull requests and are merged by the ACE3P team.
 
 ## Report a problem
 
