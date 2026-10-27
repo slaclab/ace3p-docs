@@ -3280,8 +3280,8 @@
 </tr>
 <tr>
 <td>On Perlmutter</td>
-<td>Installed, run in a <a href="../#connecting-with-thinlinc">ThinLinc desktop</a></td>
-<td>Installed, run in a ThinLinc desktop or in client-server mode</td>
+<td>Cubit 16.16 under <code>$CFS/ace3p/tools/</code>, run in a <a href="../#connecting-with-thinlinc">ThinLinc desktop</a></td>
+<td>ParaView 5.11.0 under <code>$CFS/ace3p/tools/</code>, run in a ThinLinc desktop; NERSC client-server mode for large data</td>
 </tr>
 <tr>
 <td>On S3DF</td>
@@ -3306,12 +3306,9 @@
 </code></pre></div>
 <p>Mesh elements must be quadratic tetrahedra (<code>tetra10</code>) and the model must be scaled to meters before export. See <a href="../../workflow/mesh/">Mesh preparation</a>.</p>
 <h3 id="cubit-on-perlmutter">Cubit on Perlmutter<a class="headerlink" href="#cubit-on-perlmutter" title="Permanent link">&para;</a></h3>
-<p>Connect with <a href="../#connecting-with-thinlinc">ThinLinc</a>, open a terminal and start Cubit from the ACE3P project area under <code>$CFS/ace3p/</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ls<span class="w"> </span><span class="nv">$CFS</span>/ace3p/<span class="w">            </span><span class="c1"># the Cubit directory is listed here</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>&lt;path-to-cubit&gt;/cubit<span class="w"> </span><span class="p">&amp;</span>
+<p>Cubit 16.16 is installed in the ACE3P project area. Connect with <a href="../#connecting-with-thinlinc">ThinLinc</a>, open a terminal and start it:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">$CFS</span>/ace3p/tools/Cubit-16.16/cubit<span class="w"> </span><span class="p">&amp;</span>
 </code></pre></div>
-<!-- TODO: replace <path-to-cubit> with the installed Perlmutter path and version once confirmed. -->
-
 <p>The GUI opens on the ThinLinc desktop. Set the working directory to your scratch area (<strong>File, then Set Directory</strong>) so the <code>.gen</code> file lands where <code>acdtool meshconvert</code> will read it.</p>
 <h3 id="cubit-on-s3df">Cubit on S3DF<a class="headerlink" href="#cubit-on-s3df" title="Permanent link">&para;</a></h3>
 <p>Cubit 16.12 is installed at <code>/sdf/group/rfar/software/Cubit-16.12/</code>. Start it from a NoMachine desktop or an <code>ssh -X</code> session:</p>
@@ -3330,12 +3327,10 @@
 <h2 id="paraview">ParaView<a class="headerlink" href="#paraview" title="Permanent link">&para;</a></h2>
 <p>ParaView is free, open-source software from Kitware. ACE3P results are read through the <strong>SLAC toolbar</strong>, a plugin shipped with every ParaView release, which loads a mesh (<code>.ncdf</code>) together with mode or field files (<code>.mod</code>) in one step.</p>
 <h3 id="paraview-on-perlmutter">ParaView on Perlmutter<a class="headerlink" href="#paraview-on-perlmutter" title="Permanent link">&para;</a></h3>
-<p>NERSC maintains ParaView on Perlmutter; versions 5.12, 5.13 and 6.0 are available at the time of writing. In a ThinLinc desktop:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>module<span class="w"> </span>avail<span class="w"> </span>paraview<span class="w">        </span><span class="c1"># list the installed versions</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>module<span class="w"> </span>load<span class="w"> </span>paraview<span class="w">         </span><span class="c1"># pick one, e.g. module load paraview/5.13.3</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>paraview<span class="w"> </span><span class="p">&amp;</span>
+<p>ParaView 5.11.0 with the SLAC toolbar is installed in the ACE3P project area. In a ThinLinc desktop:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nv">$CFS</span>/ace3p/tools/ParaView-5.11.0-MPI-Linux-Python3.9-x86_64/bin/paraview<span class="w"> </span><span class="p">&amp;</span>
 </code></pre></div>
-<p>For very large datasets NERSC also supports <strong>client-server mode</strong>, where the ParaView GUI runs on your computer and the data stays on Perlmutter. Setup is in the <a href="https://docs.nersc.gov/applications/paraview/">NERSC ParaView guide</a>. The client version must match the server version listed there.</p>
+<p>This is the version the tutorials and the CW23 macros were tested with. NERSC also provides newer ParaView releases (5.12 and later) and a <strong>client-server mode</strong> for very large datasets, where the GUI runs on your computer and the data stays on Perlmutter. Setup is in the <a href="https://docs.nersc.gov/applications/paraview/">NERSC ParaView guide</a>; the client version must match the server version listed there.</p>
 <h3 id="paraview-on-s3df">ParaView on S3DF<a class="headerlink" href="#paraview-on-s3df" title="Permanent link">&para;</a></h3>
 <p>ParaView 5.11.1 is installed at <code>/sdf/group/rfar/software/ParaView-5.11.1-MPI-Linux-Python3.9-x86_64/</code>. Start <code>bin/paraview</code> from a NoMachine desktop, or use the ParaView Web Visualizer through an SSH tunnel as described on the <a href="../../interfaces/dashboard/">Web dashboard</a> page.</p>
 <h3 id="installing-paraview-on-your-own-computer">Installing ParaView on your own computer<a class="headerlink" href="#installing-paraview-on-your-own-computer" title="Permanent link">&para;</a></h3>
