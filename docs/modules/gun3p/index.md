@@ -161,6 +161,7 @@ These follow the [TEM3P conventions](../tem3p/index.md#input-file): `MeshFile`, 
 | `Use reduced solver` | Eliminate constrained DOFs before solving. Keep on. |
 | `Outputs.Dofs for vizualization` | Write the field for `gun3pOutputConverter` to turn into a `.mod` file |
 | `Outputs.ElectrostaticFieldToken`, `FileName`, `Nx`, `Ny`, `Nz` | Also export the field on a Cartesian grid, for use as an external field in Track3P |
+| `Outputs.XRange`, `YRange`, `ZRange` | Optional, two values each (`min max`, metres). Extent of that grid per axis; an axis not given spans the mesh bounding box. Points outside the mesh are written as zero. Added in the October 2026 release. |
 | `LinearSolver.Solver` | `CG` with `CHOLESKY` for large problems, `MUMPSFLOAT` for small. Other keys as shown. |
 
 In the magnetostatic problem every boundary is Dirichlet 0 and the material parameter is still named `Permittivity` in the examples, which the code accepts.

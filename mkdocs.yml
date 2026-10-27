@@ -90,14 +90,15 @@ nav:
   - Home: index.md
   - Getting Started:
       - getting-started/index.md
-      - Running on S3DF: getting-started/s3df.md
       - Running on NERSC Perlmutter: getting-started/perlmutter.md
-      - Local tools (Cubit, ParaView): getting-started/local-tools.md
+      - Pre- and post-processing tools (Cubit, ParaView): getting-started/tools.md
+      - Running on S3DF (SLAC users): getting-started/s3df.md
+  - Cubit:
+      - cubit/index.md
   - Workflow:
       - workflow/index.md
-      - Input file format: workflow/input-format.md
-      - Geometry and meshing with Cubit: workflow/cubit.md
       - Mesh preparation with acdtool: workflow/mesh.md
+      - Input file format: workflow/input-format.md
       - Batch jobs: workflow/batch-jobs.md
   - Modules:
       - modules/index.md

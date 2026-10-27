@@ -1,6 +1,6 @@
-# Geometry and meshing with Cubit
+# Cubit: geometry and meshing for ACE3P
 
-Cubit is the geometry and mesh generation toolkit from Sandia National Laboratories that every ACE3P workflow starts with. This chapter walks through building and meshing a pillbox cavity, first interactively so you learn the interface, then as journal files so the process is reproducible. The export rules and the `acdtool` conversion that follow are on the [mesh preparation](mesh.md) page.
+Cubit is the geometry and mesh generation toolkit from Sandia National Laboratories that every ACE3P workflow starts with. It is installed on Perlmutter and S3DF (see [where to run Cubit](#where-to-run-cubit)), so you can follow this chapter in a remote desktop without installing anything. This chapter walks through building and meshing a pillbox cavity, first interactively so you learn the interface, then as journal files so the process is reproducible. The export rules and the `acdtool` conversion that follow are on the [mesh preparation](../workflow/mesh.md) page.
 
 Cubit's own tutorials at [cubit.sandia.gov](https://cubit.sandia.gov/tutorials) and [coreform.com](https://coreform.com/products/coreform-cubit/tutorials/) go deeper on the tool itself.
 
@@ -234,7 +234,7 @@ group "ms"   add surface with is_merged
 
 ### Quality check in Cubit
 
-The last line of the journal, `quality vol all distortion high 0.0 draw mesh`, colors elements by distortion. Reading "No mesh elements in range" in the command line means none are badly distorted. The definitive check is `acdtool meshconvert` on the HPC side, described on the [mesh preparation](mesh.md#read-the-statistics) page.
+The last line of the journal, `quality vol all distortion high 0.0 draw mesh`, colors elements by distortion. Reading "No mesh elements in range" in the command line means none are badly distorted. The definitive check is `acdtool meshconvert` on the HPC side, described on the [mesh preparation](../workflow/mesh.md#read-the-statistics) page.
 
 ## Tips for harder models
 
@@ -255,12 +255,14 @@ If `acdtool meshconvert` finds invalid second-order tetrahedra, it replaces them
 Invalid elements, in red, clustered where a curved surface meets a flat one at a sharp angle. Finer `min_size` or a blend on the edge fixes this.
 ///
 
-## Cubit on S3DF
+## Where to run Cubit
 
-A licensed Cubit 16.12 is installed at `/sdf/group/rfar/software/Cubit-16.12/`. Run the GUI through a NoMachine desktop or `ssh -X`, or play a journal with no display:
+Cubit is installed on both HPC systems, so you do not need your own copy. Launch the GUI from a [ThinLinc](../getting-started/index.md#connecting-with-thinlinc) desktop on Perlmutter, or from a NoMachine desktop on S3DF. Details, including how to install Cubit on your own computer if you prefer, are on the [tools page](../getting-started/tools.md).
+
+A journal can also be played with no display, which is what an automated workflow does. On S3DF:
 
 ```bash
 /sdf/group/rfar/software/Cubit-16.12/cubit -batch -nographics -input step2-Mesh-pillbox.jou
 ```
 
-Batch mode is what a workflow engine calls when meshing is one step in an automated chain. See the [workflow assistant](../interfaces/workflow-assistant.md) page.
+See the [workflow assistant](../interfaces/workflow-assistant.md) page for how batch meshing is chained with the solvers.

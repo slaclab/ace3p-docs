@@ -37,7 +37,7 @@ volume all scale 0.001
 export genesis "dcgun.gen" overwrite
 ```
 
-`import step ... heal` repairs small CAD defects on import. The result is 459,206 elements with boundary IDs 1, 2, 3, 4, 10, 12. Long explicit surface lists like the anode's are fragile; for your own models prefer Cubit groups selected by coordinate or by name, as the [Cubit page](../../workflow/cubit.md#sidesets-and-blocks) describes.
+`import step ... heal` repairs small CAD defects on import. The result is 459,206 elements with boundary IDs 1, 2, 3, 4, 10, 12. Long explicit surface lists like the anode's are fragile; for your own models prefer Cubit groups selected by coordinate or by name, as the [Cubit page](../../cubit/index.md#sidesets-and-blocks) describes.
 
 ![Cathode region](../../assets/gun3p/sbk-mesh-closeup.png){ width="440" }
 /// caption
@@ -114,5 +114,5 @@ writes `OUTPUT/E/staticDofs.ncdf.mod` and the magnetic equivalent. In ParaView, 
 
 - **Turn on the self-magnetic field.** Uncomment `FirstIterationForMagnetostaticProblem: 1` or set it to an iteration after the current has settled. For a 129 A beam the magnetic self-pinch is not negligible.
 - **Trim the iterations.** The current is converged by iteration 12. Set `MaxIterations` accordingly and halve the run time, or raise `Charge averaging factor` cautiously to converge in fewer.
-- **Export the field for Track3P.** Add `ElectrostaticFieldToken: On` with a `FileName` and `Nx`, `Ny`, `Nz` to `Outputs`, rerun the converter, and the Cartesian field file can be loaded in Track3P as a static field alongside an RF field. The `Coax-StaticField` example under `examples/track3p` does exactly this.
+- **Export the field for Track3P.** Add `ElectrostaticFieldToken: On` with a `FileName` and `Nx`, `Ny`, `Nz` to `Outputs`, and `XRange`, `YRange`, `ZRange` if you want the grid to cover only the gun region (for this gun, `XRange: -0.02 0.02`, `YRange: -0.01 0.01`, `ZRange: 0.0 0.10` puts 90 % of the points inside the mesh instead of 23 %); rerun the converter, and the Cartesian field file can be loaded in Track3P as a static field alongside an RF field. The `Coax-StaticField` example under `examples/track3p` does exactly this.
 - **Electrostatic only.** Remove the `Tracker` block and set `MaxIterations: 0` to use Gun3P as a plain electrostatic solver for electrode design.

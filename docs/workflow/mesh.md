@@ -1,6 +1,6 @@
 # Mesh preparation
 
-ACE3P reads meshes in its own NetCDF format (`.ncdf`). You produce them by exporting a Genesis file (`.gen`) from Cubit and converting it with `acdtool`. Building and meshing the model in Cubit is covered on the [Cubit page](cubit.md); this page covers what the exported mesh must contain and how to check it.
+ACE3P reads meshes in its own NetCDF format (`.ncdf`). You produce them by exporting a Genesis file (`.gen`) from Cubit and converting it with `acdtool`. Building and meshing the model in Cubit is covered on the [Cubit page](../cubit/index.md); this page covers what the exported mesh must contain and how to check it.
 
 ## Cubit export checklist
 

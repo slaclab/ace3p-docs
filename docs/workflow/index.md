@@ -1,6 +1,6 @@
 # Workflow overview
 
-Every ACE3P simulation follows the same five steps regardless of which solver you use.
+[Getting started](../getting-started/index.md) covers accounts, logging in and submitting a first job. This chapter is about what happens between a drawing and a plot: every ACE3P simulation follows the same five steps regardless of which solver you use.
 
 ```mermaid
 flowchart LR
@@ -12,11 +12,13 @@ flowchart LR
 
 | Step | Tool | Where | Input | Output |
 |---|---|---|---|---|
-| 1. Build the model | Cubit | Laptop | `.jou` journal | `.sat` ACIS geometry |
-| 2. Mesh the model | Cubit | Laptop | `.sat`, `.jou` | `.gen` Genesis mesh |
-| 3. Convert the mesh | `acdtool meshconvert` | HPC | `.gen` | `.ncdf` NetCDF mesh |
-| 4. Run the solver | `omega3p`, `s3p`, ... | HPC | `.ncdf` plus `<name>.<module>` input | results directory with `.mod` fields and `.out` log |
-| 5. Post-process | ParaView, `acdtool postprocess rf` | Laptop or HPC | `.ncdf`, `.mod`, `.rfpost` | plots, R/Q, surface fields |
+| 1. Build the model | Cubit | HPC desktop (ThinLinc) or laptop | `.jou` journal | `.sat` ACIS geometry |
+| 2. Mesh the model | Cubit | HPC desktop or laptop | `.sat`, `.jou` | `.gen` Genesis mesh |
+| 3. Convert the mesh | `acdtool meshconvert` | HPC batch | `.gen` | `.ncdf` NetCDF mesh |
+| 4. Run the solver | `omega3p`, `s3p`, ... | HPC batch | `.ncdf` plus `<name>.<module>` input | results directory with `.mod` fields and `.out` log |
+| 5. Post-process | ParaView, `acdtool postprocess rf` | HPC desktop or laptop | `.ncdf`, `.mod`, `.rfpost` | plots, R/Q, surface fields |
+
+Cubit and ParaView are installed on Perlmutter and S3DF, so steps 1, 2 and 5 can be done in a [ThinLinc](../getting-started/index.md#connecting-with-thinlinc) desktop without copying files. If you run them on your own computer instead, transfer `.gen` files up and `.mod` files down with `scp`.
 
 ## Conventions
 
@@ -37,7 +39,7 @@ flowchart LR
 
 ## Next
 
-- [Input file format](input-format.md), the block syntax shared by all solvers
-- [Geometry and meshing with Cubit](cubit.md), building and meshing a model interactively and by journal
+- [Cubit](../cubit/index.md), building and meshing a model interactively and by journal (its own chapter)
 - [Mesh preparation](mesh.md), Cubit export rules and acdtool conversion
+- [Input file format](input-format.md), the block syntax shared by all solvers
 - [Batch jobs](batch-jobs.md), running solvers under Slurm

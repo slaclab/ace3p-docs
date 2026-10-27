@@ -4,6 +4,10 @@ Perlmutter is NERSC's flagship system. ACE3P is installed in the `ace3p` project
 
 ## Log in
 
+The recommended way to work is through a **ThinLinc remote desktop**, which gives you a terminal, Cubit and ParaView in one window on Perlmutter. Setup is described on the [Getting started page](index.md#connecting-with-thinlinc). ThinLinc needs an sshproxy key, so do the [sshproxy step](#avoid-repeated-otp-prompts-with-sshproxy) below first.
+
+For a terminal only:
+
 ```bash
 ssh <username>@perlmutter.nersc.gov
 ```
@@ -40,6 +44,10 @@ source ~/perlmutter-ace3p.sh
 ```
 
 The ACE3P binaries live in `$CFS/ace3p/perlmutter/CPU/`. `$CFS` expands to `/global/cfs/cdirs`.
+
+## Cubit and ParaView
+
+Both are installed on Perlmutter and run in a ThinLinc desktop, so meshes and results never have to leave the system. See [Pre- and post-processing tools](tools.md) for how to start them and for the ParaView SLAC toolbar.
 
 ## Working directory
 

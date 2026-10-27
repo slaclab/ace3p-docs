@@ -1,6 +1,9 @@
 # Running on S3DF
 
-S3DF is SLAC's Shared Scientific Data Facility. ACE3P is installed under the `rfar` group area and runs on the `milano` partition.
+!!! note "SLAC users only"
+    S3DF, SLAC's Shared Scientific Data Facility, is reachable only with a SLAC computing account. Users elsewhere should use [NERSC Perlmutter](perlmutter.md), which is the main ACE3P platform. The rest of this manual applies to both systems.
+
+ACE3P is installed under the `rfar` group area and runs on the `milano` partition. Cubit and ParaView are installed as well; see [Pre- and post-processing tools](tools.md).
 
 ## Log in
 
