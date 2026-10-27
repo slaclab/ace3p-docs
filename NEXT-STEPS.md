@@ -10,9 +10,23 @@ Written 2026-10-26 for Lixin Ge. Keep this file current; delete items as they ar
 | Versions | `v2026.10` (alias `latest`, what the root shows) and `dev` (follows `main`) |
 | Docs repo | `slaclab/ace3p-docs`, Public, license CC BY 4.0, `main` at f1b89a3 |
 | Source repo | `lge0303/ace3p`, private, `master` at ed977c6, tag `v2026.10` |
-| Content | 7 module guides with tutorials, Cubit chapter, Getting Started for S3DF and Perlmutter, command syntax for every module and acdtool, 13 source-generated keyword tables, Interfaces, Corrections log |
+| Content | 7 module guides with tutorials, Cubit chapter (own nav entry), Getting Started centred on Perlmutter + ThinLinc with S3DF as a SLAC-only note, tools page (Cubit, ParaView), command syntax for every module and acdtool, 13 source-generated keyword tables, Interfaces, Corrections log |
 | Automation | Pushing a `v*` tag to the ACE3P repo regenerates keyword tables, copies `docs/user/` pages, opens a pull request here, requests auto-merge, and tags this repo after the merge |
 | Secret | `ACE3P_DOCS_TOKEN` in the ACE3P repo is a classic token; a fine-grained token for slaclab is pending approval |
+
+## Open pull requests to merge (2026-10-27)
+
+| Repo | Branch | What | Link |
+|---|---|---|---|
+| slaclab/ace3p-docs | `getting-started-restructure` | Perlmutter as main platform, ThinLinc, Cubit chapter, tools page, S3DF note, Gun3P XRange docs | https://github.com/slaclab/ace3p-docs/pull/new/getting-started-restructure |
+| slaclab/ace3p | `docs-user-tree` (from lge0303) | `docs/user/` tree + release workflow that copies it to the site; Gun3P grid-region page; `CHANGES/next.md` entry | https://github.com/lge0303/ace3p/pull/new/docs-user-tree |
+| slaclab/ace3p | `grid-region-test-portable` (from lge0303) | Gun3P grid-region test runs on Perlmutter (LSBK_SRC, perlmutter.sh) | https://github.com/lge0303/ace3p/pull/new/grid-region-test-portable |
+
+Merge `docs-user-tree` before the next tag: without it the release workflow only regenerates keyword tables and does not copy `docs/user/` or the release notes.
+
+Still to fill in by hand: the installed Cubit path on Perlmutter in `docs/getting-started/tools.md` (marked TODO), and the ParaView module name there if NERSC's differs from `paraview`.
+
+Fork note: `lge0303/ace3p` master diverged from `slaclab/ace3p` master by one commit (ed977c672, now carried by `docs-user-tree`). After that PR merges, reset the fork's master to upstream: `git checkout master && git reset --hard upstream/master && git push --force-with-lease origin master`.
 
 ## To do in the GitHub web UI (only you can)
 
@@ -57,7 +71,9 @@ Sources are in `/sdf/group/rfar/ace3p/cw23/`.
 |---|---|
 | `/sdf/group/rfar/lge/sdf/ace3p-docs` | docs repo, branch `main`, git identity set to Lixin Ge |
 | `/sdf/group/rfar/lge/sdf/ace3p` | ACE3P, on branch `Track3p-GPU`, ahead of master |
-| `/sdf/group/rfar/lge/ace3p-master-wt` | older worktree of ACE3P master, behind origin; `git pull` before use |
+| `/sdf/group/rfar/lge/ace3p-master-wt` | ACE3P upstream master (a641a8ea8, PR #240 merged); has a `build/` with the converters built |
+| `/sdf/group/rfar/lge/ace3p-docs-user-wt` | ACE3P branch `docs-user-tree` (docs/user tree + workflow, for PR) |
+| `/sdf/group/rfar/lge/ace3p-capabilities-cw23` | seminar branch: capability list, feature trees, decks under md/seminar |
 | conda env `workflow-s3df` | has mkdocs, mike, pymupdf, python-pptx |
 
 Build and preview locally:
