@@ -8,22 +8,27 @@ Written 2026-10-26 for Lixin Ge. Keep this file current; delete items as they ar
 |---|---|
 | Site | https://slaclab.github.io/ace3p-docs/ , public, no login |
 | Versions | `v2026.10` (alias `latest`, what the root shows) and `dev` (follows `main`) |
-| Docs repo | `slaclab/ace3p-docs`, Public, license CC BY 4.0, `main` at f1b89a3 |
-| Source repo | `lge0303/ace3p`, private, `master` at ed977c6, tag `v2026.10` |
+| Docs repo | `slaclab/ace3p-docs`, Public, license CC BY 4.0, `main` at 18c4d00 |
+| Source repo | `slaclab/ace3p` master at 6e9858032 (fork `lge0303/ace3p` master identical), tag `v2026.10` |
 | Content | 7 module guides with tutorials, Cubit chapter (own nav entry), Getting Started centred on Perlmutter + ThinLinc with S3DF as a SLAC-only note, tools page (Cubit, ParaView), command syntax for every module and acdtool, 13 source-generated keyword tables, Interfaces, Corrections log |
 | Automation | Pushing a `v*` tag to the ACE3P repo regenerates keyword tables, copies `docs/user/` pages, opens a pull request here, requests auto-merge, and tags this repo after the merge |
 | Secret | `ACE3P_DOCS_TOKEN` in the ACE3P repo is a classic token; a fine-grained token for slaclab is pending approval |
 
 ## Merged 2026-10-27
 
-ace3p-docs PR #2 (Getting started restructure), ace3p `docs-user-tree` and `grid-region-test-portable`. Perlmutter tool paths filled in (Cubit 16.16, ParaView 5.11.0 under `$CFS/ace3p/tools/`).
+- ace3p-docs PR #2 (Getting started restructure) and PR #3 (Perlmutter tool paths: Cubit 16.16, ParaView 5.11.0 under `$CFS/ace3p/tools/`).
+- ace3p PR #240 (Gun3P grid-region export) and PR #241 (`docs/user/` tree + release workflow). `lge0303/ace3p` master reset to upstream (6e9858032).
+
+## Still open
+
+- ace3p PR for `grid-region-test-portable` (Gun3P test on Perlmutter): https://github.com/lge0303/ace3p/pull/new/grid-region-test-portable . Small, no code change.
+- Fork branches already merged and safe to delete on GitHub: `gun3p-grid-output-region`, `docs-user-tree`, `track3p-cpu-localization`, `openmp-files-io`.
 
 Fork note: `lge0303/ace3p` master diverged from `slaclab/ace3p` master by one commit (ed977c672, now carried by `docs-user-tree`). After that PR merges, reset the fork's master to upstream: `git checkout master && git reset --hard upstream/master && git push --force-with-lease origin master`.
 
 ## To do in the GitHub web UI (only you can)
 
-1. **ace3p-docs, Settings, General, Pull Requests**: tick *Allow auto-merge* and *Automatically delete head branches*.
-2. **ace3p-docs, Settings, Rules, Rulesets**: new branch ruleset on `main` with *Require a pull request before merging* and *Require status checks to pass*, check name `build`. Without this, auto-merge merges before the build runs.
+1. ~~Allow auto-merge, delete head branches~~ and 2. ~~`main` ruleset with `build` check~~: done (PRs #2 and #3 went through the ruleset).
 3. **Dry run**: https://github.com/lge0303/ace3p/actions/workflows/docs-keywords.yml , *Run workflow*, leave `tag_docs` unticked. Expect a pull request "Release docs for ACE3P dev" in ace3p-docs, or "Nothing changed". If auto-merge is set up it merges by itself when the build is green.
 4. **Close** the stale pull request "Keyword reference for ACE3P master" in ace3p-docs if still open; its branch is already deleted.
 5. **About box** on the ace3p-docs repo page: gear icon, tick *Use your GitHub Pages website*.
