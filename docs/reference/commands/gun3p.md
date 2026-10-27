@@ -61,6 +61,9 @@ ElectrostaticProblem : {
     ElectrostaticFieldToken: On          // export on a Cartesian grid for Track3P
     FileName: test.data
     Nx: 40  Ny: 50  Nz: 60
+    XRange: -0.02 0.02                   // optional, metres; default: mesh bounding box
+    YRange: -0.01 0.01
+    ZRange:  0.0  0.10
   }
 
   Boundary : { Id: 1   ConditionType: Dirichlet  DirichletValue: 0. }
@@ -92,6 +95,7 @@ ElectrostaticProblem : {
 | `Debug ...` | Developer output; keep off |
 | `Outputs.Dofs for vizualization` | Needed for `gun3pOutputConverter` |
 | `Outputs.ElectrostaticFieldToken`, `FileName`, `Nx`, `Ny`, `Nz` | Also write E on a structured grid, for `ElectroStaticFieldMap` in Track3P |
+| `Outputs.XRange`, `YRange`, `ZRange` | Optional. Two values each, `min max` in metres, setting the grid extent per axis. Omitted axes use the mesh bounding box. Exactly two values are required and `min` must be below `max`. |
 | `Boundary` | `Dirichlet` fixes the potential in V; `Neumann` fixes the normal derivative, usually 0 on symmetry and open boundaries |
 | `Compute non zero initial guess` | Warm-start each iteration from the previous solution |
 | `LinearSolver` | Keep as shown |
