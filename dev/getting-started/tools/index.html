@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://slaclab.github.io/ace3p-docs/dev/getting-started/local-tools/">
+        <link rel="canonical" href="https://slaclab.github.io/ace3p-docs/dev/getting-started/tools/">
       
       
         <link rel="prev" href="../perlmutter/">
       
       
-        <link rel="next" href="../../workflow/">
+        <link rel="next" href="../s3df/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Local tools (Cubit, ParaView) - ACE3P Documentation</title>
+        <title>Pre- and post-processing tools (Cubit, ParaView) - ACE3P Documentation</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#local-tools-cubit-and-paraview" class="md-skip">
+        <a href="#pre-and-post-processing-tools-cubit-and-paraview" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Local tools (Cubit, ParaView)
+              Pre- and post-processing tools (Cubit, ParaView)
             
           </span>
         </div>
@@ -266,6 +266,28 @@
     
   
   Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cubit/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Cubit
 
         </a>
       </li>
@@ -578,34 +600,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../s3df/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Running on S3DF
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../perlmutter/" class="md-nav__link">
         
   
@@ -650,7 +644,7 @@
   <span class="md-ellipsis">
     
   
-    Local tools (Cubit, ParaView)
+    Pre- and post-processing tools (Cubit, ParaView)
   
 
     
@@ -668,7 +662,7 @@
   <span class="md-ellipsis">
     
   
-    Local tools (Cubit, ParaView)
+    Pre- and post-processing tools (Cubit, ParaView)
   
 
     
@@ -706,10 +700,32 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#cubit-on-perlmutter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cubit on Perlmutter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#cubit-on-s3df" class="md-nav__link">
     <span class="md-ellipsis">
       
         Cubit on S3DF
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-cubit-on-your-own-computer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing Cubit on your own computer
       
     </span>
   </a>
@@ -734,6 +750,39 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#paraview-on-perlmutter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ParaView on Perlmutter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paraview-on-s3df" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ParaView on S3DF
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-paraview-on-your-own-computer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing ParaView on your own computer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#enable-the-slac-toolbar" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -755,17 +804,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#paraview-on-s3df" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ParaView on S3DF
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -778,6 +816,103 @@
     </li>
   
 
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3df/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running on S3DF (SLAC users)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cubit/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cubit
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cubit
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
               
             
           </ul>
@@ -806,8 +941,6 @@
       
         
       
-        
-      
     
     
     
@@ -821,7 +954,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -843,14 +976,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -869,62 +1002,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../workflow/input-format/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Input file format
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../workflow/cubit/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Geometry and meshing with Cubit
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../workflow/mesh/" class="md-nav__link">
         
   
@@ -933,6 +1010,34 @@
     
   
     Mesh preparation with acdtool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflow/input-format/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Input file format
   
 
     
@@ -1021,7 +1126,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -1043,14 +1148,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1096,7 +1201,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -1118,14 +1223,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1285,7 +1390,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -1307,14 +1412,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1390,7 +1495,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -1412,14 +1517,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_4">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1495,7 +1600,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -1517,14 +1622,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1600,7 +1705,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -1622,14 +1727,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1705,7 +1810,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -1727,14 +1832,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5_7" id="__nav_5_7_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_7">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1810,7 +1915,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -1832,14 +1937,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5_8" id="__nav_5_8_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_8">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1948,7 +2053,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -1970,14 +2075,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2391,10 +2496,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_15" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_15" >
         
           
-          <label class="md-nav__link" for="__nav_5_15" id="__nav_5_15_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_15" id="__nav_6_15_label" tabindex="0">
             
   
   
@@ -2412,8 +2517,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_15_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_15">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_15">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2694,7 +2799,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2716,14 +2821,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2854,7 +2959,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2876,14 +2981,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3023,10 +3128,32 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#cubit-on-perlmutter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cubit on Perlmutter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#cubit-on-s3df" class="md-nav__link">
     <span class="md-ellipsis">
       
         Cubit on S3DF
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-cubit-on-your-own-computer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing Cubit on your own computer
       
     </span>
   </a>
@@ -3051,6 +3178,39 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#paraview-on-perlmutter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ParaView on Perlmutter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paraview-on-s3df" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ParaView on S3DF
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-paraview-on-your-own-computer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing ParaView on your own computer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#enable-the-slac-toolbar" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3066,17 +3226,6 @@
     <span class="md-ellipsis">
       
         Load the ACE3P macros
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#paraview-on-s3df" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ParaView on S3DF
       
     </span>
   </a>
@@ -3105,7 +3254,7 @@
 
 
   
-    <a href="https://github.com/slaclab/ace3p-docs/edit/main/docs/getting-started/local-tools.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/slaclab/ace3p-docs/edit/main/docs/getting-started/tools.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -3113,32 +3262,92 @@
   
 
 
-<h1 id="local-tools-cubit-and-paraview">Local tools: Cubit and ParaView<a class="headerlink" href="#local-tools-cubit-and-paraview" title="Permanent link">&para;</a></h1>
-<p>Geometry, meshing, and visualization run on your own computer.</p>
+<h1 id="pre-and-post-processing-tools-cubit-and-paraview">Pre- and post-processing tools: Cubit and ParaView<a class="headerlink" href="#pre-and-post-processing-tools-cubit-and-paraview" title="Permanent link">&para;</a></h1>
+<p>Two graphical programs bracket every ACE3P run: <strong>Cubit</strong> builds the geometry and the mesh before the solver, and <strong>ParaView</strong> displays the fields and particles after it. Both are installed on Perlmutter and on S3DF. You do not need to install them yourself; run them in a remote desktop on the HPC system, next to your meshes and results.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Cubit</th>
+<th>ParaView</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Role</td>
+<td>Pre-processing: geometry, meshing, sidesets and blocks, <code>.gen</code> export</td>
+<td>Post-processing: fields, modes, particle trajectories, wake plots</td>
+</tr>
+<tr>
+<td>On Perlmutter</td>
+<td>Installed, run in a <a href="../#connecting-with-thinlinc">ThinLinc desktop</a></td>
+<td>Installed, run in a ThinLinc desktop or in client-server mode</td>
+</tr>
+<tr>
+<td>On S3DF</td>
+<td>Installed, run in a NoMachine desktop or with <code>ssh -X</code></td>
+<td>Installed, run in a NoMachine desktop or through the web visualizer</td>
+</tr>
+<tr>
+<td>On your own computer</td>
+<td>Possible; needs a license</td>
+<td>Possible; free download</td>
+</tr>
+<tr>
+<td>Learn more</td>
+<td><a href="../../cubit/">Cubit chapter</a></td>
+<td><a href="../../modules/omega3p/tutorial-pillbox/">Omega3P tutorial</a>, module pages</td>
+</tr>
+</tbody>
+</table>
 <h2 id="cubit">Cubit<a class="headerlink" href="#cubit" title="Permanent link">&para;</a></h2>
-<p><a href="https://cubit.sandia.gov/">Cubit</a> from Sandia National Laboratories is the geometry and meshing tool used throughout the ACE3P workflow. It requires a license. The tutorials were written with Cubit 16.x.</p>
-<p>ACE3P uses Cubit through <strong>journal files</strong> (<code>.jou</code>), which are scripts of Cubit commands. Two ways to run one:</p>
-<ol>
-<li>Click the <strong>Play</strong> button in the toolbar, browse to the <code>.jou</code> file, and open it.</li>
-<li>Open <strong>Tools, then Journal Editor</strong>, load the file, and press Play. The editor lets you step through and modify commands.</li>
-</ol>
-<p>A full walkthrough of building and meshing a cavity is on the <a href="../../workflow/cubit/">Cubit page</a>. The export command that ACE3P needs is Genesis format with all blocks:</p>
+<p>Cubit from Sandia National Laboratories is the geometry and meshing tool used throughout the ACE3P workflow. ACE3P drives it mostly through <strong>journal files</strong> (<code>.jou</code>), scripts of Cubit commands that make a mesh reproducible. The <a href="../../cubit/">Cubit chapter</a> walks through building and meshing a pillbox cavity, first interactively, then by journal, and ends with the export rules. The short version:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>export Genesis "model4.gen" block all overwrite
 </code></pre></div>
 <p>Mesh elements must be quadratic tetrahedra (<code>tetra10</code>) and the model must be scaled to meters before export. See <a href="../../workflow/mesh/">Mesh preparation</a>.</p>
-<h3 id="cubit-on-s3df">Cubit on S3DF<a class="headerlink" href="#cubit-on-s3df" title="Permanent link">&para;</a></h3>
-<p>A licensed Cubit is installed at <code>/sdf/group/rfar/software/Cubit-16.12/</code>. Use it through a NoMachine remote desktop, through <code>ssh -X</code>, or in batch mode without a GUI:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/sdf/group/rfar/software/Cubit-16.12/cubit<span class="w"> </span>-batch<span class="w"> </span>-nographics<span class="w"> </span>-input<span class="w"> </span>step2-Mesh-pillbox.jou
+<h3 id="cubit-on-perlmutter">Cubit on Perlmutter<a class="headerlink" href="#cubit-on-perlmutter" title="Permanent link">&para;</a></h3>
+<p>Connect with <a href="../#connecting-with-thinlinc">ThinLinc</a>, open a terminal and start Cubit from the ACE3P project area under <code>$CFS/ace3p/</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ls<span class="w"> </span><span class="nv">$CFS</span>/ace3p/<span class="w">            </span><span class="c1"># the Cubit directory is listed here</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>&lt;path-to-cubit&gt;/cubit<span class="w"> </span><span class="p">&amp;</span>
 </code></pre></div>
+<!-- TODO: replace <path-to-cubit> with the installed Perlmutter path and version once confirmed. -->
+
+<p>The GUI opens on the ThinLinc desktop. Set the working directory to your scratch area (<strong>File, then Set Directory</strong>) so the <code>.gen</code> file lands where <code>acdtool meshconvert</code> will read it.</p>
+<h3 id="cubit-on-s3df">Cubit on S3DF<a class="headerlink" href="#cubit-on-s3df" title="Permanent link">&para;</a></h3>
+<p>Cubit 16.12 is installed at <code>/sdf/group/rfar/software/Cubit-16.12/</code>. Start it from a NoMachine desktop or an <code>ssh -X</code> session:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>/sdf/group/rfar/software/Cubit-16.12/cubit<span class="w"> </span><span class="p">&amp;</span>
+</code></pre></div>
+<p>A journal can also be played with no display, which is what automated workflows do:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>/sdf/group/rfar/software/Cubit-16.12/cubit<span class="w"> </span>-batch<span class="w"> </span>-nographics<span class="w"> </span>-input<span class="w"> </span>step2-Mesh-pillbox.jou
+</code></pre></div>
+<h3 id="installing-cubit-on-your-own-computer">Installing Cubit on your own computer<a class="headerlink" href="#installing-cubit-on-your-own-computer" title="Permanent link">&para;</a></h3>
+<p>Cubit requires a license. Two routes:</p>
+<ul>
+<li><strong>Sandia Cubit</strong> is free for U.S. government use: government agencies and laboratories, and companies working under a direct U.S. government contract. Request a license through the <a href="https://www.sandia.gov/ascsoftware/asc-software-request/">ASC software request form</a>; approval takes a few weeks. Downloads and the licensing rules are at <a href="https://cubit.sandia.gov/licensing/">cubit.sandia.gov/licensing</a> and <a href="https://cubit.sandia.gov/downloads/">cubit.sandia.gov/downloads</a>.</li>
+<li><strong>Coreform Cubit</strong> is the commercial version for everyone else, with trial and academic licenses from <a href="https://coreform.com/products/coreform-cubit/">coreform.com</a>. Journal files written for one run in the other.</li>
+</ul>
+<p>The tutorials were written with Cubit 16.x. Running Cubit locally means copying <code>.gen</code> files up to the HPC system with <code>scp</code>.</p>
 <h2 id="paraview">ParaView<a class="headerlink" href="#paraview" title="Permanent link">&para;</a></h2>
-<p><a href="https://www.paraview.org/">ParaView</a> is free. Install version 5.11 or later to match the SLAC plugin.</p>
+<p>ParaView is free, open-source software from Kitware. ACE3P results are read through the <strong>SLAC toolbar</strong>, a plugin shipped with every ParaView release, which loads a mesh (<code>.ncdf</code>) together with mode or field files (<code>.mod</code>) in one step.</p>
+<h3 id="paraview-on-perlmutter">ParaView on Perlmutter<a class="headerlink" href="#paraview-on-perlmutter" title="Permanent link">&para;</a></h3>
+<p>NERSC maintains ParaView on Perlmutter; versions 5.12, 5.13 and 6.0 are available at the time of writing. In a ThinLinc desktop:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>module<span class="w"> </span>avail<span class="w"> </span>paraview<span class="w">        </span><span class="c1"># list the installed versions</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>module<span class="w"> </span>load<span class="w"> </span>paraview<span class="w">         </span><span class="c1"># pick one, e.g. module load paraview/5.13.3</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>paraview<span class="w"> </span><span class="p">&amp;</span>
+</code></pre></div>
+<p>For very large datasets NERSC also supports <strong>client-server mode</strong>, where the ParaView GUI runs on your computer and the data stays on Perlmutter. Setup is in the <a href="https://docs.nersc.gov/applications/paraview/">NERSC ParaView guide</a>. The client version must match the server version listed there.</p>
+<h3 id="paraview-on-s3df">ParaView on S3DF<a class="headerlink" href="#paraview-on-s3df" title="Permanent link">&para;</a></h3>
+<p>ParaView 5.11.1 is installed at <code>/sdf/group/rfar/software/ParaView-5.11.1-MPI-Linux-Python3.9-x86_64/</code>. Start <code>bin/paraview</code> from a NoMachine desktop, or use the ParaView Web Visualizer through an SSH tunnel as described on the <a href="../../interfaces/dashboard/">Web dashboard</a> page.</p>
+<h3 id="installing-paraview-on-your-own-computer">Installing ParaView on your own computer<a class="headerlink" href="#installing-paraview-on-your-own-computer" title="Permanent link">&para;</a></h3>
+<p>Download the installer for Windows, macOS or Linux from <a href="https://www.paraview.org/download/">paraview.org/download</a>. No license is needed. Use version 5.11 or later; the SLAC toolbar is included. Running ParaView locally means copying <code>.ncdf</code> and <code>.mod</code> files down from the HPC system with <code>scp</code>.</p>
 <h3 id="enable-the-slac-toolbar">Enable the SLAC toolbar<a class="headerlink" href="#enable-the-slac-toolbar" title="Permanent link">&para;</a></h3>
+<p>Do this once per ParaView installation, on the HPC system or your laptop:</p>
 <ol>
 <li>Open <strong>Tools, then Manage Plugins</strong>.</li>
 <li>Select <strong>SLACTools</strong> and click <strong>Load Selected</strong>.</li>
 <li>Expand the entry and check <strong>Auto Load</strong> so it is active on every start.</li>
 </ol>
-<p>The SLAC toolbar adds a reader that loads an ACE3P mesh (<code>.ncdf</code>) together with mode or field files (<code>.mod</code>) in one step.</p>
+<p>A <strong>SLAC</strong> button appears in the toolbar. Click it, pick the <code>.ncdf</code> mesh and the <code>.mod</code> field file, and the model loads with the field data attached.</p>
 <h3 id="load-the-ace3p-macros">Load the ACE3P macros<a class="headerlink" href="#load-the-ace3p-macros" title="Permanent link">&para;</a></h3>
 <p>The CW23 materials include Python macros for common ACE3P plots. Add each one through <strong>Macros, then Add new macro</strong>:</p>
 <table>
@@ -3161,9 +3370,9 @@
 <td>Plot the enhancement counter</td>
 </tr>
 <tr>
-<td><code>resonant.py</code></td>
+<td><code>resonant_lineplot.py</code>, <code>resonant_location.py</code></td>
 <td>Track3P</td>
-<td>Plot resonant particles</td>
+<td>Resonant particles: energy vs field level, impact locations</td>
 </tr>
 <tr>
 <td><code>trajectory.py</code></td>
@@ -3182,9 +3391,7 @@
 </tr>
 </tbody>
 </table>
-<p>The macros are in the <code>macros/</code> directory alongside the examples.</p>
-<h3 id="paraview-on-s3df">ParaView on S3DF<a class="headerlink" href="#paraview-on-s3df" title="Permanent link">&para;</a></h3>
-<p>A ParaView 5.11.1 build with web components is installed at <code>/sdf/group/rfar/software/ParaView-5.11.1-MPI-Linux-Python3.9-x86_64/</code>. It can serve the ParaView Web Visualizer so you can look at results in a browser through an SSH tunnel without copying files to your laptop. See <a href="../../interfaces/dashboard/">Web dashboard</a>.</p>
+<p>The macros are in <code>$CFS/ace3p/cw23/macros</code> on Perlmutter and <code>/sdf/group/rfar/ace3p/cw23/macros</code> on S3DF. If you run ParaView on your laptop, copy that directory down first.</p>
 
 
 
@@ -3237,13 +3444,13 @@
         
         
           
-          <a href="../../workflow/" class="md-footer__link md-footer__link--next" aria-label="Next: Workflow overview">
+          <a href="../s3df/" class="md-footer__link md-footer__link--next" aria-label="Next: Running on S3DF (SLAC users)">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Workflow overview
+                Running on S3DF (SLAC users)
               </div>
             </div>
             <div class="md-footer__button md-icon">

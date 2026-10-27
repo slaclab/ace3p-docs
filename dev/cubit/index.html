@@ -10,31 +10,31 @@
       
       
       
-        <link rel="canonical" href="https://slaclab.github.io/ace3p-docs/dev/workflow/cubit/">
+        <link rel="canonical" href="https://slaclab.github.io/ace3p-docs/dev/cubit/">
       
       
-        <link rel="prev" href="../input-format/">
+        <link rel="prev" href="../getting-started/s3df/">
       
       
-        <link rel="next" href="../mesh/">
+        <link rel="next" href="../workflow/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
-        <title>Geometry and meshing with Cubit - ACE3P Documentation</title>
+        <title>Cubit: geometry and meshing for ACE3P - ACE3P Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -53,9 +53,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#geometry-and-meshing-with-cubit" class="md-skip">
+        <a href="#cubit-geometry-and-meshing-for-ace3p" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="ACE3P Documentation" class="md-header__button md-logo" aria-label="ACE3P Documentation" data-md-component="logo">
+    <a href=".." title="ACE3P Documentation" class="md-header__button md-logo" aria-label="ACE3P Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Geometry and meshing with Cubit
+              Cubit: geometry and meshing for ACE3P
             
           </span>
         </div>
@@ -236,7 +236,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href=".." class="md-tabs__link">
         
   
   
@@ -257,7 +257,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../getting-started/" class="md-tabs__link">
+        <a href="../getting-started/" class="md-tabs__link">
           
   
   
@@ -281,7 +281,29 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Cubit
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../workflow/" class="md-tabs__link">
           
   
   
@@ -303,7 +325,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../modules/" class="md-tabs__link">
+        <a href="../modules/" class="md-tabs__link">
           
   
   
@@ -325,7 +347,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../reference/" class="md-tabs__link">
+        <a href="../reference/" class="md-tabs__link">
           
   
   
@@ -347,7 +369,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../interfaces/" class="md-tabs__link">
+        <a href="../interfaces/" class="md-tabs__link">
           
   
   
@@ -369,7 +391,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../releases/" class="md-tabs__link">
+        <a href="../releases/" class="md-tabs__link">
           
   
   
@@ -389,7 +411,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../contributing/" class="md-tabs__link">
+      <a href="../contributing/" class="md-tabs__link">
         
   
   
@@ -408,7 +430,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../corrections/" class="md-tabs__link">
+      <a href="../corrections/" class="md-tabs__link">
         
   
   
@@ -443,7 +465,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="ACE3P Documentation" class="md-nav__button md-logo" aria-label="ACE3P Documentation" data-md-component="logo">
+    <a href=".." title="ACE3P Documentation" class="md-nav__button md-logo" aria-label="ACE3P Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -473,7 +495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -529,7 +551,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../getting-started/" class="md-nav__link ">
+            <a href="../getting-started/" class="md-nav__link ">
               
   
   
@@ -573,35 +595,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/s3df/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Running on S3DF
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../getting-started/perlmutter/" class="md-nav__link">
+      <a href="../getting-started/perlmutter/" class="md-nav__link">
         
   
   
@@ -629,14 +623,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/local-tools/" class="md-nav__link">
+      <a href="../getting-started/tools/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Local tools (Cubit, ParaView)
+    Pre- and post-processing tools (Cubit, ParaView)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/s3df/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running on S3DF (SLAC users)
   
 
     
@@ -672,14 +694,6 @@
           
         
       
-        
-      
-        
-      
-        
-      
-        
-      
     
     
     
@@ -700,7 +714,82 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cubit
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cubit
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../workflow/" class="md-nav__link ">
               
   
   
@@ -718,14 +807,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -744,298 +833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../input-format/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Input file format
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Geometry and meshing with Cubit
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Geometry and meshing with Cubit
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#the-interface" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The interface
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#modeling-a-pillbox-interactively" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Modeling a pillbox interactively
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Modeling a pillbox interactively">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-the-cell" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Create the cell
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#add-the-beam-pipe" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Add the beam pipe
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#unite" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Unite
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#round-the-iris" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Round the iris
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cut-to-a-quarter" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cut to a quarter
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#export" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Export
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-same-model-as-a-journal-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The same model as a journal file
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#meshing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Meshing
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Meshing">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#element-size" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Element size
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sidesets-and-blocks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Sidesets and blocks
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#quality-check-in-cubit" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quality check in Cubit
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tips-for-harder-models" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tips for harder models
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#when-acdtool-reports-bad-elements" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        When acdtool reports bad elements
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cubit-on-s3df" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cubit on S3DF
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../mesh/" class="md-nav__link">
+      <a href="../workflow/mesh/" class="md-nav__link">
         
   
   
@@ -1063,7 +861,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../batch-jobs/" class="md-nav__link">
+      <a href="../workflow/input-format/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Input file format
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/batch-jobs/" class="md-nav__link">
         
   
   
@@ -1131,11 +957,11 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../modules/" class="md-nav__link ">
+            <a href="../modules/" class="md-nav__link ">
               
   
   
@@ -1153,14 +979,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1206,11 +1032,11 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../modules/omega3p/" class="md-nav__link ">
+            <a href="../modules/omega3p/" class="md-nav__link ">
               
   
   
@@ -1228,14 +1054,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1254,7 +1080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/omega3p/tutorial-pillbox/" class="md-nav__link">
+      <a href="../modules/omega3p/tutorial-pillbox/" class="md-nav__link">
         
   
   
@@ -1282,7 +1108,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/omega3p/tutorial-ports/" class="md-nav__link">
+      <a href="../modules/omega3p/tutorial-ports/" class="md-nav__link">
         
   
   
@@ -1310,7 +1136,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/omega3p/tutorial-advanced/" class="md-nav__link">
+      <a href="../modules/omega3p/tutorial-advanced/" class="md-nav__link">
         
   
   
@@ -1338,7 +1164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/omega3p/postprocess/" class="md-nav__link">
+      <a href="../modules/omega3p/postprocess/" class="md-nav__link">
         
   
   
@@ -1395,11 +1221,11 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../modules/s3p/" class="md-nav__link ">
+            <a href="../modules/s3p/" class="md-nav__link ">
               
   
   
@@ -1417,14 +1243,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1443,7 +1269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/s3p/tutorials/" class="md-nav__link">
+      <a href="../modules/s3p/tutorials/" class="md-nav__link">
         
   
   
@@ -1500,11 +1326,11 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../modules/t3p/" class="md-nav__link ">
+            <a href="../modules/t3p/" class="md-nav__link ">
               
   
   
@@ -1522,14 +1348,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_4">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1548,7 +1374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/t3p/tutorials/" class="md-nav__link">
+      <a href="../modules/t3p/tutorials/" class="md-nav__link">
         
   
   
@@ -1605,11 +1431,11 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../modules/track3p/" class="md-nav__link ">
+            <a href="../modules/track3p/" class="md-nav__link ">
               
   
   
@@ -1627,14 +1453,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1653,7 +1479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/track3p/tutorials/" class="md-nav__link">
+      <a href="../modules/track3p/tutorials/" class="md-nav__link">
         
   
   
@@ -1710,11 +1536,11 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../modules/pic3p/" class="md-nav__link ">
+            <a href="../modules/pic3p/" class="md-nav__link ">
               
   
   
@@ -1732,14 +1558,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1758,7 +1584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/pic3p/tutorial/" class="md-nav__link">
+      <a href="../modules/pic3p/tutorial/" class="md-nav__link">
         
   
   
@@ -1815,11 +1641,11 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../modules/tem3p/" class="md-nav__link ">
+            <a href="../modules/tem3p/" class="md-nav__link ">
               
   
   
@@ -1837,14 +1663,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5_7" id="__nav_5_7_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_7">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_7">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1863,7 +1689,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/tem3p/tutorials/" class="md-nav__link">
+      <a href="../modules/tem3p/tutorials/" class="md-nav__link">
         
   
   
@@ -1920,11 +1746,11 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../modules/gun3p/" class="md-nav__link ">
+            <a href="../modules/gun3p/" class="md-nav__link ">
               
   
   
@@ -1942,14 +1768,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5_8" id="__nav_5_8_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_8">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1968,7 +1794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/gun3p/tutorial/" class="md-nav__link">
+      <a href="../modules/gun3p/tutorial/" class="md-nav__link">
         
   
   
@@ -2058,11 +1884,11 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../reference/" class="md-nav__link ">
+            <a href="../reference/" class="md-nav__link ">
               
   
   
@@ -2080,14 +1906,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2106,7 +1932,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/omega3p/" class="md-nav__link">
+      <a href="../reference/omega3p/" class="md-nav__link">
         
   
   
@@ -2134,7 +1960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/s3p/" class="md-nav__link">
+      <a href="../reference/s3p/" class="md-nav__link">
         
   
   
@@ -2162,7 +1988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/tfe3p/" class="md-nav__link">
+      <a href="../reference/tfe3p/" class="md-nav__link">
         
   
   
@@ -2190,7 +2016,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/multipacting/" class="md-nav__link">
+      <a href="../reference/multipacting/" class="md-nav__link">
         
   
   
@@ -2218,7 +2044,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/tem3p/" class="md-nav__link">
+      <a href="../reference/tem3p/" class="md-nav__link">
         
   
   
@@ -2246,7 +2072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/gun3p/" class="md-nav__link">
+      <a href="../reference/gun3p/" class="md-nav__link">
         
   
   
@@ -2274,7 +2100,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/tools/" class="md-nav__link">
+      <a href="../reference/tools/" class="md-nav__link">
         
   
   
@@ -2302,7 +2128,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/omega3p-postprocess/" class="md-nav__link">
+      <a href="../reference/omega3p-postprocess/" class="md-nav__link">
         
   
   
@@ -2330,7 +2156,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/emfem/" class="md-nav__link">
+      <a href="../reference/emfem/" class="md-nav__link">
         
   
   
@@ -2358,7 +2184,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/solver/" class="md-nav__link">
+      <a href="../reference/solver/" class="md-nav__link">
         
   
   
@@ -2386,7 +2212,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/excitation/" class="md-nav__link">
+      <a href="../reference/excitation/" class="md-nav__link">
         
   
   
@@ -2414,7 +2240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/waveguide/" class="md-nav__link">
+      <a href="../reference/waveguide/" class="md-nav__link">
         
   
   
@@ -2442,7 +2268,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/slacsupport/" class="md-nav__link">
+      <a href="../reference/slacsupport/" class="md-nav__link">
         
   
   
@@ -2501,10 +2327,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_15" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_15" >
         
           
-          <label class="md-nav__link" for="__nav_5_15" id="__nav_5_15_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_15" id="__nav_6_15_label" tabindex="0">
             
   
   
@@ -2522,8 +2348,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_15_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_15">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_15">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2540,7 +2366,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/commands/omega3p/" class="md-nav__link">
+      <a href="../reference/commands/omega3p/" class="md-nav__link">
         
   
   
@@ -2568,7 +2394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/commands/s3p/" class="md-nav__link">
+      <a href="../reference/commands/s3p/" class="md-nav__link">
         
   
   
@@ -2596,7 +2422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/commands/t3p/" class="md-nav__link">
+      <a href="../reference/commands/t3p/" class="md-nav__link">
         
   
   
@@ -2624,7 +2450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/commands/pic3p/" class="md-nav__link">
+      <a href="../reference/commands/pic3p/" class="md-nav__link">
         
   
   
@@ -2652,7 +2478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/commands/track3p/" class="md-nav__link">
+      <a href="../reference/commands/track3p/" class="md-nav__link">
         
   
   
@@ -2680,7 +2506,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/commands/tem3p/" class="md-nav__link">
+      <a href="../reference/commands/tem3p/" class="md-nav__link">
         
   
   
@@ -2708,7 +2534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/commands/gun3p/" class="md-nav__link">
+      <a href="../reference/commands/gun3p/" class="md-nav__link">
         
   
   
@@ -2736,7 +2562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/commands/acdtool/" class="md-nav__link">
+      <a href="../reference/commands/acdtool/" class="md-nav__link">
         
   
   
@@ -2804,11 +2630,11 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../interfaces/" class="md-nav__link ">
+            <a href="../interfaces/" class="md-nav__link ">
               
   
   
@@ -2826,14 +2652,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2852,7 +2678,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../interfaces/gui/" class="md-nav__link">
+      <a href="../interfaces/gui/" class="md-nav__link">
         
   
   
@@ -2880,7 +2706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../interfaces/dashboard/" class="md-nav__link">
+      <a href="../interfaces/dashboard/" class="md-nav__link">
         
   
   
@@ -2908,7 +2734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../interfaces/workflow-assistant/" class="md-nav__link">
+      <a href="../interfaces/workflow-assistant/" class="md-nav__link">
         
   
   
@@ -2964,11 +2790,11 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../releases/" class="md-nav__link ">
+            <a href="../releases/" class="md-nav__link ">
               
   
   
@@ -2986,14 +2812,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3012,7 +2838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../releases/v2026.10/" class="md-nav__link">
+      <a href="../releases/v2026.10/" class="md-nav__link">
         
   
   
@@ -3047,7 +2873,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/" class="md-nav__link">
+      <a href="../contributing/" class="md-nav__link">
         
   
   
@@ -3074,7 +2900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../corrections/" class="md-nav__link">
+      <a href="../corrections/" class="md-nav__link">
         
   
   
@@ -3298,10 +3124,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cubit-on-s3df" class="md-nav__link">
+  <a href="#where-to-run-cubit" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Cubit on S3DF
+        Where to run Cubit
       
     </span>
   </a>
@@ -3325,7 +3151,7 @@
 
 
   
-    <a href="https://github.com/slaclab/ace3p-docs/edit/main/docs/workflow/cubit.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/slaclab/ace3p-docs/edit/main/docs/cubit/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -3333,12 +3159,12 @@
   
 
 
-<h1 id="geometry-and-meshing-with-cubit">Geometry and meshing with Cubit<a class="headerlink" href="#geometry-and-meshing-with-cubit" title="Permanent link">&para;</a></h1>
-<p>Cubit is the geometry and mesh generation toolkit from Sandia National Laboratories that every ACE3P workflow starts with. This chapter walks through building and meshing a pillbox cavity, first interactively so you learn the interface, then as journal files so the process is reproducible. The export rules and the <code>acdtool</code> conversion that follow are on the <a href="../mesh/">mesh preparation</a> page.</p>
+<h1 id="cubit-geometry-and-meshing-for-ace3p">Cubit: geometry and meshing for ACE3P<a class="headerlink" href="#cubit-geometry-and-meshing-for-ace3p" title="Permanent link">&para;</a></h1>
+<p>Cubit is the geometry and mesh generation toolkit from Sandia National Laboratories that every ACE3P workflow starts with. It is installed on Perlmutter and S3DF (see <a href="#where-to-run-cubit">where to run Cubit</a>), so you can follow this chapter in a remote desktop without installing anything. This chapter walks through building and meshing a pillbox cavity, first interactively so you learn the interface, then as journal files so the process is reproducible. The export rules and the <code>acdtool</code> conversion that follow are on the <a href="../workflow/mesh/">mesh preparation</a> page.</p>
 <p>Cubit's own tutorials at <a href="https://cubit.sandia.gov/tutorials">cubit.sandia.gov</a> and <a href="https://coreform.com/products/coreform-cubit/tutorials/">coreform.com</a> go deeper on the tool itself.</p>
 <h2 id="the-interface">The interface<a class="headerlink" href="#the-interface" title="Permanent link">&para;</a></h2>
 <figure>
-<p><img alt="Cubit main window" src="../../assets/cubit/gui-overview.png" width="720" /></p>
+<p><img alt="Cubit main window" src="../assets/cubit/gui-overview.png" width="720" /></p>
 <figcaption>
 <p>Cubit on first launch. Model Tree at left, graphics window center, Command Panel at right, Command Line at bottom. Close the Tip of the Day.</p>
 </figcaption>
@@ -3380,16 +3206,16 @@
 <p>Build and mesh in the natural units of the drawing, usually millimeters, to avoid tolerance problems with tiny coordinates. Scale by 0.001 as the last step before export. ACE3P expects meters.</p>
 </div>
 <h2 id="modeling-a-pillbox-interactively">Modeling a pillbox interactively<a class="headerlink" href="#modeling-a-pillbox-interactively" title="Permanent link">&para;</a></h2>
-<p><img align="right" alt="Pillbox dimensions" src="../../assets/cubit/pillbox-cutaway.png" width="320" /></p>
+<p><img align="right" alt="Pillbox dimensions" src="../assets/cubit/pillbox-cutaway.png" width="320" /></p>
 <p>The target is an L-band pillbox: cavity 90 mm long and 100 mm in radius, beam pipe 35 mm in radius and 300 mm long overall, iris rounded with a 12 mm radius. Its TM<sub>010</sub> mode is near 1.2 GHz.</p>
 <h3 id="create-the-cell">Create the cell<a class="headerlink" href="#create-the-cell" title="Permanent link">&para;</a></h3>
 <p>In the Command Panel choose <strong>Mode Geometry, Entity Volume, Action Create</strong>, select Cylinder, enter height 90 and radius 100, and click Apply. The command line shows the equivalent text:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>create cylinder height 90 radius 100
 </code></pre></div>
-<p><img alt="Command panel for a cylinder" src="../../assets/cubit/command-panel-cylinder.png" width="300" /></p>
+<p><img alt="Command panel for a cylinder" src="../assets/cubit/command-panel-cylinder.png" width="300" /></p>
 <h3 id="add-the-beam-pipe">Add the beam pipe<a class="headerlink" href="#add-the-beam-pipe" title="Permanent link">&para;</a></h3>
 <p>Repeat with height 300 and radius 35. Both cylinders are centered on the origin along z, so the pipe passes through the cell.</p>
-<p><img alt="Two cylinders" src="../../assets/cubit/two-cylinders.png" width="300" /></p>
+<p><img alt="Two cylinders" src="../assets/cubit/two-cylinders.png" width="300" /></p>
 <h3 id="unite">Unite<a class="headerlink" href="#unite" title="Permanent link">&para;</a></h3>
 <p>Under <strong>Entity Volume, Action Boolean</strong>, pick Unite, enter volume IDs <code>1 2</code>, Apply. Then <strong>compress ids</strong> so the surviving body is volume 1 with consecutive surface and curve numbers:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>unite volume 1 2
@@ -3401,7 +3227,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>modify curve 5 6 blend radius 12
 </code></pre></div>
 <figure>
-<p><img alt="Full pillbox with rounded iris" src="../../assets/cubit/pillbox-full-model.png" width="620" /></p>
+<p><img alt="Full pillbox with rounded iris" src="../assets/cubit/pillbox-full-model.png" width="620" /></p>
 <figcaption>
 <p>The full model. The command line records every step taken through the GUI, which is what you will collect into a journal file.</p>
 </figcaption>
@@ -3415,7 +3241,7 @@
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>delete volume 1
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>compress ids
 </code></pre></div>
-<p><img alt="After the first webcut" src="../../assets/cubit/webcut-half.png" width="320" /></p>
+<p><img alt="After the first webcut" src="../assets/cubit/webcut-half.png" width="320" /></p>
 <p>Which half to delete depends on which side of the plane Cubit numbered as volume 2; check the Model Tree or click the body. Webcutting also has cylindrical, extended-surface, and tool-body variants for more complex cuts.</p>
 <h3 id="export">Export<a class="headerlink" href="#export" title="Permanent link">&para;</a></h3>
 <p><strong>File, Export</strong>, choose ACIS <code>.sat</code>, name it <code>pillbox</code>, Export All, Finish:</p>
@@ -3454,13 +3280,13 @@
 <li><strong><code>overwrite</code> on the export</strong> so replaying does not stop at a prompt.</li>
 </ul>
 <p>Play it with the <strong>Play Journal File</strong> toolbar button, or from the Journal Editor, or by typing <code>playback "step1-Make-pillbox.jou"</code>. The Journal Editor can also play a selection: highlight lines, right-click, <strong>Play Selected</strong>. That is the way to debug a journal step by step.</p>
-<p><img alt="Journal Editor with Play Selected" src="../../assets/cubit/journal-editor.png" width="720" /></p>
+<p><img alt="Journal Editor with Play Selected" src="../assets/cubit/journal-editor.png" width="720" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Entity IDs are not stable across Cubit versions or geometry changes</p>
 <p><code>modify curve 5 6</code> works because of how Cubit numbered the curves after this particular unite. Change a dimension, reorder operations, or move to a different Cubit release and the iris curves may be 7 and 8. When a journal fails at a blend or sideset command, click the entity in the graphics window to find its current ID. Cubit's <code>journal idless on</code> mode records commands by coordinates instead of IDs and avoids the problem at the cost of readability.</p>
 </div>
 <h2 id="meshing">Meshing<a class="headerlink" href="#meshing" title="Permanent link">&para;</a></h2>
-<p><img align="right" alt="Quarter pillbox mesh" src="../../assets/cubit/quarter-mesh.png" width="360" /></p>
+<p><img align="right" alt="Quarter pillbox mesh" src="../assets/cubit/quarter-mesh.png" width="360" /></p>
 <p>ACE3P uses quadratic tetrahedral elements, <code>tetra10</code>, whose mid-edge nodes follow curved surfaces. The meshing journal imports the <code>.sat</code>, sets the scheme, chooses a size, meshes, assigns sidesets and blocks, scales, and exports.</p>
 <div class="highlight"><span class="filename">step2-Mesh-pillbox.jou</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>reset
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>import acis "pillbox.sat"
@@ -3494,7 +3320,7 @@
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>mesh volume 1
 </code></pre></div>
 <p>Every element about 10 mm. Simple and predictable. Generate meshes at several sizes and run a convergence study.</p>
-<p><img alt="Uniform mesh" src="../../assets/cubit/mesh-uniform.png" width="440" /></p>
+<p><img alt="Uniform mesh" src="../assets/cubit/mesh-uniform.png" width="440" /></p>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>volume 1 sizing function type skeleton min_size 3 max_size 12 max_gradient 1.2 scale 5
@@ -3532,7 +3358,7 @@
 </tr>
 </tbody>
 </table>
-<p><img alt="Adaptive mesh" src="../../assets/cubit/mesh-adaptive.png" width="440" /></p>
+<p><img alt="Adaptive mesh" src="../assets/cubit/mesh-adaptive.png" width="440" /></p>
 </div>
 </div>
 </div>
@@ -3543,38 +3369,39 @@
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>block 1 volume all
 </code></pre></div>
 <p>Find surface IDs by clicking in the graphics window. The idiom <code>sideset 6 surface all except 2 4 3 1</code> assigns every surface not already named to the wall, so nothing is left without a boundary ID. The command line confirms what each sideset received:</p>
-<p><img alt="Sideset assignment echo" src="../../assets/cubit/sideset-commands.png" width="280" /></p>
+<p><img alt="Sideset assignment echo" src="../assets/cubit/sideset-commands.png" width="280" /></p>
 <p>Check the assignment visually with <code>draw sideset 1 2 3 4</code>, which shows only those surfaces:</p>
-<p><img alt="Drawing sidesets" src="../../assets/cubit/draw-sidesets.png" width="720" /></p>
-<p>For models with many surfaces, Cubit groups make sideset assignment robust. See the window example in the <a href="../../modules/s3p/tutorials/#tutorial-3-rf-window">S3P tutorials</a> and the two-mesh models in the <a href="../../modules/tem3p/tutorials/#tutorial-1-rf-gun-coupler-cell">TEM3P tutorials</a>, which select surfaces by coordinate and by merge status:</p>
+<p><img alt="Drawing sidesets" src="../assets/cubit/draw-sidesets.png" width="720" /></p>
+<p>For models with many surfaces, Cubit groups make sideset assignment robust. See the window example in the <a href="../modules/s3p/tutorials/#tutorial-3-rf-window">S3P tutorials</a> and the two-mesh models in the <a href="../modules/tem3p/tutorials/#tutorial-1-rf-gun-coupler-cell">TEM3P tutorials</a>, which select surfaces by coordinate and by merge status:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>group "sym1" add surface with x_coord &lt; 0.001
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>group "ms"   add surface with is_merged
 </code></pre></div>
 <h3 id="quality-check-in-cubit">Quality check in Cubit<a class="headerlink" href="#quality-check-in-cubit" title="Permanent link">&para;</a></h3>
-<p>The last line of the journal, <code>quality vol all distortion high 0.0 draw mesh</code>, colors elements by distortion. Reading "No mesh elements in range" in the command line means none are badly distorted. The definitive check is <code>acdtool meshconvert</code> on the HPC side, described on the <a href="../mesh/#read-the-statistics">mesh preparation</a> page.</p>
+<p>The last line of the journal, <code>quality vol all distortion high 0.0 draw mesh</code>, colors elements by distortion. Reading "No mesh elements in range" in the command line means none are badly distorted. The definitive check is <code>acdtool meshconvert</code> on the HPC side, described on the <a href="../workflow/mesh/#read-the-statistics">mesh preparation</a> page.</p>
 <h2 id="tips-for-harder-models">Tips for harder models<a class="headerlink" href="#tips-for-harder-models" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Check and heal imported CAD first.</strong> Power Tools has geometry diagnostics; <code>import acis "file.sat" heal</code> repairs common defects. Small sliver surfaces and short curves are the usual meshing failures.</li>
-<li><strong>Imprint and merge multi-volume models</strong> before meshing: <code>imprint body all</code> then <code>merge body all</code>. Without merging, touching volumes have duplicate faces and the mesh is disconnected. The <a href="../../modules/omega3p/tutorial-advanced/">lossy load tutorial</a> shows the consequence.</li>
-<li><strong>Mesh small or critical surfaces first</strong> with their own size, then the volume: <code>surface 14 size 0.5</code> then <code>mesh surface 14</code> then <code>mesh volume 3</code>. The BPM example in the <a href="../../modules/t3p/tutorials/#tutorial-3-beam-position-monitor">T3P tutorials</a> does this for a button face.</li>
+<li><strong>Imprint and merge multi-volume models</strong> before meshing: <code>imprint body all</code> then <code>merge body all</code>. Without merging, touching volumes have duplicate faces and the mesh is disconnected. The <a href="../modules/omega3p/tutorial-advanced/">lossy load tutorial</a> shows the consequence.</li>
+<li><strong>Mesh small or critical surfaces first</strong> with their own size, then the volume: <code>surface 14 size 0.5</code> then <code>mesh surface 14</code> then <code>mesh volume 3</code>. The BPM example in the <a href="../modules/t3p/tutorials/#tutorial-3-beam-position-monitor">T3P tutorials</a> does this for a button face.</li>
 <li><strong>Split a volume to control size regionally.</strong> Webcut a volume into pieces, give each its own sizing function, and merge. The TTF3 coupler in the TEM3P example separates five materials this way.</li>
 <li><strong>Smooth the transition</strong> from fine to coarse regions with <code>max_gradient</code> near 1.2. Abrupt size changes degrade element quality and the finite-element solution.</li>
-<li><strong>Periodic faces need identical meshes.</strong> Mesh the master face, copy it to the slave with <code>copy mesh surface ... onto surface ...</code>, then mesh the volume without smoothing. The <a href="../../modules/omega3p/tutorial-advanced/#part-b-periodic-boundaries-for-a-disk-loaded-structure">periodic boundary tutorial</a> shows the commands.</li>
+<li><strong>Periodic faces need identical meshes.</strong> Mesh the master face, copy it to the slave with <code>copy mesh surface ... onto surface ...</code>, then mesh the volume without smoothing. The <a href="../modules/omega3p/tutorial-advanced/#part-b-periodic-boundaries-for-a-disk-loaded-structure">periodic boundary tutorial</a> shows the commands.</li>
 <li><strong>Start coarse.</strong> A quick coarse mesh reveals sideset mistakes and geometry problems before you invest in a fine one.</li>
 </ul>
 <h2 id="when-acdtool-reports-bad-elements">When acdtool reports bad elements<a class="headerlink" href="#when-acdtool-reports-bad-elements" title="Permanent link">&para;</a></h2>
 <p>If <code>acdtool meshconvert</code> finds invalid second-order tetrahedra, it replaces them with straight-sided ones and writes a warning. If it finds elements with poor aspect ratio or shape measure, it writes <code>.vtu</code> files marking them. Load the <code>.ncdf</code> through the SLAC toolbar in ParaView, then <strong>File, Open</strong> the <code>.vtu</code>, color it red, and make the mesh translucent to see where to refine.</p>
 <figure>
-<p><img alt="Bad elements highlighted in ParaView" src="../../assets/cubit/bad-elements-paraview.png" width="340" /></p>
+<p><img alt="Bad elements highlighted in ParaView" src="../assets/cubit/bad-elements-paraview.png" width="340" /></p>
 <figcaption>
 <p>Invalid elements, in red, clustered where a curved surface meets a flat one at a sharp angle. Finer <code>min_size</code> or a blend on the edge fixes this.</p>
 </figcaption>
 </figure>
-<h2 id="cubit-on-s3df">Cubit on S3DF<a class="headerlink" href="#cubit-on-s3df" title="Permanent link">&para;</a></h2>
-<p>A licensed Cubit 16.12 is installed at <code>/sdf/group/rfar/software/Cubit-16.12/</code>. Run the GUI through a NoMachine desktop or <code>ssh -X</code>, or play a journal with no display:</p>
+<h2 id="where-to-run-cubit">Where to run Cubit<a class="headerlink" href="#where-to-run-cubit" title="Permanent link">&para;</a></h2>
+<p>Cubit is installed on both HPC systems, so you do not need your own copy. Launch the GUI from a <a href="../getting-started/#connecting-with-thinlinc">ThinLinc</a> desktop on Perlmutter, or from a NoMachine desktop on S3DF. Details, including how to install Cubit on your own computer if you prefer, are on the <a href="../getting-started/tools/">tools page</a>.</p>
+<p>A journal can also be played with no display, which is what an automated workflow does. On S3DF:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>/sdf/group/rfar/software/Cubit-16.12/cubit<span class="w"> </span>-batch<span class="w"> </span>-nographics<span class="w"> </span>-input<span class="w"> </span>step2-Mesh-pillbox.jou
 </code></pre></div>
-<p>Batch mode is what a workflow engine calls when meshing is one step in an automated chain. See the <a href="../../interfaces/workflow-assistant/">workflow assistant</a> page.</p>
+<p>See the <a href="../interfaces/workflow-assistant/">workflow assistant</a> page for how batch meshing is chained with the solvers.</p>
 
 
 
@@ -3610,7 +3437,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../input-format/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Input file format">
+          <a href="../getting-started/s3df/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Running on S3DF (SLAC users)">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3620,20 +3447,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Input file format
+                Running on S3DF (SLAC users)
               </div>
             </div>
           </a>
         
         
           
-          <a href="../mesh/" class="md-footer__link md-footer__link--next" aria-label="Next: Mesh preparation with acdtool">
+          <a href="../workflow/" class="md-footer__link md-footer__link--next" aria-label="Next: Workflow overview">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Mesh preparation with acdtool
+                Workflow overview
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -3674,10 +3501,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.action.edit", "toc.follow"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.action.edit", "toc.follow"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.c21346df.min.js"></script>
+      <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
