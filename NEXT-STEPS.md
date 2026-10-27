@@ -14,17 +14,9 @@ Written 2026-10-26 for Lixin Ge. Keep this file current; delete items as they ar
 | Automation | Pushing a `v*` tag to the ACE3P repo regenerates keyword tables, copies `docs/user/` pages, opens a pull request here, requests auto-merge, and tags this repo after the merge |
 | Secret | `ACE3P_DOCS_TOKEN` in the ACE3P repo is a classic token; a fine-grained token for slaclab is pending approval |
 
-## Open pull requests to merge (2026-10-27)
+## Merged 2026-10-27
 
-| Repo | Branch | What | Link |
-|---|---|---|---|
-| slaclab/ace3p-docs | `getting-started-restructure` | Perlmutter as main platform, ThinLinc, Cubit chapter, tools page, S3DF note, Gun3P XRange docs | https://github.com/slaclab/ace3p-docs/pull/new/getting-started-restructure |
-| slaclab/ace3p | `docs-user-tree` (from lge0303) | `docs/user/` tree + release workflow that copies it to the site; Gun3P grid-region page; `CHANGES/next.md` entry | https://github.com/lge0303/ace3p/pull/new/docs-user-tree |
-| slaclab/ace3p | `grid-region-test-portable` (from lge0303) | Gun3P grid-region test runs on Perlmutter (LSBK_SRC, perlmutter.sh) | https://github.com/lge0303/ace3p/pull/new/grid-region-test-portable |
-
-Merge `docs-user-tree` before the next tag: without it the release workflow only regenerates keyword tables and does not copy `docs/user/` or the release notes.
-
-Still to fill in by hand: the installed Cubit path on Perlmutter in `docs/getting-started/tools.md` (marked TODO), and the ParaView module name there if NERSC's differs from `paraview`.
+ace3p-docs PR #2 (Getting started restructure), ace3p `docs-user-tree` and `grid-region-test-portable`. Perlmutter tool paths filled in (Cubit 16.16, ParaView 5.11.0 under `$CFS/ace3p/tools/`).
 
 Fork note: `lge0303/ace3p` master diverged from `slaclab/ace3p` master by one commit (ed977c672, now carried by `docs-user-tree`). After that PR merges, reset the fork's master to upstream: `git checkout master && git reset --hard upstream/master && git push --force-with-lease origin master`.
 

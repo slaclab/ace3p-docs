@@ -5,7 +5,7 @@ Two graphical programs bracket every ACE3P run: **Cubit** builds the geometry an
 | | Cubit | ParaView |
 |---|---|---|
 | Role | Pre-processing: geometry, meshing, sidesets and blocks, `.gen` export | Post-processing: fields, modes, particle trajectories, wake plots |
-| On Perlmutter | Installed, run in a [ThinLinc desktop](index.md#connecting-with-thinlinc) | Installed, run in a ThinLinc desktop or in client-server mode |
+| On Perlmutter | Cubit 16.16 under `$CFS/ace3p/tools/`, run in a [ThinLinc desktop](index.md#connecting-with-thinlinc) | ParaView 5.11.0 under `$CFS/ace3p/tools/`, run in a ThinLinc desktop; NERSC client-server mode for large data |
 | On S3DF | Installed, run in a NoMachine desktop or with `ssh -X` | Installed, run in a NoMachine desktop or through the web visualizer |
 | On your own computer | Possible; needs a license | Possible; free download |
 | Learn more | [Cubit chapter](../cubit/index.md) | [Omega3P tutorial](../modules/omega3p/tutorial-pillbox.md), module pages |
@@ -22,14 +22,11 @@ Mesh elements must be quadratic tetrahedra (`tetra10`) and the model must be sca
 
 ### Cubit on Perlmutter
 
-Connect with [ThinLinc](index.md#connecting-with-thinlinc), open a terminal and start Cubit from the ACE3P project area under `$CFS/ace3p/`:
+Cubit 16.16 is installed in the ACE3P project area. Connect with [ThinLinc](index.md#connecting-with-thinlinc), open a terminal and start it:
 
 ```bash
-ls $CFS/ace3p/            # the Cubit directory is listed here
-<path-to-cubit>/cubit &
+$CFS/ace3p/tools/Cubit-16.16/cubit &
 ```
-
-<!-- TODO: replace <path-to-cubit> with the installed Perlmutter path and version once confirmed. -->
 
 The GUI opens on the ThinLinc desktop. Set the working directory to your scratch area (**File, then Set Directory**) so the `.gen` file lands where `acdtool meshconvert` will read it.
 
@@ -62,15 +59,13 @@ ParaView is free, open-source software from Kitware. ACE3P results are read thro
 
 ### ParaView on Perlmutter
 
-NERSC maintains ParaView on Perlmutter; versions 5.12, 5.13 and 6.0 are available at the time of writing. In a ThinLinc desktop:
+ParaView 5.11.0 with the SLAC toolbar is installed in the ACE3P project area. In a ThinLinc desktop:
 
 ```bash
-module avail paraview        # list the installed versions
-module load paraview         # pick one, e.g. module load paraview/5.13.3
-paraview &
+$CFS/ace3p/tools/ParaView-5.11.0-MPI-Linux-Python3.9-x86_64/bin/paraview &
 ```
 
-For very large datasets NERSC also supports **client-server mode**, where the ParaView GUI runs on your computer and the data stays on Perlmutter. Setup is in the [NERSC ParaView guide](https://docs.nersc.gov/applications/paraview/). The client version must match the server version listed there.
+This is the version the tutorials and the CW23 macros were tested with. NERSC also provides newer ParaView releases (5.12 and later) and a **client-server mode** for very large datasets, where the GUI runs on your computer and the data stays on Perlmutter. Setup is in the [NERSC ParaView guide](https://docs.nersc.gov/applications/paraview/); the client version must match the server version listed there.
 
 ### ParaView on S3DF
 
