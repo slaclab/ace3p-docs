@@ -112,6 +112,9 @@ def assemble_releases(ace3p: str, site: str, tag: str) -> list[str]:
     if src and re.match(r"v[\w.-]+$", tag):
         dst = os.path.join(rel_dir, f"{tag}.md")
         text = open(src, errors="ignore").read()
+        # next.md carries a draft heading and preamble; replace them with the tag.
+        if os.path.basename(src) == "next.md":
+            text = re.sub(r"^\s*# [^\n]*\n(?:(?!#)[^\n]*\n)*", f"# ACE3P {tag}\n\n", text, count=1)
         if not text.lstrip().startswith("# "):
             text = f"# ACE3P {tag}\n\n" + text
         text = re.sub(r"^(# [^\n]*\n)", lambda m: m.group(1) + "\n" + banner(
