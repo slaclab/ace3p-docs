@@ -2775,10 +2775,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -2848,62 +2844,6 @@
     
   
     ACE3P GUI
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../interfaces/dashboard/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Web dashboard
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../interfaces/workflow-assistant/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    AI workflow assistant
   
 
     
@@ -3302,7 +3242,7 @@
 </table>
 <p>The Slurm <code>.out</code> and <code>.err</code> files capture the same console output plus any MPI runtime messages.</p>
 <h2 id="chaining-steps">Chaining steps<a class="headerlink" href="#chaining-steps" title="Permanent link">&para;</a></h2>
-<p>A full campaign chains mesh conversion, several solves, and post-processing, often across many parameter values. Writing that as a sequence of hand-submitted scripts is error prone. The <a href="../../interfaces/workflow-assistant/">AI workflow assistant</a> page describes the Maestro-based workflow tooling developed for ACE3P on S3DF, which expresses the whole chain as one YAML specification with dependencies and parameter sweeps.</p>
+<p>A full campaign chains mesh conversion, several solves, and post-processing, often across many parameter values. Writing that as a sequence of hand-submitted scripts is error prone. The <a href="../../interfaces/gui/">ACE3P GUI</a> has a workflow-orchestration mode for parameter sweeps and optimization chains, and <a href="https://github.com/slaclab/lume-ace3p">lume-ace3p</a> does the same from Python.</p>
 
 
 

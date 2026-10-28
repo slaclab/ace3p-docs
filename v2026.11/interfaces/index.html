@@ -2670,10 +2670,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -2746,62 +2742,6 @@
     
   
     ACE3P GUI
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="dashboard/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Web dashboard
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="workflow-assistant/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    AI workflow assistant
   
 
     
@@ -3054,43 +2994,13 @@
 
 
 <h1 id="interfaces">Interfaces<a class="headerlink" href="#interfaces" title="Permanent link">&para;</a></h1>
-<p>The command line is the primary way to run ACE3P, and everything in this documentation can be done from a terminal. Three higher-level interfaces are being developed around the same solvers and input files.</p>
-<table>
-<thead>
-<tr>
-<th>Interface</th>
-<th>What it does</th>
-<th>Where it runs</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="gui/">ACE3P GUI</a></td>
-<td>Desktop application for building input files and launching jobs</td>
-<td>Perlmutter (Linux), Windows</td>
-<td>First release, v1.4.15</td>
-</tr>
-<tr>
-<td><a href="dashboard/">Web dashboard</a></td>
-<td>Browser-based input generators, workflow documentation, job monitoring</td>
-<td>S3DF, via SSH tunnel</td>
-<td>Prototype</td>
-</tr>
-<tr>
-<td><a href="workflow-assistant/">AI workflow assistant</a></td>
-<td>Natural-language generation of multi-step workflow specifications, executed by Maestro on Slurm</td>
-<td>S3DF</td>
-<td>Prototype, validated on Omega3P and Track3P</td>
-</tr>
-</tbody>
-</table>
-<p>All three produce the same <code>.omega3p</code>, <code>.s3p</code>, and other input files described in this manual, and all three submit the same solver binaries. Learning the input format here carries over to any of them.</p>
-<p>Two further Python toolkits drive ACE3P programmatically and are not yet documented here:</p>
+<p>The command line is the primary way to run ACE3P, and everything in this documentation can be done from a terminal. The <strong><a href="gui/">ACE3P GUI</a></strong> is a desktop application built around the same solvers and input files: it writes the <code>.omega3p</code>, <code>.s3p</code> and other inputs described in this manual, submits the same binaries to Perlmutter, and adds a 3D field viewer and an AI assistant. Its own pages are at <a href="https://ace3p.slac.stanford.edu/user-interface">https://ace3p.slac.stanford.edu/user-interface</a>.</p>
+<p>Two Python toolkits drive ACE3P programmatically and are not yet documented here:</p>
 <ul>
 <li><strong><a href="https://github.com/slaclab/lume-ace3p">lume-ace3p</a></strong>, public on GitHub, wraps Cubit, acdtool, and the ACE3P solvers in the LUME interface for design parameter scans.</li>
 <li><strong>A3PI</strong>, the ACE3P-IMPACT integration, chains Cubit, Omega3P, acdtool field extraction, and the IMPACT-T beam dynamics code under libEnsemble for gun optimization. Its user guide and an example are in the <code>commands/</code> and <code>examples/a3pi/</code> directories of the CW23 materials.</li>
 </ul>
+<p>Learning the input format in this manual carries over to all of them.</p>
 
 
 
