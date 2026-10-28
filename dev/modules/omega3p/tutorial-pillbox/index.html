@@ -1586,6 +1586,8 @@
       
         
       
+        
+      
     
     
     
@@ -1641,6 +1643,34 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../track3p/from-source/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes from the source tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -2823,10 +2853,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -2909,62 +2935,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../interfaces/dashboard/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Web dashboard
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../interfaces/workflow-assistant/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    AI workflow assistant
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -2983,6 +2953,8 @@
       
         
           
+        
+      
         
       
         
@@ -3039,6 +3011,34 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../releases/v2026.11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ACE3P v2026.11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -3496,7 +3496,7 @@
 <p>With order 2 elements, the frequency converges to a few parts in 10<sup>5</sup> by about 20,000 elements. Use this kind of plot to decide how fine a mesh you need for a given accuracy target, and remember that surface fields converge more slowly than frequency.</p>
 <div class="admonition tip">
 <p class="admonition-title">Order versus mesh density</p>
-<p>Raising <code>FiniteElement.Order</code> from 2 to 3 on the same mesh often gains more accuracy per DOF than refining the mesh. The <a href="../../../interfaces/workflow-assistant/">workflow assistant</a> page shows an automated order-convergence sweep on this cavity.</p>
+<p>Raising <code>FiniteElement.Order</code> from 2 to 3 on the same mesh often gains more accuracy per DOF than refining the mesh. The <a href="../../../interfaces/gui/">ACE3P GUI</a> workflow-orchestration mode can run such an order sweep automatically.</p>
 </div>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p><code>examples/omega3p/omega3p-exercise-1</code> contains a 1.5-cell gun geometry with target dimensions. Build it, find the pi mode, and adjust the cell dimensions so the mode frequency is correct and the field is balanced between cells.</p>

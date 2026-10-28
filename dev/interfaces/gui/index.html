@@ -16,7 +16,7 @@
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="../dashboard/">
+        <link rel="next" href="../../releases/">
       
       
         
@@ -1413,6 +1413,8 @@
       
         
       
+        
+      
     
     
     
@@ -1465,6 +1467,34 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/track3p/from-source/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes from the source tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -2640,10 +2670,6 @@
       
         
       
-        
-      
-        
-      
     
     
     
@@ -2768,10 +2794,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#availability" class="md-nav__link">
+  <a href="#getting-the-gui" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Availability
+        Getting the GUI
       
     </span>
   </a>
@@ -2779,10 +2805,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#documentation-status" class="md-nav__link">
+  <a href="#what-it-does" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Documentation status
+        What it does
       
     </span>
   </a>
@@ -2793,62 +2819,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../dashboard/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Web dashboard
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../workflow-assistant/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    AI workflow assistant
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -2872,6 +2842,8 @@
       
         
           
+        
+      
         
       
         
@@ -2928,6 +2900,34 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../releases/v2026.11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ACE3P v2026.11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -3046,10 +3046,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#availability" class="md-nav__link">
+  <a href="#getting-the-gui" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Availability
+        Getting the GUI
       
     </span>
   </a>
@@ -3057,10 +3057,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#documentation-status" class="md-nav__link">
+  <a href="#what-it-does" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Documentation status
+        What it does
       
     </span>
   </a>
@@ -3093,26 +3093,69 @@
 
 
 <h1 id="ace3p-gui">ACE3P GUI<a class="headerlink" href="#ace3p-gui" title="Permanent link">&para;</a></h1>
-<p>The ACE3P GUI is a desktop application for preparing input files and launching ACE3P jobs without editing text files by hand. Its first release is version 1.4.15.</p>
-<h2 id="availability">Availability<a class="headerlink" href="#availability" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Perlmutter (Linux)</label><label for="__tabbed_1_2">Windows</label></div>
+<p>The ACE3P GUI is a desktop application that builds input files for all seven solvers, meshes geometries, submits jobs to NERSC Perlmutter, and post-processes the results, without editing text files by hand. It is developed by the ACE3P team and released separately from the solvers. The current version is <strong>1.4.15</strong>.</p>
+<p>Everything about the GUI is on its own pages:</p>
+<ul>
+<li><strong>Overview and downloads:</strong> <a href="https://ace3p.slac.stanford.edu/user-interface">https://ace3p.slac.stanford.edu/user-interface</a></li>
+<li><strong>User guide:</strong> <a href="https://mothmanslac.github.io/ace3p-gui-docs/">https://mothmanslac.github.io/ace3p-gui-docs/</a>, with sections on getting started, a tutorial, simulation setup, running jobs, workflow orchestration, result post-processing, the AI assistant, and a reference.</li>
+</ul>
+<p>This manual does not repeat that material. It documents the input files, keywords and command-line tools that the GUI produces and calls, so the two fit together: use the GUI to build a run, and this manual to understand what each field means.</p>
+<h2 id="getting-the-gui">Getting the GUI<a class="headerlink" href="#getting-the-gui" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Perlmutter</label><label for="__tabbed_1_2">Windows or Linux desktop</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>The compiled executable is installed in the ACE3P project directory:</p>
+<p>Already installed in the ACE3P project area. Connect with a <a href="../../getting-started/#connecting-with-thinlinc">ThinLinc desktop</a>, open a terminal and run:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/global/cfs/cdirs/ace3p/gui/ACE3P-GUI-v1.4.15-linux-x86_64/ACE3P-GUI
 </code></pre></div>
-<p>Connect to Perlmutter through <a href="https://docs.nersc.gov/connect/nx/">ThinLinc</a> so that a graphical desktop is available, open a terminal, and launch the executable from it.</p>
 </div>
 <div class="tabbed-block">
-<p>A Windows build is distributed through SLAC SharePoint. Ask the ACE3P team for the current download link.</p>
+<p>Download <code>ACE3P-GUI-v1.4.15-windows-x86_64.exe</code> or <code>ACE3P-GUI-v1.4.15-linux-x86_64.tar.gz</code> from the link on the <a href="https://ace3p.slac.stanford.edu/user-interface">user-interface page</a>. No installer is needed; unpack and run. The GUI connects to Perlmutter to submit jobs, so you still need a NERSC account.</p>
 </div>
 </div>
 </div>
-<h2 id="documentation-status">Documentation status<a class="headerlink" href="#documentation-status" title="Permanent link">&para;</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Under construction</p>
-<p>A user guide for the GUI has not been written yet. This page will cover the main windows, how a GUI session maps onto the <code>.omega3p</code> and other input files described in this manual, and how to submit and monitor jobs from the GUI. Feedback on the first release should go to the ACE3P team.</p>
-</div>
+<h2 id="what-it-does">What it does<a class="headerlink" href="#what-it-does" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>In the GUI</th>
+<th>In this manual</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Simulation setup</td>
+<td>Forms that write the <code>.omega3p</code>, <code>.s3p</code>, <code>.t3p</code>, <code>.track3p</code>, <code>.tem3p</code>, <code>.gun3p</code> input as you type</td>
+<td><a href="../../workflow/input-format/">Input file format</a>, <a href="../../reference/">command syntax</a> and keyword tables</td>
+</tr>
+<tr>
+<td>Meshing</td>
+<td>Drives Cubit journals and <code>acdtool meshconvert</code></td>
+<td><a href="../../cubit/">Cubit</a>, <a href="../../workflow/mesh/">Mesh preparation</a></td>
+</tr>
+<tr>
+<td>Running jobs</td>
+<td>Submits to Perlmutter and monitors the queue</td>
+<td><a href="../../getting-started/perlmutter/">Running on Perlmutter</a>, <a href="../../workflow/batch-jobs/">Batch jobs</a></td>
+</tr>
+<tr>
+<td>Workflow orchestration</td>
+<td>Parameter sweeps and optimization chains</td>
+<td>Module pages describe the individual steps</td>
+</tr>
+<tr>
+<td>Post-processing</td>
+<td>3D field viewer, data explorer, <code>acdtool postprocess</code></td>
+<td><a href="../../modules/omega3p/postprocess/">Omega3P post-processing</a> and the module pages</td>
+</tr>
+<tr>
+<td>AI assistant</td>
+<td>Troubleshooting and input help inside the GUI</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Questions and feedback on the GUI go to the ACE3P team at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#99;&#101;&#51;&#112;&#64;&#115;&#108;&#97;&#99;&#46;&#115;&#116;&#97;&#110;&#102;&#111;&#114;&#100;&#46;&#101;&#100;&#117;">&#97;&#99;&#101;&#51;&#112;&#64;&#115;&#108;&#97;&#99;&#46;&#115;&#116;&#97;&#110;&#102;&#111;&#114;&#100;&#46;&#101;&#100;&#117;</a>.</p>
 
 
 
@@ -3165,13 +3208,13 @@
         
         
           
-          <a href="../dashboard/" class="md-footer__link md-footer__link--next" aria-label="Next: Web dashboard">
+          <a href="../../releases/" class="md-footer__link md-footer__link--next" aria-label="Next: Releases">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Web dashboard
+                Releases
               </div>
             </div>
             <div class="md-footer__button md-icon">

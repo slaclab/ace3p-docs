@@ -37,15 +37,7 @@
          <lastmod>2026-10-28</lastmod>
     </url>
     <url>
-         <loc>https://slaclab.github.io/ace3p-docs/dev/interfaces/dashboard/</loc>
-         <lastmod>2026-10-28</lastmod>
-    </url>
-    <url>
          <loc>https://slaclab.github.io/ace3p-docs/dev/interfaces/gui/</loc>
-         <lastmod>2026-10-28</lastmod>
-    </url>
-    <url>
-         <loc>https://slaclab.github.io/ace3p-docs/dev/interfaces/workflow-assistant/</loc>
          <lastmod>2026-10-28</lastmod>
     </url>
     <url>
@@ -126,6 +118,14 @@
     </url>
     <url>
          <loc>https://slaclab.github.io/ace3p-docs/dev/modules/track3p/tutorials/</loc>
+         <lastmod>2026-10-28</lastmod>
+    </url>
+    <url>
+         <loc>https://slaclab.github.io/ace3p-docs/dev/modules/track3p/from-source/</loc>
+         <lastmod>2026-10-28</lastmod>
+    </url>
+    <url>
+         <loc>https://slaclab.github.io/ace3p-docs/dev/modules/track3p/from-source/localization-and-startup/</loc>
          <lastmod>2026-10-28</lastmod>
     </url>
     <url>
@@ -222,6 +222,10 @@
     </url>
     <url>
          <loc>https://slaclab.github.io/ace3p-docs/dev/releases/v2026.10/</loc>
+         <lastmod>2026-10-28</lastmod>
+    </url>
+    <url>
+         <loc>https://slaclab.github.io/ace3p-docs/dev/releases/v2026.11/</loc>
          <lastmod>2026-10-28</lastmod>
     </url>
     <url>
