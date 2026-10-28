@@ -211,7 +211,7 @@ Points to notice:
 - **Symmetry planes in the elastic problem** are `Mixed`: zero displacement normal to the plane, free in the plane. The beam-pipe end is fixed in z only, so the cell can expand radially.
 - **`ReferenceT: 25`** is the temperature at which the copper is strain-free. Thermal strain is α (T − 25).
 - **The RF wall carries both loads.** `RFHeating` in the thermal problem and `LFDetuning` in the elastic problem both point at the same Omega3P result on sideset 6.
-- The file has `AbsoluteTolerante` in both solver blocks, a misspelling. See [Corrections](../../corrections.md).
+- The file has `AbsoluteTolerante` in both solver blocks, a misspelling. The parser ignores unknown keys, so the default absolute tolerance applies.
 
 ### Run the chain
 

@@ -310,7 +310,7 @@ Several things to notice:
 - The 5 mm bunch has content to about 10 GHz, so `DT` is 0.5 ps, four times finer than the pillbox examples.
 - `Curved Surfaces: on` with a space, `Nsigmas`, and `Start contour` with a space are all accepted alternate spellings.
 - The coax end, surface 5, is `Absorbing` and carries both a `Power` and a `ModeVoltage` monitor. The `ESolver` sub-block tells T3P to compute the coax TEM mode numerically on that surface so the modal amplitude can be projected out at each step.
-- The `LinearSolver` block has `Slover: CG`, misspelled. The parser ignores unknown keys, so `Solver` is absent and the default applies, which in a build with MUMPS is MUMPS. The stored results were therefore produced with the direct solver, not CG as the author intended. See [Corrections](../../corrections.md).
+- The `LinearSolver` block has `Slover: CG`, misspelled. The parser ignores unknown keys, so `Solver` is absent and the default applies, which in a build with MUMPS is MUMPS. The stored results were therefore produced with the direct solver, not CG as the author intended.
 
 ### Run and post-process
 
