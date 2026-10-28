@@ -61,4 +61,4 @@ The Slurm `.out` and `.err` files capture the same console output plus any MPI r
 
 ## Chaining steps
 
-A full campaign chains mesh conversion, several solves, and post-processing, often across many parameter values. Writing that as a sequence of hand-submitted scripts is error prone. The [AI workflow assistant](../interfaces/workflow-assistant.md) page describes the Maestro-based workflow tooling developed for ACE3P on S3DF, which expresses the whole chain as one YAML specification with dependencies and parameter sweeps.
+A full campaign chains mesh conversion, several solves, and post-processing, often across many parameter values. Writing that as a sequence of hand-submitted scripts is error prone. The [ACE3P GUI](../interfaces/gui.md) has a workflow-orchestration mode for parameter sweeps and optimization chains, and [lume-ace3p](https://github.com/slaclab/lume-ace3p) does the same from Python.

@@ -46,6 +46,11 @@ extra:
     provider: mike
     default: latest
 
+# Prototype pages kept in the tree but not published for now
+exclude_docs: |
+  interfaces/dashboard.md
+  interfaces/workflow-assistant.md
+
 extra_css:
   - stylesheets/extra.css
 
@@ -155,8 +160,6 @@ nav:
   - Interfaces:
       - interfaces/index.md
       - ACE3P GUI: interfaces/gui.md
-      - Web dashboard: interfaces/dashboard.md
-      - AI workflow assistant: interfaces/workflow-assistant.md
   # BEGIN generated nav (tools/assemble_source_docs.py; do not edit by hand)
   - Releases:
       - releases/index.md

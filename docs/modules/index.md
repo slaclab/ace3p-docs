@@ -26,4 +26,4 @@ flowchart TD
     Q1 -->|Electron gun or DC beam optics| G[Gun3P]
 ```
 
-Several modules chain together. Track3P reads the mode fields that Omega3P produces. TEM3P reads Omega3P or S3P fields as a heat source. The [workflow assistant](../interfaces/workflow-assistant.md) page shows how such chains are automated.
+Several modules chain together. Track3P reads the mode fields that Omega3P produces. TEM3P reads Omega3P or S3P fields as a heat source. The [ACE3P GUI](../interfaces/gui.md) and [lume-ace3p](https://github.com/slaclab/lume-ace3p) automate such chains.

@@ -53,13 +53,14 @@ Binaries built from the tag print `ACE3P Release: v2026.11` in their start-up ba
 
 ## Content still to convert (ask Claude when ready)
 
+Interfaces: the GUI page now points at https://ace3p.slac.stanford.edu/user-interface and the GUI user guide; the Web dashboard and AI workflow assistant pages are kept in `docs/interfaces/` but excluded from the build (`exclude_docs` in mkdocs.yml) until those tools are ready for users.
+
 Sources are in `/sdf/group/rfar/ace3p/cw23/`.
 
 - A3PI user guide (`a3pi/`, 22 pages) into `docs/interfaces/`.
 - 2025 release notes (`news/ace3p-updates-032525.pdf`) as a proper Releases entry; the current v2026.10 notes are three lines.
 - ParaView mechanical-mode animation scripts (`mmode/`).
 - `presentations/ACE3P-Introduction.pptx` overview material for the home or Modules index.
-- ACE3P GUI page in Interfaces when the colleagues' tool (v1.4.15) is stable.
 - Point the workflow project's AI input generator at the command syntax pages and keyword tables instead of the PDFs.
 
 ## Local working copies on S3DF

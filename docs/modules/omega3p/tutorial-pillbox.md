@@ -243,7 +243,7 @@ Run all four meshes and record the TM~010~ frequency and element count from each
 With order 2 elements, the frequency converges to a few parts in 10^5^ by about 20,000 elements. Use this kind of plot to decide how fine a mesh you need for a given accuracy target, and remember that surface fields converge more slowly than frequency.
 
 !!! tip "Order versus mesh density"
-    Raising `FiniteElement.Order` from 2 to 3 on the same mesh often gains more accuracy per DOF than refining the mesh. The [workflow assistant](../../interfaces/workflow-assistant.md) page shows an automated order-convergence sweep on this cavity.
+    Raising `FiniteElement.Order` from 2 to 3 on the same mesh often gains more accuracy per DOF than refining the mesh. The [ACE3P GUI](../../interfaces/gui.md) workflow-orchestration mode can run such an order sweep automatically.
 
 ## Exercise
 
