@@ -1,0 +1,4237 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="User documentation for ACE3P, SLAC's parallel finite-element electromagnetic simulation suite">
+      
+      
+      
+        <link rel="canonical" href="https://slaclab.github.io/ace3p-docs/v2026.11/modules/t3p/tutorials/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../../track3p/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Tutorials - ACE3P Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#t3p-tutorials" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="ACE3P Documentation" class="md-header__button md-logo" aria-label="ACE3P Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ACE3P Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tutorials
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/slaclab/ace3p-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    slaclab/ace3p-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../getting-started/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../cubit/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Cubit
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../workflow/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Workflow
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Modules
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../reference/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../interfaces/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Interfaces
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../releases/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Releases
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../contributing/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contributing
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../corrections/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Corrections to source material
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="ACE3P Documentation" class="md-nav__button md-logo" aria-label="ACE3P Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ACE3P Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/slaclab/ace3p-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    slaclab/ace3p-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../getting-started/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/perlmutter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running on NERSC Perlmutter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pre- and post-processing tools (Cubit, ParaView)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/s3df/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running on S3DF (SLAC users)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../cubit/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cubit
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cubit
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../workflow/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflow
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../workflow/mesh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mesh preparation with acdtool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../workflow/input-format/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Input file format
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../workflow/batch-jobs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch jobs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modules
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Modules
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../omega3p/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omega3P
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Omega3P
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../omega3p/tutorial-pillbox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial 1: pillbox-rtop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../omega3p/tutorial-ports/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial 2: coax coupler and ports
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../omega3p/tutorial-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial 3: lossy load and periodic boundaries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../omega3p/postprocess/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Post-processing with acdtool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../s3p/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S3P
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_3" id="__nav_5_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    S3P
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../s3p/tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    T3P
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_4" id="__nav_5_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    T3P
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-1-longitudinal-wakefield-of-a-cavity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tutorial 1: longitudinal wakefield of a cavity
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tutorial 1: longitudinal wakefield of a cavity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mesh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variant-waveguide-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variant: waveguide boundary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-2-transverse-wakefield-of-a-cavity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tutorial 2: transverse wakefield of a cavity
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tutorial 2: transverse wakefield of a cavity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#offset-beam-in-a-half-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Offset beam in a half model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-beams-of-opposite-charge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two beams of opposite charge
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#half-model-with-mixed-symmetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Half model with mixed symmetry
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-3-beam-position-monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tutorial 3: beam position monitor
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tutorial 3: beam position monitor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mesh_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mesh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-and-post-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run and post-process
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-4-taper-with-a-moving-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tutorial 4: taper with a moving window
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tutorial 4: taper with a moving window">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mesh_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mesh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-order-reference-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full-order reference run
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moving-window-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Moving-window run
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-5-surface-impedance-with-a-thin-lossy-coating" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tutorial 5: surface impedance with a thin lossy coating
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tutorial 5: surface impedance with a thin lossy coating">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#theory-in-brief" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Theory in brief
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mesh_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mesh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-and-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run and results
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../track3p/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Track3P
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_5" id="__nav_5_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Track3P
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../track3p/from-source/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes from the source tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../track3p/tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../pic3p/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pic3P
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_6" id="__nav_5_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Pic3P
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pic3p/tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial: LCLS RF gun
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../tem3p/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TEM3P
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_7" id="__nav_5_7_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    TEM3P
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tem3p/tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../gun3p/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gun3P
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_8" id="__nav_5_8_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gun3P
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gun3p/from-source/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes from the source tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gun3p/tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial: sheet beam klystron gun
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../reference/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/omega3p/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omega3P keywords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/s3p/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S3P keywords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/tfe3p/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    T3P and Pic3P keywords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/multipacting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Track3P keywords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/tem3p/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TEM3P keywords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/gun3p/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gun3P keywords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    acdtool keywords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/omega3p-postprocess/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    acdtool rf post-processor keywords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/emfem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared EM keywords (emfem)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/solver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eigensolver keywords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/excitation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Excitation pulse keywords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/waveguide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Waveguide port keywords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/slacsupport/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bunch shape keywords (slacsupport)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_15" id="__nav_6_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command syntax
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Command syntax
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/commands/omega3p/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omega3P
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/commands/s3p/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S3P
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/commands/t3p/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    T3P
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/commands/pic3p/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pic3P
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/commands/track3p/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Track3P
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/commands/tem3p/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TEM3P
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/commands/gun3p/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gun3P
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/commands/acdtool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    acdtool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../interfaces/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interfaces
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Interfaces
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../interfaces/gui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ACE3P GUI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../interfaces/dashboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Web dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../interfaces/workflow-assistant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI workflow assistant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../releases/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Releases
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Releases
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../releases/v2026.11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ACE3P v2026.11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../releases/v2026.10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ACE3P v2026.10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../corrections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Corrections to source material
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-1-longitudinal-wakefield-of-a-cavity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tutorial 1: longitudinal wakefield of a cavity
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tutorial 1: longitudinal wakefield of a cavity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mesh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variant-waveguide-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variant: waveguide boundary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-2-transverse-wakefield-of-a-cavity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tutorial 2: transverse wakefield of a cavity
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tutorial 2: transverse wakefield of a cavity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#offset-beam-in-a-half-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Offset beam in a half model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-beams-of-opposite-charge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two beams of opposite charge
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#half-model-with-mixed-symmetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Half model with mixed symmetry
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-3-beam-position-monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tutorial 3: beam position monitor
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tutorial 3: beam position monitor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mesh_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mesh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-and-post-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run and post-process
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-4-taper-with-a-moving-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tutorial 4: taper with a moving window
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tutorial 4: taper with a moving window">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mesh_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mesh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-order-reference-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full-order reference run
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moving-window-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Moving-window run
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-5-surface-impedance-with-a-thin-lossy-coating" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tutorial 5: surface impedance with a thin lossy coating
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tutorial 5: surface impedance with a thin lossy coating">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#theory-in-brief" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Theory in brief
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mesh_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mesh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-and-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run and results
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/slaclab/ace3p-docs/edit/main/docs/modules/t3p/tutorials.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="t3p-tutorials">T3P tutorials<a class="headerlink" href="#t3p-tutorials" title="Permanent link">&para;</a></h1>
+<p>Five worked examples from <code>examples/t3p</code>. Meshing and <code>acdtool meshconvert</code> are covered in the <a href="../../omega3p/tutorial-pillbox/">Omega3P pillbox tutorial</a> and only the T3P-specific points are repeated here. All stored results were produced with the March 2023 ACE3P build.</p>
+<h2 id="tutorial-1-longitudinal-wakefield-of-a-cavity">Tutorial 1: longitudinal wakefield of a cavity<a class="headerlink" href="#tutorial-1-longitudinal-wakefield-of-a-cavity" title="Permanent link">&para;</a></h2>
+<p><strong>Example directory:</strong> <code>examples/t3p/cavity-quarter</code></p>
+<p>An S-band pillbox with beam pipes and a waveguide slot, cut to a quarter model. A 1 pC Gaussian bunch of 1 cm length passes through; the longitudinal wake and loss factor are computed.</p>
+<h3 id="mesh">Mesh<a class="headerlink" href="#mesh" title="Permanent link">&para;</a></h3>
+<p>The journal builds the cavity at half scale, adds a waveguide stub through a slot, and cuts to a quarter. Sidesets: 1 and 2 symmetry planes, 3 and 4 beam pipe ends, 5 waveguide end, 6 wall. Element size is 6.25 mm, about <span class="arithmatex">\(\sigma/1.6\)</span>, which is coarse; the taper and BPM examples use finer meshes. Note that this journal does not scale the mesh since the geometry is already in meters. The stored mesh has 7,552 elements.</p>
+<h3 id="input">Input<a class="headerlink" href="#input" title="Permanent link">&para;</a></h3>
+<div class="highlight"><span class="filename">pillboxwg-closed.t3p</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ModelInfo: {
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  File: ./pillboxwg.ncdf
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  BoundaryCondition: {
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    Exterior: 6 5             // wall and closed waveguide end
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    Absorbing: 3 4            // beam pipe ends
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    Magnetic: 1 2             // symmetry planes
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  }
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>}
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>FiniteElement: {
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>  Order: 2
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>  CurvedSurfaces: on
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>}
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>LoadingInfo: {
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>  Bunch: {
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    Type: Gaussian
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    Sigma: 0.01
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    Number of sigmas: 5
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    Charge: 1.e-12
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>  }
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>  SymmetryFactor: 4
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>  StartPoint: 0.0, 0.0, -0.075
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>  Direction: 0.0, 0.0, 1.0
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>  BoundaryID: 3
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>}
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>TimeStepping: {
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>  MaximumTime: 5e-9
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>  DT: 2e-12
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>}
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>Monitor: {
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>  Type: Volume
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>  Name: mymon
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>  TimeStart: 0e-9
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>  TimeEnd:   5e-9
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>  TimeStep:  0.2e-9
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>}
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>Monitor: {
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>  Type: WakeField
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>  Name: wakefield
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>  StartContour: -0.075
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>  EndContour:    0.075
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>  Smax: 1.4
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>}
+<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>
+<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>LinearSolver: {
+<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>  Solver: MUMPS
+<a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>}
+</code></pre></div>
+<p>Two magnetic symmetry planes with a beam on the axis select the monopole wake. The bunch enters through surface 3, which must be an absorbing boundary so that the beam's own field is not reflected. The wake contour spans the whole model from pipe end to pipe end. <code>Smax</code> of 1.4 m records the wake for about 4.7 ns behind the bunch, which matches <code>MaximumTime</code>.</p>
+<h3 id="run">Run<a class="headerlink" href="#run" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>srun<span class="w"> </span>-n<span class="w"> </span><span class="m">16</span><span class="w"> </span>t3p<span class="w"> </span>pillboxwg-closed.t3p
+</code></pre></div>
+<p>The log reports 7,552 elements and 46,968 DOFs and confirms <code>factorizing the matrix using MUMPS</code>. The 2,500 time steps take a few minutes.</p>
+<h3 id="results">Results<a class="headerlink" href="#results" title="Permanent link">&para;</a></h3>
+<p><code>t3p_results/OUTPUT/wakefield.out</code> begins:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a># T3P wakefield results at transverse point:
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>#(0.00000000000000e+00,0.00000000000000e+00)
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a># Loss factor = -3.88576373282202e-01 V/pC
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>#          s[m]        W_long(s)[V/pC]     I_bunch(s)[C/m]
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>0.00000000000000e+00 -4.64474318043810e-07 0.00000000000000e+00
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>5.99584916000000e-04 -7.75095377990907e-07 2.00284274868363e-16
+</code></pre></div>
+<p>The loss factor is 0.389 V/pC. Load the mesh and the <code>mymonts_*.out.mod</code> series in ParaView to see the field left behind after the bunch passes, then use the <code>wakeplot</code> macro.</p>
+<figure>
+<p><img alt="Field after beam transit" src="../../../assets/t3p/cavity-quarter-field.png" width="300" />
+<img alt="Longitudinal wake" src="../../../assets/t3p/cavity-quarter-wake.png" width="520" /></p>
+<figcaption>
+<p>Field snapshot after the bunch has left, and the longitudinal wake over 1.4 m with the bunch profile in green. The wake rings at the cavity's monopole modes for the whole record because the closed cavity has no damping except the beam pipes.</p>
+</figcaption>
+</figure>
+<figure>
+<p><img alt="Longitudinal impedance" src="../../../assets/t3p/cavity-quarter-impedance.png" width="520" /></p>
+<figcaption>
+<p>Impedance spectrum from the Fourier transform of the wake. The dominant peak at 2.15 GHz is the fundamental monopole mode of the half-scale pillbox; the second at 3.85 GHz is the next monopole. The dashed line is the bunch spectrum, which sets how far in frequency the impedance is trustworthy.</p>
+</figcaption>
+</figure>
+<h3 id="variant-waveguide-boundary">Variant: waveguide boundary<a class="headerlink" href="#variant-waveguide-boundary" title="Permanent link">&para;</a></h3>
+<p>In <code>cavity-quarter/open</code>, the waveguide end becomes a <code>Waveguide</code> boundary instead of <code>Exterior</code>, so power can leave through it:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>BoundaryCondition: {
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  Magnetic: 1 2
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  Absorbing: 3 4
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  Waveguide: 5
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  Exterior: 6
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>}
+</code></pre></div>
+<p>The stored result was run at order 1 and gives a loss factor of 0.386 V/pC, essentially the same, since the loss factor depends on the field the bunch sees during transit and not on what happens afterward. The wake behind the bunch, however, now decays as the waveguide drains the modes above its cutoff.</p>
+<h2 id="tutorial-2-transverse-wakefield-of-a-cavity">Tutorial 2: transverse wakefield of a cavity<a class="headerlink" href="#tutorial-2-transverse-wakefield-of-a-cavity" title="Permanent link">&para;</a></h2>
+<p><strong>Example directory:</strong> <code>examples/t3p/cavity-half</code></p>
+<p>A transverse wake needs a beam off axis, which breaks one symmetry plane. Three ways to compute the same dipole wake are shown.</p>
+<h3 id="offset-beam-in-a-half-model">Offset beam in a half model<a class="headerlink" href="#offset-beam-in-a-half-model" title="Permanent link">&para;</a></h3>
+<p><code>pillboxwg2.jou</code> builds a half model with sidesets 2 (symmetry), 3 and 4 (pipe ends), 5 (waveguide), 6 (wall). The stored mesh has 15,516 elements. The beam is offset to y = 6.25 mm:</p>
+<div class="highlight"><span class="filename">pillboxwg2-closed.t3p (differences from Tutorial 1)</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>CheckPoint: {
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  Action: none
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  Ntimesteps: 500
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>}
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>ModelInfo: {
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  File: ./pillboxwg2.ncdf
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>  BoundaryCondition: {
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    Exterior: 6 5
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    Absorbing: 3 4
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    Magnetic: 2
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>  }
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>}
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>LoadingInfo: {
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>  Bunch: { Type: Gaussian  Sigma: 0.01  Number of sigmas: 5  Charge: 1.e-12 }
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>  SymmetryFactor: 2
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>  StartPoint: 0.0, 6.25e-03, -0.075
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>  Direction: 0.0, 0.0, 1.0
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>  BoundaryID: 3
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>}
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>Monitor: {
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>  Type: WakeField
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>  Name: wakefield
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>  StartContour: -0.025
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>  EndContour:    0.025
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>  Smax: 1.4
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>}
+</code></pre></div>
+<p>The <code>CheckPoint</code> block with <code>Action: none</code> writes a checkpoint every 500 steps without restarting; change to <code>restart</code> to resume an interrupted run. The wake contour is shortened to the cavity gap.</p>
+<p>The transverse wake comes from acdtool after the run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>srun<span class="w"> </span>-n<span class="w"> </span><span class="m">16</span><span class="w"> </span>t3p<span class="w"> </span>pillboxwg2-closed.t3p
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>srun<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w">  </span>acdtool<span class="w"> </span>postprocess<span class="w"> </span>transwake<span class="w"> </span>t3p_results<span class="w"> </span><span class="m">0</span>.<span class="w"> </span><span class="m">0</span>.00<span class="w"> </span><span class="m">0</span>.<span class="w"> </span><span class="m">0</span>.0125
+</code></pre></div>
+<p>The four numbers are two transverse points, here the axis and y = 12.5 mm, twice the beam offset. acdtool computes the longitudinal wake at both points, takes the difference, and applies the Panofsky-Wenzel theorem. It rewrites <code>wakefield.out</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a># T3P transverse wakefield result using transverse points:
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a># (0.00000000000000e+00,0.00000000000000e+00) and
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a># (0.00000000000000e+00,1.25000000000000e-02)
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a># with offset 1.25000000000000e-02 m
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a># Kick factor = 9.64058337896157e-02 V/pC
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>#          s[m]        W_trans(s)[V/pC]     I_bunch(s)[C/m]
+</code></pre></div>
+<p>The log also notes that T3P used an effective charge of 0.5 pC in the half domain, which is <code>Charge</code> divided by <code>SymmetryFactor</code>.</p>
+<figure>
+<p><img alt="Transverse wake" src="../../../assets/t3p/cavity-half-transverse-wake.png" width="440" />
+<img alt="Transverse impedance" src="../../../assets/t3p/cavity-half-transverse-impedance.png" width="440" /></p>
+<figcaption>
+<p>Transverse wake and impedance from the offset-beam run. The first dipole mode is at 2.6 GHz.</p>
+</figcaption>
+</figure>
+<h3 id="two-beams-of-opposite-charge">Two beams of opposite charge<a class="headerlink" href="#two-beams-of-opposite-charge" title="Permanent link">&para;</a></h3>
+<p><code>multi-beam/pillboxwg2-closed1.t3p</code> adds a second <code>LoadingInfo</code> with <code>Charge: -1.e-12</code> at y = -6.25 mm. Two bunches at opposite offsets with opposite sign excite a pure dipole field with no monopole component. The kick factor from the same <code>transwake</code> post-processing is 0.175 V/pC, twice the single-beam value because there are two driving charges.</p>
+<h3 id="half-model-with-mixed-symmetry">Half model with mixed symmetry<a class="headerlink" href="#half-model-with-mixed-symmetry" title="Permanent link">&para;</a></h3>
+<p><code>half-model/pillboxwg-closed.t3p</code> uses the quarter-model mesh from Tutorial 1 with one symmetry plane magnetic and the other electric:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>BoundaryCondition: {
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  Exterior: 6 5
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>  Absorbing: 3 4
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>  Magnetic: 1
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>  Electric: 2
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>}
+</code></pre></div>
+<p>An electric symmetry plane is what a dipole field looks like at its antisymmetry plane, so a single offset beam in this quarter model represents the two-beam dipole excitation. The kick factor is 0.175 V/pC, matching the two-beam result at a quarter of the mesh. This is the efficient way to compute dipole wakes.</p>
+<h2 id="tutorial-3-beam-position-monitor">Tutorial 3: beam position monitor<a class="headerlink" href="#tutorial-3-beam-position-monitor" title="Permanent link">&para;</a></h2>
+<p><strong>Example directory:</strong> <code>examples/t3p/BPM</code></p>
+<p>A button BPM: a 7 mm button in a housing on an elliptical vacuum chamber, with a ceramic window and a coaxial cable. T3P computes the wake the button adds to the beamline and the signal induced on the cable.</p>
+<figure>
+<p><img alt="BPM model" src="../../../assets/t3p/bpm-model.png" width="300" /></p>
+<figcaption>
+<p>Quarter model. Block 1 is vacuum, block 2 the ceramic window.</p>
+</figcaption>
+</figure>
+<h3 id="mesh_1">Mesh<a class="headerlink" href="#mesh_1" title="Permanent link">&para;</a></h3>
+<p>Two journals: <code>ModelBPM.jou</code> builds the geometry parametrically, <code>MeshBPM.jou</code> meshes it. The mesh uses <code>imprint all</code> and <code>merge all</code> so the three volumes share faces, and Cubit groups collect the sidesets as in the <a href="../../s3p/tutorials/#tutorial-3-rf-window">S3P window tutorial</a>. The chamber is meshed at <code>max_size 1.5</code> mm, about <span class="arithmatex">\(\sigma/3\)</span> for the 5 mm bunch, and the button face at 0.5 mm. The stored mesh has 68,720 elements in two material blocks.</p>
+<h3 id="input_1">Input<a class="headerlink" href="#input_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><span class="filename">BPM.t3p</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>ModelInfo: {
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>  File: BPM.ncdf
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>  BoundaryCondition: {
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    Electric: 6
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    Absorbing: 1 2 5          // pipe ends and coax end
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    Magnetic: 3 4
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>  }
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>  Material : { Attribute: 1  Epsilon: 1.0  Mu: 1.0 }
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>  Material : { Attribute: 2  Epsilon: 4.9  Mu: 1.0 }    // ceramic
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>}
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>FiniteElement: {
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>  Order: 2
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>  Curved Surfaces: on
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>}
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>LoadingInfo: {
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>  Bunch: {
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>    Type: Gaussian
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>    Sigma: 0.005
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>    Nsigmas: 5
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>    Charge: 1.e-12
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>  }
+<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>  SymmetryFactor: 4
+<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a>  StartPoint: 0.0 0.0 -0.025
+<a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a>  Direction: 0.0, 0.0, 1.0
+<a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a>  BoundaryID: 1
+<a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a>}
+<a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>
+<a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a>TimeStepping: {
+<a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a>  MaximumTime: 2.0e-9
+<a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a>  DT: 0.5e-12
+<a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a>}
+<a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a>
+<a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a>Monitor: {
+<a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a>  Type: WakeField
+<a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a>  Name: wakefield
+<a id="__codelineno-8-38" name="__codelineno-8-38" href="#__codelineno-8-38"></a>  Start contour: -0.0055
+<a id="__codelineno-8-39" name="__codelineno-8-39" href="#__codelineno-8-39"></a>  End contour:    0.0055
+<a id="__codelineno-8-40" name="__codelineno-8-40" href="#__codelineno-8-40"></a>  Smax: 0.35
+<a id="__codelineno-8-41" name="__codelineno-8-41" href="#__codelineno-8-41"></a>}
+<a id="__codelineno-8-42" name="__codelineno-8-42" href="#__codelineno-8-42"></a>
+<a id="__codelineno-8-43" name="__codelineno-8-43" href="#__codelineno-8-43"></a>Monitor: { Type: Point  Name: point      Coordinate: 0 0 0 }
+<a id="__codelineno-8-44" name="__codelineno-8-44" href="#__codelineno-8-44"></a>Monitor: { Type: Point  Name: coaxpoint  Coordinate: 0.01457 0.03586 -0.0020955 }
+<a id="__codelineno-8-45" name="__codelineno-8-45" href="#__codelineno-8-45"></a>
+<a id="__codelineno-8-46" name="__codelineno-8-46" href="#__codelineno-8-46"></a>Monitor: {
+<a id="__codelineno-8-47" name="__codelineno-8-47" href="#__codelineno-8-47"></a>  Type: Volume
+<a id="__codelineno-8-48" name="__codelineno-8-48" href="#__codelineno-8-48"></a>  Name: volume
+<a id="__codelineno-8-49" name="__codelineno-8-49" href="#__codelineno-8-49"></a>  TimeStart: 0.000e-9
+<a id="__codelineno-8-50" name="__codelineno-8-50" href="#__codelineno-8-50"></a>  TimeEnd:   0.4e-9
+<a id="__codelineno-8-51" name="__codelineno-8-51" href="#__codelineno-8-51"></a>  TimeStep:  0.02e-9
+<a id="__codelineno-8-52" name="__codelineno-8-52" href="#__codelineno-8-52"></a>}
+<a id="__codelineno-8-53" name="__codelineno-8-53" href="#__codelineno-8-53"></a>
+<a id="__codelineno-8-54" name="__codelineno-8-54" href="#__codelineno-8-54"></a>// These two monitors feed acdtool postprocess coaxsignal.
+<a id="__codelineno-8-55" name="__codelineno-8-55" href="#__codelineno-8-55"></a>// The names "port" and "modecoeff" are required.
+<a id="__codelineno-8-56" name="__codelineno-8-56" href="#__codelineno-8-56"></a>Monitor: {
+<a id="__codelineno-8-57" name="__codelineno-8-57" href="#__codelineno-8-57"></a>  Type: Power
+<a id="__codelineno-8-58" name="__codelineno-8-58" href="#__codelineno-8-58"></a>  ReferenceNumber: 5
+<a id="__codelineno-8-59" name="__codelineno-8-59" href="#__codelineno-8-59"></a>  Name: port
+<a id="__codelineno-8-60" name="__codelineno-8-60" href="#__codelineno-8-60"></a>}
+<a id="__codelineno-8-61" name="__codelineno-8-61" href="#__codelineno-8-61"></a>
+<a id="__codelineno-8-62" name="__codelineno-8-62" href="#__codelineno-8-62"></a>Monitor: {
+<a id="__codelineno-8-63" name="__codelineno-8-63" href="#__codelineno-8-63"></a>  Type: ModeVoltage
+<a id="__codelineno-8-64" name="__codelineno-8-64" href="#__codelineno-8-64"></a>  Name: modecoeff
+<a id="__codelineno-8-65" name="__codelineno-8-65" href="#__codelineno-8-65"></a>  Port: {
+<a id="__codelineno-8-66" name="__codelineno-8-66" href="#__codelineno-8-66"></a>    ReferenceNumber: 5
+<a id="__codelineno-8-67" name="__codelineno-8-67" href="#__codelineno-8-67"></a>    ESolver: {
+<a id="__codelineno-8-68" name="__codelineno-8-68" href="#__codelineno-8-68"></a>      Type: Numerical2D
+<a id="__codelineno-8-69" name="__codelineno-8-69" href="#__codelineno-8-69"></a>      NumberOfModes: 1
+<a id="__codelineno-8-70" name="__codelineno-8-70" href="#__codelineno-8-70"></a>      Frequency: 1.e9
+<a id="__codelineno-8-71" name="__codelineno-8-71" href="#__codelineno-8-71"></a>      Tolerance: 1.e-15
+<a id="__codelineno-8-72" name="__codelineno-8-72" href="#__codelineno-8-72"></a>      MaxIterations: 1000
+<a id="__codelineno-8-73" name="__codelineno-8-73" href="#__codelineno-8-73"></a>    }
+<a id="__codelineno-8-74" name="__codelineno-8-74" href="#__codelineno-8-74"></a>  }
+<a id="__codelineno-8-75" name="__codelineno-8-75" href="#__codelineno-8-75"></a>}
+<a id="__codelineno-8-76" name="__codelineno-8-76" href="#__codelineno-8-76"></a>
+<a id="__codelineno-8-77" name="__codelineno-8-77" href="#__codelineno-8-77"></a>LinearSolver: {
+<a id="__codelineno-8-78" name="__codelineno-8-78" href="#__codelineno-8-78"></a>  Slover: CG
+<a id="__codelineno-8-79" name="__codelineno-8-79" href="#__codelineno-8-79"></a>}
+</code></pre></div>
+<p>Several things to notice:</p>
+<ul>
+<li>The wall is <code>Electric</code>, not <code>Exterior</code>: wall loss is irrelevant over 2 ns, and the perfect conductor is cheaper.</li>
+<li>The 5 mm bunch has content to about 10 GHz, so <code>DT</code> is 0.5 ps, four times finer than the pillbox examples.</li>
+<li><code>Curved Surfaces: on</code> with a space, <code>Nsigmas</code>, and <code>Start contour</code> with a space are all accepted alternate spellings.</li>
+<li>The coax end, surface 5, is <code>Absorbing</code> and carries both a <code>Power</code> and a <code>ModeVoltage</code> monitor. The <code>ESolver</code> sub-block tells T3P to compute the coax TEM mode numerically on that surface so the modal amplitude can be projected out at each step.</li>
+<li>The <code>LinearSolver</code> block has <code>Slover: CG</code>, misspelled. The parser ignores unknown keys, so <code>Solver</code> is absent and the default applies, which in a build with MUMPS is MUMPS. The stored results were therefore produced with the direct solver, not CG as the author intended. See <a href="../../../corrections/">Corrections</a>.</li>
+</ul>
+<h3 id="run-and-post-process">Run and post-process<a class="headerlink" href="#run-and-post-process" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>srun<span class="w"> </span>-n<span class="w"> </span><span class="m">128</span><span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span>t3p<span class="w"> </span>BPM.t3p
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>srun<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>acdtool<span class="w"> </span>postprocess<span class="w"> </span>coaxsignal<span class="w"> </span>t3p_results
+</code></pre></div>
+<p>The loss factor in <code>wakefield.out</code> is 3.71 mV/pC, two orders of magnitude below the pillbox cavity, as expected for a small discontinuity. <code>coaxsignal</code> combines the two port monitors into <code>OUTPUT/signal.out</code> with columns time, voltage on a 50 ohm line, and beam current.</p>
+<figure>
+<p><img alt="BPM field" src="../../../assets/t3p/bpm-field.png" width="300" />
+<img alt="BPM longitudinal wake" src="../../../assets/t3p/bpm-wake.png" width="520" /></p>
+<figcaption>
+<p>Field in the button housing after the bunch passes, and the longitudinal wake, which is a short pulse without the long ringing of a closed cavity.</p>
+</figcaption>
+</figure>
+<figure>
+<p><img alt="Coaxial signal" src="../../../assets/t3p/bpm-signal.png" width="440" />
+<img alt="Transfer impedance" src="../../../assets/t3p/bpm-transfer-impedance.png" width="440" /></p>
+<figcaption>
+<p>Voltage on the coaxial cable (red) against the beam current (green), plotted with the <code>timeFFT</code> macro, and the transfer impedance, which is the ratio of the two spectra. The bipolar pulse is the classic button BPM response.</p>
+</figcaption>
+</figure>
+<h2 id="tutorial-4-taper-with-a-moving-window">Tutorial 4: taper with a moving window<a class="headerlink" href="#tutorial-4-taper-with-a-moving-window" title="Permanent link">&para;</a></h2>
+<p><strong>Example directory:</strong> <code>examples/t3p/taper</code></p>
+<p>A transition between two elliptical beam pipes, 350 mm long. This example introduces the moving window, which makes short-range wake computation in long structures affordable.</p>
+<p><img alt="Taper mesh" src="../../../assets/t3p/taper-mesh.png" width="560" /></p>
+<h3 id="mesh_2">Mesh<a class="headerlink" href="#mesh_2" title="Permanent link">&para;</a></h3>
+<p><code>taper.jou</code> lofts between two ellipses and reflects to make a symmetric double taper, then cuts to a quarter. Uniform 7.5 mm elements; the stored mesh has 8,536. Sidesets: 1 and 2 pipe ends, 3 and 4 symmetry planes, 5 wall.</p>
+<h3 id="full-order-reference-run">Full-order reference run<a class="headerlink" href="#full-order-reference-run" title="Permanent link">&para;</a></h3>
+<p><code>taper.t3p</code> is the Tutorial 1 input with the geometry swapped in and a shorter time: <code>MaximumTime: 1.6e-9</code>, wake contour from -0.175 to 0.175 m, <code>Smax: 0.45</code>. Loss factor 0.0762 V/pC.</p>
+<h3 id="moving-window-run">Moving-window run<a class="headerlink" href="#moving-window-run" title="Permanent link">&para;</a></h3>
+<p><code>movingwindow/taper.t3p</code> differs in two blocks:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>FiniteElement: {
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>  Order: 0                    // background: lowest order
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>  CurvedSurfaces: on
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>}
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>PRegion: {
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>  Type: AutomaticMovingWindow
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>  Order: 2                    // inside the window
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>  Back:  0.005                // 5 mm behind the bunch
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>  Front: 0.05                 // 50 mm ahead
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>  StructureEnd: 0.175
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>}
+</code></pre></div>
+<p>Outside the window the field is represented at order 0, which is essentially free. Inside, a 55 mm long region at order 2 follows the bunch down the structure. The computational cost drops roughly in proportion to the window length over the structure length.</p>
+<p>Loss factor: 0.0761 V/pC against 0.0762 V/pC for the full run, a 0.1% difference.</p>
+<figure>
+<p><img alt="Full-order wake" src="../../../assets/t3p/taper-wake.png" width="440" />
+<img alt="Moving-window wake" src="../../../assets/t3p/taper-wake-movingwindow.png" width="440" /></p>
+<figcaption>
+<p>Longitudinal wake of the taper. Left: full order 2 everywhere. Right: moving window. The wakes agree through the bunch and the first oscillation, then the moving-window result dies away where the full run continues to ring.</p>
+</figcaption>
+</figure>
+<p>The moving window is accurate only for distances behind the bunch up to about <code>Back</code>. Here <code>Back</code> is 5 mm, which is half a sigma, so only the wake within the bunch itself is trustworthy, and that is exactly what the loss factor depends on. For a long-range wake, enlarge <code>Back</code> and accept the higher cost. The agreement in the figure extends well beyond 5 mm because the taper's wake is dominated by the short-range geometric term, but that is a property of this structure, not a guarantee.</p>
+<h2 id="tutorial-5-surface-impedance-with-a-thin-lossy-coating">Tutorial 5: surface impedance with a thin lossy coating<a class="headerlink" href="#tutorial-5-surface-impedance-with-a-thin-lossy-coating" title="Permanent link">&para;</a></h2>
+<p><strong>Example directory:</strong> <code>examples/t3p/SIBC</code></p>
+<p>A coaxial line whose inner conductor carries a 1 mm lossy dielectric coating over a 500 mm section. Meshing a 1 mm layer in a 100 mm structure would need tiny elements; the <strong>surface impedance boundary condition</strong> (SIBC) replaces the layer and the conductor beneath it with a frequency-dependent admittance on the surface. This example also demonstrates port excitation and the moving window applied to a pulse.</p>
+<figure>
+<p><img alt="Coax with coated section" src="../../../assets/t3p/sibc-model.png" width="620" /></p>
+<figcaption>
+<p>Quarter model of the coax. The green section of the inner conductor, sideset 3, carries the coating.</p>
+</figcaption>
+</figure>
+<h3 id="theory-in-brief">Theory in brief<a class="headerlink" href="#theory-in-brief" title="Permanent link">&para;</a></h3>
+<p>A thin layer of thickness <span class="arithmatex">\(d\)</span> with permittivity <span class="arithmatex">\(\varepsilon_C\)</span> and conductivity <span class="arithmatex">\(\sigma_C\)</span> on a conductor with conductivity <span class="arithmatex">\(\sigma_M\)</span> presents a surface admittance <span class="arithmatex">\(Y(\omega) = Y_R + jY_I\)</span> that depends on all those parameters. In the time domain T3P uses a narrow-band approximation around a reference frequency. The formulation follows Kobidze, IEEE Transactions on Antennas and Propagation 58 (2010).</p>
+<p><img alt="Surface admittance relation" src="../../../assets/t3p/sibc-admittance.png" width="480" /></p>
+<h3 id="mesh_3">Mesh<a class="headerlink" href="#mesh_3" title="Permanent link">&para;</a></h3>
+<p><code>coating.jou</code> makes a quarter coax, radii 50 and 100 mm, length 1 m, split into three volumes at z = -0.25 and 0.25 so the coated section is a separate surface. Sidesets use coordinate filters: <code>sideset 4 surface with z_coord &lt; -0.49</code> for the input port and so on. Element size 15 mm, about a tenth of a wavelength at 5 GHz.</p>
+<h3 id="input_2">Input<a class="headerlink" href="#input_2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><span class="filename">SIBC.t3p</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>CheckPoint: {
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>  Action: restart
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>  Ntimesteps: 500
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>}
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>ModelInfo: {
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>  File: test-sibc.ncdf
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>  BoundaryCondition: {
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>    Electric: 6
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>    Magnetic: 1 2
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>    Impedance: 3              // the coated wire section
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>    Absorbing: 4 5            // ports
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>  }
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>  SurfaceMaterial: {
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>    ReferenceNumber: 3
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>    Sigma: 5.8e7              // copper beneath
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>    Frequency: 5e9            // reference for the narrow-band model
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>    Coating: {
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>      Type: ThinLossyDielectric
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>      Epsilon:   56
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>      Sigma: 12               // S/m
+<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>      Thickness: 1.e-3        // m
+<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>    }
+<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a>  }
+<a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>}
+<a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>
+<a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a>FiniteElement: {
+<a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a>  Order: 0
+<a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a>  CurvedSurfaces: on
+<a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a>}
+<a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a>
+<a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a>PRegion: {
+<a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a>  Type: AutomaticMovingWindow
+<a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a>  Object: Pulse
+<a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a>  StartPoint: 0.01 0.05 -0.5
+<a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a>  Direction: 0 0 1
+<a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a>  ExcitationPort: 4
+<a id="__codelineno-11-38" name="__codelineno-11-38" href="#__codelineno-11-38"></a>  Order: 2
+<a id="__codelineno-11-39" name="__codelineno-11-39" href="#__codelineno-11-39"></a>  Back:  0.1
+<a id="__codelineno-11-40" name="__codelineno-11-40" href="#__codelineno-11-40"></a>  Front: 0.1
+<a id="__codelineno-11-41" name="__codelineno-11-41" href="#__codelineno-11-41"></a>  StructureEnd: 0.5
+<a id="__codelineno-11-42" name="__codelineno-11-42" href="#__codelineno-11-42"></a>}
+<a id="__codelineno-11-43" name="__codelineno-11-43" href="#__codelineno-11-43"></a>
+<a id="__codelineno-11-44" name="__codelineno-11-44" href="#__codelineno-11-44"></a>Loading: {
+<a id="__codelineno-11-45" name="__codelineno-11-45" href="#__codelineno-11-45"></a>  Type: PortModeLoading
+<a id="__codelineno-11-46" name="__codelineno-11-46" href="#__codelineno-11-46"></a>  ScalingFactor: 1.0
+<a id="__codelineno-11-47" name="__codelineno-11-47" href="#__codelineno-11-47"></a>  Port: {
+<a id="__codelineno-11-48" name="__codelineno-11-48" href="#__codelineno-11-48"></a>    ReferenceNumber: 4
+<a id="__codelineno-11-49" name="__codelineno-11-49" href="#__codelineno-11-49"></a>    SymmetricFactor: 4
+<a id="__codelineno-11-50" name="__codelineno-11-50" href="#__codelineno-11-50"></a>    NumberOfModes: 1          // TEM
+<a id="__codelineno-11-51" name="__codelineno-11-51" href="#__codelineno-11-51"></a>  }
+<a id="__codelineno-11-52" name="__codelineno-11-52" href="#__codelineno-11-52"></a>  Excitation: {
+<a id="__codelineno-11-53" name="__codelineno-11-53" href="#__codelineno-11-53"></a>    Power: 1.
+<a id="__codelineno-11-54" name="__codelineno-11-54" href="#__codelineno-11-54"></a>    Pulse: {
+<a id="__codelineno-11-55" name="__codelineno-11-55" href="#__codelineno-11-55"></a>      Type: Gaussian
+<a id="__codelineno-11-56" name="__codelineno-11-56" href="#__codelineno-11-56"></a>      Frequency: 5e9          // carrier
+<a id="__codelineno-11-57" name="__codelineno-11-57" href="#__codelineno-11-57"></a>      Bandwidth: 2e9
+<a id="__codelineno-11-58" name="__codelineno-11-58" href="#__codelineno-11-58"></a>      DB: 30                  // truncate the envelope 30 dB down
+<a id="__codelineno-11-59" name="__codelineno-11-59" href="#__codelineno-11-59"></a>      T0: 2.82                // delay in sigmas
+<a id="__codelineno-11-60" name="__codelineno-11-60" href="#__codelineno-11-60"></a>      Phase: 0
+<a id="__codelineno-11-61" name="__codelineno-11-61" href="#__codelineno-11-61"></a>    }
+<a id="__codelineno-11-62" name="__codelineno-11-62" href="#__codelineno-11-62"></a>  }
+<a id="__codelineno-11-63" name="__codelineno-11-63" href="#__codelineno-11-63"></a>}
+<a id="__codelineno-11-64" name="__codelineno-11-64" href="#__codelineno-11-64"></a>
+<a id="__codelineno-11-65" name="__codelineno-11-65" href="#__codelineno-11-65"></a>TimeStepping: {
+<a id="__codelineno-11-66" name="__codelineno-11-66" href="#__codelineno-11-66"></a>  MaximumTime: 1.0e-8
+<a id="__codelineno-11-67" name="__codelineno-11-67" href="#__codelineno-11-67"></a>  DT: 10.e-12
+<a id="__codelineno-11-68" name="__codelineno-11-68" href="#__codelineno-11-68"></a>}
+<a id="__codelineno-11-69" name="__codelineno-11-69" href="#__codelineno-11-69"></a>
+<a id="__codelineno-11-70" name="__codelineno-11-70" href="#__codelineno-11-70"></a>Monitor: { Type: Volume  Name: field  TimeStart: 0  TimeEnd: 1.0e-8  TimeStep: 0.5e-9 }
+<a id="__codelineno-11-71" name="__codelineno-11-71" href="#__codelineno-11-71"></a>Monitor: { Type: Power   ReferenceNumber: 4  Name: inputPower }
+<a id="__codelineno-11-72" name="__codelineno-11-72" href="#__codelineno-11-72"></a>Monitor: { Type: Power   ReferenceNumber: 5  Name: outputPower }
+<a id="__codelineno-11-73" name="__codelineno-11-73" href="#__codelineno-11-73"></a>Monitor: { Type: Power   ReferenceNumber: 3  Name: wallossPower }
+<a id="__codelineno-11-74" name="__codelineno-11-74" href="#__codelineno-11-74"></a>
+<a id="__codelineno-11-75" name="__codelineno-11-75" href="#__codelineno-11-75"></a>LinearSolver: {
+<a id="__codelineno-11-76" name="__codelineno-11-76" href="#__codelineno-11-76"></a>  Solver: CG
+<a id="__codelineno-11-77" name="__codelineno-11-77" href="#__codelineno-11-77"></a>}
+</code></pre></div>
+<p>The excitation is a Gaussian-enveloped 5 GHz pulse of 2 GHz bandwidth launched as the TEM mode from port 4. The moving window follows it with <code>Object: Pulse</code>; <code>Back</code> and <code>Front</code> of 0.1 m bracket the roughly 0.3 m long pulse. <code>CheckPoint.Action: restart</code> here means the run will resume from a checkpoint if one exists.</p>
+<div class="admonition note">
+<p class="admonition-title">Key spellings differ between blocks</p>
+<p>The port block inside <code>Loading</code> uses <code>SymmetricFactor</code>, while <code>LoadingInfo</code> for beams uses <code>SymmetryFactor</code>. Both are as the code reads them.</p>
+</div>
+<h3 id="run-and-results">Run and results<a class="headerlink" href="#run-and-results" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>srun<span class="w"> </span>-n<span class="w"> </span><span class="m">16</span><span class="w"> </span>t3p<span class="w"> </span>SIBC.t3p
+</code></pre></div>
+<p>The three <code>Power</code> monitors write time series of Poynting flux. Plot input against output:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="o">,</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">"t3p_results/OUTPUT/inputPower.out"</span><span class="p">);</span>  <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">"t3p_results/OUTPUT/outputPower.out"</span><span class="p">)</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">A</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mf">1e9</span><span class="p">,</span> <span class="n">A</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">'b'</span><span class="p">,</span> <span class="n">B</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mf">1e9</span><span class="p">,</span> <span class="n">B</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">'r--'</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Time [ns]'</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Power'</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">'Input'</span><span class="p">,</span><span class="s1">'Output'</span><span class="p">]);</span> <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">'power.png'</span><span class="p">)</span>
+</code></pre></div>
+<figure>
+<p><img alt="Input and output power" src="../../../assets/t3p/sibc-power.png" width="440" />
+<img alt="SIBC against direct simulation" src="../../../assets/t3p/sibc-vs-direct.png" width="440" /></p>
+<figcaption>
+<p>Left: the pulse enters at port 4 near 1 ns and emerges at port 5 near 4.3 ns, attenuated by the coated section. Input power is negative because the Poynting flux is referenced to the outward normal. Right: the same quantity from a direct simulation with the 1 mm dielectric layer meshed explicitly, which the SIBC result reproduces.</p>
+</figcaption>
+</figure>
+<p>The transit time of 3.3 ns for 1 m is correct for a TEM mode in vacuum. Integrating the three monitors over the run, the output port receives 46% of the input energy and the coated wall absorbs 50%; the small remainder is numerical. <code>wallossPower.out</code> is the direct record of the coating loss.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: T3P">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                T3P
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../track3p/" class="md-footer__link md-footer__link--next" aria-label="Next: Track3P">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Track3P
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; SLAC National Accelerator Laboratory. Documentation licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.action.edit", "toc.follow"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
