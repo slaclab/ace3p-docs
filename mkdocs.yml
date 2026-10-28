@@ -116,6 +116,7 @@ nav:
           - Tutorials: modules/t3p/tutorials.md
       - Track3P:
           - modules/track3p/index.md
+          - Notes from the source tree: modules/track3p/from-source/index.md
           - Tutorials: modules/track3p/tutorials.md
       - Pic3P:
           - modules/pic3p/index.md
@@ -159,6 +160,7 @@ nav:
   # BEGIN generated nav (tools/assemble_source_docs.py; do not edit by hand)
   - Releases:
       - releases/index.md
+      - ACE3P v2026.11: releases/v2026.11.md
       - ACE3P v2026.10: releases/v2026.10.md
   # END generated nav
   - Contributing: contributing.md
