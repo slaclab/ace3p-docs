@@ -69,7 +69,7 @@ This is the version the tutorials and the CW23 macros were tested with. NERSC al
 
 ### ParaView on S3DF
 
-ParaView 5.11.1 is installed at `/sdf/group/rfar/software/ParaView-5.11.1-MPI-Linux-Python3.9-x86_64/`. Start `bin/paraview` from a NoMachine desktop, or use the ParaView Web Visualizer through an SSH tunnel as described on the [Web dashboard](../interfaces/dashboard.md) page.
+ParaView 5.11.1 is installed at `/sdf/group/rfar/software/ParaView-5.11.1-MPI-Linux-Python3.9-x86_64/`. Start `bin/paraview` from a NoMachine desktop.
 
 ### Installing ParaView on your own computer
 

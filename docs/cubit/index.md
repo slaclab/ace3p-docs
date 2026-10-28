@@ -265,4 +265,4 @@ A journal can also be played with no display, which is what an automated workflo
 /sdf/group/rfar/software/Cubit-16.12/cubit -batch -nographics -input step2-Mesh-pillbox.jou
 ```
 
-See the [workflow assistant](../interfaces/workflow-assistant.md) page for how batch meshing is chained with the solvers.
+The [ACE3P GUI](../interfaces/gui.md) and [lume-ace3p](https://github.com/slaclab/lume-ace3p) chain batch meshing with the solvers this way.

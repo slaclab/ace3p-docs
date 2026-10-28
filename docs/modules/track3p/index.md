@@ -204,7 +204,7 @@ Three routes, in increasing order of effort:
 
 1. **ParaView macros.** Load the mesh and mode file through the SLAC toolbar, then use the `resonant`, `enhancement`, and `trajectory` macros from the [local tools](../../getting-started/tools.md) page. `resonant` plots impact energy against field level and marks impact locations on the model; `enhancement` plots EC against field level; the SLAC reader animates `partpath_ts*.ncdf`.
 2. **acdtool.** `acdtool postprocess track3p <project>.acdtool [results_dir]` recomputes the enhancement counter with a different SEY file, or extracts single-particle trajectories by ID as plain text. See [Tutorial 1](tutorials.md#tutorial-1-pillbox-cavity-multipacting-scan).
-3. **Your own scripts.** The output files are whitespace-separated tables with a header line. The [S3DF workflow project](../../interfaces/workflow-assistant.md) includes a matplotlib script that produces the multipacting map and enhancement-counter chart shown in Tutorial 1 directly from `OUTPUT/`.
+3. **Your own scripts.** The output files are whitespace-separated tables with a header line, so a short matplotlib script can produce the multipacting map and enhancement-counter chart shown in Tutorial 1 directly from `OUTPUT/`.
 
 ## Tutorials
 
