@@ -1,7 +1,7 @@
 # Structured-grid E-field export on a user-chosen region
 
 !!! info "From the ACE3P source tree"
-    Written by the ACE3P developers in `docs/user/gun3p/grid-output-region.md` and copied here for release `dev` on 2026-10-27. Propose changes in the ACE3P repository, not on this page.
+    Written by the ACE3P developers in `docs/user/gun3p/grid-output-region.md` and copied here for release `v2026.11` on 2026-10-28. Propose changes in the ACE3P repository, not on this page.
 
 Applies to `gun3pOutputConverter` and to the identical code in `kly3pOutputConverter`.
 Added October 2026 (PR #240).
