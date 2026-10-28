@@ -424,25 +424,6 @@
   
 
       
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../../corrections/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Corrections to source material
-
-      </a>
-    </li>
-  
-
-      
     </ul>
   </div>
 </nav>
@@ -3237,33 +3218,6 @@
   
 
     
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../corrections/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Corrections to source material
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
   </ul>
 </nav>
                   </div>
@@ -3756,7 +3710,7 @@
 <li><strong>Symmetry planes in the elastic problem</strong> are <code>Mixed</code>: zero displacement normal to the plane, free in the plane. The beam-pipe end is fixed in z only, so the cell can expand radially.</li>
 <li><strong><code>ReferenceT: 25</code></strong> is the temperature at which the copper is strain-free. Thermal strain is α (T − 25).</li>
 <li><strong>The RF wall carries both loads.</strong> <code>RFHeating</code> in the thermal problem and <code>LFDetuning</code> in the elastic problem both point at the same Omega3P result on sideset 6.</li>
-<li>The file has <code>AbsoluteTolerante</code> in both solver blocks, a misspelling. See <a href="../../../corrections/">Corrections</a>.</li>
+<li>The file has <code>AbsoluteTolerante</code> in both solver blocks, a misspelling. The parser ignores unknown keys, so the default absolute tolerance applies.</li>
 </ul>
 <h3 id="run-the-chain">Run the chain<a class="headerlink" href="#run-the-chain" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>srun<span class="w"> </span>-n<span class="w"> </span><span class="m">16</span><span class="w"> </span>omega3p<span class="w"> </span>RfGunVacuum.omega3p<span class="w"> </span>omega3p_results

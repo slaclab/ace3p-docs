@@ -424,25 +424,6 @@
   
 
       
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../../corrections/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Corrections to source material
-
-      </a>
-    </li>
-  
-
-      
     </ul>
   </div>
 </nav>
@@ -3276,33 +3257,6 @@
   
 
     
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../corrections/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Corrections to source material
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
   </ul>
 </nav>
                   </div>
@@ -3898,7 +3852,7 @@
 <li>The 5 mm bunch has content to about 10 GHz, so <code>DT</code> is 0.5 ps, four times finer than the pillbox examples.</li>
 <li><code>Curved Surfaces: on</code> with a space, <code>Nsigmas</code>, and <code>Start contour</code> with a space are all accepted alternate spellings.</li>
 <li>The coax end, surface 5, is <code>Absorbing</code> and carries both a <code>Power</code> and a <code>ModeVoltage</code> monitor. The <code>ESolver</code> sub-block tells T3P to compute the coax TEM mode numerically on that surface so the modal amplitude can be projected out at each step.</li>
-<li>The <code>LinearSolver</code> block has <code>Slover: CG</code>, misspelled. The parser ignores unknown keys, so <code>Solver</code> is absent and the default applies, which in a build with MUMPS is MUMPS. The stored results were therefore produced with the direct solver, not CG as the author intended. See <a href="../../../corrections/">Corrections</a>.</li>
+<li>The <code>LinearSolver</code> block has <code>Slover: CG</code>, misspelled. The parser ignores unknown keys, so <code>Solver</code> is absent and the default applies, which in a build with MUMPS is MUMPS. The stored results were therefore produced with the direct solver, not CG as the author intended.</li>
 </ul>
 <h3 id="run-and-post-process">Run and post-process<a class="headerlink" href="#run-and-post-process" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>srun<span class="w"> </span>-n<span class="w"> </span><span class="m">128</span><span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span>t3p<span class="w"> </span>BPM.t3p
