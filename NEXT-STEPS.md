@@ -21,7 +21,7 @@ Written 2026-10-26 for Lixin Ge. Keep this file current; delete items as they ar
 
 ## Still open
 
-- ace3p PR for `grid-region-test-portable` (Gun3P test on Perlmutter): https://github.com/lge0303/ace3p/pull/new/grid-region-test-portable . Small, no code change.
+- `grid-region-test-portable` (Gun3P test on Perlmutter) stays on the fork, not merged: its default data path is Lixin's local copy, unusable by others. Keep as a personal test. Decision 2026-10-27.
 - Fork branches already merged and safe to delete on GitHub: `gun3p-grid-output-region`, `docs-user-tree`, `track3p-cpu-localization`, `openmp-files-io`.
 
 Fork note: `lge0303/ace3p` master diverged from `slaclab/ace3p` master by one commit (ed977c672, now carried by `docs-user-tree`). After that PR merges, reset the fork's master to upstream: `git checkout master && git reset --hard upstream/master && git push --force-with-lease origin master`.
