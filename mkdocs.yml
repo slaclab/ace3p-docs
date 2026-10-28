@@ -125,6 +125,7 @@ nav:
           - Tutorials: modules/tem3p/tutorials.md
       - Gun3P:
           - modules/gun3p/index.md
+          - Notes from the source tree: modules/gun3p/from-source/index.md
           - "Tutorial: sheet beam klystron gun": modules/gun3p/tutorial.md
   - Reference:
       - reference/index.md
