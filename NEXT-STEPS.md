@@ -37,7 +37,7 @@ Fork note: `lge0303/ace3p` master diverged from `slaclab/ace3p` master by one co
 
 ## To ask colleagues
 
-- **Module owners**: read their module pages and the matching entries on the Corrections page. Two items need a physics decision: the Track3P pillbox 2016-vs-2026 rerun difference, and the sign of the RF gun frequency shift (+47.4 kHz).
+- **Module owners**: read their module pages and the matching entries in `docs/corrections.md` (kept in the repo, excluded from the published site since 2026-10-28). Two items need a physics decision: the Track3P pillbox 2016-vs-2026 rerun difference, and the sign of the RF gun frequency shift (+47.4 kHz).
 - **Developers**: document features in `docs/user/<module>/` of the ACE3P repo in the same pull request as the code, and add a line to `docs/user/CHANGES/next.md`. Rules are in `docs/user/README.md` there.
 
 ## How to make the next release

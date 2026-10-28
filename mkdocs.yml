@@ -46,10 +46,12 @@ extra:
     provider: mike
     default: latest
 
-# Prototype pages kept in the tree but not published for now
+# Pages kept in the tree but not published: prototype interfaces, and the
+# corrections log (an internal to-do list for the source material)
 exclude_docs: |
   interfaces/dashboard.md
   interfaces/workflow-assistant.md
+  corrections.md
 
 extra_css:
   - stylesheets/extra.css
@@ -167,4 +169,3 @@ nav:
       - ACE3P v2026.10: releases/v2026.10.md
   # END generated nav
   - Contributing: contributing.md
-  - Corrections to source material: corrections.md
