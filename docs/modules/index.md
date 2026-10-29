@@ -2,15 +2,15 @@
 
 ACE3P is a family of solvers that share one mesh format, one input syntax, and one post-processing toolchain. Each module addresses a different physics regime.
 
-| Module | Guide | Status of this documentation |
+| Module | What it computes | Guide |
 |---|---|---|
-| **Omega3P** | [User guide and tutorials](omega3p/index.md) | Complete: concepts, three tutorials, post-processing |
-| **S3P** | [User guide and tutorials](s3p/index.md) | Complete: concepts, input blocks, output files, three tutorials |
-| **T3P** | [User guide and tutorials](t3p/index.md) | Complete: wakefields, port excitation, moving window, SIBC, five tutorials |
-| **Track3P** | [User guide and tutorials](track3p/index.md) | Complete: multipacting and dark current, six tutorials, S3DF rerun |
-| **Pic3P** | [User guide and tutorial](pic3p/index.md) | Complete: self-consistent PIC, LCLS gun tutorial |
-| **TEM3P** | [User guide and tutorials](tem3p/index.md) | Complete: thermal, elastic, LF detuning, mechanical eigenmodes, four tutorials |
-| **Gun3P** | [User guide and tutorial](gun3p/index.md) | Complete: DC gun iteration, sheet beam gun tutorial with MICHELLE comparison |
+| **Omega3P** | Resonant modes of RF cavities: frequencies, Q, R/Q, field patterns | [Introduction](omega3p/index.md), [tutorials](omega3p/tutorial-pillbox.md), [post-processing](omega3p/postprocess.md) |
+| **S3P** | S-parameters of couplers, bends, loads and windows across a frequency scan | [Introduction](s3p/index.md), [tutorials](s3p/tutorials.md) |
+| **T3P** | Time-domain fields: wakefields, port excitation, transients, moving window | [Introduction](t3p/index.md), [tutorials](t3p/tutorials.md) |
+| **Track3P** | Particle tracking in RF fields: multipacting and dark current | [Introduction](track3p/index.md), [tutorials](track3p/tutorials.md) |
+| **Pic3P** | Self-consistent particle-in-cell beam dynamics with space charge | [Introduction](pic3p/index.md), [tutorial](pic3p/tutorial.md) |
+| **TEM3P** | Thermal and mechanical analysis driven by RF loads, frequency shifts | [Introduction](tem3p/index.md), [tutorials](tem3p/tutorials.md) |
+| **Gun3P** | DC electron guns: electrostatics, space-charge-limited emission, beam optics | [Introduction](gun3p/index.md), [tutorial](gun3p/tutorial.md) |
 
 ## Which module do I need?
 
