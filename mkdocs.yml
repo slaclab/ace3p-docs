@@ -98,10 +98,11 @@ nav:
   - Getting Started:
       - getting-started/index.md
       - Running on NERSC Perlmutter: getting-started/perlmutter.md
-      - Pre- and post-processing tools (Cubit, ParaView): getting-started/tools.md
+      - Pre- and post-processing tools:
+          - getting-started/tools/index.md
+          - Cubit: getting-started/tools/cubit.md
+          - ParaView: getting-started/tools/paraview.md
       - Running on S3DF (SLAC users): getting-started/s3df.md
-  - Cubit:
-      - cubit/index.md
   - Workflow:
       - workflow/index.md
       - Mesh preparation with acdtool: workflow/mesh.md

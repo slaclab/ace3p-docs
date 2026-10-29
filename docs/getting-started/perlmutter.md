@@ -47,7 +47,7 @@ The ACE3P binaries live in `$CFS/ace3p/perlmutter/CPU/`. `$CFS` expands to `/glo
 
 ## Cubit and ParaView
 
-Both are installed on Perlmutter and run in a ThinLinc desktop, so meshes and results never have to leave the system. See [Pre- and post-processing tools](tools.md) for how to start them and for the ParaView SLAC toolbar.
+Both are installed on Perlmutter and run in a ThinLinc desktop, so meshes and results never have to leave the system. See [Cubit](tools/cubit.md) and [ParaView](tools/paraview.md) for how to start them and for the ParaView SLAC toolbar.
 
 ## Working directory
 

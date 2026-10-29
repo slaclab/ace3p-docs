@@ -21,7 +21,7 @@ flowchart LR
 2. **Connect with a graphical desktop.** Install the ThinLinc client and connect to Perlmutter. You get a Linux desktop with a terminal, Cubit and ParaView in one window. See [Connecting with ThinLinc](#connecting-with-thinlinc) below.
 3. **Run the pillbox example.** Follow [Running on NERSC Perlmutter](perlmutter.md) to load the ACE3P environment and submit a job, then the [Omega3P pillbox tutorial](../modules/omega3p/tutorial-pillbox.md).
 
-Once a job has run, the [Workflow](../workflow/index.md) chapter explains the five-step pipeline every solver follows, and the [Cubit](../cubit/index.md) chapter covers geometry and meshing in depth.
+Once a job has run, the [Workflow](../workflow/index.md) chapter explains the five-step pipeline every solver follows, and the [Cubit](tools/cubit.md) page covers geometry and meshing in depth.
 
 ## Connecting with ThinLinc
 
@@ -35,12 +35,7 @@ ThinLinc gives you a full Linux desktop on Perlmutter in a window on your laptop
 NERSC's full guide, including troubleshooting, is at [docs.nersc.gov/connect/thinlinc](https://docs.nersc.gov/connect/thinlinc/).
 
 !!! tip "Plain SSH still works"
-    If you only need a terminal, `ssh <username>@perlmutter.nersc.gov` is enough. You will then run Cubit and ParaView on your own computer; see [Pre- and post-processing tools](tools.md).
-
-## Prerequisites
-
-- Familiarity with a Unix shell: `cd`, `ls`, `cp`, `mkdir`, and a text editor such as `vi`, `emacs`, or `nano`.
-- For the SSH route, an SSH client. Linux and macOS have `ssh` and `scp` built in. On Windows 10 or later use `ssh` from PowerShell, or install PuTTY and WinSCP.
+    If you only need a terminal, `ssh <username>@perlmutter.nersc.gov` is enough. You will then run Cubit and ParaView on your own computer; see [Pre- and post-processing tools](tools/index.md).
 
 ## Example files
 

@@ -8,17 +8,9 @@
 
     ---
 
-    Get a NERSC account, connect to Perlmutter with a ThinLinc desktop, and run your first job. Cubit and ParaView are already installed there.
+    Get a NERSC account, connect to Perlmutter with a ThinLinc desktop, and run your first job. Cubit for meshing and ParaView for visualization are already installed there and have their own pages.
 
     [:octicons-arrow-right-24: Getting started](getting-started/index.md)
-
--   :material-cube-scan: **Cubit**
-
-    ---
-
-    Geometry and meshing for ACE3P: the pillbox walkthrough, journal files, sidesets and blocks, mesh quality.
-
-    [:octicons-arrow-right-24: Cubit chapter](cubit/index.md)
 
 -   :material-sitemap: **Workflow**
 
