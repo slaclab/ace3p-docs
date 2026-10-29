@@ -182,7 +182,7 @@ export OMP_NUM_THREADS=16
 srun -n 1 -c 16 track3p Pillbox.track3p
 ```
 
-Add MPI ranks when the particle count is large enough that one rank's share takes too long, keeping total memory per node in mind.
+Add MPI ranks when the particle count is large enough that one rank's share takes too long, keeping total memory per node in mind. Full hybrid batch scripts for S3DF and Perlmutter are in [Batch jobs](../../workflow/batch-jobs.md#hybrid-mpi-and-openmp-track3p).
 
 ## Output
 

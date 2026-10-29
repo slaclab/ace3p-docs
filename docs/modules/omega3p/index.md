@@ -98,6 +98,14 @@ Port : {
 
 A surface listed under `Waveguide` in `BoundaryCondition` must have a matching `Port` block, or Omega3P loads one mode by default. The port is treated as matched for every loaded mode. Choosing how many modes to load is discussed in [Tutorial 2](tutorial-ports.md).
 
+## Running
+
+```bash
+srun -n 16 omega3p <project>.omega3p
+```
+
+Omega3P is a pure MPI program; use one rank per core. Results go to `omega3p_results/` next to the input file. Start with 16 ranks on one node for meshes up to a few hundred thousand elements and add nodes when the memory report in `omega3p.out` passes about 70 % per node. System-specific batch scripts are in [Batch jobs](../../workflow/batch-jobs.md).
+
 ## Output
 
 Results go into `omega3p_results/` next to the input file.

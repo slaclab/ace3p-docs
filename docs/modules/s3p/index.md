@@ -97,6 +97,14 @@ Every surface listed under `Waveguide` needs a `Port` block. S3P computes the gu
 
 Field files are written per frequency, per excited port mode, so a 13-point scan with two modes on the excited port produces 26 `.mod` files. Restrict `PortNumber` and the scan range when disk space matters.
 
+## Running
+
+```bash
+srun -n 16 s3p <project>.s3p
+```
+
+S3P is a pure MPI program; use one rank per core. Each frequency point is an independent linear solve, so a frequency scan costs the single-frequency time multiplied by the number of points. Results go to `s3p_results/`. System-specific batch scripts are in [Batch jobs](../../workflow/batch-jobs.md).
+
 ## Output
 
 Results go into `s3p_results/` next to the input file.

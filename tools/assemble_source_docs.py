@@ -160,17 +160,25 @@ def rewrite_nav(site: str, modules: dict, releases: list[str]) -> None:
 
 
 def insert_module_entries(text: str, modules: dict) -> str:
-    """Add or remove 'Notes from the source tree' under each module in the nav."""
+    """Add or remove 'Notes from the source tree' as the last entry of each module's nav block.
+
+    The module block starts with its index line, written either as
+    '- modules/<mod>/index.md' or '- Introduction: modules/<mod>/index.md', and ends at
+    the next line indented six spaces or less (the next module, or the next top-level entry).
+    """
     for mod in MODULES:
         marker = f"          - Notes from the source tree: modules/{mod}/from-source/index.md\n"
         text = text.replace(marker, "")
-        if mod in modules:
-            # Insert right after the module's index line.
-            anchor = f"          - modules/{mod}/index.md\n"
-            if anchor in text:
-                text = text.replace(anchor, anchor + marker, 1)
-            else:
-                print(f"warning: no nav anchor for {mod}; add '{marker.strip()}' by hand", file=sys.stderr)
+        if mod not in modules:
+            continue
+        m = re.search(rf"^          - (?:Introduction: )?modules/{mod}/index\.md\n", text, flags=re.M)
+        if not m:
+            print(f"warning: no nav anchor for {mod}; add '{marker.strip()}' by hand", file=sys.stderr)
+            continue
+        rest = text[m.end():]
+        nxt = re.search(r"^(?: {0,6}- | {0,6}#)", rest, flags=re.M)
+        at = m.end() + (nxt.start() if nxt else len(rest))
+        text = text[:at] + marker + text[at:]
     return text
 
 
