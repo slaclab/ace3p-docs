@@ -28,7 +28,7 @@ This manual does not repeat that material. It documents the input files, keyword
 | Area | In the GUI | In this manual |
 |---|---|---|
 | Simulation setup | Forms that write the `.omega3p`, `.s3p`, `.t3p`, `.track3p`, `.tem3p`, `.gun3p` input as you type | [Input file format](../workflow/input-format.md), [command syntax](../reference/index.md) and keyword tables |
-| Meshing | Drives Cubit journals and `acdtool meshconvert` | [Cubit](../cubit/index.md), [Mesh preparation](../workflow/mesh.md) |
+| Meshing | Drives Cubit journals and `acdtool meshconvert` | [Cubit](../getting-started/tools/cubit.md), [Mesh preparation](../workflow/mesh.md) |
 | Running jobs | Submits to Perlmutter and monitors the queue | [Running on Perlmutter](../getting-started/perlmutter.md), [Batch jobs](../workflow/batch-jobs.md) |
 | Workflow orchestration | Parameter sweeps and optimization chains | Module pages describe the individual steps |
 | Post-processing | 3D field viewer, data explorer, `acdtool postprocess` | [Omega3P post-processing](../modules/omega3p/postprocess.md) and the module pages |

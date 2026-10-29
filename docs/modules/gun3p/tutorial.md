@@ -37,7 +37,7 @@ volume all scale 0.001
 export genesis "dcgun.gen" overwrite
 ```
 
-`import step ... heal` repairs small CAD defects on import. The result is 459,206 elements with boundary IDs 1, 2, 3, 4, 10, 12. Long explicit surface lists like the anode's are fragile; for your own models prefer Cubit groups selected by coordinate or by name, as the [Cubit page](../../cubit/index.md#sidesets-and-blocks) describes.
+`import step ... heal` repairs small CAD defects on import. The result is 459,206 elements with boundary IDs 1, 2, 3, 4, 10, 12. Long explicit surface lists like the anode's are fragile; for your own models prefer Cubit groups selected by coordinate or by name, as the [Cubit page](../../getting-started/tools/cubit.md#sidesets-and-blocks) describes.
 
 ![Cathode region](../../assets/gun3p/sbk-mesh-closeup.png){ width="440" }
 /// caption

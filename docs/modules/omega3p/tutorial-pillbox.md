@@ -186,7 +186,7 @@ Mode 0 at 1.3138 GHz is TM~010~ with Q~0~ of 28,885 for copper walls. Mode 1 at 
 
 ## Step 7: Visualize in ParaView
 
-Open the mesh and the mode files in ParaView on the ThinLinc desktop (see [tools](../../getting-started/tools.md)), or copy them to your laptop:
+Open the mesh and the mode files in ParaView on the ThinLinc desktop (see [ParaView](../../getting-started/tools/paraview.md)), or copy them to your laptop:
 
 ```bash
 scp <user>@<host>:<dir>/pillbox-rtop4.ncdf .

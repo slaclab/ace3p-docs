@@ -39,7 +39,7 @@ Cubit and ParaView are installed on Perlmutter and S3DF, so steps 1, 2 and 5 can
 
 ## Next
 
-- [Cubit](../cubit/index.md), building and meshing a model interactively and by journal (its own chapter)
+- [Cubit](../getting-started/tools/cubit.md), building and meshing a model interactively and by journal
 - [Mesh preparation](mesh.md), Cubit export rules and acdtool conversion
 - [Input file format](input-format.md), the block syntax shared by all solvers
 - [Batch jobs](batch-jobs.md), running solvers under Slurm

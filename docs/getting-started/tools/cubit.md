@@ -1,12 +1,12 @@
 # Cubit: geometry and meshing for ACE3P
 
-Cubit is the geometry and mesh generation toolkit from Sandia National Laboratories that every ACE3P workflow starts with. It is installed on Perlmutter and S3DF (see [where to run Cubit](#where-to-run-cubit)), so you can follow this chapter in a remote desktop without installing anything. This chapter walks through building and meshing a pillbox cavity, first interactively so you learn the interface, then as journal files so the process is reproducible. The export rules and the `acdtool` conversion that follow are on the [mesh preparation](../workflow/mesh.md) page.
+Cubit is the geometry and mesh generation toolkit from Sandia National Laboratories that every ACE3P workflow starts with. It is installed on Perlmutter and S3DF (see [where to run Cubit](#where-to-run-cubit) at the end), so you can follow this page in a remote desktop without installing anything. This chapter walks through building and meshing a pillbox cavity, first interactively so you learn the interface, then as journal files so the process is reproducible. The export rules and the `acdtool` conversion that follow are on the [mesh preparation](../../workflow/mesh.md) page.
 
 Cubit's own tutorials at [cubit.sandia.gov](https://cubit.sandia.gov/tutorials) and [coreform.com](https://coreform.com/products/coreform-cubit/tutorials/) go deeper on the tool itself.
 
 ## The interface
 
-![Cubit main window](../assets/cubit/gui-overview.png){ width="720" }
+![Cubit main window](../../assets/cubit/gui-overview.png){ width="720" }
 /// caption
 Cubit on first launch. Model Tree at left, graphics window center, Command Panel at right, Command Line at bottom. Close the Tip of the Day.
 ///
@@ -28,7 +28,7 @@ Set the working directory before anything else, with **File, then Set Directory*
 
 ## Modeling a pillbox interactively
 
-![Pillbox dimensions](../assets/cubit/pillbox-cutaway.png){ width="320" align=right }
+![Pillbox dimensions](../../assets/cubit/pillbox-cutaway.png){ width="320" align=right }
 
 The target is an L-band pillbox: cavity 90 mm long and 100 mm in radius, beam pipe 35 mm in radius and 300 mm long overall, iris rounded with a 12 mm radius. Its TM~010~ mode is near 1.2 GHz.
 
@@ -40,13 +40,13 @@ In the Command Panel choose **Mode Geometry, Entity Volume, Action Create**, sel
 create cylinder height 90 radius 100
 ```
 
-![Command panel for a cylinder](../assets/cubit/command-panel-cylinder.png){ width="300" }
+![Command panel for a cylinder](../../assets/cubit/command-panel-cylinder.png){ width="300" }
 
 ### Add the beam pipe
 
 Repeat with height 300 and radius 35. Both cylinders are centered on the origin along z, so the pipe passes through the cell.
 
-![Two cylinders](../assets/cubit/two-cylinders.png){ width="300" }
+![Two cylinders](../../assets/cubit/two-cylinders.png){ width="300" }
 
 ### Unite
 
@@ -67,7 +67,7 @@ Click a curve in the graphics window and its ID appears in the command line. The
 modify curve 5 6 blend radius 12
 ```
 
-![Full pillbox with rounded iris](../assets/cubit/pillbox-full-model.png){ width="620" }
+![Full pillbox with rounded iris](../../assets/cubit/pillbox-full-model.png){ width="620" }
 /// caption
 The full model. The command line records every step taken through the GUI, which is what you will collect into a journal file.
 ///
@@ -85,7 +85,7 @@ delete volume 1
 compress ids
 ```
 
-![After the first webcut](../assets/cubit/webcut-half.png){ width="320" }
+![After the first webcut](../../assets/cubit/webcut-half.png){ width="320" }
 
 Which half to delete depends on which side of the plane Cubit numbered as volume 2; check the Model Tree or click the body. Webcutting also has cylindrical, extended-surface, and tool-body variants for more complex cuts.
 
@@ -136,14 +136,14 @@ Three edits turn a transcript into a reusable script:
 
 Play it with the **Play Journal File** toolbar button, or from the Journal Editor, or by typing `playback "step1-Make-pillbox.jou"`. The Journal Editor can also play a selection: highlight lines, right-click, **Play Selected**. That is the way to debug a journal step by step.
 
-![Journal Editor with Play Selected](../assets/cubit/journal-editor.png){ width="720" }
+![Journal Editor with Play Selected](../../assets/cubit/journal-editor.png){ width="720" }
 
 !!! warning "Entity IDs are not stable across Cubit versions or geometry changes"
     `modify curve 5 6` works because of how Cubit numbered the curves after this particular unite. Change a dimension, reorder operations, or move to a different Cubit release and the iris curves may be 7 and 8. When a journal fails at a blend or sideset command, click the entity in the graphics window to find its current ID. Cubit's `journal idless on` mode records commands by coordinates instead of IDs and avoids the problem at the cost of readability.
 
 ## Meshing
 
-![Quarter pillbox mesh](../assets/cubit/quarter-mesh.png){ width="360" align=right }
+![Quarter pillbox mesh](../../assets/cubit/quarter-mesh.png){ width="360" align=right }
 
 ACE3P uses quadratic tetrahedral elements, `tetra10`, whose mid-edge nodes follow curved surfaces. The meshing journal imports the `.sat`, sets the scheme, chooses a size, meshes, assigns sidesets and blocks, scales, and exports.
 
@@ -186,7 +186,7 @@ Two choices:
 
     Every element about 10 mm. Simple and predictable. Generate meshes at several sizes and run a convergence study.
 
-    ![Uniform mesh](../assets/cubit/mesh-uniform.png){ width="440" }
+    ![Uniform mesh](../../assets/cubit/mesh-uniform.png){ width="440" }
 
 === "Adaptive (skeleton sizing)"
 
@@ -204,7 +204,7 @@ Two choices:
     | `scale` | 1 to 10, default 7 | Overall density. Smaller is finer. |
     | `time_accuracy_level` | 1 to 3, default 2 | Internal effort of the sizing function. Try higher levels only if the mesh is poor. |
 
-    ![Adaptive mesh](../assets/cubit/mesh-adaptive.png){ width="440" }
+    ![Adaptive mesh](../../assets/cubit/mesh-adaptive.png){ width="440" }
 
 To try a different size, delete the mesh first: `delete mesh volume 1`, or **Mode Mesh, Entity Volume, Action Delete** in the panel.
 
@@ -219,13 +219,13 @@ block 1 volume all
 
 Find surface IDs by clicking in the graphics window. The idiom `sideset 6 surface all except 2 4 3 1` assigns every surface not already named to the wall, so nothing is left without a boundary ID. The command line confirms what each sideset received:
 
-![Sideset assignment echo](../assets/cubit/sideset-commands.png){ width="280" }
+![Sideset assignment echo](../../assets/cubit/sideset-commands.png){ width="280" }
 
 Check the assignment visually with `draw sideset 1 2 3 4`, which shows only those surfaces:
 
-![Drawing sidesets](../assets/cubit/draw-sidesets.png){ width="720" }
+![Drawing sidesets](../../assets/cubit/draw-sidesets.png){ width="720" }
 
-For models with many surfaces, Cubit groups make sideset assignment robust. See the window example in the [S3P tutorials](../modules/s3p/tutorials.md#tutorial-3-rf-window) and the two-mesh models in the [TEM3P tutorials](../modules/tem3p/tutorials.md#tutorial-1-rf-gun-coupler-cell), which select surfaces by coordinate and by merge status:
+For models with many surfaces, Cubit groups make sideset assignment robust. See the window example in the [S3P tutorials](../../modules/s3p/tutorials.md#tutorial-3-rf-window) and the two-mesh models in the [TEM3P tutorials](../../modules/tem3p/tutorials.md#tutorial-1-rf-gun-coupler-cell), which select surfaces by coordinate and by merge status:
 
 ```text
 group "sym1" add surface with x_coord < 0.001
@@ -234,35 +234,61 @@ group "ms"   add surface with is_merged
 
 ### Quality check in Cubit
 
-The last line of the journal, `quality vol all distortion high 0.0 draw mesh`, colors elements by distortion. Reading "No mesh elements in range" in the command line means none are badly distorted. The definitive check is `acdtool meshconvert` on the HPC side, described on the [mesh preparation](../workflow/mesh.md#read-the-statistics) page.
+The last line of the journal, `quality vol all distortion high 0.0 draw mesh`, colors elements by distortion. Reading "No mesh elements in range" in the command line means none are badly distorted. The definitive check is `acdtool meshconvert` on the HPC side, described on the [mesh preparation](../../workflow/mesh.md#read-the-statistics) page.
 
 ## Tips for harder models
 
 - **Check and heal imported CAD first.** Power Tools has geometry diagnostics; `import acis "file.sat" heal` repairs common defects. Small sliver surfaces and short curves are the usual meshing failures.
-- **Imprint and merge multi-volume models** before meshing: `imprint body all` then `merge body all`. Without merging, touching volumes have duplicate faces and the mesh is disconnected. The [lossy load tutorial](../modules/omega3p/tutorial-advanced.md) shows the consequence.
-- **Mesh small or critical surfaces first** with their own size, then the volume: `surface 14 size 0.5` then `mesh surface 14` then `mesh volume 3`. The BPM example in the [T3P tutorials](../modules/t3p/tutorials.md#tutorial-3-beam-position-monitor) does this for a button face.
+- **Imprint and merge multi-volume models** before meshing: `imprint body all` then `merge body all`. Without merging, touching volumes have duplicate faces and the mesh is disconnected. The [lossy load tutorial](../../modules/omega3p/tutorial-advanced.md) shows the consequence.
+- **Mesh small or critical surfaces first** with their own size, then the volume: `surface 14 size 0.5` then `mesh surface 14` then `mesh volume 3`. The BPM example in the [T3P tutorials](../../modules/t3p/tutorials.md#tutorial-3-beam-position-monitor) does this for a button face.
 - **Split a volume to control size regionally.** Webcut a volume into pieces, give each its own sizing function, and merge. The TTF3 coupler in the TEM3P example separates five materials this way.
 - **Smooth the transition** from fine to coarse regions with `max_gradient` near 1.2. Abrupt size changes degrade element quality and the finite-element solution.
-- **Periodic faces need identical meshes.** Mesh the master face, copy it to the slave with `copy mesh surface ... onto surface ...`, then mesh the volume without smoothing. The [periodic boundary tutorial](../modules/omega3p/tutorial-advanced.md#part-b-periodic-boundaries-for-a-disk-loaded-structure) shows the commands.
+- **Periodic faces need identical meshes.** Mesh the master face, copy it to the slave with `copy mesh surface ... onto surface ...`, then mesh the volume without smoothing. The [periodic boundary tutorial](../../modules/omega3p/tutorial-advanced.md#part-b-periodic-boundaries-for-a-disk-loaded-structure) shows the commands.
 - **Start coarse.** A quick coarse mesh reveals sideset mistakes and geometry problems before you invest in a fine one.
 
 ## When acdtool reports bad elements
 
 If `acdtool meshconvert` finds invalid second-order tetrahedra, it replaces them with straight-sided ones and writes a warning. If it finds elements with poor aspect ratio or shape measure, it writes `.vtu` files marking them. Load the `.ncdf` through the SLAC toolbar in ParaView, then **File, Open** the `.vtu`, color it red, and make the mesh translucent to see where to refine.
 
-![Bad elements highlighted in ParaView](../assets/cubit/bad-elements-paraview.png){ width="340" }
+![Bad elements highlighted in ParaView](../../assets/cubit/bad-elements-paraview.png){ width="340" }
 /// caption
 Invalid elements, in red, clustered where a curved surface meets a flat one at a sharp angle. Finer `min_size` or a blend on the edge fixes this.
 ///
 
 ## Where to run Cubit
 
-Cubit is installed on both HPC systems, so you do not need your own copy. Launch the GUI from a [ThinLinc](../getting-started/index.md#connecting-with-thinlinc) desktop on Perlmutter, or from a NoMachine desktop on S3DF. Details, including how to install Cubit on your own computer if you prefer, are on the [tools page](../getting-started/tools.md).
+Cubit is installed on both HPC systems, so you do not need your own copy. The [ACE3P GUI](../../interfaces/gui.md) and [lume-ace3p](https://github.com/slaclab/lume-ace3p) drive it in batch mode the same way to chain meshing with the solvers.
 
-A journal can also be played with no display, which is what an automated workflow does. On S3DF:
+### Cubit on Perlmutter
+
+Cubit 16.16 is installed in the ACE3P project area. Connect with [ThinLinc](../index.md#connecting-with-thinlinc), open a terminal and start it:
+
+```bash
+$CFS/ace3p/tools/Cubit-16.16/cubit &
+```
+
+The GUI opens on the ThinLinc desktop. Set the working directory to your scratch area (**File, then Set Directory**) so the `.gen` file lands where `acdtool meshconvert` will read it.
+
+### Cubit on S3DF
+
+Cubit 16.12 is installed at `/sdf/group/rfar/software/Cubit-16.12/`. Start it from a NoMachine desktop or an `ssh -X` session:
+
+```bash
+/sdf/group/rfar/software/Cubit-16.12/cubit &
+```
+
+A journal can also be played with no display, which is what automated workflows do:
 
 ```bash
 /sdf/group/rfar/software/Cubit-16.12/cubit -batch -nographics -input step2-Mesh-pillbox.jou
 ```
 
-The [ACE3P GUI](../interfaces/gui.md) and [lume-ace3p](https://github.com/slaclab/lume-ace3p) chain batch meshing with the solvers this way.
+### Installing Cubit on your own computer
+
+Cubit requires a license. Two routes:
+
+- **Sandia Cubit** is free for U.S. government use: government agencies and laboratories, and companies working under a direct U.S. government contract. Request a license through the [ASC software request form](https://www.sandia.gov/ascsoftware/asc-software-request/); approval takes a few weeks. Downloads and the licensing rules are at [cubit.sandia.gov/licensing](https://cubit.sandia.gov/licensing/) and [cubit.sandia.gov/downloads](https://cubit.sandia.gov/downloads/).
+- **Coreform Cubit** is the commercial version for everyone else, with trial and academic licenses from [coreform.com](https://coreform.com/products/coreform-cubit/). Journal files written for one run in the other.
+
+The tutorials were written with Cubit 16.x. Running Cubit locally means copying `.gen` files up to the HPC system with `scp`.
+
