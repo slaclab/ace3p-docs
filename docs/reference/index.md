@@ -41,30 +41,11 @@ These pages list the input-file keywords that each ACE3P module reads. They are 
 
 | Column | Meaning |
 |---|---|
-| **Keyword** | The name as it appears in the input file. Grouped under the block that contains it when the code reads a dotted path such as `EigenSolver.SolverMode`. |
+| **Keyword** | The name as it appears in the input file, grouped under the block that contains it |
 | **Type** | `int`, `double`, `string`, or blank when the code reads the value into a pre-typed variable |
-| **Default** | The value used when the keyword is absent. Blank means the code checks for presence with `find()` and handles absence in its own logic, or the entry is a block name rather than a scalar. |
-| **Presence** | `optional` when a default exists; `required` when the solver aborts without it |
-| **Read in** | Source file and line number, for developers tracing behavior |
+| **Default** | The value used when the keyword is absent. Blank means there is no fixed default, or the entry is a block or switch. |
+| **Presence** | `optional` when a default exists; `required` when the solver stops without it |
 
-The tables are deliberately terse. Explanations of what each keyword does belong in the [module guides](../modules/index.md), which link back here.
+Keys whose block cannot be determined are listed under *top level or unspecified block* at the end of each page. The tables are deliberately terse: what a keyword does is explained in the [module guides](../modules/index.md) and the [command syntax](#command-syntax) pages.
 
-## How the pages are generated
-
-ACE3P solvers read input through a small family of calls on a key-value container:
-
-```cpp
-const int nev = Get(kvc, "NumEigenvalues", InitOrFallback<int>(1) or quiet);   // typed, with default
-if (!domainkvc.find("MaxImpacts", m_maxImpacts)) { m_maxImpacts = 50; }       // default assigned after
-if (!kvc.find("JobName", name)) { kvcError(); }                                // required
-kvc.find("StartPoint", 0, x);                                                  // indexed list value
-kvc.findSwitch("Toggle");                                                      // on/off switch
-kvc.findContainer("Domain", domainkvc);                                        // a block
-```
-
-The script `tools/extract_keywords.py` in this repository scans the source for all six forms, extracts the keyword, type, default, and presence, and writes these Markdown pages. Block membership comes from dotted keys or from the `findContainer` binding of the variable the key is read from. The `acdtool postprocess rf` input uses a separate string-compare parser, which the script also reads.
-
-A workflow in the ACE3P source repository runs the script whenever a release tag `v*` is pushed and opens a pull request here with the regenerated pages. See [Contributing](../contributing.md).
-
-!!! note "Coverage"
-    Keys the code reads from a container whose block cannot be inferred are listed under *top level or unspecified block* at the end of each page. The source location column tells you where to look.
+The tables are regenerated from the source at every ACE3P release, so they always match the version shown in the header. How that works is described under [Contributing](../contributing.md#regenerating-the-reference-pages).

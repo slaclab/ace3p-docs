@@ -54,6 +54,24 @@ python tools/extract_keywords.py /path/to/ace3p --out docs/reference
 
 The script scans for `Get(kvc, "Keyword", InitOrFallback<T>(default) ...)`, the `find`, `findSwitch`, and `findContainer` calls, and the string-compare parser of the rf post-processor. Point it at a checkout of the tagged ACE3P release so that the revision recorded in each page matches the tag.
 
+
+### How the extractor reads the source
+
+ACE3P solvers read input through a small family of calls on a key-value container:
+
+```cpp
+const int nev = Get(kvc, "NumEigenvalues", InitOrFallback<int>(1) or quiet);   // typed, with default
+if (!domainkvc.find("MaxImpacts", m_maxImpacts)) { m_maxImpacts = 50; }       // default assigned after
+if (!kvc.find("JobName", name)) { kvcError(); }                                // required
+kvc.find("StartPoint", 0, x);                                                  // indexed list value
+kvc.findSwitch("Toggle");                                                      // on/off switch
+kvc.findContainer("Domain", domainkvc);                                        // a block
+```
+
+`tools/extract_keywords.py` scans for all six forms and records the keyword, type, default and presence. Sections are the block named in a dotted key (`EigenSolver.Tolerance`) or, for bare keys, the container variable the code reads them from (`domainkvc` becomes *Domain*). The `acdtool postprocess rf` input uses a separate string-compare parser, which the script also reads. Keys read in a loop over an array of names are not found; write them as explicit `find` calls if they should appear.
+
+Each generated page carries the generation date, source revision and keyword count in an HTML comment at the top, and every table row ends with a comment holding the source file and line (`gun3p/src/outputConverter.C:391`). Neither is rendered on the site; view the page source or the Markdown file to see them.
+
 ## Documentation written with the code
 
 ACE3P developers can document a feature in the same pull request that implements it, in `docs/user/` of the ACE3P source repository (see its `README.md`). Two kinds of page are picked up:
