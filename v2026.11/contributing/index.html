@@ -3133,6 +3133,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Regenerating the reference pages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-the-extractor-reads-the-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How the extractor reads the source
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3255,6 +3272,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Regenerating the reference pages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-the-extractor-reads-the-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How the extractor reads the source
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3354,6 +3388,17 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>python<span class="w"> </span>tools/extract_keywords.py<span class="w"> </span>/path/to/ace3p<span class="w"> </span>--out<span class="w"> </span>docs/reference
 </code></pre></div>
 <p>The script scans for <code>Get(kvc, "Keyword", InitOrFallback&lt;T&gt;(default) ...)</code>, the <code>find</code>, <code>findSwitch</code>, and <code>findContainer</code> calls, and the string-compare parser of the rf post-processor. Point it at a checkout of the tagged ACE3P release so that the revision recorded in each page matches the tag.</p>
+<h3 id="how-the-extractor-reads-the-source">How the extractor reads the source<a class="headerlink" href="#how-the-extractor-reads-the-source" title="Permanent link">&para;</a></h3>
+<p>ACE3P solvers read input through a small family of calls on a key-value container:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">nev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Get</span><span class="p">(</span><span class="n">kvc</span><span class="p">,</span><span class="w"> </span><span class="s">"NumEigenvalues"</span><span class="p">,</span><span class="w"> </span><span class="n">InitOrFallback</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">quiet</span><span class="p">);</span><span class="w">   </span><span class="c1">// typed, with default</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">domainkvc</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">"MaxImpacts"</span><span class="p">,</span><span class="w"> </span><span class="n">m_maxImpacts</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">m_maxImpacts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">       </span><span class="c1">// default assigned after</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">kvc</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">"JobName"</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">kvcError</span><span class="p">();</span><span class="w"> </span><span class="p">}</span><span class="w">                                </span><span class="c1">// required</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">kvc</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">"StartPoint"</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">                                                  </span><span class="c1">// indexed list value</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">kvc</span><span class="p">.</span><span class="n">findSwitch</span><span class="p">(</span><span class="s">"Toggle"</span><span class="p">);</span><span class="w">                                                      </span><span class="c1">// on/off switch</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">kvc</span><span class="p">.</span><span class="n">findContainer</span><span class="p">(</span><span class="s">"Domain"</span><span class="p">,</span><span class="w"> </span><span class="n">domainkvc</span><span class="p">);</span><span class="w">                                        </span><span class="c1">// a block</span>
+</code></pre></div>
+<p><code>tools/extract_keywords.py</code> scans for all six forms and records the keyword, type, default and presence. Sections are the block named in a dotted key (<code>EigenSolver.Tolerance</code>) or, for bare keys, the container variable the code reads them from (<code>domainkvc</code> becomes <em>Domain</em>). The <code>acdtool postprocess rf</code> input uses a separate string-compare parser, which the script also reads. Keys read in a loop over an array of names are not found; write them as explicit <code>find</code> calls if they should appear.</p>
+<p>Each generated page carries the generation date, source revision and keyword count in an HTML comment at the top, and every table row ends with a comment holding the source file and line (<code>gun3p/src/outputConverter.C:391</code>). Neither is rendered on the site; view the page source or the Markdown file to see them.</p>
 <h2 id="documentation-written-with-the-code">Documentation written with the code<a class="headerlink" href="#documentation-written-with-the-code" title="Permanent link">&para;</a></h2>
 <p>ACE3P developers can document a feature in the same pull request that implements it, in <code>docs/user/</code> of the ACE3P source repository (see its <code>README.md</code>). Two kinds of page are picked up:</p>
 <ul>
@@ -3373,8 +3418,8 @@
 <p>Hand-written guides and tutorials are never changed by this workflow. Only <code>docs/reference/*.md</code>, <code>docs/modules/*/from-source/</code>, <code>docs/releases/</code>, and the generated block of <code>mkdocs.yml</code> are.</p>
 <h2 id="versioning">Versioning<a class="headerlink" href="#versioning" title="Permanent link">&para;</a></h2>
 <p>Documentation versions are published with <a href="https://github.com/jimporter/mike">mike</a>. Pushing to <code>main</code> updates the <code>dev</code> version. Pushing a tag <code>vX.Y</code> publishes that version and points the <code>latest</code> alias at it:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>tag<span class="w"> </span>v2026.10
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>v2026.10
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git<span class="w"> </span>tag<span class="w"> </span>v2026.10
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>v2026.10
 </code></pre></div>
 <p>Tag the documentation with the same version string as the ACE3P release it describes. The ACE3P binaries print that string in their start-up banner as <code>ACE3P Release: v2026.10</code>, so a user can match a run to its documentation version.</p>
 
