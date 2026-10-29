@@ -110,46 +110,34 @@ nav:
   - Modules:
       - modules/index.md
       - Omega3P:
-          - modules/omega3p/index.md
-          - "Tutorial 1: pillbox-rtop": modules/omega3p/tutorial-pillbox.md
-          - "Tutorial 2: coax coupler and ports": modules/omega3p/tutorial-ports.md
-          - "Tutorial 3: lossy load and periodic boundaries": modules/omega3p/tutorial-advanced.md
+          - Introduction: modules/omega3p/index.md
+          - Tutorials:
+              - "1. Pillbox cavity": modules/omega3p/tutorial-pillbox.md
+              - "2. Coax coupler and ports": modules/omega3p/tutorial-ports.md
+              - "3. Lossy load and periodic boundaries": modules/omega3p/tutorial-advanced.md
           - Post-processing with acdtool: modules/omega3p/postprocess.md
       - S3P:
-          - modules/s3p/index.md
+          - Introduction: modules/s3p/index.md
           - Tutorials: modules/s3p/tutorials.md
       - T3P:
-          - modules/t3p/index.md
+          - Introduction: modules/t3p/index.md
           - Tutorials: modules/t3p/tutorials.md
       - Track3P:
-          - modules/track3p/index.md
-          - Notes from the source tree: modules/track3p/from-source/index.md
+          - Introduction: modules/track3p/index.md
           - Tutorials: modules/track3p/tutorials.md
+          - Notes from the source tree: modules/track3p/from-source/index.md
       - Pic3P:
-          - modules/pic3p/index.md
-          - "Tutorial: LCLS RF gun": modules/pic3p/tutorial.md
+          - Introduction: modules/pic3p/index.md
+          - Tutorials: modules/pic3p/tutorial.md
       - TEM3P:
-          - modules/tem3p/index.md
+          - Introduction: modules/tem3p/index.md
           - Tutorials: modules/tem3p/tutorials.md
       - Gun3P:
-          - modules/gun3p/index.md
+          - Introduction: modules/gun3p/index.md
+          - Tutorials: modules/gun3p/tutorial.md
           - Notes from the source tree: modules/gun3p/from-source/index.md
-          - "Tutorial: sheet beam klystron gun": modules/gun3p/tutorial.md
   - Reference:
       - reference/index.md
-      - Omega3P keywords: reference/omega3p.md
-      - S3P keywords: reference/s3p.md
-      - T3P and Pic3P keywords: reference/tfe3p.md
-      - Track3P keywords: reference/multipacting.md
-      - TEM3P keywords: reference/tem3p.md
-      - Gun3P keywords: reference/gun3p.md
-      - acdtool keywords: reference/tools.md
-      - acdtool rf post-processor keywords: reference/omega3p-postprocess.md
-      - Shared EM keywords (emfem): reference/emfem.md
-      - Eigensolver keywords: reference/solver.md
-      - Excitation pulse keywords: reference/excitation.md
-      - Waveguide port keywords: reference/waveguide.md
-      - Bunch shape keywords (slacsupport): reference/slacsupport.md
       - Command syntax:
           - Omega3P: reference/commands/omega3p.md
           - S3P: reference/commands/s3p.md
@@ -159,6 +147,20 @@ nav:
           - TEM3P: reference/commands/tem3p.md
           - Gun3P: reference/commands/gun3p.md
           - acdtool: reference/commands/acdtool.md
+      - Keyword tables:
+          - Omega3P: reference/omega3p.md
+          - S3P: reference/s3p.md
+          - T3P and Pic3P: reference/tfe3p.md
+          - Track3P: reference/multipacting.md
+          - TEM3P: reference/tem3p.md
+          - Gun3P: reference/gun3p.md
+          - acdtool: reference/tools.md
+          - acdtool rf post-processor: reference/omega3p-postprocess.md
+          - Shared EM (emfem): reference/emfem.md
+          - Eigensolvers (solver): reference/solver.md
+          - Excitation pulses: reference/excitation.md
+          - Waveguide ports: reference/waveguide.md
+          - Bunch shapes (slacsupport): reference/slacsupport.md
   - Interfaces:
       - interfaces/index.md
       - ACE3P GUI: interfaces/gui.md

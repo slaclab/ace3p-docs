@@ -82,13 +82,13 @@ mpirun -n 16 omega3p pillbox.omega3p
 !!! warning "Temporary files"
     Some ACE3P tools write scratch files to `$TMPDIR`. If `/lscratch` on a node is full, set `export TMPDIR=/sdf/scratch/<group>/<user>/tmp` before running.
 
-## Hybrid MPI and OpenMP
+## Hybrid MPI and OpenMP (Track3P)
 
-Track3P and some T3P workloads benefit from hybrid execution. Request one MPI rank per socket and let OpenMP fill the cores:
+Track3P is OpenMP-parallel inside each MPI rank, and every rank holds the whole mesh, so it runs best with few ranks and many threads. Request one or two ranks per node and let OpenMP fill the cores:
 
 ```bash
 export OMP_NUM_THREADS=16
 srun -n 1 -c 16 track3p input.track3p
 ```
 
-See the module guides for solver-specific recommendations.
+Complete S3DF and Perlmutter batch scripts for the hybrid layout are in [Batch jobs](../workflow/batch-jobs.md#hybrid-mpi-and-openmp-track3p). The field solvers (Omega3P, S3P, T3P, TEM3P) are pure MPI; run them with one rank per core.

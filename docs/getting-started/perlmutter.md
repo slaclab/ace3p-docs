@@ -102,4 +102,4 @@ scancel <jobid>
 tail -f ace3p.o<jobid>
 ```
 
-See the [NERSC job documentation](https://docs.nersc.gov/jobs/) for queue policies and more options.
+See the [NERSC job documentation](https://docs.nersc.gov/jobs/) for queue policies and more options. Track3P runs best with few ranks and OpenMP threads; its batch script is in [Batch jobs](../workflow/batch-jobs.md#hybrid-mpi-and-openmp-track3p).
