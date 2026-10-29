@@ -9,10 +9,6 @@
          <lastmod>2026-10-29</lastmod>
     </url>
     <url>
-         <loc>https://slaclab.github.io/ace3p-docs/dev/cubit/</loc>
-         <lastmod>2026-10-29</lastmod>
-    </url>
-    <url>
          <loc>https://slaclab.github.io/ace3p-docs/dev/getting-started/</loc>
          <lastmod>2026-10-29</lastmod>
     </url>
@@ -26,6 +22,14 @@
     </url>
     <url>
          <loc>https://slaclab.github.io/ace3p-docs/dev/getting-started/tools/</loc>
+         <lastmod>2026-10-29</lastmod>
+    </url>
+    <url>
+         <loc>https://slaclab.github.io/ace3p-docs/dev/getting-started/tools/cubit/</loc>
+         <lastmod>2026-10-29</lastmod>
+    </url>
+    <url>
+         <loc>https://slaclab.github.io/ace3p-docs/dev/getting-started/tools/paraview/</loc>
          <lastmod>2026-10-29</lastmod>
     </url>
     <url>
