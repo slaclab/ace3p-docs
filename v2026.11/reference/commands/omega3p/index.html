@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://slaclab.github.io/ace3p-docs/v2026.11/reference/commands/omega3p/">
       
       
-        <link rel="prev" href="../../">
+        <link rel="prev" href="../../new-since-cw23/">
       
       
         <link rel="next" href="../s3p/">
@@ -1965,6 +1965,8 @@
       
         
       
+        
+      
     
     
     
@@ -2026,12 +2028,42 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-since-cw23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    New since CW23
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
   
     
     
+      
+        
       
         
       
@@ -2065,10 +2097,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="">
             
   
   
@@ -2086,8 +2118,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_5_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2186,6 +2218,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#plasma-material" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plasma material
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2249,6 +2292,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mumps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MUMPS
+      
+    </span>
+  </a>
   
 </li>
       
@@ -2458,6 +2512,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../kly3p/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kly3P (new)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../acdtool/" class="md-nav__link">
         
   
@@ -2538,10 +2620,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
         
           
-          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="">
             
   
   
@@ -2559,8 +2641,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3263,6 +3345,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#plasma-material" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plasma material
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3326,6 +3419,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mumps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MUMPS
+      
+    </span>
+  </a>
   
 </li>
       
@@ -3501,7 +3605,7 @@
 <tbody>
 <tr>
 <td><code>Type</code></td>
-<td><code>Face</code> (6 orientations), <code>Edge</code> (12), or <code>Corner</code> (8)</td>
+<td><code>Face</code> (6 orientations), <code>Edge</code> (12), or <code>Corner</code> (8); a spherical PML may also be centred on a shifted origin (new since CW23)</td>
 </tr>
 <tr>
 <td><code>Start</code>, <code>End</code></td>
@@ -3536,27 +3640,47 @@
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>  Polynomial Order: 2
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>}
 </code></pre></div>
+<h3 id="plasma-material">Plasma material<a class="headerlink" href="#plasma-material" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">New since CW23</p>
+<p>A <code>Material</code> may carry a <code>Plasma</code> block instead of fixed <code>Epsilon</code> and <code>Sigma</code>. The permittivity and conductivity are then evaluated point by point from an electron density and collision frequency given as expressions in <code>x</code>, <code>y</code>, <code>z</code> (metres). Available in Omega3P and S3P.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Material : {
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  Attribute: 2
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  Plasma : {
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    Type:            Ionosphere          // the only model so far
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    Frequency:       1.0e7               // Hz, used to evaluate eps(omega)
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    ReferenceHeight: 3.0e5               // m, Ionosphere profile parameter
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    Sharpness:       1.0e4               // m, Ionosphere profile parameter
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    Density:         "1e11*exp(-(z-3e5)/1e4)"   // electrons per m^3, expression in x y z
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    CollisionFreq:   "1e3"               // 1/s, expression; default 0
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    Epsilon:         "1"                 // background relative permittivity, expression; default 1
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    Sigma:           "0"                 // extra conductivity, S/m, expression; default 0
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>  }
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>}
+</code></pre></div>
+<p><code>Type</code>, <code>Frequency</code>, <code>ReferenceHeight</code> and <code>Sharpness</code> are required for <code>Ionosphere</code>. The permittivity follows the cold-plasma form 1 minus omega_p^2 over (nu^2 plus omega^2) with the plasma frequency computed from <code>Density</code>. Expressions use the exprtk syntax: <code>+ - * /</code>, <code>^</code>, <code>exp</code>, <code>sin</code>, <code>sqrt</code>, and the variables <code>x</code>, <code>y</code>, <code>z</code>.</p>
+</div>
 <h2 id="finiteelement">FiniteElement<a class="headerlink" href="#finiteelement" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>FiniteElement : {
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  Order:          2
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  CurvedSurfaces: on
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>}
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>FiniteElement : {
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  Order:          2
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  CurvedSurfaces: on
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>}
 </code></pre></div>
 <p><code>Order</code> is the polynomial order of the basis functions, 1 to 6; 2 is adequate for most work. <code>CurvedSurfaces</code> (also accepted as <code>Curved Surfaces</code>) uses the mid-edge nodes of the quadratic mesh to represent curved boundaries; default on.</p>
 <h2 id="pregion">PRegion<a class="headerlink" href="#pregion" title="Permanent link">&para;</a></h2>
 <p>Different orders in different blocks. Set the global order to 0 and give each block its own:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>FiniteElement : { Order: 0  CurvedSurfaces: on }
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>PRegion : { Type: Material  Reference: 1  Order: 2 }
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>PRegion : { Type: Material  Reference: 2  Order: 3 }
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>FiniteElement : { Order: 0  CurvedSurfaces: on }
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>PRegion : { Type: Material  Reference: 1  Order: 2 }
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>PRegion : { Type: Material  Reference: 2  Order: 3 }
 </code></pre></div>
 <p><code>Reference</code> is the block ID. Every block must then appear in a <code>PRegion</code>.</p>
 <h2 id="eigensolver">EigenSolver<a class="headerlink" href="#eigensolver" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>EigenSolver : {
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  NumEigenvalues: 1
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  FrequencyShift: 1.0e9
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  Tolerance:      1e-7
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>  MaxIterations:  300
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>}
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>EigenSolver : {
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  NumEigenvalues: 1
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  FrequencyShift: 1.0e9
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  Tolerance:      1e-7
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>  MaxIterations:  300
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>}
 </code></pre></div>
 <table>
 <thead>
@@ -3591,23 +3715,27 @@
 </table>
 <p>The default solver handles real (lossless) and complex (lossy or port-loaded) problems as linear or quadratic eigenproblems. A port-loaded problem stays quadratic only when every loaded port mode shares the same cutoff frequency. Otherwise use the nonlinear solver below.</p>
 <h3 id="linear-solver-inside-the-eigensolver">Linear solver inside the eigensolver<a class="headerlink" href="#linear-solver-inside-the-eigensolver" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">New since CW23</p>
+<p>PETSc Krylov solvers with ACE3P's multilevel (<code>MP</code>) preconditioner inside the eigensolver, and the complex-PETSc build for lossy and periodic problems, were added in 2026 (v2026.11).</p>
+</div>
 <p>The shift-invert operator inside each Arnoldi iteration can use PETSc instead of the default direct solver, which matters for problems too large for MUMPS:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>EigenSolver : {
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  NumEigenvalues: 1
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  FrequencyShift: 1.0e9
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  Arnoldi: {
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    LinearSolver: {
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>      Solver: PETSc
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>      Preconditioner: MP         // p-order multilevel preconditioner
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>      SubCommSize: 8
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>      Tolerance: 1e-10
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>      MaxIterations: 8000
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>      PETScOption: {
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>        Runtime: -ksp_type cg -log_view -options_left -ksp_converged_reason
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>      }
-<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>    }
-<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>  }
-<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>}
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>EigenSolver : {
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  NumEigenvalues: 1
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>  FrequencyShift: 1.0e9
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>  Arnoldi: {
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    LinearSolver: {
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>      Solver: PETSc
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>      Preconditioner: MP         // p-order multilevel preconditioner
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>      SubCommSize: 8
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>      Tolerance: 1e-10
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>      MaxIterations: 8000
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>      PETScOption: {
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>        Runtime: -ksp_type cg -log_view -options_left -ksp_converged_reason
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>      }
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>    }
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>  }
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>}
 </code></pre></div>
 <table>
 <thead>
@@ -3652,21 +3780,21 @@
 </table>
 <p>Use <code>-ksp_type cg</code> for lossless (Hermitian) problems and <code>-ksp_type gmres</code> for lossy (non-Hermitian) ones; CG diverges on the latter. Complex problems need the binaries built against complex PETSc, in the <code>bin-petsc-complex</code> directory of the installation. The same <code>LinearSolver</code> nesting applies inside <code>ESIL</code>, <code>InvertMode</code>, and the other eigensolver containers.</p>
 <h3 id="nonlinear-eigensolver-cork">Nonlinear eigensolver (CORK)<a class="headerlink" href="#nonlinear-eigensolver-cork" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>EigenSolver : {
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  NumEigenvalues: 3
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>  Tolerance:      1e-10
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>  FrequencyShift: 1.0e9
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>  SolverMode:     CORK
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>  CORK: {
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    TargetFrequencyMin:  1.0e9
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    TargetFrequencyMax:  2.4e9
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>    TargetFrequencyImag: 5.0e8
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    MaxIterations:       500
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>    ApproxTolerance:     1e-12
-<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>    ApproxMaxDegree:     100
-<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>    OneRKSShift:         1
-<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>  }
-<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>}
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>EigenSolver : {
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>  NumEigenvalues: 3
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>  Tolerance:      1e-10
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>  FrequencyShift: 1.0e9
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>  SolverMode:     CORK
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>  CORK: {
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    TargetFrequencyMin:  1.0e9
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    TargetFrequencyMax:  2.4e9
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>    TargetFrequencyImag: 5.0e8
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>    MaxIterations:       500
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>    ApproxTolerance:     1e-12
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>    ApproxMaxDegree:     100
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>    OneRKSShift:         1
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>  }
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>}
 </code></pre></div>
 <table>
 <thead>
@@ -3703,25 +3831,38 @@
 </tbody>
 </table>
 <p>Procedure: run once loading many modes per port, read the cutoffs in <code>2dports.log</code>, count the propagating modes at each port for the modes of interest, and rerun loading only those. <a href="../../../modules/omega3p/tutorial-ports/#nonlinear-eigenproblem">Tutorial 2</a> walks through it.</p>
+<h2 id="mumps">MUMPS<a class="headerlink" href="#mumps" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">New since CW23</p>
+<p>Optional top-level <code>MUMPS</code> block, read by every module that factorizes with MUMPS (Omega3P, S3P, T3P, Pic3P, TEM3P, Gun3P). Since v2026.11 a factorization that runs out of workspace (MUMPS error -9) is retried automatically with a doubled memory margin, 45 to 90 to 180 to 200 percent, instead of aborting. The block tunes that behaviour; without it only the retry is active.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>MUMPS : {
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>  MemoryRelaxation:    90      // starting margin, percent (default 45)
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>  MaxMemoryRelaxation: 200     // stop retrying above this (default 200)
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>  MemoryPerRank:       14000   // optional cap on workspace per rank, MB
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>  ICNTL_35: 1                  // any raw MUMPS ICNTL(k), applied last
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>}
+</code></pre></div>
+<p>If a log shows a retry line, set <code>MemoryRelaxation</code> to the value that succeeded to skip the wasted first attempt. Results do not depend on the margin.</p>
+</div>
 <h2 id="port">Port<a class="headerlink" href="#port" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Port : {
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>  ReferenceNumber: 7
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>  NumberOfModes:   1
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>}
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Port : {
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>  ReferenceNumber: 7
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>  NumberOfModes:   1
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>}
 </code></pre></div>
 <p>One block per <code>Waveguide</code> surface. Absent, one mode is loaded. <code>ReferenceNumber</code> must match the sideset listed under <code>Waveguide</code>.</p>
 <p>For an <code>Absorbing</code> surface, a <code>Port</code> block with <code>CutoffFrequency</code> improves the first-order boundary by giving it the guide's phase velocity at the eigenfrequency instead of c:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Port : {
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>  ReferenceNumber: 7
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>  CutoffFrequency: 1e9
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>}
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Port : {
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>  ReferenceNumber: 7
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>  CutoffFrequency: 1e9
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>}
 </code></pre></div>
 <h2 id="postprocess">PostProcess<a class="headerlink" href="#postprocess" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>PostProcess : {
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>  Toggle:    on
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>  ModeFile:  mode
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>  WriteLoss: on
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>}
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>PostProcess : {
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>  Toggle:    on
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>  ModeFile:  mode
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>  WriteLoss: on
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>}
 </code></pre></div>
 <table>
 <thead>
@@ -3785,7 +3926,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Reference">
+          <a href="../../new-since-cw23/" class="md-footer__link md-footer__link--prev" aria-label="Previous: New since CW23">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3795,7 +3936,7 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Reference
+                New since CW23
               </div>
             </div>
           </a>

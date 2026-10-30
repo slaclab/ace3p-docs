@@ -16,7 +16,7 @@
         <link rel="prev" href="../tem3p/">
       
       
-        <link rel="next" href="../acdtool/">
+        <link rel="next" href="../kly3p/">
       
       
         
@@ -1965,6 +1965,8 @@
       
         
       
+        
+      
     
     
     
@@ -2026,12 +2028,42 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../../new-since-cw23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    New since CW23
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
   
     
     
+      
+        
       
         
       
@@ -2065,10 +2097,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="">
             
   
   
@@ -2086,8 +2118,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_5_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2354,6 +2386,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#mumps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MUMPS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#magnetostaticproblem" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2390,6 +2433,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kly3p/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kly3P (new)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -2482,10 +2553,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
         
           
-          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="">
             
   
   
@@ -2503,8 +2574,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3207,6 +3278,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#mumps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MUMPS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#magnetostaticproblem" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3421,7 +3503,7 @@
 </tr>
 <tr>
 <td><code>Outputs.XRange</code>, <code>YRange</code>, <code>ZRange</code></td>
-<td>Optional. Two values each, <code>min max</code> in metres, setting the grid extent per axis. Omitted axes use the mesh bounding box. Exactly two values are required and <code>min</code> must be below <code>max</code>.</td>
+<td><strong>New in v2026.11.</strong> Optional. Two values each, <code>min max</code> in metres, setting the grid extent per axis. Omitted axes use the mesh bounding box. Exactly two values are required and <code>min</code> must be below <code>max</code>. Points outside the mesh are written as zero.</td>
 </tr>
 <tr>
 <td><code>Boundary</code></td>
@@ -3437,83 +3519,96 @@
 </tr>
 </tbody>
 </table>
+<h2 id="mumps">MUMPS<a class="headerlink" href="#mumps" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">New since CW23</p>
+<p>Optional top-level <code>MUMPS</code> block, read by every module that factorizes with MUMPS; in Gun3P that is the <code>MUMPSFLOAT</code> solver of the static problems. Since v2026.11 a factorization that runs out of workspace (MUMPS error -9) is retried automatically with a doubled memory margin, 45 to 90 to 180 to 200 percent, instead of aborting. The block tunes that behaviour; without it only the retry is active.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>MUMPS : {
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  MemoryRelaxation:    90      // starting margin, percent (default 45)
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  MaxMemoryRelaxation: 200     // stop retrying above this (default 200)
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  MemoryPerRank:       14000   // optional cap on workspace per rank, MB
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  ICNTL_35: 1                  // any raw MUMPS ICNTL(k), applied last
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>}
+</code></pre></div>
+<p>If a log shows a retry line, set <code>MemoryRelaxation</code> to the value that succeeded to skip the wasted first attempt. Results do not depend on the margin.</p>
+</div>
 <h2 id="magnetostaticproblem">MagnetostaticProblem<a class="headerlink" href="#magnetostaticproblem" title="Permanent link">&para;</a></h2>
 <p>Same structure as <code>ElectrostaticProblem</code> with all <code>Boundary</code> blocks <code>Dirichlet</code> 0. The examples keep <code>Name: Permittivity</code> in the material, which the code accepts. <code>Solver: MUMPSFLOAT</code> is typical.</p>
 <h2 id="tracker">Tracker<a class="headerlink" href="#tracker" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Tracker : {
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  JobName:      ./gun3p_results/OUTPUT     // must match the results directory on the command line
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  Particlefile: partpath
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  t:            6.0e-6                     // forward tracking time, s
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  Generate output for vizualization: on
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  Print emission statistics:         On
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>  Backward : {
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    t: 6.0e-6
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    Generate output for vizualization: on
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>  }
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>  Domain : {
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    t0: 0.0
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    dt: 1.0e-12
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    Window_Vol: 0
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>    MaxImpacts: 2
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>    LowEnergy:  0.0
-<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>    HighEnergy: 1.0e+99
-<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>    InitialEnergy: 0.0
-<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>    dt backward: 1.0e-12
-<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>    Backward velocity pattern: 0
-<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>    Minimum backward velocity factor: 0.01
-<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>    Strategy for dt: 0
-<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>    Emission Nx: 200   Emission Ny: 100   Emission Nz: 300
-<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>    Tracking Nx: 200   Tracking Ny: 100   Tracking Nz: 300
-<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>    Tracking box x min: -0.11   Tracking box x max: 0.11
-<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>    Tracking box y min: -0.04   Tracking box y max: 0.04
-<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>    Tracking box z min: -0.001  Tracking box z max: 0.18
-<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>  }
-<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>
-<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>  Monitor : {
-<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>    Type: PlaneCrossingsVsT
-<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a>    Name: screen
-<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a>    Plane point:  0., 0., 0.15999
-<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a>    Plane normal: 0., 0., 1.
-<a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a>    Compute densities: On
-<a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a>    Max x for densities: 0.110   X number of densities: 11
-<a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a>    Max y for densities: 0.004   Y number of densities: 80
-<a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a>  }
-<a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a>
-<a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a>  MeshInterface : { Type: pd  Localizer : { Type: USS_Curve } }
-<a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a>
-<a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a>  Emitter : {
-<a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a>    Type:       6                          // Child-Langmuir
-<a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a>    BoundaryID: 1
-<a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a>    t0: -1.0e-12   t1: 1.0e-12
-<a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a>    N: 1.0e+0                              // electrons per macroparticle
-<a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a>    M: 9.10938e-31                         // kg
-<a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a>    Q: -1.60218e-19                        // C
-<a id="__codelineno-2-51" name="__codelineno-2-51" href="#__codelineno-2-51"></a>    d: 0.1e-3                              // macroparticle radius, m
-<a id="__codelineno-2-52" name="__codelineno-2-52" href="#__codelineno-2-52"></a>    Sample Type: 1                         // 1 face centers, 2 stochastic
-<a id="__codelineno-2-53" name="__codelineno-2-53" href="#__codelineno-2-53"></a>    Child Langmuir : {
-<a id="__codelineno-2-54" name="__codelineno-2-54" href="#__codelineno-2-54"></a>      Whole boundary is emitter: On
-<a id="__codelineno-2-55" name="__codelineno-2-55" href="#__codelineno-2-55"></a>      Use electric field direction for initial forward velocity: On
-<a id="__codelineno-2-56" name="__codelineno-2-56" href="#__codelineno-2-56"></a>      Strategy: 6
-<a id="__codelineno-2-57" name="__codelineno-2-57" href="#__codelineno-2-57"></a>      Use average J: On
-<a id="__codelineno-2-58" name="__codelineno-2-58" href="#__codelineno-2-58"></a>      Backward velocity factor: 0.66666667
-<a id="__codelineno-2-59" name="__codelineno-2-59" href="#__codelineno-2-59"></a>      Forward velocity factor: 1.
-<a id="__codelineno-2-60" name="__codelineno-2-60" href="#__codelineno-2-60"></a>      Min allowed distance: 0.01e-3
-<a id="__codelineno-2-61" name="__codelineno-2-61" href="#__codelineno-2-61"></a>      Max allowed distance: 5.00e-3
-<a id="__codelineno-2-62" name="__codelineno-2-62" href="#__codelineno-2-62"></a>      Given delta phi: 100.0
-<a id="__codelineno-2-63" name="__codelineno-2-63" href="#__codelineno-2-63"></a>      Max allowed emission distance wrt z axis: 1.000000
-<a id="__codelineno-2-64" name="__codelineno-2-64" href="#__codelineno-2-64"></a>      First inter cycle factor: 1.0
-<a id="__codelineno-2-65" name="__codelineno-2-65" href="#__codelineno-2-65"></a>      Inter cycle averaging factor: 1.0
-<a id="__codelineno-2-66" name="__codelineno-2-66" href="#__codelineno-2-66"></a>      Max allowed total current: 1.35e+9     // μA
-<a id="__codelineno-2-67" name="__codelineno-2-67" href="#__codelineno-2-67"></a>      Reference z for emission surface: 1.50e-3
-<a id="__codelineno-2-68" name="__codelineno-2-68" href="#__codelineno-2-68"></a>      Particles per face: 5
-<a id="__codelineno-2-69" name="__codelineno-2-69" href="#__codelineno-2-69"></a>    }
-<a id="__codelineno-2-70" name="__codelineno-2-70" href="#__codelineno-2-70"></a>  }
-<a id="__codelineno-2-71" name="__codelineno-2-71" href="#__codelineno-2-71"></a>
-<a id="__codelineno-2-72" name="__codelineno-2-72" href="#__codelineno-2-72"></a>  Material : { BoundarySurfaceID: 1  Type: 2 }   // 1 Reflector, 2 Absorber, 3 Secondary, 4 Test, 5 SymmetryPlane
-<a id="__codelineno-2-73" name="__codelineno-2-73" href="#__codelineno-2-73"></a>  Material : { BoundarySurfaceID: 2  Type: 2 }
-<a id="__codelineno-2-74" name="__codelineno-2-74" href="#__codelineno-2-74"></a>}
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Tracker : {
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  JobName:      ./gun3p_results/OUTPUT     // must match the results directory on the command line
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  Particlefile: partpath
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  t:            6.0e-6                     // forward tracking time, s
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  Generate output for vizualization: on
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  Print emission statistics:         On
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>  Backward : {
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    t: 6.0e-6
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    Generate output for vizualization: on
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>  }
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>  Domain : {
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    t0: 0.0
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    dt: 1.0e-12
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>    Window_Vol: 0
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>    MaxImpacts: 2
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>    LowEnergy:  0.0
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>    HighEnergy: 1.0e+99
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>    InitialEnergy: 0.0
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>    dt backward: 1.0e-12
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>    Backward velocity pattern: 0
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>    Minimum backward velocity factor: 0.01
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>    Strategy for dt: 0
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>    Emission Nx: 200   Emission Ny: 100   Emission Nz: 300
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>    Tracking Nx: 200   Tracking Ny: 100   Tracking Nz: 300
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>    Tracking box x min: -0.11   Tracking box x max: 0.11
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>    Tracking box y min: -0.04   Tracking box y max: 0.04
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>    Tracking box z min: -0.001  Tracking box z max: 0.18
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>  }
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>  Monitor : {
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>    Type: PlaneCrossingsVsT
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>    Name: screen
+<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>    Plane point:  0., 0., 0.15999
+<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>    Plane normal: 0., 0., 1.
+<a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>    Compute densities: On
+<a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>    Max x for densities: 0.110   X number of densities: 11
+<a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>    Max y for densities: 0.004   Y number of densities: 80
+<a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>  }
+<a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>
+<a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>  MeshInterface : { Type: pd  Localizer : { Type: USS_Curve } }
+<a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>
+<a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>  Emitter : {
+<a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>    Type:       6                          // Child-Langmuir
+<a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>    BoundaryID: 1
+<a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>    t0: -1.0e-12   t1: 1.0e-12
+<a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a>    N: 1.0e+0                              // electrons per macroparticle
+<a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a>    M: 9.10938e-31                         // kg
+<a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a>    Q: -1.60218e-19                        // C
+<a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a>    d: 0.1e-3                              // macroparticle radius, m
+<a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a>    Sample Type: 1                         // 1 face centers, 2 stochastic
+<a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a>    Child Langmuir : {
+<a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a>      Whole boundary is emitter: On
+<a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a>      Use electric field direction for initial forward velocity: On
+<a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a>      Strategy: 6
+<a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a>      Use average J: On
+<a id="__codelineno-3-58" name="__codelineno-3-58" href="#__codelineno-3-58"></a>      Backward velocity factor: 0.66666667
+<a id="__codelineno-3-59" name="__codelineno-3-59" href="#__codelineno-3-59"></a>      Forward velocity factor: 1.
+<a id="__codelineno-3-60" name="__codelineno-3-60" href="#__codelineno-3-60"></a>      Min allowed distance: 0.01e-3
+<a id="__codelineno-3-61" name="__codelineno-3-61" href="#__codelineno-3-61"></a>      Max allowed distance: 5.00e-3
+<a id="__codelineno-3-62" name="__codelineno-3-62" href="#__codelineno-3-62"></a>      Given delta phi: 100.0
+<a id="__codelineno-3-63" name="__codelineno-3-63" href="#__codelineno-3-63"></a>      Max allowed emission distance wrt z axis: 1.000000
+<a id="__codelineno-3-64" name="__codelineno-3-64" href="#__codelineno-3-64"></a>      First inter cycle factor: 1.0
+<a id="__codelineno-3-65" name="__codelineno-3-65" href="#__codelineno-3-65"></a>      Inter cycle averaging factor: 1.0
+<a id="__codelineno-3-66" name="__codelineno-3-66" href="#__codelineno-3-66"></a>      Max allowed total current: 1.35e+9     // μA
+<a id="__codelineno-3-67" name="__codelineno-3-67" href="#__codelineno-3-67"></a>      Reference z for emission surface: 1.50e-3
+<a id="__codelineno-3-68" name="__codelineno-3-68" href="#__codelineno-3-68"></a>      Particles per face: 5
+<a id="__codelineno-3-69" name="__codelineno-3-69" href="#__codelineno-3-69"></a>    }
+<a id="__codelineno-3-70" name="__codelineno-3-70" href="#__codelineno-3-70"></a>  }
+<a id="__codelineno-3-71" name="__codelineno-3-71" href="#__codelineno-3-71"></a>
+<a id="__codelineno-3-72" name="__codelineno-3-72" href="#__codelineno-3-72"></a>  Material : { BoundarySurfaceID: 1  Type: 2 }   // 1 Reflector, 2 Absorber, 3 Secondary, 4 Test, 5 SymmetryPlane
+<a id="__codelineno-3-73" name="__codelineno-3-73" href="#__codelineno-3-73"></a>  Material : { BoundarySurfaceID: 2  Type: 2 }
+<a id="__codelineno-3-74" name="__codelineno-3-74" href="#__codelineno-3-74"></a>}
 </code></pre></div>
 <table>
 <thead>
@@ -3570,8 +3665,8 @@
 </tbody>
 </table>
 <h2 id="gun3poutputconverter">gun3pOutputConverter<a class="headerlink" href="#gun3poutputconverter" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>gun3pOutputConverter<span class="w"> </span>dcgun.gun3p<span class="w"> </span>e<span class="w"> </span><span class="o">[</span>iter<span class="o">]</span><span class="w">     </span><span class="c1"># electric field</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>gun3pOutputConverter<span class="w"> </span>dcgun.gun3p<span class="w"> </span>m<span class="w"> </span><span class="o">[</span>iter<span class="o">]</span><span class="w">     </span><span class="c1"># magnetic field</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>gun3pOutputConverter<span class="w"> </span>dcgun.gun3p<span class="w"> </span>e<span class="w"> </span><span class="o">[</span>iter<span class="o">]</span><span class="w">     </span><span class="c1"># electric field</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>gun3pOutputConverter<span class="w"> </span>dcgun.gun3p<span class="w"> </span>m<span class="w"> </span><span class="o">[</span>iter<span class="o">]</span><span class="w">     </span><span class="c1"># magnetic field</span>
 </code></pre></div>
 <p>Converts the stored DOFs of the final iteration, or of iteration <code>iter</code>, into <code>OUTPUT/E/staticDofs.ncdf.mod</code> or <code>OUTPUT/M/...</code> for ParaView, and writes the Cartesian-grid field file when <code>ElectrostaticFieldToken</code> was on.</p>
 
@@ -3626,13 +3721,13 @@
         
         
           
-          <a href="../acdtool/" class="md-footer__link md-footer__link--next" aria-label="Next: acdtool">
+          <a href="../kly3p/" class="md-footer__link md-footer__link--next" aria-label="Next: Kly3P (new)">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                acdtool
+                Kly3P (new)
               </div>
             </div>
             <div class="md-footer__button md-icon">
