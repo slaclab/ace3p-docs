@@ -6,7 +6,7 @@ Top-level blocks: `ModelInfo`, `FiniteElement`, `FrequencyScan` (or `WaveguideFr
 
 ## ModelInfo
 
-Identical in form to [Omega3P's](omega3p.md#modelinfo), including `Material` with `EpsilonImag` and `MuImag`, `PML`, and `SurfaceMaterial`. Boundary types available: `Electric`, `Magnetic`, `Exterior`, `Impedance`, `Absorbing`, `Waveguide`. Periodic boundaries are not available in S3P.
+Identical in form to [Omega3P's](omega3p.md#modelinfo), including `Material` with `EpsilonImag` and `MuImag`, `PML`, `SurfaceMaterial`, and the [`Plasma`](omega3p.md#plasma-material) material. Boundary types available: `Electric`, `Magnetic`, `Exterior`, `Impedance`, `Absorbing`, `Waveguide`. Periodic boundaries are not available in S3P.
 
 Two extensions to `SurfaceMaterial` matter in S3P:
 
@@ -25,6 +25,27 @@ SurfaceMaterial : {
 ```
 
 `Frequency` fixes the frequency at which the surface impedance is evaluated for an `Impedance` boundary. `Coating` adds a thin lossy dielectric layer on the conductor without meshing it; see the [T3P surface impedance tutorial](../../modules/t3p/tutorials.md#tutorial-5-surface-impedance-with-a-thin-lossy-coating) for the physics.
+
+### Lorentz dispersion
+
+!!! tip "New since CW23"
+    A `Material` may be frequency dependent through a Lorentz model. S3P re-evaluates the permittivity at every scan frequency. Validated against HFSS on a dielectric-loaded waveguide.
+
+    ```text
+    Material : {
+      Attribute: 1
+      Epsilon:   4.0
+      Dispersion : {
+        Type:    Lorentz
+        Omega_0: 6.2832e+10        // resonance angular frequency, rad/s
+        Omega_p: 3.7698e+10        // oscillator strength, rad/s
+        Gamma:   3.0159e+09        // damping rate, 1/s
+        Eps_inf: 4.0               // high-frequency permittivity
+      }
+    }
+    ```
+
+    The same block drives the time-domain model in [T3P](t3p.md#modelinfo).
 
 ## FiniteElement
 
@@ -54,6 +75,9 @@ Port : {
 One per `Waveguide` surface; absent, one mode is loaded. Load every mode that propagates anywhere in the scan range.
 
 ## Loading
+
+!!! tip "New since CW23"
+    `DipoleLoading` (2024, strength key 2026) drives the structure from a point dipole instead of a port, for antenna-style and near-field problems or for identifying modes.
 
 Dipole excitation as an alternative to port excitation, for mode identification:
 
@@ -87,7 +111,26 @@ LinearSolver : {
 
 `MP` first solves at order 1 with MUMPS to build a preconditioner, then iterates at order 2. The 2025 release notes give a resource table for this configuration on Perlmutter: 7 million elements on 4 nodes in 10 minutes, 47 million on 32 nodes in 2 hours.
 
+!!! tip "New since CW23"
+    PETSc CG with the `MP` preconditioner (2026) is an alternative to the in-house iterative solvers for very large problems.
+
 PETSc solvers are also available with the same `Solver: PETSc` and `PETScOption` syntax as in [Omega3P](omega3p.md#linear-solver-inside-the-eigensolver). Use `-ksp_type cg` only for lossless problems and `-ksp_type gmres` for lossy ones; complex problems need the `bin-petsc-complex` binaries.
+
+## MUMPS
+
+!!! tip "New since CW23"
+    Optional top-level `MUMPS` block, read by every module that factorizes with MUMPS (Omega3P, S3P, T3P, Pic3P, TEM3P, Gun3P). Since v2026.11 a factorization that runs out of workspace (MUMPS error -9) is retried automatically with a doubled memory margin, 45 to 90 to 180 to 200 percent, instead of aborting. The block tunes that behaviour; without it only the retry is active.
+
+    ```text
+    MUMPS : {
+      MemoryRelaxation:    90      // starting margin, percent (default 45)
+      MaxMemoryRelaxation: 200     // stop retrying above this (default 200)
+      MemoryPerRank:       14000   // optional cap on workspace per rank, MB
+      ICNTL_35: 1                  // any raw MUMPS ICNTL(k), applied last
+    }
+    ```
+
+    If a log shows a retry line, set `MemoryRelaxation` to the value that succeeded to skip the wasted first attempt. Results do not depend on the margin.
 
 ## PostProcess
 

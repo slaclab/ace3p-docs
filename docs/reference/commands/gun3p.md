@@ -95,10 +95,26 @@ ElectrostaticProblem : {
 | `Debug ...` | Developer output; keep off |
 | `Outputs.Dofs for vizualization` | Needed for `gun3pOutputConverter` |
 | `Outputs.ElectrostaticFieldToken`, `FileName`, `Nx`, `Ny`, `Nz` | Also write E on a structured grid, for `ElectroStaticFieldMap` in Track3P |
-| `Outputs.XRange`, `YRange`, `ZRange` | Optional. Two values each, `min max` in metres, setting the grid extent per axis. Omitted axes use the mesh bounding box. Exactly two values are required and `min` must be below `max`. |
+| `Outputs.XRange`, `YRange`, `ZRange` | **New in v2026.11.** Optional. Two values each, `min max` in metres, setting the grid extent per axis. Omitted axes use the mesh bounding box. Exactly two values are required and `min` must be below `max`. Points outside the mesh are written as zero. |
 | `Boundary` | `Dirichlet` fixes the potential in V; `Neumann` fixes the normal derivative, usually 0 on symmetry and open boundaries |
 | `Compute non zero initial guess` | Warm-start each iteration from the previous solution |
 | `LinearSolver` | Keep as shown |
+
+## MUMPS
+
+!!! tip "New since CW23"
+    Optional top-level `MUMPS` block, read by every module that factorizes with MUMPS; in Gun3P that is the `MUMPSFLOAT` solver of the static problems. Since v2026.11 a factorization that runs out of workspace (MUMPS error -9) is retried automatically with a doubled memory margin, 45 to 90 to 180 to 200 percent, instead of aborting. The block tunes that behaviour; without it only the retry is active.
+
+    ```text
+    MUMPS : {
+      MemoryRelaxation:    90      // starting margin, percent (default 45)
+      MaxMemoryRelaxation: 200     // stop retrying above this (default 200)
+      MemoryPerRank:       14000   // optional cap on workspace per rank, MB
+      ICNTL_35: 1                  // any raw MUMPS ICNTL(k), applied last
+    }
+    ```
+
+    If a log shows a retry line, set `MemoryRelaxation` to the value that succeeded to skip the wasted first attempt. Results do not depend on the margin.
 
 ## MagnetostaticProblem
 

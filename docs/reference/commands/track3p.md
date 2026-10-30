@@ -80,7 +80,7 @@ Several `Emitter` blocks may be defined.
 | 2 | `ElectronicSurface` | Default. Primaries from the mesh surface inside the box. |
 | 5 | `SolidElectronicSurface` | From mesh surfaces and from boundaries between material regions; for RF windows. Needs `SolidRegion` and `VacuumRegion` in `Domain`. |
 | 7 | `FieldEmission` | Fowler-Nordheim, for dark current. `N` is the minimum electrons per emitted macroparticle; `WorkFunction` default 4.2 eV (copper); `Beta` the field enhancement factor. |
-| 10 | `ParticlesFile` | Load particles from a text file named by `ParticlesFile`: one line per particle with electron count, energy in eV, x y z in m, and momentum components. Optional `XScale`, `YScale`, `ZScale`, `EnergyScale`, `XOffset`, `YOffset`, `ZOffset`. |
+| 10 | `LoadParticles` (new 2025) | Load particles from a file. `ParticlesFile`: one line per particle with electron count, energy in eV, x y z in m, and momentum components. `PositionFile`: positions only, launched with `Velocity` or `Direction` and `Energy`. `RadiationFile`: positions from a radiation-source file. All accept `XScale`, `YScale`, `ZScale`, `EnergyScale`, `XOffset`, `YOffset`, `ZOffset` (defaults 1 and 0). |
 
 Other numbered types exist in the shared emitter code (1 `ThermalCathode`, 3 `Injector`, 4 `EmitterSamples`, 6 `ChildLangmuir`, 8 `PICInput`, 9 `PlaneFieldEmission`); 6 is the model [Gun3P](gun3p.md) uses.
 
@@ -118,12 +118,12 @@ Domain : {
 | `LowEnergy`, `HighEnergy` | 5, 1e9 eV | Impact energy window outside which no secondaries are emitted |
 | `InitialEnergy` | 2 eV | Launch energy |
 | `Voltage` | 0 0 0 | DC coax bias as `a ra rb`: V = a / ln(rb / ra), units V m m |
-| `Bins` | 64 | Localizer bins along the longest axis; the others derive from it |
+| `Bins` | automatic | Localizer bins along the longest axis; the others derive from it. **Since v2026.11 omit this key**: the code picks about one element per bin (logged as `Localizer: Bins not given, using N`), which made the KEK 56-cell dark-current run 15x faster with identical results. An explicit value still overrides; old inputs with `Bins: 256` should drop the line. |
 | `SolidRegion`, `VacuumRegion` | | Block IDs for window problems |
 | `ExternalMagneticField` | 0 0 0 | Uniform B in T |
 | `MagneticFieldMap` | | Cylindrically symmetric map in Poisson text format: header lines `r0 rN Nr` and `z0 zN Nz`, then `Fr Fz [Fphi]` rows with r varying fastest. `Scaling` multiplies the field, `Units` converts the coordinates to m, `ZOffset` shifts the origin. |
 | `ElectroStaticFieldMap` | | Cartesian-grid field from `gun3pOutputConverter`; `File`, `Scaling` |
-| `SymmetryFactor`, `SymmetryPlane` | 1, none | Model symmetry and the sideset of the symmetry plane, used with a `SymmetryPlane` material |
+| `SymmetryFactor`, `SymmetryPlane` | 1, none | Model symmetry and the sideset of the symmetry plane, used with a `SymmetryPlane` material. Since 2026 the plane's orientation is detected from the mesh, so half models of any orientation work. |
 
 ## Material
 
@@ -167,6 +167,13 @@ Material : {
 OutputImpacts:            on      // default off; writes ImpactsInfo_<level>
 SingleParticleTrajectory: off     // default off; on writes one file per particle named by ID
 ```
+
+!!! tip "New since CW23"
+    - `ImpactsInfo_<level>` rows for field-emitted particles now carry the **emission field and the emitting face area** (2026), so the dark-current source distribution can be reconstructed from the impacts (inverse current).
+    - Particles that leave the mesh without a recorded impact are written to a separate `LostParticles_<level>` file (2026), created only when the count is non-zero. Field-emitted particles at MeV energies are no longer discarded by the multipacting `LowEnergy`/`HighEnergy` filter.
+    - The end of `track3p.log` always prints a function-by-function **timing report** (emission, push, material interaction, dead-particle removal) on rank 0, which shows whether more OpenMP threads would help.
+    - Track3P is hybrid MPI and OpenMP since 2026; see [Batch jobs](../../workflow/batch-jobs.md#hybrid-mpi-and-openmp-track3p) for the recommended layout.
+
 
 ## Postprocess
 

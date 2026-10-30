@@ -4,7 +4,7 @@ Two kinds of reference material, serving different questions.
 
 ## Command syntax
 
-One page per module describing every input block with a complete example and the meaning, units, and default of each key. These are converted from the ACE3P command reference documents distributed with the CW23 materials (dated September 2026) and cross-checked against the source where possible. Use them when you know which block you need and want to know what goes in it.
+One page per module describing every input block with a complete example and the meaning, units, and default of each key. Capabilities added after the 2023 Code Workshop are marked with a **New since CW23** box on each page; the list of those additions and where they are documented is in the [audit](new-since-cw23.md). These are converted from the ACE3P command reference documents distributed with the CW23 materials (dated September 2026) and cross-checked against the source where possible. Use them when you know which block you need and want to know what goes in it.
 
 | Page | Blocks |
 |---|---|
@@ -15,6 +15,7 @@ One page per module describing every input block with a complete example and the
 | [Track3P](commands/track3p.md) | `FieldScales`, `Emitter` types incl. particle files, `Domain` incl. field maps and symmetry, `Material` incl. secondary emission models, `Postprocess` |
 | [TEM3P](commands/tem3p.md) | Problem types, solvers incl. nonlinear, eigen, and harmonic, materials and function files, `Shell`, `HeatSource`, thermal and mechanical `Boundary` incl. all RF heating methods, `MeshDump`, `Transient` |
 | [Gun3P](commands/gun3p.md) | `DCGunProblem`, static field problems, `Tracker` with Child-Langmuir emission, `gun3pOutputConverter` |
+| [Kly3P](commands/kly3p.md) | New module (2024 to 2025): `LargeSignalProblem`, `RFProblem` with per-mode `DriveField` circuit parameters, on top of the Pic3P blocks |
 | [acdtool](commands/acdtool.md) | Mesh conversion and repair, `resource`, every `postprocess rf` function, wake and signal post-processing, PIC and Track3P utilities, `project` |
 
 ## Keyword tables

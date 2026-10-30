@@ -20,6 +20,10 @@ Material : {
   Sigma:     0.316           // bulk conductivity, S/m, frequency independent
   Chi2:      ...             // second-order nonlinear susceptibility
   Chi3:      ...             // third-order nonlinear susceptibility
+  Esat2:     1e10            // saturation field for the Chi2 term, V/m (default 1e10, i.e. none)
+  Esat3:     1e10            // saturation field for the Chi3 term, V/m
+  Omegam:    1.852832e+09    // time-varying material: modulation angular frequency, rad/s
+  Epsm:      -10.0           // time-varying material: permittivity modulation amplitude
   Dispersion : {             // Lorentz model; only one dispersive material allowed
     Type:    Lorentz
     Omega_0: ...             // resonance angular frequency
@@ -35,6 +39,13 @@ The Lorentz permittivity is
 $$
 \varepsilon(\omega) = \varepsilon_\infty + \frac{\omega_p^2}{\omega_0^2 - \omega^2 + j\omega\gamma}
 $$
+
+!!! tip "New since CW23"
+    Three material models were added after CW23:
+
+    - **Nonlinear with saturation** (2023 to 2024): `Chi2`, `Chi3` with `Esat2`, `Esat3`. Solved either by re-linearizing every step (`LinearSolver.PETScOption.BuildMatrix: on`) or by PETSc SNES Newton (`TimeStepping.PETScOption.Jacobian`), see [TimeStepping](#timestepping).
+    - **Time-varying permittivity** (2025): `Omegam`, `Epsm` switch or modulate a material in time, for photonic switches and time-modulated structures.
+    - **Lorentz dispersion** (2025): the `Dispersion` block above, implemented by recursive convolution and validated against CST.
 
 `SurfaceMaterial` takes `Frequency` and an optional `Coating` as in [S3P](s3p.md#modelinfo). The `Impedance` boundary with a `SurfaceMaterial` is also what the `SurfacePowerLoss` monitor reads.
 
@@ -181,6 +192,27 @@ TimeStepping : {
 
 Both in seconds. The implicit scheme is unconditionally stable, so `DT` is set by the frequency content to be resolved.
 
+!!! tip "New since CW23"
+    For nonlinear materials (`Chi2`, `Chi3`, `Epsm`) the time step can be solved with PETSc's nonlinear solver SNES, or by re-linearizing the system every step:
+
+    ```text
+    TimeStepping : {
+      MaximumTime: 8e-9
+      DT:          6e-13
+      PETScOption : {
+        Jacobian: fd_jacobian_coloring   // analytic (default), fd_jacobian, fd_jacobian_coloring, Picard
+      }
+    }
+    LinearSolver : {
+      Solver: PETSc
+      PETScOption : { BuildMatrix: on }  // alternative: rebuild the linearized matrix every step
+    }
+    ```
+
+    `fd_jacobian_coloring` is the practical default for SNES. `Picard` runs a fixed-point iteration instead of Newton.
+
+
+
 ## Monitor
 
 | `Type` | Keys | Output |
@@ -191,6 +223,12 @@ Both in seconds. The implicit scheme is unconditionally stable, so `DT` is set b
 | `Power` | `Name`, `ReferenceNumber`, optional `TimeStart`, `TimeEnd`, `TimeStep` | `<Name>.out`: t, power through the surface in W |
 | `SurfacePowerLoss` | `Name`, `ReferenceNumber` | `<Name>.out`: t, ohmic loss on the surface in W. Needs a `SurfaceMaterial` on that surface. |
 | `ModeVoltage` | `Name`, `Port` with `ReferenceNumber` and `ESolver` (`Type: Numerical2D`, `NumberOfModes`, `Frequency`, `Tolerance`, `MaxIterations`) | `<Name>.out`: t, modal voltage in V |
+| `EmittedCurrent` (new 2026, Pic3P) | `Name`, `ReferenceNumber` of the emitting surface | `<Name>.out`: t, I in A, cumulative charge in C; all emission models |
+| `AbsorbedParticle` (new 2026, Pic3P) | `Name`, `ReferenceNumber`, optional `DumpSteps` (default 1000) | `OUTPUT/<Name>.ncdf`: x y z, px py pz, interpolated arrival t, charge of every particle leaving through that surface |
+| `DriveFieldPoint` (new 2026, Pic3P) | `Name`, `Coordinate` | `<Name>.out`: the applied drive field at the point vs t (the `Point` monitor sees only the scattered field) |
+
+!!! tip "New since CW23"
+    `EmittedCurrent`, `AbsorbedParticle` and `DriveFieldPoint` are particle monitors added in 2026 for Pic3P runs; their syntax is shown on the [Pic3P page](pic3p.md#monitor). `acdtool postprocess wake_direct` (2025) evaluates the direct-integration wake at other transverse positions after the run.
 
 ### WakeField details
 
@@ -230,6 +268,22 @@ LinearSolver : { Solver: CG  Preconditioner: CHOLESKY }
 ```
 
 MUMPS, direct, for small problems. CG with `CHOLESKY` or `DIAGONAL` for large ones. A missing or misspelled `Solver` key gives the compiled-in default, MUMPS on the SLAC and NERSC builds.
+
+## MUMPS
+
+!!! tip "New since CW23"
+    Optional top-level `MUMPS` block, read by every module that factorizes with MUMPS (Omega3P, S3P, T3P, Pic3P, TEM3P, Gun3P). Since v2026.11 a factorization that runs out of workspace (MUMPS error -9) is retried automatically with a doubled memory margin, 45 to 90 to 180 to 200 percent, instead of aborting. The block tunes that behaviour; without it only the retry is active.
+
+    ```text
+    MUMPS : {
+      MemoryRelaxation:    90      // starting margin, percent (default 45)
+      MaxMemoryRelaxation: 200     // stop retrying above this (default 200)
+      MemoryPerRank:       14000   // optional cap on workspace per rank, MB
+      ICNTL_35: 1                  // any raw MUMPS ICNTL(k), applied last
+    }
+    ```
+
+    If a log shows a retry line, set `MemoryRelaxation` to the value that succeeded to skip the wasted first attempt. Results do not depend on the margin.
 
 ## CheckPoint
 

@@ -139,6 +139,7 @@ nav:
           - Notes from the source tree: modules/gun3p/from-source/index.md
   - Reference:
       - reference/index.md
+      - New since CW23: reference/new-since-cw23.md
       - Command syntax:
           - Omega3P: reference/commands/omega3p.md
           - S3P: reference/commands/s3p.md
@@ -147,6 +148,7 @@ nav:
           - Track3P: reference/commands/track3p.md
           - TEM3P: reference/commands/tem3p.md
           - Gun3P: reference/commands/gun3p.md
+          - Kly3P (new): reference/commands/kly3p.md
           - acdtool: reference/commands/acdtool.md
       - Keyword tables:
           - Omega3P: reference/omega3p.md
