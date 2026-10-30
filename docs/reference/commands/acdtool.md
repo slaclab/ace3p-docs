@@ -18,7 +18,7 @@ acdtool meshconvert <mesh.gen> [out.ncdf]
 acdtool meshconvertdirect <mesh.gen> [out.ncdf]
 ```
 
-Converts the Genesis mesh from Cubit to NetCDF, prints the statistics of `mesh stats`, runs `mesh check`, and, for `meshconvert`, repairs inverted second-order tetrahedra by straightening their edges. `meshconvertdirect` converts without the repair. The output defaults to the input name with `.ncdf`. How to read the statistics is on the [mesh preparation page](../../workflow/mesh.md#read-the-statistics).
+Converts the Genesis mesh from Cubit to NetCDF, prints the statistics of `mesh stats`, runs `mesh check`, and, for `meshconvert`, repairs inverted second-order tetrahedra by straightening their edges. `meshconvertdirect` (new 2024) converts without the repair, for meshes where the straightening is not wanted. The output defaults to the input name with `.ncdf`. How to read the statistics is on the [mesh preparation page](../../workflow/mesh.md#read-the-statistics).
 
 ## mesh
 
@@ -67,6 +67,9 @@ This is for Omega3P with the MUMPS direct solver at order 2. Fewer cores per nod
 acdtool postprocess rf <input.rfpost>
 acdtool postprocess rf                 # writes sample.rfpost with every function
 ```
+
+!!! tip "New since CW23"
+    The field functions (`getVol`, `RoverQ`, `RoverQT`, `VFFT`, `EmaxOnSurface`, `HmaxOnSurface`, `maxFieldsOnSurface`, `powerThroughSurface`, `CoaxPort`, `portPowerQext`, `surfaceQ0` and others) run in parallel since 2025; run `acdtool postprocess rf` with several MPI ranks on large meshes.
 
 Computes RF quantities from an Omega3P or S3P mode. The input is a sequence of blocks; `RFField` must come first and every other block is a function enabled with `ionoff = 1`. The [Omega3P post-processing page](../../modules/omega3p/postprocess.md) walks through a typical file; this section lists every function.
 
@@ -128,6 +131,10 @@ acdtool postprocess volmontomode <jobname>     # t3p_results
 Regenerate `.mod` files from stored eigenvectors or volume-monitor `.out` files. The solvers do this automatically unless `PostProcess.Toggle` is off or the job ran out of time before the conversion.
 
 ## wake_new, wake_direct, transwake
+
+!!! tip "New since CW23"
+    `wake_direct` (2025) evaluates the direct-integration wake of a T3P `WakeField` monitor at a user-chosen transverse position from the recorded `.z.all.dat` history: `acdtool postprocess wake_direct <job> <x y>`.
+
 
 ```bash
 acdtool postprocess wake_new    <jobname> <x y>

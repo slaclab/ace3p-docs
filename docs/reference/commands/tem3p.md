@@ -303,6 +303,23 @@ Transient : {
 
 The `Excitation` block reuses T3P's pulse machinery to modulate the heat load in time; `Fall periods` and `TMax` are optional as in T3P.
 
+## MUMPS
+
+!!! tip "New since CW23"
+    Optional top-level `MUMPS` block, read by every module that factorizes with MUMPS (Omega3P, S3P, T3P, Pic3P, TEM3P, Gun3P). Since v2026.11 a factorization that runs out of workspace (MUMPS error -9) is retried automatically with a doubled memory margin, 45 to 90 to 180 to 200 percent, instead of aborting. The block tunes that behaviour; without it only the retry is active.
+
+    ```text
+    MUMPS : {
+      MemoryRelaxation:    90      // starting margin, percent (default 45)
+      MaxMemoryRelaxation: 200     // stop retrying above this (default 200)
+      MemoryPerRank:       14000   // optional cap on workspace per rank, MB
+      ICNTL_35: 1                  // any raw MUMPS ICNTL(k), applied last
+    }
+    ```
+
+    If a log shows a retry line, set `MemoryRelaxation` to the value that succeeded to skip the wasted first attempt. Results do not depend on the margin.
+
+
 ## Post-processing
 
 `acdtool mesh deform` exaggerates a deformed mesh for viewing, and `acdtool postprocess project` decomposes a static or harmonic displacement field onto a set of mechanical eigenmodes. See the [acdtool command syntax](acdtool.md).

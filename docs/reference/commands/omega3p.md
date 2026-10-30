@@ -83,7 +83,7 @@ Material : {
 
 | Key | Meaning |
 |---|---|
-| `Type` | `Face` (6 orientations), `Edge` (12), or `Corner` (8) |
+| `Type` | `Face` (6 orientations), `Edge` (12), or `Corner` (8); a spherical PML may also be centred on a shifted origin (new since CW23) |
 | `Start`, `End` | Bounding box of the layer in m |
 | `Direction` | Orientation: one nonzero component for `Face`, two for `Edge`, three for `Corner`, each ±1 |
 | `Reflection Coefficient` | Target reflection; sets `Maximum Sigma` |
@@ -103,6 +103,29 @@ PML: {
   Polynomial Order: 2
 }
 ```
+
+### Plasma material
+
+!!! tip "New since CW23"
+    A `Material` may carry a `Plasma` block instead of fixed `Epsilon` and `Sigma`. The permittivity and conductivity are then evaluated point by point from an electron density and collision frequency given as expressions in `x`, `y`, `z` (metres). Available in Omega3P and S3P.
+
+    ```text
+    Material : {
+      Attribute: 2
+      Plasma : {
+        Type:            Ionosphere          // the only model so far
+        Frequency:       1.0e7               // Hz, used to evaluate eps(omega)
+        ReferenceHeight: 3.0e5               // m, Ionosphere profile parameter
+        Sharpness:       1.0e4               // m, Ionosphere profile parameter
+        Density:         "1e11*exp(-(z-3e5)/1e4)"   // electrons per m^3, expression in x y z
+        CollisionFreq:   "1e3"               // 1/s, expression; default 0
+        Epsilon:         "1"                 // background relative permittivity, expression; default 1
+        Sigma:           "0"                 // extra conductivity, S/m, expression; default 0
+      }
+    }
+    ```
+
+    `Type`, `Frequency`, `ReferenceHeight` and `Sharpness` are required for `Ionosphere`. The permittivity follows the cold-plasma form 1 minus omega_p^2 over (nu^2 plus omega^2) with the plasma frequency computed from `Density`. Expressions use the exprtk syntax: `+ - * /`, `^`, `exp`, `sin`, `sqrt`, and the variables `x`, `y`, `z`.
 
 ## FiniteElement
 
@@ -148,6 +171,9 @@ EigenSolver : {
 The default solver handles real (lossless) and complex (lossy or port-loaded) problems as linear or quadratic eigenproblems. A port-loaded problem stays quadratic only when every loaded port mode shares the same cutoff frequency. Otherwise use the nonlinear solver below.
 
 ### Linear solver inside the eigensolver
+
+!!! tip "New since CW23"
+    PETSc Krylov solvers with ACE3P's multilevel (`MP`) preconditioner inside the eigensolver, and the complex-PETSc build for lossy and periodic problems, were added in 2026 (v2026.11).
 
 The shift-invert operator inside each Arnoldi iteration can use PETSc instead of the default direct solver, which matters for problems too large for MUMPS:
 
@@ -211,6 +237,22 @@ EigenSolver : {
 | `OneRKSShift` | Use a single rational Krylov shift. Read by `CORK_RationalNewton.C`; present in the CW23 example but not described in the command reference. |
 
 Procedure: run once loading many modes per port, read the cutoffs in `2dports.log`, count the propagating modes at each port for the modes of interest, and rerun loading only those. [Tutorial 2](../../modules/omega3p/tutorial-ports.md#nonlinear-eigenproblem) walks through it.
+
+## MUMPS
+
+!!! tip "New since CW23"
+    Optional top-level `MUMPS` block, read by every module that factorizes with MUMPS (Omega3P, S3P, T3P, Pic3P, TEM3P, Gun3P). Since v2026.11 a factorization that runs out of workspace (MUMPS error -9) is retried automatically with a doubled memory margin, 45 to 90 to 180 to 200 percent, instead of aborting. The block tunes that behaviour; without it only the retry is active.
+
+    ```text
+    MUMPS : {
+      MemoryRelaxation:    90      // starting margin, percent (default 45)
+      MaxMemoryRelaxation: 200     // stop retrying above this (default 200)
+      MemoryPerRank:       14000   // optional cap on workspace per rank, MB
+      ICNTL_35: 1                  // any raw MUMPS ICNTL(k), applied last
+    }
+    ```
+
+    If a log shows a retry line, set `MemoryRelaxation` to the value that succeeded to skip the wasted first attempt. Results do not depend on the margin.
 
 ## Port
 
