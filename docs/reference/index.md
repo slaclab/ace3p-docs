@@ -15,7 +15,6 @@ One page per module describing every input block with a complete example and the
 | [Track3P](commands/track3p.md) | `FieldScales`, `Emitter` types incl. particle files, `Domain` incl. field maps and symmetry, `Material` incl. secondary emission models, `Postprocess` |
 | [TEM3P](commands/tem3p.md) | Problem types, solvers incl. nonlinear, eigen, and harmonic, materials and function files, `Shell`, `HeatSource`, thermal and mechanical `Boundary` incl. all RF heating methods, `MeshDump`, `Transient` |
 | [Gun3P](commands/gun3p.md) | `DCGunProblem`, static field problems, `Tracker` with Child-Langmuir emission, `gun3pOutputConverter` |
-| [Kly3P](commands/kly3p.md) | New module (2024 to 2025): `LargeSignalProblem`, `RFProblem` with per-mode `DriveField` circuit parameters, on top of the Pic3P blocks |
 | [acdtool](commands/acdtool.md) | Mesh conversion and repair, `resource`, every `postprocess rf` function, wake and signal post-processing, PIC and Track3P utilities, `project` |
 
 ## Keyword tables
@@ -49,4 +48,4 @@ These pages list the input-file keywords that each ACE3P module reads. They are 
 
 Keys whose block cannot be determined are listed under *top level or unspecified block* at the end of each page. The tables are deliberately terse: what a keyword does is explained in the [module guides](../modules/index.md) and the [command syntax](#command-syntax) pages.
 
-The tables are regenerated from the source at every ACE3P release, so they always match the version shown in the header. How that works is described under [Contributing](../contributing.md#regenerating-the-reference-pages).
+The tables are regenerated from the source at every ACE3P release, so they always match the version shown in the header.

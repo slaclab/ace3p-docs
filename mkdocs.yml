@@ -52,6 +52,8 @@ exclude_docs: |
   interfaces/dashboard.md
   interfaces/workflow-assistant.md
   corrections.md
+  contributing.md
+  reference/commands/kly3p.md
 
 extra_css:
   - stylesheets/extra.css
@@ -148,7 +150,6 @@ nav:
           - Track3P: reference/commands/track3p.md
           - TEM3P: reference/commands/tem3p.md
           - Gun3P: reference/commands/gun3p.md
-          - Kly3P (new): reference/commands/kly3p.md
           - acdtool: reference/commands/acdtool.md
       - Keyword tables:
           - Omega3P: reference/omega3p.md
@@ -173,4 +174,4 @@ nav:
       - ACE3P v2026.11: releases/v2026.11.md
       - ACE3P v2026.10: releases/v2026.10.md
   # END generated nav
-  - Contributing: contributing.md
+  - Contact: contact.md
