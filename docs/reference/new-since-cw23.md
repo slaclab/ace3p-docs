@@ -32,7 +32,6 @@ ACE3P gained a number of capabilities between the August 2023 Code Workshop (CW2
 | Track3P | Impact records with emission field and area; lost-particle file; automatic symmetry plane | `OutputImpacts`, `LostParticles_<level>`, `SymmetryPlane` | 2026-01 to 2026-08 |
 | Track3P | Function-by-function timing report | always on rank 0 | 2026-10 |
 | Gun3P | Structured-grid field export on a chosen region | `Outputs: { XRange  YRange  ZRange }` | 2026-10 |
-| Kly3P | New module: klystron large-signal solver | `LargeSignalProblem`, `RFProblem.DriveField` | 2024-06 to 2025-05 |
 | acdtool | Parallel field functions in `postprocess rf` | run with several ranks | 2025-06 |
 | acdtool | Mesh conversion without the fix-up pass | `acdtool meshconvertdirect` | 2024-08 |
 
@@ -47,12 +46,11 @@ ACE3P gained a number of capabilities between the August 2023 Code Workshop (CW2
 | [Track3P](commands/track3p.md) | `Bins` (as a fixed value), `ParticlesFile` | automatic `Bins`, `PositionFile`/`RadiationFile`, impact-record columns, `LostParticles` file, symmetry-plane detection, timing report, hybrid-run pointer |
 | [TEM3P](commands/tem3p.md) | (no post-CW23 input changes) | `MUMPS` block |
 | [Gun3P](commands/gun3p.md) | `XRange`/`YRange`/`ZRange` | highlight only; `MUMPS` block |
-| [Kly3P](commands/kly3p.md) | nothing: the module had no page | whole page |
 | [acdtool](commands/acdtool.md) | `meshconvertdirect`, `wake_direct` | highlights; note that `postprocess rf` functions run in parallel |
 
 Items not tied to an input key, and therefore not on the command pages, are described elsewhere: the Track3P speedup and startup changes on the Track3P [notes from the source tree](../modules/track3p/from-source/index.md); hybrid batch scripts under [Batch jobs](../workflow/batch-jobs.md#hybrid-mpi-and-openmp-track3p); build, platform and regression changes in the [releases](../releases/index.md).
 
 ## Still to do
 
-- User guides for the Kly3P module and for the T3P nonlinear, time-varying and dispersive materials (the command pages carry the syntax; worked examples exist in `tfe3p/testsuites/` and `kly3p/test/` in the source tree).
+- A user guide for the T3P nonlinear, time-varying and dispersive materials (the command page carries the syntax; worked examples exist in `tfe3p/testsuites/` in the source tree).
 - The three Gun3P range keys and the Pic3P macroparticle-size keys are read in a form the keyword extractor does not recognise, so they are absent from the generated keyword tables; they are documented on the command pages.
