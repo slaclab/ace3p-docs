@@ -39,8 +39,8 @@ NERSC provides `sshproxy` to generate a key that is valid for 24 hours.
 ## Load the ACE3P environment
 
 ```bash
-cp $CFS/ace3p/perlmutter/CPU/perlmutter-ace3p.sh ~/
-source ~/perlmutter-ace3p.sh
+cp $CFS/ace3p/perlmutter/CPU/perlmutter-ace3p-spack.sh ~/
+source ~/perlmutter-ace3p-spack.sh
 ```
 
 The ACE3P binaries live in `$CFS/ace3p/perlmutter/CPU/`. `$CFS` expands to `/global/cfs/cdirs`.
