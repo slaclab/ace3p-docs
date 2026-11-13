@@ -2,6 +2,9 @@
 
 **ACE3P** (Advanced Computational Electromagnetic 3D Parallel) is a suite of parallel finite-element codes developed at SLAC National Accelerator Laboratory for the design and analysis of particle accelerator components. It solves Maxwell's equations and coupled multiphysics problems on unstructured tetrahedral meshes with high-order basis functions, and runs on HPC systems using MPI.
 
+!!! info "ACE3P website"
+    This site is the user documentation only. For everything else about ACE3P, including the project overview, the ACE3P GUI, LUME-ACE3P, access requests, workshops, news and publications, go to the ACE3P website: **<https://ace3p.slac.stanford.edu>**.
+
 <div class="grid cards" markdown>
 
 -   :material-rocket-launch: **Getting started**

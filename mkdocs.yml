@@ -45,6 +45,13 @@ extra:
   version:
     provider: mike
     default: latest
+  social:
+    - icon: material/web
+      link: https://ace3p.slac.stanford.edu
+      name: ACE3P website
+    - icon: fontawesome/brands/github
+      link: https://github.com/slaclab/ace3p-docs
+      name: Documentation source on GitHub
 
 # Pages kept in the tree but not published: prototype interfaces, and the
 # corrections log (an internal to-do list for the source material)
