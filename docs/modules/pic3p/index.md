@@ -189,7 +189,8 @@ The example's 121,000-element quarter model runs 840 steps in about 100 s on 24 
 | Location | Content |
 |---|---|
 | `t3p_results/t3p.log`, `t3p.warn` | Log and warnings. `t3p.warn` also lists every defaulted parameter. |
-| `OUTPUT/<volume>ts_t<time>ps.out.mod` | Field snapshots from the `Volume` monitor |
+| `OUTPUT/<volume>ts_t<time>ps.out` | Raw `Volume` monitor snapshots (solution vector, not for ParaView); converted at the end of the run, or by hand with `acdtool postprocess volmontomode t3p_results` |
+| `OUTPUT/<volume>ts_t<time>ps.out.mod` | Field snapshots from the `Volume` monitor, for ParaView. Enable **Read Internal Volume** on the reader to see the field inside the volume. |
 | `OUTPUT/Particles/initial.particle.distribution.ncdf` | The distribution at t = 0 |
 | `OUTPUT/Particles/particles.<time>ps.ncdf` | Phase-space dumps at each `DumpInterval` |
 | `OUTPUT/Particles/DumpAtPhase/`, `DumpAtZ/` | Dumps triggered by `DumpPhases` and `DumpPositions` |

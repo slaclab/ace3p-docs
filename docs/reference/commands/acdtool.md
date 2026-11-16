@@ -128,7 +128,7 @@ acdtool postprocess eigentomode  <jobname>     # omega3p_results or s3p_results
 acdtool postprocess volmontomode <jobname>     # t3p_results
 ```
 
-Regenerate `.mod` files from stored eigenvectors or volume-monitor `.out` files. The solvers do this automatically unless `PostProcess.Toggle` is off or the job ran out of time before the conversion.
+Regenerate `.mod` files from stored eigenvectors or volume-monitor `.out` files. The solvers do this automatically at the end of a run unless `PostProcess.Toggle` is off or the job ran out of time before the conversion. `volmontomode` converts every `<name>ts_t<time>ps.out` snapshot listed in `monitorlist.fieldnode`, rewriting existing `.mod` files, so it can also be run on the completed snapshots of a job that is still going or that stopped early. The `.out` files hold the finite-element solution vector and are not readable by ParaView; once the `.mod` files exist they can be deleted.
 
 ## wake_new, wake_direct, transwake
 

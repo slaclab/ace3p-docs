@@ -111,6 +111,7 @@ nav:
           - getting-started/tools/index.md
           - Cubit: getting-started/tools/cubit.md
           - ParaView: getting-started/tools/paraview.md
+          - ParaView recipes: getting-started/tools/paraview-recipes.md
       - Running on S3DF (SLAC users): getting-started/s3df.md
   - Workflow:
       - workflow/index.md

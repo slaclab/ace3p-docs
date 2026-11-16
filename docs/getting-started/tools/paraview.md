@@ -30,6 +30,19 @@ Do this once per ParaView installation, on the HPC system or your laptop:
 
 A **SLAC** button appears in the toolbar. Click it, pick the `.ncdf` mesh and the `.mod` field file, and the model loads with the field data attached.
 
+## Seeing the field inside the volume
+
+The SLAC reader loads the **External Surface** only, so by default you see the field on the walls and the **Entire Volume** entry in the Pipeline Browser is empty. To look inside:
+
+1. Select the reader (the top entry in the Pipeline Browser).
+2. In the Properties panel, check **Read Internal Volume** and click **Apply**.
+3. Show **Entire Volume** and hide **External Surface** with the eye icons, or keep both and make the surface translucent (Opacity below 1).
+4. Use the **Clip** and **Slice** filters from the Common toolbar near the top of the window to cut the model open and see the field on the cut.
+
+This applies to every `.mod` file: Omega3P and S3P modes, TEM3P results, and the T3P and Pic3P `*ts_t<time>ps.out.mod` snapshots alike. Reading the volume takes more memory than the surface, so leave it off when you only need the wall fields.
+
+Step-by-step procedures for movies, vector cones, surface and node identification, particle trajectories and data export are on the [ParaView recipes](paraview-recipes.md) page.
+
 ## Load the ACE3P macros
 
 The CW23 materials include Python macros for common ACE3P plots. Add each one through **Macros, then Add new macro**:
