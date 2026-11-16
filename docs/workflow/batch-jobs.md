@@ -45,6 +45,7 @@ Track3P is the only ACE3P solver that uses OpenMP threads. The layout below puts
     #SBATCH -p milano
     #SBATCH -A rfar:regular
     #SBATCH -q normal
+    #SBATCH -C OS_VER:9.6
     #SBATCH -N 1
     #SBATCH --exclusive
     #SBATCH -t 02:00:00
