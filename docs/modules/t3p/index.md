@@ -131,7 +131,7 @@ Each `Monitor` block writes a file named after `Name` in `t3p_results/OUTPUT/`.
 | `Type` | Keys | Output |
 |---|---|---|
 | `WakeField` | `StartContour`, `EndContour` (z range of the integration contour), `Smax` (wake length) | `wakefield.out`: s, W(s), bunch current. Header carries the loss or kick factor. |
-| `Volume` | `TimeStart`, `TimeEnd`, `TimeStep` | One `<name>ts_t<time>ps.out.mod` field snapshot per sampled time, for ParaView animation |
+| `Volume` | `TimeStart`, `TimeEnd`, `TimeStep` | One `<name>ts_t<time>ps.out` solution snapshot per sampled time, converted to `.out.mod` for ParaView at the end of the run (see [Output](#output)) |
 | `Point` | `Coordinate` | `<name>.out`: time, E~x~ E~y~ E~z~, B~x~ B~y~ B~z~ at the point |
 | `Line` | start, end, point count | Field along a line versus time |
 | `Power` | `ReferenceNumber` | `<name>.out`: time, Poynting flux through the surface |
@@ -178,7 +178,8 @@ Results go to `t3p_results/`. The DOF count is printed near the top of `t3p.log`
 |---|---|
 | `t3p.log`, `t3p.warn` | Log and warnings. The log names the time-stepping scheme and reports elements and DOFs. |
 | `OUTPUT/wakefield.out` | Wake and bunch current versus s, with loss or kick factor in the header |
-| `OUTPUT/<volume>ts_t<time>ps.out.mod` | Field snapshots. Load the series through the SLAC toolbar with the mesh and press Play. |
+| `OUTPUT/<volume>ts_t<time>ps.out` | Raw `Volume` monitor snapshots: the finite-element solution vector at that time. Not readable by ParaView; input to the conversion below. |
+| `OUTPUT/<volume>ts_t<time>ps.out.mod` | The same snapshots as E and B fields on the mesh, for ParaView. Load the series through the SLAC toolbar with the mesh and press Play. |
 | `OUTPUT/<point>.out`, `<power>.out`, `<modecoeff>.out` | Time series from `Point`, `Power`, `ModeVoltage` monitors |
 | `OUTPUT/Bunch<n>.out` | The bunch current profile used, time versus amperes |
 | `OUTPUT/BBL<n>/` | Internal beam-loading data per bunch |
@@ -188,7 +189,15 @@ Results go to `t3p_results/`. The DOF count is printed near the top of `t3p.log`
 
 ## Post-processing
 
-**Field animation.** In ParaView, click the SLAC toolbar reader, pick the mesh and the first `*.out.mod` snapshot; the reader detects the series. Press Play.
+**Volume snapshots: `.out` and `.out.mod`.** A `Volume` monitor writes one `<name>ts_t<time>ps.out` file per sampled time. It holds the finite-element solution vector, whose coefficients are not the field values themselves, so ParaView cannot display it. When the run finishes, T3P converts every snapshot to a `.out.mod` file that carries E and B on the mesh. The `.out` files are several times larger than the `.mod` files and can be deleted once the `.mod` files exist. If the job ran out of time before the conversion, or you want to look at the completed snapshots while a long run is still going, do the conversion yourself:
+
+```bash
+acdtool postprocess volmontomode t3p_results
+```
+
+It can run with several MPI ranks. It converts every snapshot listed in `monitorlist.fieldnode`, rewriting any `.mod` files that already exist, so it is safe to run more than once.
+
+**Field animation.** In ParaView, click the SLAC toolbar reader, pick the mesh and the first `*.out.mod` snapshot; the reader detects the series. Press Play. By default only the field on the walls is shown; to see the field inside, check **Read Internal Volume** on the reader, **Apply**, and use **Clip** or **Slice** as described under [ParaView](../../getting-started/tools/paraview.md#seeing-the-field-inside-the-volume).
 
 **Wake and impedance.** Edit the file path at the top of `wakeplot.py`, then click the `wakeplot` macro button. It plots W(s) with the bunch profile and the impedance spectrum from the Fourier transform. The spectrum is only meaningful up to the bunch's frequency content; the dashed line in the impedance plot is the bunch spectrum for reference.
 
