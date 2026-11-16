@@ -592,6 +592,8 @@
       
         
       
+        
+      
     
     
     
@@ -689,6 +691,34 @@
     
   
     ParaView
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/tools/paraview-recipes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ParaView recipes
   
 
     
@@ -3495,7 +3525,7 @@
 <tr>
 <td><code>Volume</code></td>
 <td><code>TimeStart</code>, <code>TimeEnd</code>, <code>TimeStep</code></td>
-<td>One <code>&lt;name&gt;ts_t&lt;time&gt;ps.out.mod</code> field snapshot per sampled time, for ParaView animation</td>
+<td>One <code>&lt;name&gt;ts_t&lt;time&gt;ps.out</code> solution snapshot per sampled time, converted to <code>.out.mod</code> for ParaView at the end of the run (see <a href="#output">Output</a>)</td>
 </tr>
 <tr>
 <td><code>Point</code></td>
@@ -3564,8 +3594,12 @@
 <td>Wake and bunch current versus s, with loss or kick factor in the header</td>
 </tr>
 <tr>
+<td><code>OUTPUT/&lt;volume&gt;ts_t&lt;time&gt;ps.out</code></td>
+<td>Raw <code>Volume</code> monitor snapshots: the finite-element solution vector at that time. Not readable by ParaView; input to the conversion below.</td>
+</tr>
+<tr>
 <td><code>OUTPUT/&lt;volume&gt;ts_t&lt;time&gt;ps.out.mod</code></td>
-<td>Field snapshots. Load the series through the SLAC toolbar with the mesh and press Play.</td>
+<td>The same snapshots as E and B fields on the mesh, for ParaView. Load the series through the SLAC toolbar with the mesh and press Play.</td>
 </tr>
 <tr>
 <td><code>OUTPUT/&lt;point&gt;.out</code>, <code>&lt;power&gt;.out</code>, <code>&lt;modecoeff&gt;.out</code></td>
@@ -3594,7 +3628,11 @@
 </tbody>
 </table>
 <h2 id="post-processing">Post-processing<a class="headerlink" href="#post-processing" title="Permanent link">&para;</a></h2>
-<p><strong>Field animation.</strong> In ParaView, click the SLAC toolbar reader, pick the mesh and the first <code>*.out.mod</code> snapshot; the reader detects the series. Press Play.</p>
+<p><strong>Volume snapshots: <code>.out</code> and <code>.out.mod</code>.</strong> A <code>Volume</code> monitor writes one <code>&lt;name&gt;ts_t&lt;time&gt;ps.out</code> file per sampled time. It holds the finite-element solution vector, whose coefficients are not the field values themselves, so ParaView cannot display it. When the run finishes, T3P converts every snapshot to a <code>.out.mod</code> file that carries E and B on the mesh. The <code>.out</code> files are several times larger than the <code>.mod</code> files and can be deleted once the <code>.mod</code> files exist. If the job ran out of time before the conversion, or you want to look at the completed snapshots while a long run is still going, do the conversion yourself:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>acdtool<span class="w"> </span>postprocess<span class="w"> </span>volmontomode<span class="w"> </span>t3p_results
+</code></pre></div>
+<p>It can run with several MPI ranks. It converts every snapshot listed in <code>monitorlist.fieldnode</code>, rewriting any <code>.mod</code> files that already exist, so it is safe to run more than once.</p>
+<p><strong>Field animation.</strong> In ParaView, click the SLAC toolbar reader, pick the mesh and the first <code>*.out.mod</code> snapshot; the reader detects the series. Press Play. By default only the field on the walls is shown; to see the field inside, check <strong>Read Internal Volume</strong> on the reader, <strong>Apply</strong>, and use <strong>Clip</strong> or <strong>Slice</strong> as described under <a href="../../getting-started/tools/paraview/#seeing-the-field-inside-the-volume">ParaView</a>.</p>
 <p><strong>Wake and impedance.</strong> Edit the file path at the top of <code>wakeplot.py</code>, then click the <code>wakeplot</code> macro button. It plots W(s) with the bunch profile and the impedance spectrum from the Fourier transform. The spectrum is only meaningful up to the bunch's frequency content; the dashed line in the impedance plot is the bunch spectrum for reference.</p>
 <p><strong>Transverse wake.</strong> <code>acdtool postprocess transwake t3p_results x1 y1 x2 y2</code> rewrites <code>wakefield.out</code> as a transverse wake from the longitudinal wakes at two transverse points, with the kick factor in the header.</p>
 <p><strong>Coaxial signal.</strong> <code>acdtool postprocess coaxsignal t3p_results</code> converts <code>port.out</code> and <code>modecoeff.out</code> into the voltage on a 50 ohm coaxial line, written to <code>signal.out</code>. The <code>timeFFT</code> macro plots it and its spectrum normalized to the bunch spectrum, which is the BPM transfer impedance.</p>

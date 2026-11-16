@@ -16,7 +16,7 @@
         <link rel="prev" href="../cubit/">
       
       
-        <link rel="next" href="../../s3df/">
+        <link rel="next" href="../paraview-recipes/">
       
       
         
@@ -599,6 +599,8 @@
       
         
       
+        
+      
     
     
     
@@ -795,6 +797,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#seeing-the-field-inside-the-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seeing the field inside the volume
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#load-the-ace3p-macros" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -809,6 +822,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../paraview-recipes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ParaView recipes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -3256,6 +3297,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#seeing-the-field-inside-the-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seeing the field inside the volume
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#load-the-ace3p-macros" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3310,6 +3362,16 @@
 <li>Expand the entry and check <strong>Auto Load</strong> so it is active on every start.</li>
 </ol>
 <p>A <strong>SLAC</strong> button appears in the toolbar. Click it, pick the <code>.ncdf</code> mesh and the <code>.mod</code> field file, and the model loads with the field data attached.</p>
+<h2 id="seeing-the-field-inside-the-volume">Seeing the field inside the volume<a class="headerlink" href="#seeing-the-field-inside-the-volume" title="Permanent link">&para;</a></h2>
+<p>The SLAC reader loads the <strong>External Surface</strong> only, so by default you see the field on the walls and the <strong>Entire Volume</strong> entry in the Pipeline Browser is empty. To look inside:</p>
+<ol>
+<li>Select the reader (the top entry in the Pipeline Browser).</li>
+<li>In the Properties panel, check <strong>Read Internal Volume</strong> and click <strong>Apply</strong>.</li>
+<li>Show <strong>Entire Volume</strong> and hide <strong>External Surface</strong> with the eye icons, or keep both and make the surface translucent (Opacity below 1).</li>
+<li>Use the <strong>Clip</strong> and <strong>Slice</strong> filters from the Common toolbar near the top of the window to cut the model open and see the field on the cut.</li>
+</ol>
+<p>This applies to every <code>.mod</code> file: Omega3P and S3P modes, TEM3P results, and the T3P and Pic3P <code>*ts_t&lt;time&gt;ps.out.mod</code> snapshots alike. Reading the volume takes more memory than the surface, so leave it off when you only need the wall fields.</p>
+<p>Step-by-step procedures for movies, vector cones, surface and node identification, particle trajectories and data export are on the <a href="../paraview-recipes/">ParaView recipes</a> page.</p>
 <h2 id="load-the-ace3p-macros">Load the ACE3P macros<a class="headerlink" href="#load-the-ace3p-macros" title="Permanent link">&para;</a></h2>
 <p>The CW23 materials include Python macros for common ACE3P plots. Add each one through <strong>Macros, then Add new macro</strong>:</p>
 <table>
@@ -3406,13 +3468,13 @@
         
         
           
-          <a href="../../s3df/" class="md-footer__link md-footer__link--next" aria-label="Next: Running on S3DF (SLAC users)">
+          <a href="../paraview-recipes/" class="md-footer__link md-footer__link--next" aria-label="Next: ParaView recipes">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Running on S3DF (SLAC users)
+                ParaView recipes
               </div>
             </div>
             <div class="md-footer__button md-icon">

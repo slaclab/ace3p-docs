@@ -592,6 +592,8 @@
       
         
       
+        
+      
     
     
     
@@ -689,6 +691,34 @@
     
   
     ParaView
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/tools/paraview-recipes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ParaView recipes
   
 
     
@@ -3583,8 +3613,12 @@
 <td>Log and warnings. <code>t3p.warn</code> also lists every defaulted parameter.</td>
 </tr>
 <tr>
+<td><code>OUTPUT/&lt;volume&gt;ts_t&lt;time&gt;ps.out</code></td>
+<td>Raw <code>Volume</code> monitor snapshots (solution vector, not for ParaView); converted at the end of the run, or by hand with <code>acdtool postprocess volmontomode t3p_results</code></td>
+</tr>
+<tr>
 <td><code>OUTPUT/&lt;volume&gt;ts_t&lt;time&gt;ps.out.mod</code></td>
-<td>Field snapshots from the <code>Volume</code> monitor</td>
+<td>Field snapshots from the <code>Volume</code> monitor, for ParaView. Enable <strong>Read Internal Volume</strong> on the reader to see the field inside the volume.</td>
 </tr>
 <tr>
 <td><code>OUTPUT/Particles/initial.particle.distribution.ncdf</code></td>
