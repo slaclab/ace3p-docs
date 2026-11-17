@@ -19,23 +19,18 @@ The second command moves you to an interactive node (`sdfiana0xx`). Use these no
 
 ## Load the ACE3P environment
 
-The environment script sets up the libraries and the OpenMPI that ACE3P was built with and puts the binaries on your `PATH`. No `module load` is needed, and none should be added: ACE3P uses its own OpenMPI 4.1.8, built so that both `srun` and `mpirun` work, not the site module.
+One command sets up everything, on the login nodes and inside batch scripts alike:
 
 ```bash
 source /sdf/group/rfar/ace3p/ace3p.sh
 ```
 
-Source it **inside your batch script**, as the reference script below does, or in an interactive `srun` shell on a `milano` node. Do not source it on the `iana` login nodes and do not put it in `~/.bashrc`: the script places Rocky 9 libraries first on `LD_LIBRARY_PATH`, and on a RHEL 8 login node that breaks every program started afterwards, including ParaView and Cubit, with errors such as
+It loads three module files from `/sdf/group/rfar/ace3p/modulefiles`: `ace3p` (the solvers, `acdtool`, and the OpenMPI they were built with), `cubit`, and `paraview`. Nothing else is needed, and no `module load openmpi`: ACE3P ships its own OpenMPI 4.1.8, and the `ace3p` module makes a plain `srun -n N` use PMIx, which is what works on the Rocky 9 nodes. `mpirun` works as well.
 
-```
-/lib64/libc.so.6: version `GLIBC_2.34' not found
-```
+!!! note "What the script does not do"
+    The solvers run only on the Rocky 9 `milano` nodes, so on an `iana` login node the script prints a reminder and `omega3p` or `acdtool` will not start there. Put them in a batch script. The script sets no `LD_LIBRARY_PATH`, so Cubit and ParaView started from the same shell work normally. If you use ACE3P regularly, the `source` line can go in `~/.bashrc`.
 
-The ACE3P binaries themselves do not run on the login nodes either, so a tool such as `acdtool` goes into a batch script or an interactive shell on a compute node. If a login shell already has the script sourced, open a new one, or start the GUI tools with a clean library path:
-
-```bash
-env -u LD_LIBRARY_PATH /sdf/group/rfar/software/paraview &
-```
+Developers who compile ACE3P source `/sdf/group/rfar/ace3p/ace3p-dev.sh` instead, which activates the spack build environment.
 
 ## Partitions and accounts
 
@@ -65,7 +60,7 @@ The reference script is `/sdf/group/rfar/ace3p/run.sl`; copy it and change the j
 #SBATCH --mem-per-cpu=16gb
 #SBATCH --time=0-00:45:00
 
-# ACE3P environment (libraries, OpenMPI, PATH)
+# ACE3P environment (modules: ace3p, cubit, paraview)
 source /sdf/group/rfar/ace3p/ace3p.sh
 
 srun -n 16 --cpu-bind=cores omega3p pillbox.omega3p

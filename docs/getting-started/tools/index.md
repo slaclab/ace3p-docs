@@ -6,7 +6,7 @@ Two graphical programs bracket every ACE3P run: **Cubit** builds the geometry an
 |---|---|---|
 | Role | Pre-processing: geometry, meshing, sidesets and blocks, `.gen` export | Post-processing: fields, modes, particle trajectories, wake plots |
 | On Perlmutter | Cubit 16.16 under `$CFS/ace3p/tools/`, run in a [ThinLinc desktop](../index.md#connecting-with-thinlinc) | ParaView 5.11.0 under `$CFS/ace3p/tools/`, run in a ThinLinc desktop; NERSC client-server mode for large data |
-| On S3DF | Installed, run in a NoMachine desktop or with `ssh -X` | Installed, run in a NoMachine desktop or through the web visualizer |
+| On S3DF | Installed; `source /sdf/group/rfar/ace3p/ace3p.sh` then `cubit`, in a NoMachine desktop or with `ssh -X` | Installed; `source /sdf/group/rfar/ace3p/ace3p.sh` then `paraview`, in a NoMachine desktop |
 | On your own computer | Possible; needs a license | Possible; free download |
 | Page | [Cubit](cubit.md): interface, pillbox walkthrough, journal files, meshing, sidesets and blocks, export, where to run it | [ParaView](paraview.md): starting it, SLAC toolbar, fields inside the volume, ACE3P macros; [ParaView recipes](paraview-recipes.md): movies, cones, surface and node lookup, particle trails, CSV export |
 

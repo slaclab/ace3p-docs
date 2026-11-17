@@ -14,7 +14,14 @@ This is the version the tutorials and the CW23 macros were tested with. NERSC al
 
 ## ParaView on S3DF
 
-ParaView 5.11.1 is installed at `/sdf/group/rfar/software/ParaView-5.11.1-MPI-Linux-Python3.9-x86_64/`. Start `bin/paraview` from a NoMachine desktop on an `iana` node. `/usr/bin/paraview` on those nodes is the older system package, 5.9.1; use the full path. Do not source the ACE3P environment script in the shell you start ParaView from; see [Running on S3DF](../s3df.md#load-the-ace3p-environment) for why, and for the `env -u LD_LIBRARY_PATH` workaround.
+ParaView 5.11.1 with the SLAC toolbar is installed under `/sdf/group/rfar/software/`. In a NoMachine desktop on an `iana` node:
+
+```bash
+source /sdf/group/rfar/ace3p/ace3p.sh
+paraview &
+```
+
+The environment script puts this version first on your `PATH`; without it, `paraview` is the older system package 5.9.1 in `/usr/bin`. ParaView also runs on a `milano` compute node inside an interactive job started with `srun --x11 --pty bash`, which is useful for results too large for the login node.
 
 ## Installing ParaView on your own computer
 
