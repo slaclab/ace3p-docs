@@ -3910,12 +3910,14 @@
 </code></pre></div>
 <p>The GUI opens on the ThinLinc desktop. Set the working directory to your scratch area (<strong>File, then Set Directory</strong>) so the <code>.gen</code> file lands where <code>acdtool meshconvert</code> will read it.</p>
 <h3 id="cubit-on-s3df">Cubit on S3DF<a class="headerlink" href="#cubit-on-s3df" title="Permanent link">&para;</a></h3>
-<p>Cubit 16.12 is installed at <code>/sdf/group/rfar/software/Cubit-16.12/</code>. Start it from a NoMachine desktop or an <code>ssh -X</code> session:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>/sdf/group/rfar/software/Cubit-16.12/cubit<span class="w"> </span><span class="p">&amp;</span>
+<p>Cubit 16.12 is installed under <code>/sdf/group/rfar/software/</code>. Source the ACE3P environment, then start it from a NoMachine desktop or an <code>ssh -X</code> session:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nb">source</span><span class="w"> </span>/sdf/group/rfar/ace3p/ace3p.sh
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>cubit<span class="w"> </span><span class="p">&amp;</span>
 </code></pre></div>
-<p>A journal can also be played with no display, which is what automated workflows do:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>/sdf/group/rfar/software/Cubit-16.12/cubit<span class="w"> </span>-batch<span class="w"> </span>-nographics<span class="w"> </span>-input<span class="w"> </span>step2-Mesh-pillbox.jou
+<p>Batch mode needs no display and can run inside a job on the <code>milano</code> nodes:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>cubit<span class="w"> </span>-batch<span class="w"> </span>-nographics<span class="w"> </span>-input<span class="w"> </span>step2-Mesh-pillbox.jou
 </code></pre></div>
+<p>The environment script loads a <code>cubit</code> module that also supplies <code>libGLU.so.1</code>, which the Rocky 9 compute nodes lack; if you start Cubit by its full path instead, set <code>export LD_LIBRARY_PATH=/sdf/group/rfar/ace3p/lib-rocky9-compat:$LD_LIBRARY_PATH</code> first.</p>
 <h3 id="installing-cubit-on-your-own-computer">Installing Cubit on your own computer<a class="headerlink" href="#installing-cubit-on-your-own-computer" title="Permanent link">&para;</a></h3>
 <p>Cubit requires a license. Two routes:</p>
 <ul>
