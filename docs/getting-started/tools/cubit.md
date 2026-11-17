@@ -271,17 +271,20 @@ The GUI opens on the ThinLinc desktop. Set the working directory to your scratch
 
 ### Cubit on S3DF
 
-Cubit 16.12 is installed at `/sdf/group/rfar/software/Cubit-16.12/`. Start it from a NoMachine desktop or an `ssh -X` session:
+Cubit 16.12 is installed under `/sdf/group/rfar/software/`. Source the ACE3P environment, then start it from a NoMachine desktop or an `ssh -X` session:
 
 ```bash
-/sdf/group/rfar/software/Cubit-16.12/cubit &
+source /sdf/group/rfar/ace3p/ace3p.sh
+cubit &
 ```
 
-A journal can also be played with no display, which is what automated workflows do:
+Batch mode needs no display and can run inside a job on the `milano` nodes:
 
 ```bash
-/sdf/group/rfar/software/Cubit-16.12/cubit -batch -nographics -input step2-Mesh-pillbox.jou
+cubit -batch -nographics -input step2-Mesh-pillbox.jou
 ```
+
+The environment script loads a `cubit` module that also supplies `libGLU.so.1`, which the Rocky 9 compute nodes lack; if you start Cubit by its full path instead, set `export LD_LIBRARY_PATH=/sdf/group/rfar/ace3p/lib-rocky9-compat:$LD_LIBRARY_PATH` first.
 
 ### Installing Cubit on your own computer
 
