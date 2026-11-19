@@ -28,9 +28,9 @@ source /sdf/group/rfar/ace3p/ace3p.sh
 It loads three module files from `/sdf/group/rfar/ace3p/modulefiles`: `ace3p` (the solvers, `acdtool`, and the OpenMPI they were built with), `cubit`, and `paraview`. Nothing else is needed, and no `module load openmpi`: ACE3P ships its own OpenMPI 4.1.8, and the `ace3p` module makes a plain `srun -n N` use PMIx, which is what works on the Rocky 9 nodes. `mpirun` works as well.
 
 !!! note "What the script does not do"
-    The solvers run only on the Rocky 9 `milano` nodes, so on an `iana` login node the script prints a reminder and `omega3p` or `acdtool` will not start there. Put them in a batch script. The script sets no `LD_LIBRARY_PATH`, so Cubit and ParaView started from the same shell work normally. If you use ACE3P regularly, the `source` line can go in `~/.bashrc`.
+    The solvers run only on the Rocky 9 `milano` nodes, so on an `iana` login node `omega3p` or `acdtool` will not start. Put them in a batch script. The script sets no `LD_LIBRARY_PATH`, so Cubit and ParaView started from the same shell work normally. If you use ACE3P regularly, the `source` line can go in `~/.bashrc`.
 
-Developers who compile ACE3P source `/sdf/group/rfar/ace3p/ace3p-dev.sh` instead, which activates the spack build environment.
+The same script serves developers: the `ace3p` module also sets `SPACK_ENV` and `MPI_HOME`, which the ACE3P CMake build reads. Build on a Rocky 9 node.
 
 ## Partitions and accounts
 
