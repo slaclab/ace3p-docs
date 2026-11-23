@@ -104,14 +104,15 @@ use `--out FILE` or `--out -` for the script in that case. Check the first run's
 `peak mem per MPI process` and `used mem per node` against the estimate and adjust.
 
 **Calibration.** The coefficients are fitted to logged runs with
-`tools/scripts/resource_fit.py` in the ACE3P source tree: `extract` reads `omega3p.log` files
-(DOFs, ranks, `used mem` or `peak mem per MPI process`, solver times) into
-`tools/scripts/resource_calibration.csv`, `fit` regenerates `tools/src/ResourceModelCoefficients.h`
-and a `resource_model.txt` that `--model` can load without rebuilding, and `check` verifies that no
-measured run exceeds its prediction. The present fit rests on 15 Omega3P runs between 9 thousand
-and 3.1 million DOFs on Perlmutter and S3DF, real and complex, all with MUMPS. Beyond that range the
-estimate is an extrapolation; the 2025 measurements below are the reference there until their logs
-are added.
+`tools/scripts/resource_fit.py` in the ACE3P source tree: `extract` reads solver logs (DOFs, ranks,
+`used mem` or `peak mem per MPI process`, solver times) into `tools/scripts/resource_calibration.csv`,
+`fit` regenerates `tools/src/ResourceModelCoefficients.h` and a `resource_model.txt` that `--model`
+can load without rebuilding, and `check` verifies that no run that fills a significant share of a node
+exceeds its prediction. The present fit rests on 15 Omega3P runs (9 thousand to 3.1 million DOFs) and
+15 S3P runs, which factorize the same complex matrix (up to 41 million DOFs and 448 ranks), on
+Perlmutter and S3DF. At 22 million DOFs on 256 ranks the predicted largest-rank and average memory
+agree with the measured run within 10 percent; the time model rests on fewer runs and is deliberately
+on the high side.
 
 Reference layouts measured in 2025 for Omega3P at order 2 with MUMPS on Perlmutter:
 
@@ -124,10 +125,12 @@ Reference layouts measured in 2025 for Omega3P at order 2 with MUMPS on Perlmutt
 | 5 to 6 | 32 to 38 | 10 | 8 | under 60 min |
 | 6 to 7 | 38 to 44 | 20 | 8 | under 60 min |
 
-For the same sizes the model currently proposes fewer nodes with more ranks per node, because it is
-fitted on the resident memory the solvers logged after the factorization rather than on the peak
-inside it. The new `peak mem` log line closes that gap as runs accumulate; until then prefer the
-table's node counts for meshes above 4 million elements, or pass `--ranks-per-node 32`.
+For these sizes the model proposes 1, 2, 3, 4, 6, 7 and 9 nodes for 1 to 7 million elements with 32
+to 128 ranks per node, in line with the table up to 5 million elements and below it above. The table
+was built when the solvers logged only the resident memory after the factorization, and its 8 ranks
+per node reflect peaks the logs did not record; the new `peak mem` line closes that gap as runs
+accumulate. Above 5 million elements, compare the estimate with the table and, in doubt, take the
+larger node count or pass `--ranks-per-node 32`.
 
 Other modules are recognised and declined with a message; their resource needs differ too much from
 Omega3P to share the model.
