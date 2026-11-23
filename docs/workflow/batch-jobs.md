@@ -19,6 +19,8 @@ System-specific headers are in [Running on S3DF](../getting-started/s3df.md) and
 
 ## Choosing resources
 
+For an Omega3P input, start from the estimator: `acdtool resource input.omega3p --site perlmutter` (or `--site s3df`) prints the DOF count, the memory of the largest and the average rank, a node and rank layout, a queue and a wall time, and writes the Slurm script. See [acdtool resource](../reference/commands/acdtool.md#resource).
+
 **Omega3P and S3P** are memory-bound sparse eigenvalue and linear solves. Start with 16 MPI ranks on one node for meshes up to a few hundred thousand elements. Add nodes when the solver reports high memory use per node in its `.out` file:
 
 ```text
@@ -26,7 +28,7 @@ used mem per node in GB : min:   4.97 GB, max:   4.97 GB, avg:   4.97 GB
 used mem per node in %  : min:   40.7  %, max:   40.7  %, avg:   40.7  %
 ```
 
-Keep the percentage under about 70 to leave room for the direct solver's fill-in.
+Keep the percentage under about 70 to leave room for the direct solver's fill-in. The `used mem per MPI process` line shows a `max` well above the `avg` on large meshes: rank 0 gathers the whole matrix graph for the MUMPS ordering, so the largest rank, not the average, decides how many ranks fit on a node. The `peak mem per MPI process` line (in releases after v2026.11) is the high-water mark to compare with an estimate.
 
 **Track3P** parallelizes over particles and is OpenMP-parallel within each rank. Because every rank holds the whole mesh and field, run it in hybrid mode: one or two MPI ranks per node and OpenMP threads across the rest of the cores. Scripts are in [Hybrid MPI and OpenMP](#hybrid-mpi-and-openmp-track3p) below.
 

@@ -45,10 +45,75 @@ The source also contains `boundary`, `merge`, `partition`, `pick`, `rotate`, `sc
 ## resource
 
 ```bash
-acdtool resource <input.omega3p>
+acdtool resource <input.omega3p> [--site perlmutter|s3df] [--qos NAME] [--account A]
+                 [--nodes N | --nodes-max N] [--ranks-per-node R] [--threads T]
+                 [--mem-fraction F] [--time HH:MM:SS] [--out FILE|-] [--dry-run]
+                 [--model FILE] [--elements N | --dofs N] [--no-exact-dofs] [--verbose]
 ```
 
-Reads an Omega3P input, estimates the problem size, and writes a Slurm batch script with a node and core count for Perlmutter. The guidance it encodes, from the 2025 release notes:
+!!! tip "New since CW23"
+    Rebuilt after v2026.11 as a model-based estimator. The earlier version chose from a fixed table of
+    element counts, for order 2 only.
+
+Reads an Omega3P input and its mesh, estimates memory and run time, chooses nodes and ranks per node
+for the target machine, and writes a Slurm script to `<jobname>.batch`. What it does, in order:
+
+1. **Problem size.** Elements and vertices come from the mesh header; the boundary-face count comes
+   from the exterior elements, and Euler's relation gives the edge and face counts, so the DOF count
+   is exact to within a few per cent (`--no-exact-dofs` falls back to ratios; `--elements` or
+   `--dofs` skip the mesh). `PRegion` blocks with their own orders are taken into account.
+2. **Problem class.** Real or complex (absorbing, waveguide or impedance boundaries, PML, lossy
+   material), periodic (Omega3P then uses SuperLU on a complex matrix), direct solver (MUMPS by
+   default; single-precision MUMPS, SuperLU and WSMP are recognised) or the PETSc iterative solver
+   with the `MP` preconditioner, eigensolver, number of eigenvalues, number of shifts for the
+   nonlinear solver. Classes without their own measurements borrow coefficients and are marked
+   *uncalibrated* in the output.
+3. **Memory.** For the largest rank `M_max = a + c N^alpha R^-gamma` and for the average rank
+   `M_avg = a + c_avg N^alpha_avg / R`, with `N` the DOFs and `R` the ranks, plus the Krylov basis of
+   the eigensolver. The largest rank is rank 0, which holds the whole matrix graph during the MUMPS
+   ordering; this is why large problems need fewer ranks per node. A node with `r` ranks needs
+   `safety x (M_max + (r-1) M_avg)`, where `safety` is the largest measured-to-predicted ratio in the
+   calibration set.
+4. **Layout.** The smallest node count, and on it the largest ranks per node, such that the node
+   memory stays under `--mem-fraction` (default 70 percent) of the node, keeping at least about
+   20,000 DOFs per rank. Alternatives with one node more or fewer and the neighbouring rank densities
+   are printed so the trade-off is visible.
+5. **Time and queue.** Factorization and solve times from the same coefficients; the request is
+   twice the estimate, at least 10 minutes. On Perlmutter the `debug` QOS is chosen when 8 nodes and
+   30 minutes suffice, else `regular`; `--qos` overrides.
+
+Example, the CW23 pillbox (13k elements):
+
+```text
+Problem
+  elements       13007
+  vertices       2791, edges 16964, faces 27180 (from the mesh)
+  DOFs           88288 (curl space, before boundary elimination)
+  problem        real, eigensolver ESIL, linear solver MUMPS, 2 eigenvalue(s)
+  model class    o3p_real_mumps, fitted on 10 run(s), safety factor 1.37
+
+Recommendation for perlmutter
+  nodes          1
+  ranks          4 (4 per node, -c 64)
+  memory         largest rank 0.2 GB, average rank 0.2 GB, per node 1.2 GB of 512.0 GB (budget 70%), total 0.8 GB
+  time           about 1 min, requesting 00:10:00 in QOS debug
+```
+
+The output goes to the terminal, so the command also works in a directory you cannot write to;
+use `--out FILE` or `--out -` for the script in that case. Check the first run's log lines
+`peak mem per MPI process` and `used mem per node` against the estimate and adjust.
+
+**Calibration.** The coefficients are fitted to logged runs with
+`tools/scripts/resource_fit.py` in the ACE3P source tree: `extract` reads `omega3p.log` files
+(DOFs, ranks, `used mem` or `peak mem per MPI process`, solver times) into
+`tools/scripts/resource_calibration.csv`, `fit` regenerates `tools/src/ResourceModelCoefficients.h`
+and a `resource_model.txt` that `--model` can load without rebuilding, and `check` verifies that no
+measured run exceeds its prediction. The present fit rests on 15 Omega3P runs between 9 thousand
+and 3.1 million DOFs on Perlmutter and S3DF, real and complex, all with MUMPS. Beyond that range the
+estimate is an extrapolation; the 2025 measurements below are the reference there until their logs
+are added.
+
+Reference layouts measured in 2025 for Omega3P at order 2 with MUMPS on Perlmutter:
 
 | Elements (M) | DOFs (M) | Nodes | Cores/node | Time |
 |---|---|---|---|---|
@@ -59,7 +124,13 @@ Reads an Omega3P input, estimates the problem size, and writes a Slurm batch scr
 | 5 to 6 | 32 to 38 | 10 | 8 | under 60 min |
 | 6 to 7 | 38 to 44 | 20 | 8 | under 60 min |
 
-This is for Omega3P with the MUMPS direct solver at order 2. Fewer cores per node on the larger problems reflects memory per rank as the limit.
+For the same sizes the model currently proposes fewer nodes with more ranks per node, because it is
+fitted on the resident memory the solvers logged after the factorization rather than on the peak
+inside it. The new `peak mem` log line closes that gap as runs accumulate; until then prefer the
+table's node counts for meshes above 4 million elements, or pass `--ranks-per-node 32`.
+
+Other modules are recognised and declined with a message; their resource needs differ too much from
+Omega3P to share the model.
 
 ## postprocess rf
 
